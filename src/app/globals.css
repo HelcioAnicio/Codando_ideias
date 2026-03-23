@@ -104,8 +104,7 @@ body {
     h4,
     h5,
     h6,
-    span,
-    a {
+    span {
       font-size: 18px;
     }
   }

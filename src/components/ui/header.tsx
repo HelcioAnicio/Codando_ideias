@@ -41,16 +41,16 @@ export const Header = () => {
 
           <nav className="hidden lg:block">
             <ul className="flex items-center gap-7">
-              <li className="flex items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
+              <li className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground md:text-sm">
                 <Link href="#home">Home</Link>
               </li>
-              <li className="flex items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
+              <li className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground md:text-sm">
                 <Link href="#projects">Projetos</Link>
               </li>
-              <li className="flex items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
+              <li className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground md:text-sm">
                 <Link href="#whyCodandoIdeias">Nosso trabalho</Link>
               </li>
-              <li className="flex items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
+              <li className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground md:text-sm">
                 <Link href="#footer">Fale comigo</Link>
               </li>
               <DropdownMenu>
@@ -97,10 +97,11 @@ export const Header = () => {
               >
                 <SheetHeader>
                   <SheetTitle>
-                    <h1>
-                      <span className="text-popover-foreground">Codando</span>{" "}
-                      ideias
-                    </h1>
+                    {theme === "light" ? (
+                      <Image className="w-40 lg:w-52" src={Logo3} alt="Logo" />
+                    ) : (
+                      <Image className="w-40 lg:w-52" src={Logo2} alt="Logo" />
+                    )}
                   </SheetTitle>
                 </SheetHeader>
                 <SheetDescription>
