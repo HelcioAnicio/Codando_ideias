@@ -30,8 +30,8 @@ export const Header = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <header className="h-max border-none bg-background shadow-none">
-      <Card className="h-full rounded-t-none border-none bg-background px-5 py-5 shadow-none">
+    <header className="border-none bg-background shadow-none">
+      <Card className="rounded-t-none border-none bg-background px-5 shadow-none">
         <div className="m-auto flex max-w-5xl items-center justify-between">
           {theme === "light" ? (
             <Image className="w-40 lg:w-52" src={Logo3} alt="Logo" />
