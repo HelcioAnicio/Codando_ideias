@@ -1,8 +1,5 @@
 import Link from "next/link";
 
-import { FaArrowRightLong } from "react-icons/fa6";
-
-import BackgroundImage from "../../../public/background.png";
 import { Button } from "./button";
 
 export const CardImage = () => {
