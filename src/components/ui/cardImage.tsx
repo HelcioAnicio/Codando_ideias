@@ -1,35 +1,51 @@
 import Link from "next/link";
 
-import { FaArrowRightLong } from "react-icons/fa6";
-
-// import BackgroundImage from "../../../public/background.png";
+import { Button } from "./button";
 
 export const CardImage = () => {
   return (
     <section
       id="home"
-      // style={{
-      //   backgroundImage: `url(${BackgroundImage.src})`,
-      //   backgroundRepeat: "no-repeat",
-      //   backgroundPosition: "bottom right",
-      // }}
-      className="m-auto flex h-[calc(100vh-120px)] w-full max-w-5xl flex-col justify-center gap-16 bg-contain px-2 md:px-6 lg:gap-24"
+      className="relative flex min-h-[calc(100vh-76px)] w-full flex-col items-center justify-center overflow-hidden bg-[#01132d] px-4 text-center"
     >
-      <h1 className="text-2xl font-extrabold md:max-w-2xl md:text-3xl md:leading-relaxed lg:leading-snug xl:max-w-3xl xl:text-5xl">
-        Ao seu lado profissionalizando e impulsionando a evolução do seu negócio
-      </h1>
-      <p className="max-w-lg text-sm xl:text-lg">
-        Cada{" "}
-        <span className="text-sm text-popover-foreground">landing page</span> é
-        pensada com atenção aos detalhes, clareza na comunicação e foco no{" "}
-        <span className="text-sm text-popover-foreground">resultado</span>.
-      </p>
-      <Link
-        className="flex items-center gap-2 text-popover-foreground underline underline-offset-2 transition-all duration-200 hover:opacity-85"
-        href="https://wa.me/5531991973835?text=Olá+gostaria+sobre+o+desenvolvimento+de+sites/sistemas"
-      >
-        Fale conosco <FaArrowRightLong />
-      </Link>
+      <div className="absolute bottom-[-150px] h-[500px] w-[120%] rounded-[100%] bg-[radial-gradient(circle,_#ffffff60_0%,_transparent_95%)] blur-xl" />
+      <div className="absolute bottom-0 h-screen w-full translate-y-3/4 rounded-full bg-background shadow-[0_0_20px] shadow-popover-foreground" />
+
+      <div className="relative z-10 flex flex-col items-center gap-8">
+        {/* Título com largura controlada para bater com o design */}
+        <h1 className="max-w-4xl text-3xl font-bold text-white md:text-5xl lg:text-6xl lg:leading-[1.15]">
+          Sites lentos custam fortunas. <br className="hidden md:block" />
+          Engenharia de performance <br className="hidden md:block" />
+          gera faturamento.
+        </h1>
+
+        {/* Descrição */}
+        <p className="max-w-2xl text-base font-light leading-relaxed text-gray-300 md:text-xl">
+          Desenvolvemos ecossistemas digitais com foco em{" "}
+          <span className="font-semibold text-popover-foreground">
+            arquitetura limpa
+          </span>{" "}
+          e{" "}
+          <span className="font-semibold text-popover-foreground">
+            velocidade extrema
+          </span>
+          . Onde outros entregam design, nós entregamos{" "}
+          <span className="font-semibold text-popover-foreground">
+            infraestrutura de alta conversão
+          </span>
+          .
+        </p>
+
+        {/* Botão Estilizado */}
+        <Link
+          href="https://wa.me/5531991973835?text=Olá+gostaria+sobre+o+desenvolvimento+de+sites/sistemas"
+          className="mt-4"
+        >
+          <Button className="h-14 rounded-lg bg-popover-foreground px-8 text-sm font-bold uppercase tracking-wider text-background shadow-lg transition-all hover:brightness-110">
+            Solicitar diagnóstico técnico
+          </Button>
+        </Link>
+      </div>
     </section>
   );
 };
