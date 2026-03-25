@@ -6,34 +6,29 @@ export const CardImage = () => {
   return (
     <section
       id="home"
-      className="relative flex min-h-[calc(100vh-76px)] w-full flex-col items-center justify-center overflow-hidden bg-[#01132d] px-4 text-center"
+      className="relative flex min-h-[calc(100vh-76px)] w-full flex-col items-center justify-center overflow-hidden border-none bg-background text-center"
     >
-      <div className="absolute bottom-[-150px] h-[500px] w-[120%] rounded-[100%] bg-[radial-gradient(circle,_#ffffff60_0%,_transparent_95%)] blur-xl" />
-      <div className="absolute bottom-0 h-screen w-full translate-y-3/4 rounded-full bg-background shadow-[0_0_20px] shadow-popover-foreground" />
+      <div className="absolute bottom-0 aspect-square w-[130%] translate-y-[75%] rounded-full bg-[radial-gradient(circle,_#828B98_0%,_transparent_90%)] blur-xl min-[400px]:translate-y-[35%] lg:translate-y-[80%]" />
+      <div className="absolute bottom-0 aspect-square w-[120%] translate-y-[80%] rounded-full bg-background shadow-[0_0_40px] shadow-popover-foreground min-[400px]:translate-y-[40%] lg:translate-y-[85%]" />
 
-      <div className="relative z-10 flex flex-col items-center gap-8">
-        {/* Título com largura controlada para bater com o design */}
-        <h1 className="max-w-4xl text-3xl font-bold text-white md:text-5xl lg:text-6xl lg:leading-[1.15]">
-          Sites lentos custam fortunas. <br className="hidden md:block" />
-          Engenharia de performance <br className="hidden md:block" />
+      <div className="relative z-10 flex flex-col items-center gap-8 px-4">
+        <h1 className="max-w-5xl text-3xl font-bold text-foreground min-[400px]:text-4xl md:text-6xl md:leading-[1.15]">
+          Sites lentos custam fortunas. Engenharia de performance{" "}
+          <br className="hidden md:block" />
           gera faturamento.
         </h1>
 
-        {/* Descrição */}
-        <p className="max-w-2xl text-base font-light leading-relaxed text-gray-300 md:text-xl">
+        <p className="max-w-2xl text-base font-light leading-relaxed text-foreground min-[400px]:text-lg sm:text-xl">
           Desenvolvemos ecossistemas digitais com foco em{" "}
-          <span className="font-semibold text-popover-foreground">
+          <span className="font-semibold text-popover-foreground min-[400px]:text-lg sm:text-xl">
             arquitetura limpa
           </span>{" "}
           e{" "}
-          <span className="font-semibold text-popover-foreground">
+          <span className="font-semibold text-popover-foreground min-[400px]:text-lg sm:text-xl">
             velocidade extrema
           </span>
-          . Onde outros entregam design, nós entregamos{" "}
-          <span className="font-semibold text-popover-foreground">
-            infraestrutura de alta conversão
-          </span>
-          .
+          . Onde outros entregam design, nós entregamos infraestrutura de alta
+          conversão .
         </p>
 
         {/* Botão Estilizado */}
@@ -41,7 +36,7 @@ export const CardImage = () => {
           href="https://wa.me/5531991973835?text=Olá+gostaria+sobre+o+desenvolvimento+de+sites/sistemas"
           className="mt-4"
         >
-          <Button className="h-14 rounded-lg bg-popover-foreground px-8 text-sm font-bold uppercase tracking-wider text-background shadow-lg transition-all hover:brightness-110">
+          <Button className="h-14 rounded-lg bg-popover-foreground px-8 text-sm font-bold uppercase tracking-wider text-foreground shadow-lg transition-all hover:bg-popover-foreground hover:brightness-105">
             Solicitar diagnóstico técnico
           </Button>
         </Link>

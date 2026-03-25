@@ -32,7 +32,7 @@ export const Header = () => {
   return (
     <header className="border-none bg-background shadow-none">
       <Card className="rounded-t-none border-none bg-background px-5 shadow-none">
-        <div className="m-auto flex max-w-5xl items-center justify-between">
+        <div className="m-auto flex max-w-5xl items-center justify-between py-4">
           {theme === "light" ? (
             <Image className="w-40 lg:w-52" src={Logo3} alt="Logo" />
           ) : (
@@ -79,7 +79,31 @@ export const Header = () => {
               </DropdownMenu>
             </ul>
           </nav>
-          <div className="flex items-center gap-4 lg:hidden">
+          <div className="flex items-center gap-10 lg:hidden">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="border-none text-foreground"
+                >
+                  <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                  <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                  <span className="sr-only">Toggle theme</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => setTheme("light")}>
+                  Light
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("dark")}>
+                  Dark
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("system")}>
+                  System
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Sheet>
               <SheetTrigger>
                 <Button
@@ -127,30 +151,6 @@ export const Header = () => {
                           <Link href="#footer">Fale comigo</Link>
                         </li>
                       </SheetClose>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button
-                            variant="outline"
-                            size="icon"
-                            className="border-none text-foreground"
-                          >
-                            <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                            <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                            <span className="sr-only">Toggle theme</span>
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuItem onClick={() => setTheme("light")}>
-                            Light
-                          </DropdownMenuItem>
-                          <DropdownMenuItem onClick={() => setTheme("dark")}>
-                            Dark
-                          </DropdownMenuItem>
-                          <DropdownMenuItem onClick={() => setTheme("system")}>
-                            System
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
                     </ul>
                   </nav>
                 </SheetDescription>
