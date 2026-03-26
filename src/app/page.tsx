@@ -7,7 +7,7 @@ import { WhyDevLab } from "@/components/ui/whyDevLab";
 import Link from "next/link";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { Steps } from "@/components/ui/steps";
-// import { Services } from "@/components/ui/services";
+import { Services } from "@/components/ui/services";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
       <Header />
       <main className="mx-auto flex flex-wrap gap-20 overflow-hidden sm:items-center">
         <CardImage />
-        {/* <Services /> */}
+        <Services />
         <WhyDevLab />
         <section className="mx-auto w-full max-w-5xl" id="projects">
           <ListProjects />

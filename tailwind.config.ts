@@ -75,11 +75,16 @@ export default {
       },
       animation: {
         "animate-scroll": "animate-scroll 15s linear infinite",
+        growUp: "growUp 10s linear",
       },
       keyframes: {
         "animate-scroll": {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-104%)" },
+        },
+        growUp: {
+          from: { transform: "scale(0)" },
+          to: { transform: "scale(1)" },
         },
       },
     },
