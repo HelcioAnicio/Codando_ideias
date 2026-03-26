@@ -74,17 +74,18 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       animation: {
-        "animate-scroll": "animate-scroll 15s linear infinite",
-        growUp: "growUp 10s linear",
+        growUp: "growUp 3s linear ",
       },
       keyframes: {
-        "animate-scroll": {
-          from: { transform: "translateX(0)" },
-          to: { transform: "translateX(-104%)" },
-        },
         growUp: {
-          from: { transform: "scale(0)" },
-          to: { transform: "scale(1)" },
+          "0%": {
+            opacity: "0",
+            transform: "scale(0)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
         },
       },
     },

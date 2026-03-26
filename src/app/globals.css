@@ -6,6 +6,21 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@theme {
+  --animate: growUp 5s linear;
+
+  @keyframes growUp {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
 @layer base {
   :root {
     --background: 0, 0%, 100%; /* Light (was in .dark) */
