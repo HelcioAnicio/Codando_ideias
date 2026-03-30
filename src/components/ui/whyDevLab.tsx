@@ -37,10 +37,7 @@ export const WhyDevLab = () => {
       id="whyCodandoIdeias"
       className="relative m-auto flex w-full max-w-5xl flex-col gap-5 rounded-md border-none bg-foreground px-1 sm:p-6"
     >
-      <h2 className="text-lg text-background">
-        Porquê a <span className="text-popover-foreground">Codando </span>
-        ideias?
-      </h2>
+      <h2 className="text-lg text-background">Pilares da Engenharia</h2>
       <div
         ref={containerRef}
         className="no-scrollbar space-y-10 overflow-auto scroll-smooth px-2 pb-5 md:p-5"

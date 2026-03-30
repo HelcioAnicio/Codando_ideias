@@ -6,19 +6,19 @@ import { HiOutlineServerStack } from "react-icons/hi2";
 export const Services = () => {
   return (
     <section className="relative z-30 flex w-full justify-center">
-      <article className="flex max-w-5xl flex-col gap-20 px-1 sm:px-4 lg:flex-row">
+      <article className="flex max-w-5xl flex-col gap-20 px-2 min-[400px]:px-5 sm:px-7 lg:flex-row lg:px-2">
         <div className="flex flex-col gap-5">
           <p className="text-sm underline underline-offset-2">Soluções</p>
           <h1 className="text-3xl font-bold sm:w-3/4 sm:text-3xl md:text-5xl lg:w-full">
             Cada projeto merece sua própria história
           </h1>
-          <p>
+          <p className="text-base font-light text-foreground min-[400px]:text-lg sm:text-xl">
             Desenvolvemos produtos digitais que funcionam. Desde páginas que
             vendem até sistemas que organizam seu negócio, cada solução é feita
             sob medida para seus objetivos.
           </p>
           <div></div>
-          <Button className="w-40 bg-popover-foreground shadow-sm shadow-foreground hover:bg-popover-foreground hover:brightness-105 sm:w-60 sm:text-lg">
+          <Button className="mx-auto w-1/2 rounded-lg bg-popover-foreground px-8 py-7 text-sm font-bold uppercase tracking-wider text-background shadow-lg transition-all hover:bg-popover-foreground hover:brightness-105">
             Orçamento
           </Button>
         </div>

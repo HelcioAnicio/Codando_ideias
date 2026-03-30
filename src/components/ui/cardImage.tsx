@@ -12,7 +12,7 @@ export const CardImage = () => {
         <div className="h-full w-full animate-growUp rounded-full bg-[radial-gradient(circle,_#828B98_0%,_transparent_90%)] blur-xl" />
       </div>
       <div className="absolute bottom-0 aspect-square w-[120%] max-w-[1400px] translate-y-[80%] min-[400px]:translate-y-[60%] sm:translate-y-[65%] lg:translate-y-[85%]">
-        <div className="h-full w-full animate-growUp animate-spin rounded-full border-t-4 bg-background shadow-[0_0_40px] shadow-popover-foreground" />
+        <div className="h-full w-full animate-growUp rounded-full bg-background shadow-[0_0_40px] shadow-popover-foreground" />
       </div>
 
       <div className="relative z-10 flex flex-col items-center gap-8 px-4 md:gap-16">
@@ -39,7 +39,7 @@ export const CardImage = () => {
           href="https://wa.me/5531991973835?text=Olá+gostaria+sobre+o+desenvolvimento+de+sites/sistemas"
           className="mt-4"
         >
-          <Button className="h-14 rounded-lg bg-popover-foreground px-8 text-sm font-bold uppercase tracking-wider text-background shadow-lg transition-all hover:bg-popover-foreground hover:brightness-105">
+          <Button className="rounded-lg bg-popover-foreground px-8 py-7 text-sm font-bold uppercase tracking-wider text-background shadow-lg transition-all hover:bg-popover-foreground hover:brightness-105">
             Solicitar diagnóstico técnico
           </Button>
         </Link>

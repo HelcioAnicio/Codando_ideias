@@ -83,7 +83,7 @@ export default {
             transform: "scale(0)",
             "z-index": "100",
           },
-          "50%": { opacity: "1", transform: "scale(1.5)" },
+          "50%": { opacity: "1", transform: "scale(1.2)" },
           "100%": {
             transform: "scale(1)",
           },
