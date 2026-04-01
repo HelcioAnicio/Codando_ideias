@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 const portfolioItems = [
   {
     title: "Alpha Pay Dashboard",
-    description: "Sistema financeiro com IA e visualização de dados em tempo real.",
+    description:
+      "Sistema financeiro com IA e visualização de dados em tempo real.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuCflea1U6VIcQNHg1K-mPKsiEeM1TvSxLwaLb7qfaetZKaB4ekxg0Hwb0npVSDKmGhmZrIZd7Wjwm2-ikLPn8hosXCBMveypcQhbIQ8nFGDdj1lwdAF4Mg8faV58B7ogMW7fXCEPRYqmhViA4BQ-KBZg4oD_k0mNCirOsmGYeaFKNaW3HkZwgfYizip08OJcgo_PH0lAuxsPpLNxFRK5ZuoUuiXoTQ7D6Mm_I5KyzhKyYp96GmKZhAZWig35nqE8Bu0Kg3-R4UlbyE",
   },
@@ -44,9 +46,11 @@ export const StudioPortfolio = () => {
           {portfolioItems.map((item) => (
             <article key={item.title} className="group">
               <div className="relative mb-6 overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-900">
-                <img
+                <Image
                   src={item.image}
                   alt={item.title}
+                  height={300}
+                  width={300}
                   className="aspect-[16/10] h-full w-full object-cover transition duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent opacity-0 transition group-hover:opacity-100" />

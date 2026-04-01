@@ -1,4 +1,5 @@
 import { Gauge, MonitorSmartphone, SearchCheck } from "lucide-react";
+import Image from "next/image";
 
 const items = [
   {
@@ -43,7 +44,9 @@ export const StudioResources = () => {
                     <Icon className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                    <h3 className="text-xl font-bold text-white">
+                      {item.title}
+                    </h3>
                     <p className="mt-2 text-slate-300">{item.description}</p>
                   </div>
                 </div>
@@ -54,7 +57,9 @@ export const StudioResources = () => {
 
         <div className="relative">
           <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900">
-            <img
+            <Image
+              height={300}
+              width={300}
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT0TWXvmtsTKsKzVSlPtxgGTWuhZ-Ffjmh4jpw27r7_4E2gCyPRIQn_00b_KJxy2jngvpJr8VMc76BMFk0cE-X8GPPIknusQ7RHNq0oXDCrNpR40JBoXUlNsfI3ZSBN9-C8-d3tZkMit8GxT5hngWHVvpN54EgG3xj7LyJOJvXQfTGnoPkU5qNHVx3u6D6b4E-iqrml89PAimSiqAk8fpsh_WzxPKia6PcrLAwlJIummDQz_WW6OTZ69V7MBwe8fND9qHWgBTAWgA"
               alt="Editor de código em tema escuro"
               className="aspect-square h-full w-full object-cover opacity-70 mix-blend-screen"

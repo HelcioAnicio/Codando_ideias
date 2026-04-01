@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import Image from "next/image";
 
 const quotes = [
   {
@@ -45,14 +46,18 @@ export const StudioTestimonials = () => {
             </p>
 
             <div className="mt-8 flex items-center gap-4">
-              <img
+              <Image
+                height={300}
+                width={300}
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAClvWQQKPqd1X5J49yD0Qf2bj6sTblkKV9HXTQCQDSY_2HTU86BkrNLQmxd6L63wbmw5oEBiZc2n5fSFlDVau61a6ubczLumE4cz4XN8023tcT1NoV2LmYlsaXq6_mSGIIWOia8IVnCQLb5NIF6zlFFbQTwWjpYC8SQdeVrn1GCqBHWlWpSnGrjBwMau89y1cTB2KJYA1UwEZEZFoBMAIRPSlzv54FwIW0s184KnJNmVQVrq-N04d54QzYvGmRaOKnj9A2-_0kc1k"
                 alt="Cliente satisfeito"
                 className="h-14 w-14 rounded-full object-cover"
               />
               <div>
                 <p className="font-bold text-white">Ricardo Santos</p>
-                <p className="text-sm text-slate-400">CEO, TechFlow Solutions</p>
+                <p className="text-sm text-slate-400">
+                  CEO, TechFlow Solutions
+                </p>
               </div>
             </div>
           </div>

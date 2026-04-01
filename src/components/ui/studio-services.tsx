@@ -1,9 +1,5 @@
-import {
-  Building2,
-  MonitorSmartphone,
-  Rocket,
-  Smartphone,
-} from "lucide-react";
+import { Building2, MonitorSmartphone, Rocket, Smartphone } from "lucide-react";
+import Image from "next/image";
 
 const services = [
   {
@@ -90,7 +86,9 @@ export const StudioServices = () => {
                 </div>
 
                 {service.image ? (
-                  <img
+                  <Image
+                    height={300}
+                    width={300}
                     src={service.image}
                     alt="Mockup de site institucional em notebook"
                     className="h-56 w-full rounded-2xl object-cover shadow-2xl md:w-72"
