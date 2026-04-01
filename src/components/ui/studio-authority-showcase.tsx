@@ -278,7 +278,7 @@ class SuccessArchitecture {
               <h3 className="mb-10 text-center text-2xl font-bold uppercase tracking-[0.25em] text-white">
                 O gap de conversão
               </h3>
-              <div className="flex flex-col overflow-hidden rounded-full border border-white/10 md:flex-row">
+              <div className="flex flex-col overflow-hidden rounded-3xl border border-white/10 md:flex-row lg:rounded-full">
                 <div className="flex flex-1 items-center justify-center border-b border-white/10 bg-red-500/10 px-8 py-6 md:border-b-0 md:border-r">
                   <div className="flex items-center gap-4">
                     <span className="text-sm font-bold uppercase">
