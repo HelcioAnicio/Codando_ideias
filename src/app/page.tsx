@@ -9,6 +9,8 @@ import { FaArrowCircleRight } from "react-icons/fa";
 import { Steps } from "@/components/ui/steps";
 import { Services } from "@/components/ui/services";
 import { Cost } from "@/components/ui/cost";
+import { StudioFaq } from "@/components/ui/studio-faq";
+import { StudioAuthorityShowcase } from "@/components/ui/studio-authority-showcase";
 
 export default function Home() {
   return (
@@ -18,6 +20,7 @@ export default function Home() {
         <CardImage />
         <Services />
         <Cost />
+        <StudioAuthorityShowcase />
         <WhyDevLab />
         <section className="mx-auto w-full max-w-5xl" id="projects">
           <ListProjects />
@@ -31,6 +34,7 @@ export default function Home() {
           </Link>
         </section>
         <Steps />
+        <StudioFaq />
       </main>
       <Footer />
     </>

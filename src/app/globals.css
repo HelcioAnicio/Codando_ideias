@@ -24,7 +24,7 @@ body {
 @layer base {
   :root {
     --background: 0, 0%, 100%; /* Light (was in .dark) */
-    --foreground: 216, 65%, 12%; /* Dark blue (was in .dark) */
+    --foreground: 229, 84%, 5%; /* Dark blue (was in .dark) */
     --card: 0, 0%, 100%; /* White (was in .dark) */
     --card-foreground: 216, 41%, 27%; /* darker text (was in .dark) */
     --popover: 224 71.4% 4.1%; /* Dark Gray */
@@ -51,7 +51,7 @@ body {
     --radius: 0.5rem;
   }
   .dark {
-    --background: 215, 96%, 9%; /* Dark blue (was in :root) */
+    --background: 229, 84%, 5%; /* Dark blue (was in :root) */
     --foreground: 0, 0%, 100%; /* White (was in :root) */
     --card: 216, 41%, 27%; /* Card dark (was in :root) */
     --card-foreground: 0, 0%, 100%; /* White (was in :root) */
@@ -103,6 +103,40 @@ body {
     -ms-overflow-style: none; /* IE e Edge */
     scrollbar-width: none; /* Firefox */
   }
+
+  .studio-gold-text {
+    @apply bg-gradient-to-r from-amber-100 via-yellow-300 to-amber-500 bg-clip-text text-transparent;
+  }
+
+  .studio-gold-surface {
+    background: linear-gradient(135deg, #ffe16d 0%, #ff8c00 100%);
+  }
+
+  .studio-panel {
+    background: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .studio-mesh {
+    background-color: #020617;
+    background-image:
+      radial-gradient(
+        circle at top left,
+        rgba(14, 165, 233, 0.18),
+        transparent 32%
+      ),
+      radial-gradient(circle at top, rgba(250, 204, 21, 0.12), transparent 28%),
+      radial-gradient(
+        circle at right,
+        rgba(59, 130, 246, 0.16),
+        transparent 30%
+      );
+  }
+
+  .studio-floating {
+    animation: studio-floating 6s ease-in-out infinite;
+  }
 }
 
 @layer components {
@@ -136,5 +170,19 @@ body {
     a {
       font-size: 20px;
     }
+  }
+}
+
+@keyframes studio-floating {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-16px) rotate(1deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg);
   }
 }
