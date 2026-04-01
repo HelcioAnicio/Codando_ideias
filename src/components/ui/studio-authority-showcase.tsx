@@ -1,32 +1,32 @@
 import {
-  BarChart3,
-  Compass,
+  // BarChart3,
+  // Compass,
   EyeOff,
   ShieldAlert,
   TrendingUp,
   Zap,
 } from "lucide-react";
 
-const expertiseCards = [
-  {
-    title: "Web Design Premium",
-    description:
-      "Interfaces que respiram sofisticação e convertem visitantes em clientes leais.",
-    icon: Compass,
-  },
-  {
-    title: "Performance Extrema",
-    description:
-      "Código limpo e otimizado para carregamento instantâneo em qualquer dispositivo.",
-    icon: Zap,
-  },
-  {
-    title: "SEO & Autoridade",
-    description:
-      "Estratégias de rankeamento para colocar sua marca onde os olhos do mercado estão.",
-    icon: BarChart3,
-  },
-];
+// const expertiseCards = [
+//   {
+//     title: "Web Design Premium",
+//     description:
+//       "Interfaces que respiram sofisticação e convertem visitantes em clientes leais.",
+//     icon: Compass,
+//   },
+//   {
+//     title: "Performance Extrema",
+//     description:
+//       "Código limpo e otimizado para carregamento instantâneo em qualquer dispositivo.",
+//     icon: Zap,
+//   },
+//   {
+//     title: "SEO & Autoridade",
+//     description:
+//       "Estratégias de rankeamento para colocar sua marca onde os olhos do mercado estão.",
+//     icon: BarChart3,
+//   },
+// ];
 
 const lossCards = [
   {
@@ -58,25 +58,25 @@ const lossCards = [
   },
 ];
 
-const processItems = [
-  {
-    number: "01",
-    title: "Imersão Estratégica",
-    description: "Entendemos seu modelo de negócio e seus objetivos de escala.",
-  },
-  {
-    number: "02",
-    title: "Arquitetura de Conversão",
-    description:
-      "Desenhamos a jornada do usuário focada em eliminar atritos e gerar desejo.",
-  },
-  {
-    number: "03",
-    title: "Desenvolvimento Sobrenatural",
-    description:
-      "Codificação de elite para garantir velocidade e segurança inabaláveis.",
-  },
-];
+// const processItems = [
+//   {
+//     number: "01",
+//     title: "Imersão Estratégica",
+//     description: "Entendemos seu modelo de negócio e seus objetivos de escala.",
+//   },
+//   {
+//     number: "02",
+//     title: "Arquitetura de Conversão",
+//     description:
+//       "Desenhamos a jornada do usuário focada em eliminar atritos e gerar desejo.",
+//   },
+//   {
+//     number: "03",
+//     title: "Desenvolvimento Sobrenatural",
+//     description:
+//       "Codificação de elite para garantir velocidade e segurança inabaláveis.",
+//   },
+// ];
 
 export const StudioAuthorityShowcase = () => {
   return (
