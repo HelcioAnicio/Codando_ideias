@@ -21,7 +21,7 @@ export const CardReason = ({
       <CardTitle className="flex items-center gap-2 md:text-lg">
         {icon} {title}
       </CardTitle>
-      <CardContent className="pr-13 max-w-64 p-0 text-xs font-extralight md:max-w-max">
+      <CardContent className="pr-13 max-w-64 p-0 text-sm font-extralight text-accent/80 md:max-w-max md:text-lg">
         {text}
       </CardContent>
     </Card>

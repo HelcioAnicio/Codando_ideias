@@ -35,9 +35,11 @@ export const WhyDevLab = () => {
   return (
     <section
       id="whyCodandoIdeias"
-      className="relative m-auto flex w-full max-w-5xl flex-col gap-5 rounded-md border-none bg-foreground px-1 sm:p-6"
+      className="md: relative m-auto flex w-full max-w-5xl flex-col gap-5 rounded-md border-none bg-foreground px-1 py-10 sm:p-6 md:py-20"
     >
-      <h2 className="text-lg text-background">Pilares da Engenharia</h2>
+      <h2 className="text-3xl font-black text-secondary lg:text-4xl">
+        Os Pilares da Engenharia
+      </h2>
       <div
         ref={containerRef}
         className="no-scrollbar space-y-10 overflow-auto scroll-smooth px-2 pb-5 md:p-5"
@@ -46,7 +48,7 @@ export const WhyDevLab = () => {
           <CardReason
             icon={<BsGraphUpArrow />}
             title="Alto desempenho e velocidade"
-            text="Cada linha de código é escrita pensando na leveza e perfomance. Isso garante carregamento rápido, melhor experiência para o usuário e mais chances de destaque nos mecanismos de busca dos navegadores."
+            text="Todo projeto é pensado na leveza e perfomance. Isso garante carregamento rápido, melhor experiência e destaque nos mecanismos de busca dos navegadores."
           />
 
           <Image
@@ -57,12 +59,12 @@ export const WhyDevLab = () => {
           <CardReason
             icon={<TfiHeadphoneAlt />}
             title="Atendimento direto e continuo"
-            text="Você fala com quem desenvolve. Isso significa mais agilidade para ajustes, melhorias e suporte sempre que precisar, sem depender de terceiros ou burocracias."
+            text="Você fala com quem desenvolve. Mais agilidade para ajustes, melhorias e suporte sempre que precisar, sem depender de terceiros ou burocracias."
           />
           <CardReason
             icon={<FaGears />}
             title="Funcionalidades personalizadas"
-            text="Não existem limitações: o site é modelado conforme a real necessidade do negócio. Seja uma área de login, painel administrativo, integração com sistemas ou qualquer recurso estratégico."
+            text="Não existem limitações: o site é modelado conforme a real necessidade do negócio. Integração com sistemas ou qualquer recurso estratégico."
           />
         </div>
         <div className="relative ml-72 flex w-max gap-72">
@@ -70,14 +72,14 @@ export const WhyDevLab = () => {
             newClassName=""
             icon={<IoGlobeSharp />}
             title="Navegação inteligente"
-            text="O fluxo do site é pensado para guiar o usuário de forma intuitica até a ação desejada, seja um contato, uma compra ou um agendamento. Isso aumenta o engajamento e gera melhores resultados."
+            text="O fluxo do site é pensado para guiar o usuário até a ação desejada, seja um contato, uma compra ou um agendamento."
           />
 
           <CardReason
             newClassName=""
             icon={<MdOutlineTrendingUp />}
             title="Pronto para crescer"
-            text="O código e a estrutura são pensados para o futuro. À medida que o negócio cresce, o site pode ser expandido com novos recursos, páginas ou sistemas, sem complicações."
+            text="À medida que o negócio cresce, o site pode ser expandido com novos recursos, páginas ou sistemas, sem complicações."
           />
           <Image
             className="absolute bottom-0 left-[61%] w-64"
@@ -88,7 +90,7 @@ export const WhyDevLab = () => {
             newClassName=""
             icon={<BsShieldLockFill />}
             title="Segurança reforçada"
-            text="O projeto é contruído com atenção à segurança desde a bade, usando boas práticas e recursos personalizados para proteger dados e evitar vulnerabilidades."
+            text="O projeto é contruído com atenção à segurança desde a base, usando boas práticas e recursos personalizados para proteger dados e evitar vulnerabilidades."
           />
           <Image
             className="absolute -top-full right-0 w-72"
