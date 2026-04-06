@@ -21,6 +21,7 @@ export default function Home() {
         <Services />
         <Cost />
         <StudioAuthorityShowcase />
+        <Steps />
         <WhyDevLab />
         <section className="mx-auto w-full max-w-5xl" id="projects">
           <ListProjects />
@@ -33,7 +34,6 @@ export default function Home() {
             </p>
           </Link>
         </section>
-        <Steps />
         <StudioFaq />
       </main>
       <Footer />

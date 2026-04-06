@@ -1,4 +1,4 @@
-import { EyeOff, ShieldAlert, TrendingUp, Zap } from "lucide-react";
+import { EyeOff, ShieldAlert, Zap } from "lucide-react";
 
 const lossCards = [
   {
@@ -32,7 +32,7 @@ const lossCards = [
 
 export const StudioAuthorityShowcase = () => {
   return (
-    <section className="m-auto max-w-5xl px-3 py-20 md:px-10 lg:px-5">
+    <section className="m-auto max-w-5xl px-3 py-5 md:px-10 lg:px-5">
       {/* 
 
             <div className="hidden md:block">
@@ -115,49 +115,6 @@ class SuccessArchitecture {
             </article>
           );
         })}
-      </div>
-
-      <div className="mb-24">
-        <h3 className="mb-10 text-center text-2xl font-bold uppercase tracking-[0.25em] text-white">
-          O gap de conversão
-        </h3>
-        <div className="flex flex-col overflow-hidden rounded-3xl border border-white/10 md:flex-row lg:rounded-full">
-          <div className="flex flex-1 items-center justify-center border-b border-white/10 bg-red-500/40 px-8 py-6 md:border-b-0 md:border-r">
-            <div className="flex items-center gap-4">
-              <span className="text-sm font-bold uppercase">Site amador</span>
-              <span className="borde text-3xl font-black text-red-400 md:min-w-max">
-                0,5% a 1%
-              </span>
-              <span className="text-xs text-slate-400">conv.</span>
-            </div>
-          </div>
-
-          <div className="studio-gold-surface flex flex-[3] items-center justify-center px-8 py-6 text-slate-950">
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <span className="text-sm font-bold uppercase">
-                Site performance
-              </span>
-              <span className="text-4xl font-black">4,6% a 11%</span>
-              <span className="text-xs opacity-70">conv.</span>
-              <TrendingUp className="h-5 w-5 animate-pulse" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="rounded-3xl bg-secondary px-5 py-12 text-center md:p-20">
-        <div className="mx-auto max-w-3xl">
-          <p className="mb-10 text-2xl leading-snug md:text-3xl">
-            O prejuízo total estimado para uma PME gira entre <br />
-            <span className="font-black text-popover-foreground">
-              R$ 2.500,00 e R$ 6.000,00
-            </span>{" "}
-            por mês. Não deixe sua concorrência levar esse dinheiro.
-          </p>
-          <button className="studio-gold-surface rounded-2xl px-10 py-6 text-xl font-extrabold text-slate-950 shadow-2xl transition hover:scale-105">
-            Quero parar de perder dinheiro
-          </button>
-        </div>
       </div>
     </section>
   );

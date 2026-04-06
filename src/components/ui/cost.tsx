@@ -3,74 +3,103 @@ import { IoMdCloseCircle } from "react-icons/io";
 import Image from "next/image";
 import webSiteRival from "../../../public/webSiteRival.webp";
 import webSiteMine from "../../../public/webSiteMine.webp";
-import { Card, CardContent } from "./card";
 
 export const Cost = () => {
   return (
-    <section className="flex w-full justify-center">
-      <article className="flex w-full max-w-5xl flex-col gap-16 px-2 py-20">
-        <h2 className="text-3xl font-bold sm:text-4xl">
-          O custo invisível de um site medíocre
-        </h2>
-        <div className="flex flex-col gap-10 sm:gap-16">
-          <div className="flex w-full items-center justify-center gap-3 px-5">
-            <div className="relative flex-1">
-              <Image
-                src={webSiteRival}
-                width={400}
-                height={400}
-                alt="Picture of the author"
-                className="w-full rounded-md"
-              />
-              <div className="absolute -right-5 -top-5 z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-red-500 bg-red-500/70 text-xs font-bold sm:h-20 sm:w-20 sm:border-4 sm:text-xl">
-                42
+    <>
+      <section className="flex w-full justify-center">
+        <article className="flex w-full max-w-5xl flex-col gap-16 px-2 py-10">
+          <h3 className="font-headline text-on-surface text-3xl font-bold tracking-tight md:text-5xl">
+            Custo de um site medíocre
+          </h3>
+          <ul className="grid items-center gap-12 lg:grid-cols-2">
+            <li className="group relative">
+              <div className="bg-surface-container-high/40 relative z-10 space-y-10 rounded-3xl border border-white/5 p-8">
+                <div className="mb-8 flex items-center justify-between">
+                  <span className="font-label text-on-surface-variant text-sm uppercase tracking-widest">
+                    Site Amador
+                  </span>
+                  <div className="text-error flex h-12 w-12 items-center justify-center rounded-full border-4 border-destructive/70 bg-destructive/40 text-lg font-black md:h-16 md:w-16">
+                    42
+                  </div>
+                </div>
+                <Image
+                  src={webSiteRival}
+                  width={400}
+                  height={400}
+                  alt="Picture of the author"
+                  className="w-full rounded-md"
+                />
+                <div className="space-y-4">
+                  <div className="text-error/80 flex items-center gap-3">
+                    <span className="flex items-center gap-2 text-sm">
+                      <IoMdCloseCircle className="size-5 min-w-max text-destructive sm:size-6" />
+                      Lento e Confuso (LCP &gt; 3.5s)
+                    </span>
+                  </div>
+                  <div className="text-error/80 flex items-center gap-3">
+                    <span className="flex items-center gap-2 text-sm">
+                      <IoMdCloseCircle className="size-5 min-w-max text-destructive sm:size-6" />
+                      Insegurança Visual (CLS Alto)
+                    </span>
+                  </div>
+                  <div className="flex items-baseline gap-2 border-t pt-6">
+                    <span className="text-on-surface-variant text-sm">
+                      Conversão:
+                    </span>
+                    <span className="text-error text-2xl font-black">0,8%</span>
+                  </div>
+                </div>
               </div>
-            </div>
-            <p>X</p>
-            <div className="relative flex-1">
-              <Image
-                src={webSiteMine}
-                width={400}
-                height={400}
-                alt="Picture of the author"
-                className="w-full"
-              />
-              <div className="absolute -right-5 -top-5 z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-green-500 bg-green-500/70 text-xs font-bold sm:h-20 sm:w-20 sm:border-4 sm:text-xl">
-                97
+            </li>
+
+            <li className="group relative">
+              <div className="glass-card aurelian-border relative z-10 space-y-10 rounded-3xl p-8 shadow-[0_30px_100px_rgba(0,0,0,0.5)]">
+                <div className="mb-8 flex items-center justify-between">
+                  <span className="font-label text-primary-fixed text-sm uppercase tracking-widest">
+                    Arquitetura Soberana
+                  </span>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-green-500 bg-green-500/40 text-lg font-black shadow-[0_0_15px_rgba(233,196,0,0.4)] md:h-16 md:w-16">
+                    97
+                  </div>
+                </div>
+                <Image
+                  src={webSiteMine}
+                  width={400}
+                  height={400}
+                  alt="Picture of the author"
+                  className="w-full"
+                />
+                <div className="space-y-4">
+                  <div className="text-primary-fixed flex items-center gap-3">
+                    <span className="flex items-center gap-2 text-sm">
+                      <FaCheckCircle className="size-5 min-w-max text-green-500 sm:size-6" />
+                      Carregamento Instantâneo
+                    </span>
+                  </div>
+                  <div className="text-primary-fixed flex items-center gap-3">
+                    <span className="flex items-center gap-2 text-sm">
+                      <FaCheckCircle className="size-5 min-w-max text-green-500 sm:size-6" />
+                      Design que Gera Autoridade
+                    </span>
+                  </div>
+                  <div className="flex items-baseline gap-2 border-t pt-6">
+                    <span className="text-on-surface-variant text-sm">
+                      Conversão:
+                    </span>
+                    <span className="text-primary-fixed text-3xl font-black">
+                      8,4%
+                    </span>
+                    <span className="text-primary-fixed-dim bg-primary-fixed/10 ml-2 rounded px-2 py-0.5 text-xs">
+                      +950% ROI
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <Card className="m-auto border-none bg-transparent py-10">
-            <CardContent className="flex flex-col items-center justify-center gap-y-7">
-              <div className="flex w-full items-start justify-center gap-3 text-sm md:gap-5">
-                <IoMdCloseCircle className="size-6 min-w-max text-destructive sm:size-10" />
-                <p className="text-center sm:w-1/2">
-                  <span>Velocidade de Percepção (LCP):</span> Se demorar mais de
-                  2.5s para o seu site abrir, o cliente desiste da compra.
-                </p>
-                <FaCheckCircle className="size-6 min-w-max text-green-500 sm:size-10" />
-              </div>
-              <div className="flex w-full items-start justify-center gap-3 text-sm md:gap-5">
-                <IoMdCloseCircle className="size-6 min-w-max text-destructive sm:size-10" />
-                <p className="text-center sm:w-1/2">
-                  <span>Capacidade de Resposta (FID):</span> Mede o atraso entre
-                  um clique e a ação. Sites travados não vendem.
-                </p>
-                <FaCheckCircle className="size-6 min-w-max text-green-500 sm:size-10" />
-              </div>
-              <div className="flex w-full items-start justify-center gap-3 text-sm md:gap-5">
-                <IoMdCloseCircle className="size-6 min-w-max text-destructive sm:size-10" />
-                <p className="text-center sm:w-1/2">
-                  <span>Estabilidade visual (CLS):</span> Sabe quando você vai
-                  clicar em um botão e ele se desloca (“pula”)? Nós eliminamos
-                  esses saltos irritantes.
-                </p>
-                <FaCheckCircle className="size-6 min-w-max text-green-500 sm:size-10" />
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </article>
-    </section>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </>
   );
 };
