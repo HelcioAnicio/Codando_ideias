@@ -1,7 +1,7 @@
-import { Button } from "./button";
 import { Card, CardHeader, CardContent, CardTitle } from "./card";
 import { MdWeb, MdComputer, MdOutlineAppShortcut } from "react-icons/md";
 import { HiOutlineServerStack } from "react-icons/hi2";
+import { ButtonGeral } from "./buttonGeral";
 
 export const Services = () => {
   return (
@@ -20,9 +20,12 @@ export const Services = () => {
             sob medida para seus objetivos.
           </p>
           <div></div>
-          <Button className="w-full rounded-lg bg-popover-foreground bg-gradient-to-br from-popover-foreground from-60% to-foreground px-8 py-7 text-sm font-bold uppercase text-background shadow-lg transition-all hover:bg-popover-foreground hover:brightness-105 md:w-1/2">
-            Orçamento
-          </Button>
+          <ButtonGeral
+            text={"Solicitar um orçamento"}
+            link={
+              "https://wa.me/5531991973835?text=Olá+gostaria+sobre+o+desenvolvimento+de+sites/sistemas"
+            }
+          />
         </div>
         <div className="m-auto flex max-w-md flex-col gap-5">
           <Card className="sticky top-0 z-10 border-none bg-accent/20 py-5 text-foreground">

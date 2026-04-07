@@ -1,6 +1,4 @@
-import Link from "next/link";
-
-import { Button } from "./button";
+import { ButtonGeral } from "./buttonGeral";
 
 export const CardImage = () => {
   return (
@@ -21,7 +19,6 @@ export const CardImage = () => {
           <br className="hidden md:block" />
           gera faturamento.
         </h1>
-
         <p className="max-w-2xl text-base font-light leading-relaxed text-foreground min-[400px]:text-lg sm:text-xl">
           Desenvolvemos ecossistemas digitais com foco em{" "}
           <span className="font-semibold text-popover-foreground min-[400px]:text-lg sm:text-xl">
@@ -34,15 +31,12 @@ export const CardImage = () => {
           . Onde outros entregam design, nós entregamos infraestrutura de alta
           conversão .
         </p>
-
-        <Link
-          href="https://wa.me/5531991973835?text=Olá+gostaria+sobre+o+desenvolvimento+de+sites/sistemas"
-          className="mt-4"
-        >
-          <Button className="rounded-lg bg-popover-foreground px-8 py-7 text-sm font-bold uppercase tracking-wider text-background shadow-lg transition-all hover:bg-popover-foreground hover:brightness-105">
-            Solicitar diagnóstico técnico
-          </Button>
-        </Link>
+        <ButtonGeral
+          text={"Solicitar Diagnóstico Técnico"}
+          link={
+            "https://wa.me/5531991973835?text=Olá+gostaria+sobre+o+desenvolvimento+de+sites/sistemas"
+          }
+        />
       </div>
     </section>
   );

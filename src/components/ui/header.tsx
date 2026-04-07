@@ -41,17 +41,37 @@ export const Header = () => {
 
           <nav className="hidden lg:block">
             <ul className="flex items-center gap-7">
-              <li className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground md:text-sm">
-                <Link href="#home">Home</Link>
+              <li className="relative">
+                <Link
+                  href="#home"
+                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
+                >
+                  Home
+                </Link>
               </li>
-              <li className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground md:text-sm">
-                <Link href="#projects">Projetos</Link>
+              <li className="relative">
+                <Link
+                  href="#projects"
+                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
+                >
+                  Projetos
+                </Link>
               </li>
-              <li className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground md:text-sm">
-                <Link href="#whyCodandoIdeias">Nosso trabalho</Link>
+              <li className="relative">
+                <Link
+                  href="#whyCodandoIdeias"
+                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
+                >
+                  Nosso trabalho
+                </Link>
               </li>
-              <li className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground md:text-sm">
-                <Link href="#footer">Fale comigo</Link>
+              <li className="relative">
+                <Link
+                  href="#footer"
+                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
+                >
+                  Fale comigo
+                </Link>
               </li>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>

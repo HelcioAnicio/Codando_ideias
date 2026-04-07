@@ -28,7 +28,7 @@ export const StudioTestimonials = () => {
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-sky-200/70">
             Depoimentos
           </p>
-          <h2 className="text-4xl font-bold text-white md:text-5xl">
+          <h2 className="text-3xl font-bold md:text-5xl">
             O que nossos parceiros dizem sobre trabalhar com a gente.
           </h2>
 

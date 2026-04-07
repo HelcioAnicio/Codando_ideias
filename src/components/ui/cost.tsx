@@ -9,9 +9,9 @@ export const Cost = () => {
     <>
       <section className="flex w-full justify-center">
         <article className="flex w-full max-w-5xl flex-col gap-16 px-2 py-10">
-          <h3 className="font-headline text-on-surface text-3xl font-bold tracking-tight md:text-5xl">
+          <h2 className="font-headline text-on-surface text-3xl font-bold tracking-tight md:text-5xl">
             Custo de um site medíocre
-          </h3>
+          </h2>
           <ul className="grid items-center gap-12 lg:grid-cols-2">
             <li className="group relative">
               <div className="bg-surface-container-high/40 relative z-10 space-y-10 rounded-3xl border border-white/5 p-8">

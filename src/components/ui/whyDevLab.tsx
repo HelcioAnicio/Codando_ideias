@@ -35,10 +35,10 @@ export const WhyDevLab = () => {
   return (
     <section
       id="whyCodandoIdeias"
-      className="m-auto flex w-full rounded-md border-none bg-foreground"
+      className="m-auto flex rounded-md border-none bg-foreground"
     >
-      <article className="relative m-auto flex w-full max-w-5xl flex-col gap-5 rounded-md border-none bg-foreground px-1 py-10 sm:p-6 md:py-20">
-        <h2 className="text-3xl font-black text-secondary lg:text-4xl">
+      <article className="relative m-auto flex w-full max-w-5xl flex-col gap-5 rounded-md border-none bg-foreground py-10 md:py-20">
+        <h2 className="ml-5 text-3xl font-black text-secondary md:text-5xl">
           Os Pilares da Engenharia
         </h2>
         <div
