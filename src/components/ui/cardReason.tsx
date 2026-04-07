@@ -18,10 +18,10 @@ export const CardReason = ({
     <Card
       className={`relative z-20 flex w-max max-w-sm flex-col items-start gap-5 px-4 py-8 ${newClassName}`}
     >
-      <CardTitle className="flex items-center gap-2 md:text-lg">
+      <CardTitle className="flex items-center gap-2 md:text-xl">
         {icon} {title}
       </CardTitle>
-      <CardContent className="pr-13 max-w-64 p-0 text-sm font-extralight text-accent/80 md:max-w-max md:text-lg">
+      <CardContent className="pr-13 max-w-64 p-0 text-sm font-extralight text-accent/80 md:max-w-max md:text-base">
         {text}
       </CardContent>
     </Card>

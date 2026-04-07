@@ -1,4 +1,8 @@
 import { Github, Globe, MessageCircle, Phone } from "lucide-react";
+import Image from "next/image";
+import Logo3 from "../../../public/logo3.svg";
+import Logo2 from "../../../public/logo2.svg";
+import { useTheme } from "next-themes";
 
 const socials = [
   { href: "#", label: "WhatsApp", icon: MessageCircle },
@@ -7,8 +11,10 @@ const socials = [
 ];
 
 export const StudioContact = () => {
+  const { theme } = useTheme();
+
   return (
-    <section id="contato" className="w-full bg-slate-950 px-6 py-24 lg:px-8">
+    <section id="contato" className="w-full px-6 lg:px-8">
       <div className="mx-auto grid max-w-5xl gap-16 lg:grid-cols-2">
         <div>
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-sky-200/70">
@@ -49,62 +55,14 @@ export const StudioContact = () => {
               );
             })}
           </div>
+          <div className="mt-10 flex items-center gap-2">
+            {theme === "light" ? (
+              <Image className="w-40 lg:w-52" src={Logo3} alt="Logo" />
+            ) : (
+              <Image className="w-40 lg:w-52" src={Logo2} alt="Logo" />
+            )}
+          </div>
         </div>
-
-        {/* <div className="rounded-[2rem] border border-white/10 bg-slate-900 p-8 shadow-2xl shadow-slate-950/50">
-          <form className="space-y-6">
-            <div className="grid gap-6 md:grid-cols-2">
-              <label className="space-y-2">
-                <span className="text-xs font-bold uppercase tracking-[0.25em] text-slate-400">
-                  Nome
-                </span>
-                <input
-                  type="text"
-                  placeholder="Seu nome"
-                  className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-amber-300"
-                />
-              </label>
-
-              <label className="space-y-2">
-                <span className="text-xs font-bold uppercase tracking-[0.25em] text-slate-400">
-                  E-mail
-                </span>
-                <input
-                  type="email"
-                  placeholder="seu@email.com"
-                  className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-amber-300"
-                />
-              </label>
-            </div>
-
-            <label className="space-y-2">
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-slate-400">
-                Serviço de interesse
-              </span>
-              <select className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition focus:border-amber-300">
-                <option>Landing Page</option>
-                <option>Site Institucional</option>
-                <option>Sistema Personalizado</option>
-                <option>Aplicativo Mobile</option>
-              </select>
-            </label>
-
-            <label className="space-y-2">
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-slate-400">
-                Mensagem
-              </span>
-              <textarea
-                rows={5}
-                placeholder="Conte-nos sobre seu projeto..."
-                className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-amber-300"
-              />
-            </label>
-
-            <button className="studio-gold-surface w-full rounded-xl px-6 py-4 text-lg font-bold text-slate-950 transition hover:brightness-110">
-              Enviar solicitação
-            </button>
-          </form>
-        </div> */}
       </div>
     </section>
   );
