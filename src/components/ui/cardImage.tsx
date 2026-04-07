@@ -39,7 +39,7 @@ export const CardImage = () => {
           href="https://wa.me/5531991973835?text=Olá+gostaria+sobre+o+desenvolvimento+de+sites/sistemas"
           className="mt-4"
         >
-          <Button className="rounded-lg bg-popover-foreground px-8 py-7 text-sm font-bold uppercase tracking-wider text-background shadow-lg transition-all hover:bg-popover-foreground hover:brightness-105">
+          <Button className="rounded-lg bg-popover-foreground bg-gradient-to-br from-popover-foreground from-60% to-foreground px-8 py-7 text-sm font-bold uppercase tracking-wider text-background shadow-lg transition-all hover:bg-popover-foreground hover:brightness-110">
             Solicitar diagnóstico técnico
           </Button>
         </Link>
