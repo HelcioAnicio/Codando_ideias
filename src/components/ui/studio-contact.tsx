@@ -20,7 +20,7 @@ export const StudioContact = () => {
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-sky-200/70">
             Contato
           </p>
-          <h2 className="text-4xl font-bold text-white md:text-5xl">
+          <h2 className="text-3xl font-bold md:text-5xl">
             Vamos construir algo incrível juntos?
           </h2>
           <p className="mt-6 max-w-2xl text-xl leading-8 text-slate-300">

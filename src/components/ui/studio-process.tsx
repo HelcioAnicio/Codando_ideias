@@ -32,14 +32,17 @@ export const StudioProcess = () => {
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-amber-300/80">
             Processo
           </p>
-          <h2 className="text-4xl font-bold text-white md:text-5xl">
+          <h2 className="text-3xl font-bold md:text-5xl">
             Um fluxo meticuloso para resultados extraordinários.
           </h2>
         </div>
 
         <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-4">
           {steps.map((step) => (
-            <article key={step.number} className="relative overflow-hidden px-2">
+            <article
+              key={step.number}
+              className="relative overflow-hidden px-2"
+            >
               <span className="absolute left-0 top-0 text-8xl font-black leading-none text-white/5">
                 {step.number}
               </span>

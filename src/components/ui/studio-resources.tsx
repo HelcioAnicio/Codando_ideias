@@ -30,7 +30,7 @@ export const StudioResources = () => {
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-sky-200/70">
             Excelência técnica
           </p>
-          <h2 className="max-w-2xl text-4xl font-bold text-white md:text-5xl">
+          <h2 className="max-w-2xl text-3xl font-bold md:text-5xl">
             Entregas com visual premium e base sólida para crescer.
           </h2>
 
@@ -44,9 +44,7 @@ export const StudioResources = () => {
                     <Icon className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">
-                      {item.title}
-                    </h3>
+                    <h3 className="text-xl font-bold">{item.title}</h3>
                     <p className="mt-2 text-slate-300">{item.description}</p>
                   </div>
                 </div>

@@ -26,16 +26,14 @@ export const StudioFaq = () => {
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-amber-300/80">
             FAQ
           </p>
-          <h2 className="text-4xl font-bold text-white md:text-5xl">
-            Dúvidas frequentes
-          </h2>
+          <h2 className="text-3xl font-bold md:text-5xl">Dúvidas frequentes</h2>
         </div>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <details
               key={faq.question}
-              className="group rounded-2xl border border-white/10 bg-slate-950"
+              className="group rounded-2xl border border-white/10 bg-secondary"
               open={index === 0}
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-6 text-lg font-bold text-white">
@@ -57,7 +55,7 @@ export const StudioFaq = () => {
             </span>{" "}
             por mês. Não deixe sua concorrência levar esse dinheiro.
           </p>
-          <button className="studio-gold-surface rounded-2xl px-10 py-6 text-xl font-extrabold text-slate-950 shadow-2xl transition hover:scale-105">
+          <button className="studio-gold-surface rounded-2xl px-10 py-6 text-xl font-extrabold text-background shadow-2xl transition hover:brightness-105">
             Quero parar de perder dinheiro
           </button>
         </div>

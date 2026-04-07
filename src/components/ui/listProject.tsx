@@ -216,7 +216,7 @@ export const ListProjects = () => {
             <span className="mb-4 inline-flex rounded-full border border-white/10 bg-accent/5 px-4 py-1 text-xs uppercase tracking-[0.26em] text-accent/70">
               Portfólio selecionado
             </span>
-            <h2 className="mb-4 font-custom text-4xl font-bold leading-tight md:text-5xl xl:text-6xl">
+            <h2 className="mb-4 font-custom text-3xl font-bold leading-tight md:text-5xl">
               Nossos Projetos de Elite
             </h2>
             <p className="max-w-2xl text-base leading-8 text-accent/80 md:text-lg">

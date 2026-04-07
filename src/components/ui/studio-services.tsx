@@ -40,7 +40,7 @@ export const StudioServices = () => {
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-amber-300/80">
             Arquitetura de soluções
           </p>
-          <h2 className="text-4xl font-bold text-white md:text-5xl">
+          <h2 className="text-3xl font-bold md:text-5xl">
             Nossa maestria técnica aplicada aos seus objetivos de negócio.
           </h2>
         </div>

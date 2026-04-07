@@ -49,7 +49,7 @@ export const StudioPricing = () => {
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-amber-300/80">
             Investimento
           </p>
-          <h2 className="text-4xl font-bold text-white md:text-5xl">
+          <h2 className="text-3xl font-bold md:text-5xl">
             Planos estruturados para diferentes estágios de crescimento.
           </h2>
         </div>
@@ -71,10 +71,12 @@ export const StudioPricing = () => {
                 </span>
               ) : null}
 
-              <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
+              <h3 className="text-2xl font-bold">{plan.name}</h3>
               <p className="mt-2 text-slate-300">{plan.subtitle}</p>
               <div className="mt-8">
-                <span className="text-4xl font-black text-white">{plan.price}</span>
+                <span className="text-4xl font-black text-white">
+                  {plan.price}
+                </span>
                 {plan.price !== "Sob consulta" ? (
                   <span className="ml-2 text-slate-400">/ projeto</span>
                 ) : null}
@@ -82,7 +84,10 @@ export const StudioPricing = () => {
 
               <ul className="mt-8 flex flex-1 flex-col gap-4">
                 {plan.items.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-slate-200">
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-slate-200"
+                  >
                     <Check className="mt-0.5 h-5 w-5 text-amber-300" />
                     <span>{item}</span>
                   </li>
