@@ -1,4 +1,5 @@
 import { ChevronDown } from "lucide-react";
+import { ButtonGeral } from "./buttonGeral";
 
 const faqs = [
   {
@@ -55,9 +56,12 @@ export const StudioFaq = () => {
             </span>{" "}
             por mês. Não deixe sua concorrência levar esse dinheiro.
           </p>
-          <button className="studio-gold-surface rounded-2xl px-10 py-6 text-xl font-extrabold text-background shadow-2xl transition hover:brightness-105">
-            Quero parar de perder dinheiro
-          </button>
+          <ButtonGeral
+            text={"Quero parar de perder dinheiro"}
+            link={
+              "https://wa.me/5531991973835?text=Olá+gostaria+sobre+o+desenvolvimento+de+sites/sistemas"
+            }
+          />
         </div>
       </div>
     </section>
