@@ -21,7 +21,7 @@ const faqs = [
 
 export const StudioFaq = () => {
   return (
-    <section className="m-auto flex w-full max-w-5xl flex-col gap-5 rounded-md px-6 py-24 lg:px-8">
+    <section className="m-auto flex w-full max-w-5xl flex-col items-center gap-5 rounded-md px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-4xl">
         <div className="mb-14 text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-amber-300/80">
@@ -46,24 +46,13 @@ export const StudioFaq = () => {
           ))}
         </div>
       </div>
-
-      <div className="mx-auto max-w-4xl rounded-3xl bg-secondary px-5 py-12 text-center md:p-20">
-        <div className="mx-auto max-w-3xl">
-          <p className="mb-10 text-2xl leading-snug md:text-3xl">
-            O prejuízo total estimado para uma PME gira entre <br />
-            <span className="font-black text-popover-foreground">
-              R$ 2.500,00 e R$ 6.000,00
-            </span>{" "}
-            por mês. Não deixe sua concorrência levar esse dinheiro.
-          </p>
-          <ButtonGeral
-            text={"Quero parar de perder dinheiro"}
-            link={
-              "https://wa.me/5531991973835?text=Olá+gostaria+sobre+o+desenvolvimento+de+sites/sistemas"
-            }
-          />
-        </div>
-      </div>
+      <ButtonGeral
+        text={"Iniciar um novo projeto"}
+        classes={"lg:w-full"}
+        link={
+          "https://wa.me/5531991973835?text=Olá+gostaria+iniciar+um+projeto"
+        }
+      />
     </section>
   );
 };

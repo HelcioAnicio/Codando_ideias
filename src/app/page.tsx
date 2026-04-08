@@ -17,8 +17,8 @@ export default function Home() {
       <main className="mx-auto flex flex-wrap gap-20 overflow-hidden sm:items-center">
         <CardImage />
         <Services />
-        <Cost />
         <StudioAuthorityShowcase />
+        <Cost />
         <Steps />
         <WhyDevLab />
         <ListProjects />

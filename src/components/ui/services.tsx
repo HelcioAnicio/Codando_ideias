@@ -8,11 +8,11 @@ export const Services = () => {
     <section className="relative z-30 flex w-full justify-center">
       <article className="flex max-w-5xl flex-col gap-20 px-2 min-[400px]:px-5 sm:px-7 lg:flex-row lg:px-2">
         <div className="flex flex-col gap-5">
-          <p className="text-sm font-extralight text-popover-foreground underline underline-offset-2">
-            Soluções
+          <p className="w-max rounded-full border border-popover-foreground/50 bg-muted-foreground/50 p-1 px-3 text-sm font-extralight text-popover-foreground">
+            Serviços
           </p>
           <h1 className="text-3xl font-bold sm:w-3/4 sm:text-3xl md:text-5xl lg:w-full">
-            Cada projeto merece sua própria história
+            O que seu projeto precisa?
           </h1>
           <p className="text-base font-light opacity-85 min-[400px]:text-lg sm:text-xl">
             Desenvolvemos produtos digitais que funcionam. Desde páginas que
@@ -30,48 +30,48 @@ export const Services = () => {
         <div className="m-auto flex max-w-md flex-col gap-5">
           <Card className="sticky top-0 z-10 border-none bg-accent/20 py-5 text-foreground">
             <CardHeader className="py-4">
-              <CardTitle className="flex w-full items-center gap-3">
-                <MdWeb className="size-7 text-popover-foreground" />
+              <CardTitle className="flex w-full items-center gap-3 text-xl md:text-2xl">
+                <MdWeb className="size-7 text-popover-foreground md:size-9" />
                 Landing Pages{" "}
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-sm md:text-base">
+            <CardContent className="text-sm opacity-70 md:text-base">
               Páginas que convertem visitantes em clientes. Design limpo,
               copywriting direto e chamadas de ação que funcionam.
             </CardContent>
           </Card>
           <Card className="sticky top-0 z-20 border-none bg-accent/20 py-5 text-foreground">
             <CardHeader className="py-4">
-              <CardTitle className="flex w-full items-center gap-3">
-                <MdComputer className="size-7 text-popover-foreground" />
+              <CardTitle className="flex w-full items-center gap-3 text-xl md:text-2xl">
+                <MdComputer className="size-7 text-popover-foreground md:size-9" />
                 Sites institucionais
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-sm md:text-base">
+            <CardContent className="text-sm opacity-70 md:text-base">
               Presença digital que transmite autoridade. Seu negócio merece um
               site que impressiona e gera confiança desde o primeiro clique.
             </CardContent>
           </Card>
           <Card className="sticky top-0 z-30 border-none bg-accent/20 py-5 text-foreground">
             <CardHeader className="py-4">
-              <CardTitle className="flex w-full items-center gap-3">
-                <MdOutlineAppShortcut className="size-7 text-popover-foreground" />
+              <CardTitle className="flex w-full items-center gap-3 text-xl md:text-2xl">
+                <MdOutlineAppShortcut className="size-7 text-popover-foreground md:size-9" />
                 Aplicativos (Mobile)
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-sm md:text-base">
+            <CardContent className="text-sm opacity-70 md:text-base">
               Experiências digitais que funcionam em qualquer dispositivo.
               Rápidas, intuitivas e construídas para seus usuários.
             </CardContent>
           </Card>
           <Card className="sticky top-0 z-40 border-none bg-accent/20 py-5 text-foreground">
             <CardHeader className="py-4">
-              <CardTitle className="flex w-full items-center gap-3">
-                <HiOutlineServerStack className="size-7 text-popover-foreground" />
+              <CardTitle className="flex w-full items-center gap-3 text-xl md:text-2xl">
+                <HiOutlineServerStack className="size-7 text-popover-foreground md:size-9" />
                 Sistemas customizados
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-sm md:text-base">
+            <CardContent className="text-sm opacity-70 md:text-base">
               Ferramentas feitas para sua operação. Automatização, integração e
               eficiência. Seu negócio cresce quando a tecnologia trabalha para
               você.

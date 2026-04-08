@@ -32,7 +32,7 @@ const lossCards = [
 
 export const StudioAuthorityShowcase = () => {
   return (
-    <section className="m-auto max-w-5xl px-3 py-5 md:px-10 lg:px-5">
+    <section className="m-auto max-w-5xl px-3 pt-16 md:px-10 lg:px-5">
       {/* 
 
             <div className="hidden md:block">
@@ -65,7 +65,7 @@ class SuccessArchitecture {
           </div>
 */}
 
-      <div className="mb-20 max-w-4xl">
+      <div className="max-w-4xl">
         <span className="mb-6 inline-block rounded-full border border-red-400/20 bg-red-500/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.25em] text-red-300">
           Alerta de lucratividade
         </span>
@@ -82,7 +82,7 @@ class SuccessArchitecture {
         </p>
       </div>
 
-      <div className="mb-24 grid w-full gap-8 md:grid-cols-3">
+      <div className="grid w-full gap-8 md:grid-cols-3">
         {lossCards.map((card) => {
           const Icon = card.icon;
 
