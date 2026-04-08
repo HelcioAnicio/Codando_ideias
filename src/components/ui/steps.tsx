@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FaDiamond } from "react-icons/fa6";
 export const Steps = () => {
   return (
-    <section className="flex w-full items-center justify-center rounded-md p-1 py-5">
+    <section className="flex w-full items-center justify-center rounded-md p-1 py-10 min-[400px]:py-20 sm:py-32">
       <div className="relative flex w-full max-w-5xl flex-col gap-5 p-3 py-7 sm:gap-8">
         <h4 className="w-1/2 text-3xl font-bold sm:text-4xl">
           Contruímos juntos, com clareza e propósito
