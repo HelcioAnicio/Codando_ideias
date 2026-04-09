@@ -137,6 +137,16 @@ body {
   .studio-floating {
     animation: studio-floating 6s ease-in-out infinite;
   }
+
+  .studio-meteor {
+    animation: studio-meteor-drift var(--meteor-duration, 16s) linear infinite;
+    animation-delay: var(--meteor-delay, 0s);
+    left: -18%;
+    opacity: 0;
+    top: var(--meteor-top, 20%);
+    transform: translate3d(0, 0, 0) scale(var(--meteor-scale, 1));
+    will-change: transform, opacity;
+  }
 }
 
 @layer components {
@@ -184,5 +194,25 @@ body {
 
   100% {
     transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes studio-meteor-drift {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0) scale(var(--meteor-scale, 1));
+  }
+
+  10% {
+    opacity: 0.5;
+  }
+
+  55% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(135vw, -42px, 0) scale(var(--meteor-scale, 1));
   }
 }

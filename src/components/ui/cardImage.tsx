@@ -1,26 +1,49 @@
-import { useState, useEffect } from "react";
+import type { CSSProperties } from "react";
 import { ButtonGeral } from "./buttonGeral";
 
 export const CardImage = () => {
-  const [isMounted, setIsMounted] = useState(false);
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const meteors = [
+    { top: "14%", delay: "0s", duration: "14s", scale: 0.9, width: "7rem" },
+    { top: "28%", delay: "-5s", duration: "18s", scale: 1.1, width: "9rem" },
+    { top: "41%", delay: "-11s", duration: "16s", scale: 0.8, width: "6rem" },
+    { top: "57%", delay: "-8s", duration: "20s", scale: 1, width: "8rem" },
+    { top: "72%", delay: "-15s", duration: "17s", scale: 0.7, width: "5.5rem" },
+  ];
+
   return (
     <section
       id="home"
       className="relative flex min-h-[calc(100vh-76px)] w-full flex-col items-center justify-center overflow-hidden border-none bg-background text-center"
     >
-      {isMounted && (
-        <>
-          <div className="absolute bottom-0 aspect-square w-[130%] max-w-[1400px] translate-y-[75%] rounded-full min-[400px]:translate-y-[55%] sm:translate-y-[60%] lg:translate-y-[80%]">
-            <div className="h-full w-full animate-growUp rounded-full bg-[radial-gradient(circle,_#828B98_0%,_transparent_90%)] blur-xl" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
+        {meteors.map((meteor, index) => (
+          <div
+            key={index}
+            className="studio-meteor absolute h-px rounded-full bg-gradient-to-r from-transparent via-popover-foreground to-transparent blur-[0.5px]"
+            style={
+              {
+                "--meteor-delay": meteor.delay,
+                "--meteor-duration": meteor.duration,
+                "--meteor-scale": meteor.scale,
+                "--meteor-top": meteor.top,
+                width: meteor.width,
+              } as CSSProperties
+            }
+          >
+            <span className="absolute right-0 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-popover-foreground shadow-[0_0_12px_hsl(var(--popover-foreground))]" />
           </div>
-          <div className="absolute bottom-0 aspect-square w-[120%] max-w-[1400px] translate-y-[80%] min-[400px]:translate-y-[60%] sm:translate-y-[65%] lg:translate-y-[85%]">
-            <div className="h-full w-full animate-growUp rounded-full bg-background shadow-[0_0_40px] shadow-popover-foreground" />
-          </div>
-        </>
-      )}
+        ))}
+      </div>
+
+      <div className="absolute bottom-0 aspect-square w-[130%] max-w-[1400px] translate-y-[75%] rounded-full min-[400px]:translate-y-[55%] sm:translate-y-[60%] lg:translate-y-[82%]">
+        <div className="h-full w-full rounded-full bg-[radial-gradient(circle,_#828B98_0%,_transparent_90%)] blur-xl" />
+      </div>
+      <div className="absolute bottom-0 aspect-square w-[120%] max-w-[1400px] translate-y-[80%] min-[400px]:translate-y-[60%] sm:translate-y-[65%] lg:translate-y-[85%]">
+        <div className="absolute h-full w-full rounded-full bg-background shadow-[0_0_20px] shadow-popover-foreground" />
+      </div>
 
       <div className="relative z-10 flex flex-col items-center gap-8 px-4 md:gap-16">
         <h1 className="max-w-5xl text-3xl font-bold text-foreground min-[400px]:text-4xl md:text-6xl md:leading-[1.15]">
