@@ -13,7 +13,7 @@ export const CardImage = () => {
   return (
     <section
       id="home"
-      className="relative flex min-h-[calc(100vh-76px)] w-full flex-col items-center justify-center overflow-hidden border-none bg-background text-center"
+      className="relative flex min-h-dvh w-full flex-col items-center justify-center overflow-hidden border-none bg-background text-center"
     >
       <div
         aria-hidden="true"
@@ -63,12 +63,19 @@ export const CardImage = () => {
           . Onde outros entregam design, nós entregamos infraestrutura de alta
           conversão .
         </p>
-        <ButtonGeral
-          text={"Solicitar Diagnóstico Técnico"}
-          link={
-            "https://wa.me/5531991973835?text=Olá+gostaria+sobre+o+desenvolvimento+de+sites/sistemas"
-          }
-        />
+        <div className="flex gap-4">
+          <ButtonGeral
+            text={"Solicitar orçamento"}
+            link={
+              "https://wa.me/5531991973835?text=Olá+gostaria+sobre+o+desenvolvimento+de+sites/sistemas"
+            }
+          />
+          <ButtonGeral
+            text={"Ver projetos"}
+            classes="!bg-secondary !bg-none text-foreground border border-card"
+            link={""}
+          />
+        </div>
       </div>
     </section>
   );

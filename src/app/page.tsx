@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="mx-auto flex flex-wrap gap-20 overflow-hidden sm:items-center">
+      <main className="relative mx-auto flex flex-wrap gap-20 overflow-hidden sm:items-center">
         <CardImage />
         <Services />
         <StudioAuthorityShowcase />
