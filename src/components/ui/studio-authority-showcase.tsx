@@ -76,7 +76,7 @@ class SuccessArchitecture {
           </span>{" "}
           todos os meses por causa da sua presença digital?
         </h2>
-        <p className="text-xl text-slate-300">
+        <p className="mb-5 text-xl text-foreground/50">
           A invisibilidade digital não é apenas um detalhe, é um ralo silencioso
           no seu faturamento. Veja o custo real estimado para 2026/2027.
         </p>
@@ -89,7 +89,7 @@ class SuccessArchitecture {
           return (
             <article
               key={card.title}
-              className="relative w-full rounded-3xl border border-card p-10"
+              className="relative w-full rounded-3xl border border-card bg-secondary p-10 shadow-md"
             >
               <div className="relative z-10">
                 <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-destructive/30 text-destructive/80">
@@ -100,7 +100,9 @@ class SuccessArchitecture {
                   <p className="text-xs uppercase tracking-[0.25em] text-popover-foreground opacity-60">
                     {card.eyebrow}
                   </p>
-                  <p className="text-4xl font-black text-white">{card.stat}</p>
+                  <p className="text-4xl font-black text-foreground">
+                    {card.stat}
+                  </p>
                   <p className="text-sm text-foreground">{card.description}</p>
                   <div className="mt-6 border-t border-white/10 pt-6">
                     <p className="mb-1 text-xs text-popover-foreground">

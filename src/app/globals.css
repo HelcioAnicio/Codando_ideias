@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial Helvetica sans-serif;
 }
 
 @theme {
@@ -23,24 +23,23 @@ body {
 
 @layer base {
   :root {
-    --background: 0, 0%, 100%; /* Light (was in .dark) */
-    --foreground: 215, 96%, 9%; /* Dark blue (was in .dark) */
-    --card: 0, 0%, 100%; /* White (was in .dark) */
-    --card-foreground: 216, 41%, 27%; /* darker text (was in .dark) */
+    --background: 0 0% 100%; /* Light (was in .dark) */
+    --foreground: 215 96% 9%; /* Dark blue (was in .dark) */
+    --card: 0 0% 100%; /* White (was in .dark) */
+    --card-foreground: 216 41% 27%; /* darker text (was in .dark) */
     --popover: 224 71.4% 4.1%; /* Dark Gray */
-    --popover-foreground: 47, 100%, 50%; /* Gold */
-    --primary: 0, 0%, 100%; /* white (was in .dark) */
-    --primary-foreground: 216, 41%, 27%; /* text for primary (was in .dark) */
-    --secondary: 210, 15%, 95%; /* Light secondary (was in .dark) */
-    --secondary-foreground:
-      210, 8%, 25%; /* darker secondary text (was in .dark) */
-    --muted: 45, 80%, 70%; /* light gold (was in .dark) */
-    --muted-foreground: 210, 15%, 95%; /* Also Light (was in .dark) */
-    --accent: 45, 80%, 70%; /* light gold (was in .dark) */
-    --accent-foreground: 210, 15%, 95%; /* Also Light (was in .dark) */
+    --popover-foreground: 47 100% 50%; /* Gold */
+    --primary: 0 0% 100%; /* white (was in .dark) */
+    --primary-foreground: 216 41% 27%; /* text for primary (was in .dark) */
+    --secondary: 210 15% 95%; /* Light secondary (was in .dark) */
+    --secondary-foreground: 210 8% 25%; /* darker secondary text (was in .dark) */
+    --muted: 45 80% 70%; /* light gold (was in .dark) */
+    --muted-foreground: 210 15% 95%; /* Also Light (was in .dark) */
+    --accent: 45 80% 70%; /* light gold (was in .dark) */
+    --accent-foreground: 210 15% 95%; /* Also Light (was in .dark) */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 20% 98%;
-    --border: 210, 5%, 40%;
+    --border: 210 5% 40%;
     --input: 215 27.9% 16.9%;
     --ring: 216 12.2% 83.9%;
     --chart-1: 220 70% 50%;
@@ -51,16 +50,16 @@ body {
     --radius: 0.5rem;
   }
   .dark {
-    --background: 215, 96%, 9%; /* Dark blue (was in :root) */
-    --foreground: 0, 0%, 100%; /* White (was in :root) */
-    --card: 216, 41%, 27%; /* Card dark (was in :root) */
-    --card-foreground: 0, 0%, 100%; /* White (was in :root) */
+    --background: 215 96% 9%; /* Dark blue (was in :root) */
+    --foreground: 0 0% 100%; /* White (was in :root) */
+    --card: 216 41% 27%; /* Card dark (was in :root) */
+    --card-foreground: 0 0% 100%; /* White (was in :root) */
     --popover: 224 71.4% 4.1%; /* Dark Gray */
-    --popover-foreground: 47, 100%, 50%; /* Gold */
-    --primary: 216, 41%, 27%; /* primary dark (was in :root) */
-    --primary-foreground: 0, 0%, 100%; /* white (was in :root) */
-    --secondary: 216, 65%, 12%; /* darker secondary (was in :root) */
-    --secondary-foreground: 210, 15%, 95%; /* light text (was in :root) */
+    --popover-foreground: 47 100% 50%; /* Gold */
+    --primary: 216 41% 27%; /* primary dark (was in :root) */
+    --primary-foreground: 0 0% 100%; /* white (was in :root) */
+    --secondary: 216 65% 12%; /* darker secondary (was in :root) */
+    --secondary-foreground: 210 15% 95%; /* light text (was in :root) */
     --muted: 220 14.3% 95.9%;
     --muted-foreground: 220 8.9% 46.1%;
     --accent: 220 14.3% 95.9%;
@@ -109,29 +108,22 @@ body {
   }
 
   .studio-gold-surface {
-    background: linear-gradient(135deg, #ffe16d 0%, #ff8c00 100%);
+    background: linear-gradient(135deg #ffe16d 0% #ff8c00 100%);
   }
 
   .studio-panel {
-    background: rgba(15, 23, 42, 0.72);
+    background: rgba(15 23 42 0.72);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
   }
 
   .studio-mesh {
     background-color: #020617;
-    background-image:
-      radial-gradient(
-        circle at top left,
-        rgba(14, 165, 233, 0.18),
-        transparent 32%
-      ),
-      radial-gradient(circle at top, rgba(250, 204, 21, 0.12), transparent 28%),
-      radial-gradient(
-        circle at right,
-        rgba(59, 130, 246, 0.16),
-        transparent 30%
-      );
+    background-image: radial-gradient(
+        circle at top left rgba(14 165 233 0.18) transparent 32%
+      )
+      radial-gradient(circle at top rgba(250 204 21 0.12) transparent 28%)
+      radial-gradient(circle at right rgba(59 130 246 0.16) transparent 30%);
   }
 
   .studio-floating {
@@ -139,45 +131,28 @@ body {
   }
 
   .studio-meteor {
-    animation: studio-meteor-drift var(--meteor-duration, 16s) linear infinite;
-    animation-delay: var(--meteor-delay, 0s);
+    animation: studio-meteor-drift var(--meteor-duration 16s) linear infinite;
+    animation-delay: var(--meteor-delay 0s);
     left: -18%;
     opacity: 0;
-    top: var(--meteor-top, 20%);
-    transform: translate3d(0, 0, 0) scale(var(--meteor-scale, 1));
-    will-change: transform, opacity;
+    top: var(--meteor-top 20%);
+    transform: translate3d(0 0 0) scale(var(--meteor-scale 1));
+    will-change: transform opacity;
   }
 }
 
 @layer components {
-  body,
-  html {
+  body html {
     height: 100vh;
     min-height: 100vh;
   }
   @media (min-width: 750px) {
-    p,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    span {
+    p h1 h2 h3 h4 h5 h6 span {
       font-size: 18px;
     }
   }
   @media (min-width: 1550px) {
-    p,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    span,
-    li,
-    a {
+    p h1 h2 h3 h4 h5 h6 span li a {
       font-size: 20px;
     }
   }
@@ -200,7 +175,7 @@ body {
 @keyframes studio-meteor-drift {
   0% {
     opacity: 0;
-    transform: translate3d(0, 18px, 0) scale(var(--meteor-scale, 1));
+    transform: translate3d(0 18px 0) scale(var(--meteor-scale 1));
   }
 
   10% {
@@ -213,6 +188,6 @@ body {
 
   100% {
     opacity: 0;
-    transform: translate3d(135vw, -42px, 0) scale(var(--meteor-scale, 1));
+    transform: translate3d(135vw -42px 0) scale(var(--meteor-scale 1));
   }
 }

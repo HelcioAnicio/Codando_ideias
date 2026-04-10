@@ -315,7 +315,7 @@ export const ListProjects = () => {
           </div>
 
           <div className="relative z-10 mt-8 flex flex-col items-center justify-between gap-5 md:flex-row">
-            <p className="text-sm text-primary/55">
+            <p className="text-sm text-foreground/55">
               Arraste no celular ou use os controles para navegar pelos
               projetos.
             </p>
@@ -328,7 +328,7 @@ export const ListProjects = () => {
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-primary transition hover:border-popover-foreground/30 hover:text-popover-foreground disabled:cursor-not-allowed disabled:opacity-40"
                 disabled={activePage === 0}
               >
-                <ArrowLeft className="h-4 w-4" />
+                <ArrowLeft className="h-4 w-4 text-foreground" />
               </button>
 
               <div className="flex items-center gap-2">
@@ -354,7 +354,7 @@ export const ListProjects = () => {
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-primary transition hover:border-popover-foreground/30 hover:text-popover-foreground disabled:cursor-not-allowed disabled:opacity-40"
                 disabled={activePage === pages.length - 1}
               >
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 text-foreground" />
               </button>
             </div>
           </div>
