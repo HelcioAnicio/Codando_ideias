@@ -3,11 +3,11 @@ import { ButtonGeral } from "./buttonGeral";
 
 export const CardImage = () => {
   const meteors = [
-    { top: "14%", delay: "0s", duration: "14s", scale: 0.9, width: "7rem" },
-    { top: "28%", delay: "-5s", duration: "18s", scale: 1.1, width: "9rem" },
-    { top: "41%", delay: "-11s", duration: "16s", scale: 0.8, width: "6rem" },
-    { top: "57%", delay: "-8s", duration: "20s", scale: 1, width: "8rem" },
-    { top: "72%", delay: "-15s", duration: "17s", scale: 0.7, width: "5.5rem" },
+    { top: "14%", delay: "0s", duration: "14s", scale: 1.2, width: "7rem" },
+    { top: "28%", delay: "-5s", duration: "18s", scale: 1.3, width: "9rem" },
+    { top: "41%", delay: "-11s", duration: "16s", scale: 1.0, width: "6rem" },
+    { top: "57%", delay: "-8s", duration: "20s", scale: 1.3, width: "8rem" },
+    { top: "72%", delay: "-15s", duration: "17s", scale: 1.0, width: "5.5rem" },
   ];
 
   return (
@@ -63,7 +63,7 @@ export const CardImage = () => {
           . Onde outros entregam design, nós entregamos infraestrutura de alta
           conversão .
         </p>
-        <div className="flex gap-4">
+        <div className="flex flex-wrap justify-center gap-4">
           <ButtonGeral
             text={"Solicitar orçamento"}
             link={
