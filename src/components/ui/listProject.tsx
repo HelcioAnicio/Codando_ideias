@@ -213,13 +213,13 @@ export const ListProjects = () => {
           <div className="absolute inset-0 rounded-tl-3xl bg-[radial-gradient(circle_at_top_left,rgba(250,204,21,0.08),transparent_24%),radial-gradient(circle_at_right,rgba(59,130,246,0.12),transparent_26%)]" />
 
           <div className="relative z-10 mb-10 max-w-3xl">
-            <span className="mb-4 inline-flex rounded-full border border-white/10 bg-accent/5 px-4 py-1 text-xs uppercase tracking-[0.26em] text-accent/70">
+            <span className="mb-4 inline-flex rounded-full border border-secondary-foreground/20 bg-secondary-foreground/5 px-4 py-1 text-xs uppercase tracking-[0.26em] text-secondary-foreground/80">
               Portfólio selecionado
             </span>
             <h2 className="mb-4 font-custom text-3xl font-bold leading-tight md:text-5xl">
               Nossos Projetos de Elite
             </h2>
-            <p className="max-w-2xl text-base leading-8 text-accent/80 md:text-lg">
+            <p className="max-w-2xl text-base leading-8 text-secondary-foreground/80 md:text-lg">
               Portfólio selecionado de soluções digitais de alto impacto, unindo
               robustez técnica e design memorável.
             </p>

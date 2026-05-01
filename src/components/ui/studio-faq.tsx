@@ -37,11 +37,13 @@ export const StudioFaq = () => {
               className="group rounded-2xl border border-white/10 bg-secondary"
               open={index === 0}
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-6 text-lg font-bold text-white">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-6 text-lg font-bold">
                 {faq.question}
                 <ChevronDown className="h-5 w-5 shrink-0 transition group-open:rotate-180" />
               </summary>
-              <p className="px-6 pb-6 leading-8 text-slate-300">{faq.answer}</p>
+              <p className="px-6 pb-6 leading-8 text-secondary-foreground/80">
+                {faq.answer}
+              </p>
             </details>
           ))}
         </div>

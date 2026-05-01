@@ -14,7 +14,7 @@ export const Steps = () => {
           height={400}
           className="absolute right-0 top-0 z-0 w-40 sm:right-16 sm:w-56"
         />
-        <p className="relative z-10 max-w-xs text-sm font-extralight text-accent/75 md:max-w-xl md:text-base">
+        <p className="relative z-10 max-w-xs text-sm font-extralight text-secondary-foreground/80 md:max-w-xl md:text-base">
           Planejamos o caminho ideal juntos, criamos um projeto personalizado e
           eficiente, garantindo que tudo funcione perfeitamente no final.
         </p>

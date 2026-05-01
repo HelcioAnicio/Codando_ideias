@@ -8,7 +8,7 @@ export const Services = () => {
     <section className="relative z-30 flex w-full justify-center">
       <article className="flex max-w-5xl flex-col gap-20 px-2 min-[400px]:px-5 sm:px-7 lg:flex-row lg:px-2">
         <div className="flex flex-col gap-5">
-          <p className="w-max rounded-full border border-popover-foreground/50 bg-foreground/10 p-1 px-5 text-sm font-extralight uppercase text-popover-foreground">
+          <p className="w-max rounded-full border border-secondary-foreground/20 bg-secondary-foreground/5 p-1 px-5 text-sm font-extralight uppercase text-secondary-foreground/80">
             Serviços
           </p>
           <h1 className="text-3xl font-bold sm:w-3/4 sm:text-3xl md:text-5xl lg:w-full">
