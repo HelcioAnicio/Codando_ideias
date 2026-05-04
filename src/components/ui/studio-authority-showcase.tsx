@@ -5,7 +5,6 @@ import { useEffect, useState, useRef } from "react";
 
 export const StudioAuthorityShowcase = () => {
   const [isVisible, setIsVisible] = useState(false);
-  console.log("isVisible: ", isVisible);
   const elementRef = useRef(null);
 
   useEffect(() => {
@@ -62,14 +61,14 @@ export const StudioAuthorityShowcase = () => {
       className="m-auto max-w-5xl px-3 pt-16 md:px-10 lg:px-5"
       ref={elementRef}
     >
-      <div className="max-w-4xl">
+      <article className="max-w-4xl">
         <span
-          className={`mb-6 ${isVisible && "translate-x-0 opacity-100 blur-0"} inline-block -translate-x-full rounded-full border border-red-400/20 bg-red-500/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.25em] text-red-300 opacity-0 blur-md transition-all duration-1000`}
+          className={`mb-6 ${isVisible && "translate-x-0 opacity-100 blur-none"} inline-block -translate-x-full rounded-full border border-red-400/20 bg-red-500/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.25em] text-red-300 opacity-0 blur-md transition-all delay-300 duration-1000`}
         >
           Alerta de lucratividade
         </span>
         <h2
-          className={`mb-8 ${isVisible && "translate-x-0 opacity-100 blur-0"} -translate-x-full text-3xl font-extrabold leading-tight opacity-0 blur-md transition-all delay-500 duration-1000 md:text-5xl`}
+          className={`mb-8 ${isVisible && "translate-x-0 opacity-100 blur-none"} -translate-x-full text-3xl font-extrabold leading-tight opacity-0 blur-md transition-all delay-500 duration-1000 md:text-5xl`}
         >
           Você está{" "}
           <span className="text-3xl font-extrabold leading-tight text-destructive md:text-5xl">
@@ -78,30 +77,28 @@ export const StudioAuthorityShowcase = () => {
           todos os meses por causa da sua presença digital?
         </h2>
         <p
-          className={`${isVisible && "translate-x-0 opacity-100 blur-0"} mb-5 -translate-x-full text-xl text-foreground/50 opacity-0 blur-md transition-all delay-1000 duration-1000`}
+          className={`${isVisible && "translate-x-0 opacity-100 blur-none"} mb-5 -translate-x-full text-xl text-foreground/50 opacity-0 blur-md transition-all delay-700 duration-1000`}
         >
           A invisibilidade digital não é apenas um detalhe, é um ralo silencioso
           no seu faturamento. Veja o custo real estimado para 2026/2027.
         </p>
-      </div>
+      </article>
 
-      <div className="grid w-full gap-8 md:grid-cols-3">
+      <ul className="grid w-full gap-8 md:grid-cols-3">
         {lossCards.map((card, index) => {
           const Icon = card.icon;
 
           return (
-            <article
+            <li
               key={card.title}
-              // tabIndex={index}
               style={{ transitionDelay: `${index * 300}ms` }}
-              className={`${isVisible && "-translate-x-[0] opacity-100 blur-0"} relative w-full translate-x-[400%] rounded-3xl border border-card bg-secondary p-10 opacity-0 shadow-md blur-md transition-all delay-1000 duration-1000`}
-              ref={elementRef}
+              className={`${isVisible && "-translate-x-[1px] opacity-100 blur-none"} relative w-full translate-x-[400%] rounded-3xl border border-card bg-secondary px-7 py-10 opacity-0 shadow-md blur-md transition-all delay-300 duration-1000`}
             >
               <div className="relative z-10">
                 <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-destructive/30 text-destructive/80">
                   <Icon className="h-6 w-6" />
                 </div>
-                <h3 className="mb-4 text-xl font-bold">{card.title}</h3>
+                <h3 className="mb-4 w-max text-xl font-bold">{card.title}</h3>
                 <div className="space-y-4">
                   <p className="text-xs uppercase tracking-[0.25em] text-popover-foreground opacity-60">
                     {card.eyebrow}
@@ -120,10 +117,10 @@ export const StudioAuthorityShowcase = () => {
                   </div>
                 </div>
               </div>
-            </article>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </section>
   );
 };

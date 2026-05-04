@@ -1,4 +1,3 @@
-"use client";
 import { Header } from "@/components/ui/header";
 import { ListProjects } from "@/components/ui/listProject";
 import { CardImage } from "@/components/ui/cardImage";

@@ -1,3 +1,4 @@
+"use client";
 import { Github, Globe, MessageCircle, Phone } from "lucide-react";
 import Image from "next/image";
 import Logo3 from "../../../public/logo3.svg";

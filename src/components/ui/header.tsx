@@ -92,9 +92,9 @@ export const Header = () => {
                   <DropdownMenuItem onClick={() => setTheme("dark")}>
                     Dark
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setTheme("system")}>
+                  {/* <DropdownMenuItem onClick={() => setTheme("system")}>
                     System
-                  </DropdownMenuItem>
+                  </DropdownMenuItem> */}
                 </DropdownMenuContent>
               </DropdownMenu>
             </ul>

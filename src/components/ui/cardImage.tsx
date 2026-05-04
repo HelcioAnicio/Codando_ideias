@@ -1,19 +1,43 @@
-import type { CSSProperties } from "react";
+"use client";
+
+import { useRef, useState, useEffect, type CSSProperties } from "react";
 import { ButtonGeral } from "./buttonGeral";
 
 export const CardImage = () => {
   const meteors = [
-    { top: "14%", delay: "0s", duration: "14s", scale: 1.2, width: "7rem" },
-    { top: "28%", delay: "-5s", duration: "18s", scale: 1.3, width: "9rem" },
-    { top: "41%", delay: "-11s", duration: "16s", scale: 1.0, width: "6rem" },
-    { top: "57%", delay: "-8s", duration: "20s", scale: 1.3, width: "8rem" },
-    { top: "72%", delay: "-15s", duration: "17s", scale: 1.0, width: "5.5rem" },
+    { top: "14%", delay: "0s", duration: "14s", scale: 1.5, width: "8rem" },
+    { top: "28%", delay: "-5s", duration: "18s", scale: 1.8, width: "10rem" },
+    { top: "41%", delay: "-11s", duration: "16s", scale: 1.3, width: "7rem" },
+    { top: "57%", delay: "-8s", duration: "20s", scale: 1.6, width: "9rem" },
+    { top: "72%", delay: "-15s", duration: "17s", scale: 1.3, width: "6.5rem" },
   ];
+
+  const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef(null);
+
+  useEffect(() => {
+    const myObserver = new IntersectionObserver(
+      ([entry]) => {
+        console.log(isVisible);
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 },
+    );
+
+    if (elementRef.current) {
+      myObserver.observe(elementRef.current);
+    }
+
+    return () => {
+      if (elementRef.current) myObserver.unobserve(elementRef.current);
+    };
+  }, []);
 
   return (
     <section
       id="home"
       className="relative flex min-h-dvh w-full flex-col items-center justify-center overflow-hidden border-none bg-background text-center"
+      ref={elementRef}
     >
       <div
         aria-hidden="true"
@@ -46,12 +70,16 @@ export const CardImage = () => {
       </div>
 
       <div className="relative z-10 flex flex-col items-center gap-8 px-4 md:gap-16">
-        <h1 className="max-w-5xl text-3xl font-bold text-foreground min-[400px]:text-4xl md:text-6xl md:leading-[1.15]">
+        <h1
+          className={` ${isVisible && "translate-y-0 opacity-100 blur-none"} max-w-5xl -translate-y-full text-3xl font-bold text-foreground opacity-0 blur-md transition-all delay-300 duration-1000 min-[400px]:text-4xl md:text-6xl md:leading-[1.15]`}
+        >
           Sites lentos custam fortunas. Engenharia de performance{" "}
           <br className="hidden md:block" />
           gera faturamento.
         </h1>
-        <p className="max-w-2xl text-base font-light leading-relaxed text-foreground min-[400px]:text-lg sm:text-xl">
+        <p
+          className={`${isVisible && "opacity-100 blur-none"} max-w-2xl text-base font-light leading-relaxed text-foreground opacity-0 blur-md transition-all delay-300 duration-1000 min-[400px]:text-lg sm:text-xl`}
+        >
           Desenvolvemos ecossistemas digitais com foco em{" "}
           <span className="font-semibold text-popover-foreground min-[400px]:text-lg sm:text-xl">
             arquitetura limpa
@@ -63,7 +91,9 @@ export const CardImage = () => {
           . Onde outros entregam design, nós entregamos infraestrutura de alta
           conversão .
         </p>
-        <div className="flex flex-wrap justify-center gap-4">
+        <div
+          className={`${isVisible && "translate-y-[1px] opacity-100 blur-none"} flex translate-y-full flex-wrap justify-center gap-4 opacity-0 blur-md transition-all delay-300 duration-1000`}
+        >
           <ButtonGeral
             text={"Solicitar orçamento"}
             link={
