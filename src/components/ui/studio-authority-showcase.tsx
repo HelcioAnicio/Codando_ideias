@@ -92,7 +92,7 @@ export const StudioAuthorityShowcase = () => {
             <li
               key={card.title}
               style={{ transitionDelay: `${index * 300}ms` }}
-              className={`${isVisible && "-translate-x-[1px] opacity-100 blur-none"} relative w-full translate-x-[400%] rounded-3xl border border-card bg-secondary px-7 py-10 opacity-0 shadow-md blur-md transition-all delay-300 duration-1000`}
+              className={`${isVisible && "translate-x-0.5 opacity-100 blur-none"} relative w-full translate-x-[400%] rounded-3xl border border-card bg-secondary px-7 py-10 opacity-0 shadow-md blur-md transition-all delay-300 duration-1000`}
             >
               <div className="relative z-10">
                 <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-destructive/30 text-destructive/80">

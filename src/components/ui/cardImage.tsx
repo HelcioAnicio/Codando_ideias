@@ -92,7 +92,7 @@ export const CardImage = () => {
           conversão .
         </p>
         <div
-          className={`${isVisible && "translate-y-[1px] opacity-100 blur-none"} flex translate-y-full flex-wrap justify-center gap-4 opacity-0 blur-md transition-all delay-300 duration-1000`}
+          className={`${isVisible && "translate-y-1 opacity-100 blur-none"} flex translate-y-96 flex-wrap justify-center gap-4 opacity-0 blur-md transition-all delay-300 duration-1000`}
         >
           <ButtonGeral
             text={"Solicitar orçamento"}
