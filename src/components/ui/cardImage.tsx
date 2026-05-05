@@ -6,10 +6,10 @@ import { ButtonGeral } from "./buttonGeral";
 export const CardImage = () => {
   const meteors = [
     { top: "14%", delay: "0s", duration: "14s", scale: 1.5, width: "8rem" },
-    { top: "28%", delay: "-5s", duration: "18s", scale: 1.8, width: "10rem" },
-    { top: "41%", delay: "-11s", duration: "16s", scale: 1.3, width: "7rem" },
-    { top: "57%", delay: "-8s", duration: "20s", scale: 1.6, width: "9rem" },
-    { top: "72%", delay: "-15s", duration: "17s", scale: 1.3, width: "6.5rem" },
+    { top: "28%", delay: "-5s", duration: "20s", scale: 1.8, width: "10rem" },
+    { top: "41%", delay: "-11s", duration: "18s", scale: 1.3, width: "7rem" },
+    { top: "57%", delay: "-8s", duration: "22s", scale: 1.6, width: "9rem" },
+    { top: "72%", delay: "-15s", duration: "19s", scale: 1.3, width: "6.5rem" },
   ];
 
   const [isVisible, setIsVisible] = useState(false);
@@ -71,7 +71,7 @@ export const CardImage = () => {
 
       <div className="relative z-10 flex h-full flex-col items-center justify-center gap-8 overflow-x-hidden px-4 md:gap-16">
         <h1
-          className={` ${isVisible && "translate-y-0 opacity-100 blur-none"} max-w-5xl -translate-y-full text-3xl font-bold text-foreground opacity-0 blur-md transition-all delay-300 duration-1000 min-[400px]:text-4xl md:text-5xl md:leading-[1.15] xl:text-6xl`}
+          className={` ${isVisible ? "translate-y-0 opacity-100 blur-none" : "-translate-y-full opacity-0 blur-md"} max-w-5xl text-3xl font-bold text-foreground transition-all delay-300 duration-1000 min-[400px]:text-4xl md:text-5xl md:leading-[1.15] xl:text-6xl`}
         >
           Sites lentos custam fortunas. Engenharia de performance{" "}
           <br className="hidden md:block" />
@@ -92,7 +92,7 @@ export const CardImage = () => {
           conversão .
         </p>
         <div
-          className={`${isVisible && "translate-x-1 opacity-100 blur-none"} flex w-full translate-x-full flex-wrap justify-center gap-4 opacity-0 blur-md transition-all delay-200 duration-1000`}
+          className={`${isVisible ? "translate-y-0 opacity-100 blur-none" : "translate-y-full opacity-0 blur-md"} flex w-full flex-wrap justify-center gap-4 transition-all delay-200 duration-1000`}
         >
           <ButtonGeral
             text={"Solicitar orçamento"}
