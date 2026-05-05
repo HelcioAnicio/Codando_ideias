@@ -18,25 +18,25 @@ export const CardImage = () => {
   useEffect(() => {
     const myObserver = new IntersectionObserver(
       ([entry]) => {
-        console.log(isVisible);
         setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.1 },
     );
 
-    if (elementRef.current) {
-      myObserver.observe(elementRef.current);
+    const currentElement = elementRef.current;
+    if (currentElement) {
+      myObserver.observe(currentElement);
     }
 
     return () => {
-      if (elementRef.current) myObserver.unobserve(elementRef.current);
+      if (currentElement) myObserver.unobserve(currentElement);
     };
   }, []);
 
   return (
     <section
       id="home"
-      className="relative flex min-h-dvh w-full flex-col items-center justify-center overflow-hidden border-none bg-background text-center"
+      className="relative flex h-dvh w-full flex-col items-center justify-center overflow-hidden border-none bg-background pt-16 text-center"
       ref={elementRef}
     >
       <div
@@ -69,9 +69,9 @@ export const CardImage = () => {
         <div className="absolute h-full w-full rounded-full bg-background shadow-[0_0_20px] shadow-popover-foreground" />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center gap-8 px-4 md:gap-16">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center gap-8 overflow-x-hidden px-4 md:gap-16">
         <h1
-          className={` ${isVisible && "translate-y-0 opacity-100 blur-none"} max-w-5xl -translate-y-full text-3xl font-bold text-foreground opacity-0 blur-md transition-all delay-300 duration-1000 min-[400px]:text-4xl md:text-6xl md:leading-[1.15]`}
+          className={` ${isVisible && "translate-y-0 opacity-100 blur-none"} max-w-5xl -translate-y-full text-3xl font-bold text-foreground opacity-0 blur-md transition-all delay-300 duration-1000 min-[400px]:text-4xl md:text-5xl md:leading-[1.15] xl:text-6xl`}
         >
           Sites lentos custam fortunas. Engenharia de performance{" "}
           <br className="hidden md:block" />
@@ -92,7 +92,7 @@ export const CardImage = () => {
           conversão .
         </p>
         <div
-          className={`${isVisible && "translate-y-1 opacity-100 blur-none"} flex translate-y-96 flex-wrap justify-center gap-4 opacity-0 blur-md transition-all delay-300 duration-1000`}
+          className={`${isVisible && "translate-x-1 opacity-100 blur-none"} flex w-full translate-x-full flex-wrap justify-center gap-4 opacity-0 blur-md transition-all delay-200 duration-1000`}
         >
           <ButtonGeral
             text={"Solicitar orçamento"}
