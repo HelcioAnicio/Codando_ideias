@@ -1,8 +1,27 @@
 "use client";
 
+import { LucideIcon } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 
-export const StudioAuthorityCardItem = ({ card, delay }: any) => {
+interface CardData {
+  title: string;
+  icon: LucideIcon;
+  eyebrow: string;
+  stat: string;
+  description: string;
+  example: string;
+  impact: string;
+}
+
+interface CardItemProps {
+  card: CardData;
+  delay: number;
+}
+
+export const StudioAuthorityCardItem: React.FC<CardItemProps> = ({
+  card,
+  delay,
+}) => {
   const [cardsVisible, setCardsVisible] = useState(false);
   const ref = useRef<HTMLLIElement | null>(null);
 
@@ -12,17 +31,16 @@ export const StudioAuthorityCardItem = ({ card, delay }: any) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setCardsVisible(true);
-        }
+        setCardsVisible(entry.isIntersecting);
       },
       {
-        threshold: 0.2,
-        rootMargin: "0px 0px -10% 0px",
+        threshold: 0.1,
       },
     );
 
-    observer.observe(element);
+    if (element) {
+      observer.observe(element);
+    }
 
     return () => observer.unobserve(element);
   }, []);
@@ -38,8 +56,8 @@ export const StudioAuthorityCardItem = ({ card, delay }: any) => {
         className={`${
           cardsVisible
             ? "translate-x-0 opacity-100 blur-none"
-            : "translate-x-full opacity-0 blur-md"
-        } relative rounded-3xl border border-card bg-secondary px-7 py-10 shadow-md transition-all duration-1000`}
+            : "translate-x-10 opacity-0 blur-md"
+        } relative rounded-3xl border border-card bg-secondary px-7 py-10 shadow-md transition-all duration-700`}
       >
         <div className="relative z-10">
           <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-destructive/30 text-destructive/80">

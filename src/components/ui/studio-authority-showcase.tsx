@@ -13,7 +13,6 @@ export const StudioAuthorityShowcase = () => {
     const observerSection = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
-        console.log("IsVisible:", isVisible);
       },
       { threshold: 0.1 },
     );
@@ -69,12 +68,12 @@ export const StudioAuthorityShowcase = () => {
     >
       <article className="max-w-4xl">
         <span
-          className={`mb-6 ${isVisible && "translate-x-0 opacity-100 blur-none"} inline-block -translate-x-full rounded-full border border-red-400/20 bg-red-500/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.25em] text-red-300 opacity-0 blur-md transition-all delay-100 duration-1000`}
+          className={`mb-6 ${isVisible ? "translate-x-0 opacity-100 blur-none" : "-translate-x-full opacity-0 blur-md"} inline-block rounded-full border border-red-400/20 bg-red-500/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.25em] text-red-300 transition-all delay-100 duration-700`}
         >
           Alerta de lucratividade
         </span>
         <h2
-          className={`mb-8 ${isVisible && "translate-x-0 opacity-100 blur-none"} -translate-x-full text-3xl font-extrabold leading-tight opacity-0 blur-md transition-all delay-200 duration-1000 md:text-5xl`}
+          className={`mb-8 ${isVisible ? "translate-x-0 opacity-100 blur-none" : "-translate-x-full opacity-0 blur-md"} text-3xl font-extrabold leading-tight transition-all delay-200 duration-700 md:text-5xl`}
         >
           Você está{" "}
           <span className="text-3xl font-extrabold leading-tight text-destructive md:text-5xl">
@@ -83,7 +82,7 @@ export const StudioAuthorityShowcase = () => {
           todos os meses por causa da sua presença digital?
         </h2>
         <p
-          className={`${isVisible && "translate-x-0 opacity-100 blur-none"} mb-5 -translate-x-full text-xl text-foreground/50 opacity-0 blur-md transition-all delay-300 duration-1000`}
+          className={`${isVisible ? "translate-x-0 opacity-100 blur-none" : "-translate-x-full opacity-0 blur-md"} mb-5 text-xl text-foreground/50 transition-all delay-300 duration-700`}
         >
           A invisibilidade digital não é apenas um detalhe, é um ralo silencioso
           no seu faturamento. Veja o custo real estimado para 2026/2027.
