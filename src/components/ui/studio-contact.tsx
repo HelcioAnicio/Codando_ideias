@@ -1,3 +1,4 @@
+"use client";
 import { Github, Globe, MessageCircle, Phone } from "lucide-react";
 import Image from "next/image";
 import Logo3 from "../../../public/logo3.svg";
@@ -17,18 +18,18 @@ export const StudioContact = () => {
     <section id="contato" className="w-full px-6 lg:px-8">
       <div className="mx-auto grid max-w-5xl gap-16 lg:grid-cols-2">
         <div>
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-sky-200/70">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em]">
             Contato
           </p>
           <h2 className="text-3xl font-bold md:text-5xl">
             Vamos construir algo incrível juntos?
           </h2>
-          <p className="mt-6 max-w-2xl text-xl leading-8 text-slate-300">
+          <p className="mt-6 max-w-2xl text-xl leading-8 text-secondary-foreground/80">
             Preencha o formulário ou fale com a gente pelos canais diretos.
             Respondemos em até 24h.
           </p>
 
-          <div className="mt-10 space-y-5 text-slate-200">
+          <div className="mt-10 space-y-5 text-secondary-foreground/80">
             {/* <div className="flex items-center gap-4">
               <Mail className="h-5 w-5 text-amber-300" />
               <span>contato@codandoideias.com</span>
@@ -47,7 +48,7 @@ export const StudioContact = () => {
                 <a
                   key={social.label}
                   href={social.href}
-                  className="studio-panel inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-slate-100 transition hover:border-popover-foreground hover:text-popover-foreground"
+                  className="studio-panel inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-secondary-foreground/80 transition hover:border-popover-foreground hover:text-popover-foreground"
                   aria-label={social.label}
                 >
                   <Icon className="h-5 w-5" />

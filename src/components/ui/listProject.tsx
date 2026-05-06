@@ -213,13 +213,13 @@ export const ListProjects = () => {
           <div className="absolute inset-0 rounded-tl-3xl bg-[radial-gradient(circle_at_top_left,rgba(250,204,21,0.08),transparent_24%),radial-gradient(circle_at_right,rgba(59,130,246,0.12),transparent_26%)]" />
 
           <div className="relative z-10 mb-10 max-w-3xl">
-            <span className="mb-4 inline-flex rounded-full border border-white/10 bg-accent/5 px-4 py-1 text-xs uppercase tracking-[0.26em] text-accent/70">
+            <span className="mb-4 inline-flex rounded-full border border-secondary-foreground/20 bg-secondary-foreground/5 px-4 py-1 text-xs uppercase tracking-[0.26em] text-secondary-foreground/80">
               Portfólio selecionado
             </span>
             <h2 className="mb-4 font-custom text-3xl font-bold leading-tight md:text-5xl">
               Nossos Projetos de Elite
             </h2>
-            <p className="max-w-2xl text-base leading-8 text-accent/80 md:text-lg">
+            <p className="max-w-2xl text-base leading-8 text-secondary-foreground/80 md:text-lg">
               Portfólio selecionado de soluções digitais de alto impacto, unindo
               robustez técnica e design memorável.
             </p>
@@ -315,7 +315,7 @@ export const ListProjects = () => {
           </div>
 
           <div className="relative z-10 mt-8 flex flex-col items-center justify-between gap-5 md:flex-row">
-            <p className="text-sm text-primary/55">
+            <p className="text-sm text-foreground/55">
               Arraste no celular ou use os controles para navegar pelos
               projetos.
             </p>
@@ -328,7 +328,7 @@ export const ListProjects = () => {
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-primary transition hover:border-popover-foreground/30 hover:text-popover-foreground disabled:cursor-not-allowed disabled:opacity-40"
                 disabled={activePage === 0}
               >
-                <ArrowLeft className="h-4 w-4" />
+                <ArrowLeft className="h-4 w-4 text-foreground" />
               </button>
 
               <div className="flex items-center gap-2">
@@ -354,7 +354,7 @@ export const ListProjects = () => {
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-primary transition hover:border-popover-foreground/30 hover:text-popover-foreground disabled:cursor-not-allowed disabled:opacity-40"
                 disabled={activePage === pages.length - 1}
               >
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 text-foreground" />
               </button>
             </div>
           </div>

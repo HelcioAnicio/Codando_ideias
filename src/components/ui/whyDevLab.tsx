@@ -1,3 +1,4 @@
+"use client";
 import { CardReason } from "./cardReason";
 
 import { BsGraphUpArrow } from "react-icons/bs";

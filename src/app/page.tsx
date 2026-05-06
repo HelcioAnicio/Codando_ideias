@@ -1,4 +1,3 @@
-"use client";
 import { Header } from "@/components/ui/header";
 import { ListProjects } from "@/components/ui/listProject";
 import { CardImage } from "@/components/ui/cardImage";
@@ -14,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="mx-auto flex flex-wrap gap-20 overflow-hidden sm:items-center">
+      <main className="relative mx-auto flex flex-wrap gap-20 overflow-hidden sm:items-center">
         <CardImage />
         <Services />
         <StudioAuthorityShowcase />

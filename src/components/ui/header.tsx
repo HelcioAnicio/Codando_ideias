@@ -30,8 +30,8 @@ export const Header = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <header className="border-none bg-background shadow-none">
-      <Card className="rounded-t-none border-none bg-background px-5 shadow-none">
+    <header className="fixed top-0 z-50 flex w-full justify-center border-none bg-background shadow-none">
+      <Card className="w-full max-w-5xl rounded-t-none border-none bg-background px-5 shadow-none">
         <div className="m-auto flex max-w-5xl items-center justify-between py-4">
           {theme === "light" ? (
             <Image className="w-40 lg:w-52" src={Logo3} alt="Logo" />
@@ -92,9 +92,9 @@ export const Header = () => {
                   <DropdownMenuItem onClick={() => setTheme("dark")}>
                     Dark
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setTheme("system")}>
+                  {/* <DropdownMenuItem onClick={() => setTheme("system")}>
                     System
-                  </DropdownMenuItem>
+                  </DropdownMenuItem> */}
                 </DropdownMenuContent>
               </DropdownMenu>
             </ul>
