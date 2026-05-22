@@ -20,7 +20,7 @@ export const CardImage = () => {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 },
+      { threshold: 0.05 },
     );
 
     const currentElement = elementRef.current;
@@ -103,7 +103,7 @@ export const CardImage = () => {
           <ButtonGeral
             text={"Ver projetos"}
             classes="!bg-secondary !bg-none text-foreground border border-card"
-            link={""}
+            link={"#projects"}
           />
         </div>
       </div>

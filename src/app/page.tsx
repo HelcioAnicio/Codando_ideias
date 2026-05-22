@@ -5,7 +5,7 @@ import { Footer } from "@/components/ui/footer";
 import { WhyDevLab } from "@/components/ui/whyDevLab";
 import { Steps } from "@/components/ui/steps";
 import { Services } from "@/components/ui/services";
-import { Cost } from "@/components/ui/cost";
+// import { Cost } from "@/components/ui/cost";
 import { StudioFaq } from "@/components/ui/studio-faq";
 import { StudioAuthorityShowcase } from "@/components/ui/studio-authority-showcase";
 
@@ -17,7 +17,7 @@ export default function Home() {
         <CardImage />
         <Services />
         <StudioAuthorityShowcase />
-        <Cost />
+        {/* <Cost /> */}
         <Steps />
         <WhyDevLab />
         <ListProjects />

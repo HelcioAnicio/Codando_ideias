@@ -14,7 +14,7 @@ export const StudioAuthorityShowcase = () => {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 },
+      { threshold: 0.05 },
     );
 
     const sectionElement = sectionRef.current;

@@ -1,5 +1,8 @@
+"use client";
 import Image from "next/image";
+import React from "react";
 import { FaDiamond } from "react-icons/fa6";
+import { ButtonGeral } from "./buttonGeral";
 export const Steps = () => {
   return (
     <section className="flex w-full items-center justify-center rounded-md p-1 py-10 min-[400px]:py-20 sm:py-32">
@@ -39,6 +42,11 @@ export const Steps = () => {
           </p>
           <FaDiamond className="absolute -bottom-2 -right-2 w-6 text-popover-foreground" />
         </div>
+        <ButtonGeral
+          text={"Quero entender o processo!"}
+          link="/processos"
+          classes="m-auto"
+        />
       </div>
     </section>
   );

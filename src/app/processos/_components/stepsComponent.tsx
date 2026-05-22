@@ -1,30 +1,31 @@
-const steps = [
-  {
-    number: "01",
-    title: "Briefing",
-    description: "Imersão no negócio, metas, contexto técnico e prioridades.",
-  },
-  {
-    number: "02",
-    title: "Design",
-    description:
-      "Prototipação com foco em clareza, conversão e coerência visual.",
-  },
-  {
-    number: "03",
-    title: "Desenvolvimento",
-    description:
-      "Implementação com tecnologias modernas, performance e código limpo.",
-  },
-  {
-    number: "04",
-    title: "Entrega",
-    description:
-      "Go-live, documentação e suporte para manter o produto evoluindo.",
-  },
-];
-
-export const StudioProcess = () => {
+"use client";
+import React from "react";
+export const StepsComponent = () => {
+  const steps = [
+    {
+      number: "01",
+      title: "Briefing",
+      description: "Imersão no negócio, metas, contexto técnico e prioridades.",
+    },
+    {
+      number: "02",
+      title: "Design",
+      description:
+        "Prototipação com foco em clareza, conversão e coerência visual.",
+    },
+    {
+      number: "03",
+      title: "Desenvolvimento",
+      description:
+        "Implementação com tecnologias modernas, performance e código limpo.",
+    },
+    {
+      number: "04",
+      title: "Entrega",
+      description:
+        "Go-live, documentação e suporte para manter o produto evoluindo.",
+    },
+  ];
   return (
     <section className="bg-slate-900 px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
