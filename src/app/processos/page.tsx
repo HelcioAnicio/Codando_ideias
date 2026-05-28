@@ -5,7 +5,7 @@ export default function StepPage() {
   return (
     <>
       <Header />
-      <StepsComponent />;
+      <StepsComponent />
     </>
   );
 }

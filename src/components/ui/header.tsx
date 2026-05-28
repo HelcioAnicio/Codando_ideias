@@ -68,7 +68,7 @@ export const Header = () => {
                   href="/#whyCodandoIdeias"
                   className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
                 >
-                  Nosso trabalho
+                  Pilares
                 </Link>
               </li>
               <li className="relative">
@@ -76,7 +76,7 @@ export const Header = () => {
                   href="/processos"
                   className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
                 >
-                  Nossos Serviços
+                  Processo criativo
                 </Link>
               </li>
               <li className="relative">
@@ -177,12 +177,12 @@ export const Header = () => {
                       </li>
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>
-                          <Link href="/processos">Nossos Serviços</Link>
+                          <Link href="/processos">Processo criativo</Link>
                         </SheetClose>{" "}
                       </li>
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>
-                          <Link href="/#whyCodandoIdeias">Nosso trabalho</Link>
+                          <Link href="/#whyCodandoIdeias">Pilares</Link>
                         </SheetClose>
                       </li>
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
