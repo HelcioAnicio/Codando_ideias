@@ -8,7 +8,6 @@ import { Services } from "@/components/ui/services";
 // import { Cost } from "@/components/ui/cost";
 import { StudioFaq } from "@/components/ui/studio-faq";
 import { StudioAuthorityShowcase } from "@/components/ui/studio-authority-showcase";
-import { Analytics } from "@vercel/analytics/next";
 
 
 export default function Home() {
@@ -26,7 +25,6 @@ export default function Home() {
         <StudioFaq />
       </main>
       <Footer />
-      <Analytics />
     </>
   );
 }
