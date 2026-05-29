@@ -1,8 +1,5 @@
 import { FaCheckCircle } from "react-icons/fa";
 import { IoMdCloseCircle } from "react-icons/io";
-import Image from "next/image";
-import webSiteRival from "../../../public/webSiteRival.webp";
-import webSiteMine from "../../../public/webSiteMine.webp";
 import { ButtonGeral } from "./buttonGeral";
 
 export const Cost = () => {
@@ -20,13 +17,6 @@ export const Cost = () => {
                   15
                 </div>
               </div>
-              <Image
-                src={webSiteRival}
-                width={400}
-                height={400}
-                alt="Picture of the author"
-                className="w-full rounded-md"
-              />
               <div className="space-y-4">
                 <div className="text-error/80 flex items-center gap-3">
                   <span className="flex items-center gap-2 text-sm">
@@ -58,13 +48,6 @@ export const Cost = () => {
                   97
                 </div>
               </div>
-              <Image
-                src={webSiteMine}
-                width={400}
-                height={400}
-                alt="Picture of the author"
-                className="w-full"
-              />
               <div className="space-y-4">
                 <div className="text-primary-fixed flex items-center gap-3">
                   <span className="flex items-center gap-2 text-sm">

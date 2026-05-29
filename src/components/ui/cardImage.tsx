@@ -20,7 +20,7 @@ export const CardImage = () => {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 },
+      { threshold: 0.05 },
     );
 
     const currentElement = elementRef.current;
@@ -71,16 +71,16 @@ export const CardImage = () => {
 
       <div className="relative z-10 flex h-full flex-col items-center justify-center gap-8 overflow-x-hidden px-4 md:gap-16">
         <h1
-          className={` ${isVisible ? "translate-y-0 opacity-100 blur-none" : "-translate-y-full opacity-0 blur-md"} max-w-5xl text-3xl font-bold text-foreground transition-all delay-300 duration-1000 min-[400px]:text-4xl md:text-5xl md:leading-[1.15] xl:text-6xl`}
+          className={` ${isVisible ? "translate-y-0 opacity-100 blur-none" : "-translate-y-full opacity-0 blur-md"} max-w-5xl text-3xl font-bold text-foreground transition-all delay-150 duration-500 min-[400px]:text-4xl md:text-5xl md:leading-[1.15] xl:text-6xl`}
         >
           Sites lentos custam fortunas. Engenharia de performance{" "}
           <br className="hidden md:block" />
           gera faturamento.
         </h1>
         <p
-          className={`${isVisible && "opacity-100 blur-none"} max-w-2xl text-base font-light leading-relaxed text-foreground opacity-0 blur-md transition-all delay-300 duration-1000 min-[400px]:text-lg sm:text-xl`}
+          className={`${isVisible && "opacity-100 blur-none"} max-w-2xl text-base font-light leading-relaxed text-foreground opacity-0 blur-md transition-all delay-150 duration-500 min-[400px]:text-lg sm:text-xl`}
         >
-          Desenvolvemos ecossistemas digitais com foco em{" "}
+          Desenvolvemos sites com foco em{" "}
           <span className="font-semibold text-popover-foreground min-[400px]:text-lg sm:text-xl">
             arquitetura limpa
           </span>{" "}
@@ -92,10 +92,10 @@ export const CardImage = () => {
           conversão .
         </p>
         <div
-          className={`${isVisible ? "translate-y-0 opacity-100 blur-none" : "translate-y-full opacity-0 blur-md"} flex w-full flex-wrap justify-center gap-4 transition-all delay-200 duration-1000`}
+          className={`${isVisible ? "translate-y-0 opacity-100 blur-none" : "translate-y-full opacity-0 blur-md"} flex w-full flex-wrap justify-center gap-4 transition-all delay-150 duration-500`}
         >
           <ButtonGeral
-            text={"Solicitar orçamento"}
+            text={"Fale conosco"}
             link={
               "https://wa.me/5531991973835?text=Olá+gostaria+sobre+o+desenvolvimento+de+sites/sistemas"
             }
@@ -103,7 +103,7 @@ export const CardImage = () => {
           <ButtonGeral
             text={"Ver projetos"}
             classes="!bg-secondary !bg-none text-foreground border border-card"
-            link={""}
+            link={"#projects"}
           />
         </div>
       </div>

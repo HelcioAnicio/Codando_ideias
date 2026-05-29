@@ -9,7 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Moon, Sun } from "lucide-react";
+import { Github, Globe, MessageCircle, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,12 +29,18 @@ import Image from "next/image";
 export const Header = () => {
   const { theme, setTheme } = useTheme();
 
+  const socials = [
+    { href: "#", label: "WhatsApp", icon: MessageCircle },
+    { href: "#", label: "GitHub", icon: Github },
+    { href: "#", label: "Website", icon: Globe },
+  ];
+
   return (
     <header className="fixed top-0 z-50 flex w-full justify-center border-none bg-background shadow-none">
       <Card className="w-full max-w-5xl rounded-t-none border-none bg-background px-5 shadow-none">
         <div className="m-auto flex max-w-5xl items-center justify-between py-4">
           {theme === "light" ? (
-            <Image className="w-40 lg:w-52" src={Logo3} alt="Logo" />
+            <Image className="w-52 lg:w-60" src={Logo3} alt="Logo" />
           ) : (
             <Image className="w-40 lg:w-52" src={Logo2} alt="Logo" />
           )}
@@ -43,7 +49,7 @@ export const Header = () => {
             <ul className="flex items-center gap-7">
               <li className="relative">
                 <Link
-                  href="#home"
+                  href="/#home"
                   className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
                 >
                   Home
@@ -51,23 +57,31 @@ export const Header = () => {
               </li>
               <li className="relative">
                 <Link
-                  href="#projects"
+                  href="/#projects"
                   className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
                 >
                   Projetos
                 </Link>
               </li>
-              <li className="relative">
+              {/* <li className="relative">
                 <Link
-                  href="#whyCodandoIdeias"
+                  href="/#whyCodandoIdeias"
                   className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
                 >
-                  Nosso trabalho
+                  Pilares
+                </Link>
+              </li> */}
+              <li className="relative">
+                <Link
+                  href="/processos"
+                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
+                >
+                  Processo criativo
                 </Link>
               </li>
               <li className="relative">
                 <Link
-                  href="#footer"
+                  href="/#footer"
                   className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
                 >
                   Fale comigo
@@ -119,9 +133,9 @@ export const Header = () => {
                 <DropdownMenuItem onClick={() => setTheme("dark")}>
                   Dark
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")}>
+                {/* <DropdownMenuItem onClick={() => setTheme("system")}>
                   System
-                </DropdownMenuItem>
+                </DropdownMenuItem> */}
               </DropdownMenuContent>
             </DropdownMenu>
             <Sheet>
@@ -137,7 +151,7 @@ export const Header = () => {
               </SheetTrigger>
               <SheetContent
                 side={"right"}
-                className="flex flex-col gap-10 border-none pt-16"
+                className="flex w-full max-w-sm touch-none flex-col gap-10 overflow-y-hidden border-none pt-16"
               >
                 <SheetHeader>
                   <SheetTitle>
@@ -151,26 +165,49 @@ export const Header = () => {
                 <SheetDescription>
                   <nav>
                     <ul className="flex flex-col gap-6">
-                      <SheetClose asChild>
-                        <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                          <Link href="#home">Home</Link>
-                        </li>
-                      </SheetClose>
-                      <SheetClose asChild>
-                        <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                          <Link href="#projects">Projetos</Link>
-                        </li>
-                      </SheetClose>
-                      <SheetClose asChild>
-                        <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                          <Link href="#whyCodandoIdeias">Nosso trabalho</Link>
-                        </li>
-                      </SheetClose>
-                      <SheetClose asChild>
-                        <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                          <Link href="#footer">Fale comigo</Link>
-                        </li>
-                      </SheetClose>
+                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
+                        <SheetClose asChild>
+                          <Link href="/#home">Home</Link>
+                        </SheetClose>
+                      </li>
+                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
+                        <SheetClose asChild>
+                          <Link href="/#projects">Projetos</Link>
+                        </SheetClose>{" "}
+                      </li>
+                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
+                        <SheetClose asChild>
+                          <Link href="/processos">Processo criativo</Link>
+                        </SheetClose>{" "}
+                      </li>
+                      {/* <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
+                        <SheetClose asChild>
+                          <Link href="/#whyCodandoIdeias">Pilares</Link>
+                        </SheetClose>
+                      </li> */}
+                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
+                        <SheetClose asChild>
+                          <Link href="/#footer">Fale comigo</Link>
+                        </SheetClose>
+                      </li>
+                      <li>
+                        <div className="mt-10 flex gap-4">
+                          {socials.map((social) => {
+                            const Icon = social.icon;
+
+                            return (
+                              <a
+                                key={social.label}
+                                href={social.href}
+                                className="studio-panel inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-secondary-foreground/80 transition hover:border-popover-foreground hover:text-popover-foreground"
+                                aria-label={social.label}
+                              >
+                                <Icon className="h-5 w-5" />
+                              </a>
+                            );
+                          })}
+                        </div>
+                      </li>
                     </ul>
                   </nav>
                 </SheetDescription>
