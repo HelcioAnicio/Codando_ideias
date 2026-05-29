@@ -217,7 +217,7 @@ export const ListProjects = () => {
               Portfólio selecionado
             </span>
             <h2 className="mb-4 font-custom text-3xl font-bold leading-tight md:text-5xl">
-              Nossos Projetos de Elite
+              Nossos projetos 
             </h2>
             <p className="max-w-2xl text-base leading-8 text-secondary-foreground/80 md:text-lg">
               Portfólio selecionado de soluções digitais de alto impacto, unindo

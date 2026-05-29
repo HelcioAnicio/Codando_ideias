@@ -36,11 +36,11 @@ export const Steps = () => {
           </p>
           <FaDiamond className="absolute -bottom-2 -right-2 w-6 text-popover-foreground" />
         </div>
-        <Link href="/processos" className="block self-end">
-          <button className="group relative flex h-14 w-max items-center justify-start overflow-hidden rounded-full border-none bg-primary pl-4 shadow-lg transition-all duration-500 ease-out hover:w-max">
+        <Link href="/processos" className="block mt-10">
+          <button className="group relative flex h-10 w-max items-center justify-start overflow-hidden rounded-full border-none bg-primary pl-4 shadow-lg transition-all duration-500 ease-out hover:w-max">
             <div className="z-10 flex h-6 w-6 shrink-0 items-center justify-center">
               <FaArrowRight
-                size={20}
+                size={18}
                 className="transition-transform duration-500 ease-out group-hover:translate-x-1"
               />
             </div>
