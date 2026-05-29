@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import Metadata from "next";
 import { Geist_Mono, Limelight, Libre_Franklin } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
