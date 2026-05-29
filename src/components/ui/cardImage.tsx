@@ -95,9 +95,9 @@ export const CardImage = () => {
           className={`${isVisible ? "translate-y-0 opacity-100 blur-none" : "translate-y-full opacity-0 blur-md"} flex w-full flex-wrap justify-center gap-4 transition-all delay-150 duration-500`}
         >
           <ButtonGeral
-            text={"Fale conosco"}
+            text={"Quero um site que converte"}
             link={
-              "https://wa.me/5531991973835?text=Olá+gostaria+sobre+o+desenvolvimento+de+sites/sistemas"
+              "https://wa.me/5531991973835?text=Olá+,+quero+um+site+que+converte!"
             }
           />
           <ButtonGeral

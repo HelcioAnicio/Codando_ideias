@@ -82,7 +82,7 @@ export const StudioAuthorityShowcase = () => {
           todos os meses por causa da sua presença digital?
         </h2>
         <p
-          className={`${isVisible ? "translate-x-0 opacity-100 blur-none" : "-translate-x-full opacity-0 blur-md"} mb-5 text-xl text-foreground/50 transition-all delay-300 duration-700`}
+          className={`${isVisible ? "translate-x-0 opacity-100 blur-none" : "-translate-x-full opacity-0 blur-md"} mb-5 text-xl text-foreground/50 transition-all delay-300 duration-500`}
         >
           A invisibilidade digital não é apenas um detalhe, é um ralo silencioso
           no seu faturamento. Veja o custo real estimado para 2026/2027.
