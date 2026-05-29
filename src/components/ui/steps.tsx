@@ -1,22 +1,16 @@
 "use client";
-import Image from "next/image";
 import React from "react";
-import { FaDiamond } from "react-icons/fa6";
-import { ButtonGeral } from "./buttonGeral";
+import { FaArrowRight, FaDiamond } from "react-icons/fa6";
+import Link from "next/link";
+// import { Button } from "./button";
 export const Steps = () => {
   return (
     <section className="flex w-full items-center justify-center rounded-md p-1 py-10 min-[400px]:py-20 sm:py-32">
       <div className="relative flex w-full max-w-5xl flex-col gap-5 p-3 py-7 sm:gap-8">
-        <h4 className="w-1/2 text-3xl font-bold sm:text-4xl">
+        <h4 className="w-full text-3xl font-bold sm:w-3/4 sm:text-4xl">
           Contruímos juntos, com clareza e propósito
         </h4>
-        <Image
-          src="/bgSteps.png"
-          alt="People talking about informations and datas"
-          width={400}
-          height={400}
-          className="absolute right-0 top-0 z-0 w-40 sm:right-16 sm:w-56"
-        />
+
         <p className="relative z-10 max-w-xs text-sm font-extralight text-secondary-foreground/80 md:max-w-xl md:text-base">
           Planejamos o caminho ideal juntos, criamos um projeto personalizado e
           eficiente, garantindo que tudo funcione perfeitamente no final.
@@ -42,11 +36,22 @@ export const Steps = () => {
           </p>
           <FaDiamond className="absolute -bottom-2 -right-2 w-6 text-popover-foreground" />
         </div>
-        <ButtonGeral
-          text={"Quero entender o processo!"}
-          link="/processos"
-          classes="m-auto"
-        />
+        <Link href="/processos" className="block self-end">
+          <button className="group relative flex h-14 w-max items-center justify-start overflow-hidden rounded-full border-none bg-primary pl-4 shadow-lg transition-all duration-500 ease-out hover:w-max">
+            <div className="z-10 flex h-6 w-6 shrink-0 items-center justify-center">
+              <FaArrowRight
+                size={20}
+                className="transition-transform duration-500 ease-out group-hover:translate-x-1"
+              />
+            </div>
+
+            <span className="mx-4 w-max whitespace-nowrap text-sm font-bold uppercase tracking-widest text-secondary-foreground transition-all duration-500 ease-out group-hover:translate-x-0 group-hover:opacity-100">
+              Quero entender o processo
+            </span>
+
+            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-white/[0.03] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          </button>
+        </Link>
       </div>
     </section>
   );

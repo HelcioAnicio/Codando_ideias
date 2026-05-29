@@ -40,7 +40,7 @@ export const Header = () => {
       <Card className="w-full max-w-5xl rounded-t-none border-none bg-background px-5 shadow-none">
         <div className="m-auto flex max-w-5xl items-center justify-between py-4">
           {theme === "light" ? (
-            <Image className="w-40 lg:w-52" src={Logo3} alt="Logo" />
+            <Image className="w-52 lg:w-60" src={Logo3} alt="Logo" />
           ) : (
             <Image className="w-40 lg:w-52" src={Logo2} alt="Logo" />
           )}
@@ -63,14 +63,14 @@ export const Header = () => {
                   Projetos
                 </Link>
               </li>
-              <li className="relative">
+              {/* <li className="relative">
                 <Link
                   href="/#whyCodandoIdeias"
                   className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
                 >
                   Pilares
                 </Link>
-              </li>
+              </li> */}
               <li className="relative">
                 <Link
                   href="/processos"
@@ -133,9 +133,9 @@ export const Header = () => {
                 <DropdownMenuItem onClick={() => setTheme("dark")}>
                   Dark
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")}>
+                {/* <DropdownMenuItem onClick={() => setTheme("system")}>
                   System
-                </DropdownMenuItem>
+                </DropdownMenuItem> */}
               </DropdownMenuContent>
             </DropdownMenu>
             <Sheet>
@@ -180,11 +180,11 @@ export const Header = () => {
                           <Link href="/processos">Processo criativo</Link>
                         </SheetClose>{" "}
                       </li>
-                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
+                      {/* <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>
                           <Link href="/#whyCodandoIdeias">Pilares</Link>
                         </SheetClose>
-                      </li>
+                      </li> */}
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>
                           <Link href="/#footer">Fale comigo</Link>

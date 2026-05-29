@@ -26,8 +26,7 @@ export const Footer = () => {
               Vamos construir algo incrível juntos?
             </h2>
             <p className="mt-6 max-w-2xl text-xl leading-8 text-secondary-foreground/80">
-              Preencha o formulário ou fale com a gente pelos canais diretos.
-              Respondemos em até 24h.
+              Fale com a gente pelos canais diretos. Respondemos em até 24h.
             </p>
 
             <div className="mt-10 space-y-5 text-secondary-foreground/80">
@@ -59,7 +58,7 @@ export const Footer = () => {
             </div>
             <div className="mt-10 flex items-center gap-2">
               {theme === "light" ? (
-                <Image className="w-40 lg:w-52" src={Logo3} alt="Logo" />
+                <Image className="w-52 lg:w-60" src={Logo3} alt="Logo" />
               ) : (
                 <Image className="w-40 lg:w-52" src={Logo2} alt="Logo" />
               )}

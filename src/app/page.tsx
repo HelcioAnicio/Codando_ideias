@@ -2,7 +2,7 @@ import { Header } from "@/components/ui/header";
 import { ListProjects } from "@/components/ui/listProject";
 import { CardImage } from "@/components/ui/cardImage";
 import { Footer } from "@/components/ui/footer";
-import { WhyDevLab } from "@/components/ui/whyDevLab";
+// import { WhyDevLab } from "@/components/ui/whyDevLab";
 import { Steps } from "@/components/ui/steps";
 import { Services } from "@/components/ui/services";
 // import { Cost } from "@/components/ui/cost";
@@ -186,7 +186,7 @@ export default function Home() {
         </div> */}
         {/* <Cost /> */}
         <Steps />
-        <WhyDevLab />
+        {/* <WhyDevLab /> */}
         <ListProjects />
         <StudioFaq />
       </main>
