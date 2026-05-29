@@ -13,6 +13,7 @@ import {
   Sprout,
   Tractor,
 } from "lucide-react";
+import { GiDelicatePerfume } from "react-icons/gi";
 
 const projects = [
   {
@@ -21,7 +22,7 @@ const projects = [
       "Sistema SaaS de alta complexidade para gestão agropecuária, com controle total de ativos, fluxo financeiro e ciclo reprodutivo.",
     href: "https://agro-finance-real.vercel.app/dashboard",
     imageSrc: "/agroFinance.png",
-    icon: Tractor,
+    icon: <Tractor className="h-5 w-5" />,
     preview: {
       label: "Dashboard",
       title: "Gestão do rebanho",
@@ -40,7 +41,7 @@ const projects = [
       "Portal estratégico para revalidação de diplomas estrangeiros, com UX focada em clareza processual e conversão de leads qualificados.",
     href: "https://www.advogadolessa-diplomas.com.br/",
     imageSrc: "/lessaDiplomas.png",
-    icon: Scale,
+    icon: <Scale className="h-5 w-5" />,
     preview: {
       label: "Landing Page",
       title: "Revalidação no Brasil",
@@ -54,12 +55,31 @@ const projects = [
     },
   },
   {
+    name: "Mimos da Poli",
+    description:
+      "Landing page institucional de alta performance com um catálogo por segmentos e direcionamento inteligente via WhatsApp.",
+    href: "https://mimos-poli.vercel.app/",
+    imageSrc: "/mimosDaPoli.png",
+    icon: <GiDelicatePerfume className="h-5 w-5" />,
+    preview: {
+      label: "Landing Page",
+      title: "Mimos para todos",
+    },
+    palette: {
+      surface: "from-[#edf6ea] via-[#e5f4e8] to-[#F3F3F3]",
+      badge: "bg-[#C15B75] text-foreground",
+      iconBox: "border-[#D12061]/35 bg-white/40 text-[#D12061]",
+      previewTitle: "text-slate-900/80",
+      previewDots: "bg-slate-500/35",
+    },
+  },
+  {
     name: "UniPromotora",
     description:
       "Landing page institucional de alta performance com integração direta a CRM e automação de atendimento via WhatsApp.",
     href: "https://unipromotora-helcioanicios-projects.vercel.app/",
     imageSrc: "/uniPromotora.png",
-    icon: Megaphone,
+    icon: <Megaphone className="h-5 w-5" />,
     preview: {
       label: "Crédito",
       title: "Crédito responsável",
@@ -78,7 +98,7 @@ const projects = [
       "Plataforma de e-commerce moderna com checkout seguro via Stripe e autenticação social, focada em escala e conversão.",
     href: "https://ecommerce-fsw-weld.vercel.app/",
     imageSrc: "/eccomerce.png",
-    icon: ShoppingBag,
+    icon: <ShoppingBag className="h-5 w-5" />,
     preview: {
       label: "Store",
       title: "Ofertas imperdíveis",
@@ -97,13 +117,13 @@ const projects = [
       "Presença digital premium para saúde, com foco em autoridade clínica, leveza visual e captação de pacientes.",
     href: "https://monguilho-dental.vercel.app/",
     imageSrc: "/monguilo.png",
-    icon: BriefcaseMedical,
+    icon: <BriefcaseMedical className="h-5 w-5" />,
     preview: {
       label: "Saúde",
       title: "Tratamento discreto",
     },
     palette: {
-      surface: "from-[#bbf0e6] via-[#b7efe2] to-[#c7f5ea]",
+      surface: "from-[#c7f5ea] via-[#F7EBEE] to-[#F7EBEE]",
       badge: "bg-[#7ee2d4] text-[#0c5046]",
       iconBox: "border-[#5be5d2]/35 bg-white/40 text-[#08b8a5]",
       previewTitle: "text-slate-900/70",
@@ -116,7 +136,7 @@ const projects = [
       "Plataforma de autoridade para nutricionista, voltada para converter visitantes em pacientes com design acolhedor e profissional.",
     href: "https://karen-martins-nutricionista.vercel.app/",
     imageSrc: "/karenMartins.png",
-    icon: Sprout,
+    icon: <Sprout className="h-5 w-5" />,
     preview: {
       label: "Nutrição",
       title: "Gestação segura",
@@ -233,7 +253,6 @@ export const ListProjects = () => {
               <div key={pageIndex} className="min-w-full snap-start">
                 <div className="grid gap-6 sm:grid-cols-2">
                   {page.map((project) => {
-                    const Icon = project.icon;
 
                     return (
                       <article key={project.name} className="h-full">
@@ -250,16 +269,14 @@ export const ListProjects = () => {
                               <div
                                 className={`flex h-10 w-10 items-center justify-center rounded-2xl border ${project.palette.iconBox}`}
                               >
-                                <Icon className="h-5 w-5" />
+                                {project.icon}
                               </div>
                             </div>
 
                             <div className="overflow-hidden rounded-[1.2rem] bg-black/10">
                               <div className="flex items-center justify-between px-4 pb-3 pt-4">
                                 <div className="flex items-center gap-3">
-                                  <Icon
-                                    className={`h-5 w-5 ${project.palette.previewTitle}`}
-                                  />
+                                  {project.icon}
                                   <p
                                     className={`text-lg font-bold ${project.palette.previewTitle}`}
                                   >
