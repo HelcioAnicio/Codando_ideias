@@ -1,7 +1,10 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Geist_Mono, Limelight, Libre_Franklin } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import { Suspense } from "react";
+
 
 const libreFranklin = Libre_Franklin({
   variable: "--font-libre-franklin",
@@ -43,6 +46,9 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>{" "}
+        <Suspense fallback={null}>
+          <Analytics />
+        </Suspense>
       </body>
     </html>
   );
