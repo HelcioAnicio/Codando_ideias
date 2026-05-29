@@ -9,7 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Github, Globe, MessageCircle, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,11 +29,7 @@ import Image from "next/image";
 export const Header = () => {
   const { theme, setTheme } = useTheme();
 
-  const socials = [
-    { href: "#", label: "WhatsApp", icon: MessageCircle },
-    { href: "#", label: "GitHub", icon: Github },
-    { href: "#", label: "Website", icon: Globe },
-  ];
+
 
   return (
     <header className="fixed top-0 z-50 flex w-full justify-center border-none bg-background shadow-none">
@@ -189,24 +185,6 @@ export const Header = () => {
                         <SheetClose asChild>
                           <Link href="/#footer">Fale comigo</Link>
                         </SheetClose>
-                      </li>
-                      <li>
-                        <div className="mt-10 flex gap-4">
-                          {socials.map((social) => {
-                            const Icon = social.icon;
-
-                            return (
-                              <a
-                                key={social.label}
-                                href={social.href}
-                                className="studio-panel inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-secondary-foreground/80 transition hover:border-popover-foreground hover:text-popover-foreground"
-                                aria-label={social.label}
-                              >
-                                <Icon className="h-5 w-5" />
-                              </a>
-                            );
-                          })}
-                        </div>
                       </li>
                     </ul>
                   </nav>

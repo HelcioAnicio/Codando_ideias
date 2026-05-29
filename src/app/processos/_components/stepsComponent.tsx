@@ -20,7 +20,7 @@ import { TbApi } from "react-icons/tb";
 
 export const StepsComponent = () => {
   return (
-    <div className="min-h-screen overflow-hidden bg-[#0b0f19] font-sans text-white">
+    <div className="min-h-screen overflow-hidden bg-background font-sans text-foreground">
       <section className="relative mx-auto max-w-[1200px] px-6 md:px-16">
         <div className="absolute right-0 top-0 -z-10 h-[400px] w-[400px] rounded-full bg-amber-500/10 blur-[120px]"></div>
         <div className="absolute left-10 top-20 -z-10 h-[300px] w-[300px] rounded-full bg-cyan-500/5 blur-[100px]"></div>
@@ -49,15 +49,15 @@ export const StepsComponent = () => {
         </div>
       </section>
 
-      <section className="relative mx-auto max-w-[1200px] px-6 pb-24 md:px-16">
+      <ul className="relative mx-auto max-w-[1200px] px-6 pb-24 md:px-16">
         <div className="absolute bottom-0 left-1/2 top-0 hidden w-[2px] -translate-x-1/2 bg-gradient-to-b from-amber-500/30 via-cyan-500/30 to-transparent md:block"></div>
 
-        <div className="relative mb-24 flex flex-col items-center justify-between md:mb-36 md:flex-row">
+        <li className="relative mb-24 flex flex-col items-center justify-between md:mb-36 md:flex-row">
           <div className="mb-6 w-full text-left md:mb-0 md:w-[45%] md:pr-12 md:text-right">
-            <h2 className="mb-4 text-2xl font-bold tracking-wide text-white md:text-3xl">
+            <h2 className="mb-4 text-2xl font-bold tracking-wide text-foreground md:text-3xl">
               Briefing &amp; Análise
             </h2>
-            <p className="text-sm font-light leading-relaxed text-slate-400 md:text-base">
+            <p className="text-sm font-light leading-relaxed text-secondary-foreground/80 md:text-base">
               Dissecamos seus objetivos de negócio, restrições técnicas e
               posição de mercado. Esta fase entrega um blueprint abrangente,
               garantindo que cada linha de código sirva a um propósito
@@ -71,11 +71,11 @@ export const StepsComponent = () => {
           </div>
 
           <div className="w-full md:w-[45%] md:pl-12">
-            <div className="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-[#111622]/60 p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl transition-all duration-300 hover:border-amber-500/30">
+            <div className="group relative overflow-hidden rounded-xl border border-foreground/[0.06] bg-secondary/80 p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl transition-all duration-300 hover:border-popover-foreground/30">
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500/[0.03] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 
               <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.08] bg-[#171e2e] text-amber-400 shadow-inner">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.08] bg-secondary text-amber-400 shadow-inner">
                   <MdOutlineArchitecture className="text-amber-400" size={32} />
                   {/* </span> */}
                 </div>
@@ -84,7 +84,7 @@ export const StepsComponent = () => {
                 </h3>
               </div>
 
-              <ul className="space-y-4 text-sm font-light text-slate-300">
+              <ul className="space-y-4 text-sm font-light text-secondary-foreground/80">
                 <li className="flex items-center gap-3">
                   <FaCheckCircle
                     className="shrink-0 text-amber-400/90"
@@ -109,14 +109,14 @@ export const StepsComponent = () => {
               </ul>
             </div>
           </div>
-        </div>
+        </li>
 
-        <div className="relative mb-24 flex flex-col items-center justify-between md:mb-36 md:flex-row-reverse">
+        <li className="relative mb-24 flex flex-col items-center justify-between md:mb-36 md:flex-row-reverse">
           <div className="mb-6 w-full text-left md:mb-0 md:w-[45%] md:pl-12">
-            <h2 className="mb-4 text-2xl font-bold tracking-wide text-white md:text-3xl">
+            <h2 className="mb-4 text-2xl font-bold tracking-wide text-foreground md:text-3xl">
               Engenharia de UX/UI
             </h2>
-            <p className="text-sm font-light leading-relaxed text-slate-400 md:text-base">
+            <p className="text-sm font-light leading-relaxed text-secondary-foreground/80 md:text-base">
               O design é tratado como uma disciplina técnica. Criamos interfaces
               computacionalmente eficientes, intuitivamente navegáveis e
               visualmente imponentes, utilizando sistemas de design robustos.
@@ -129,11 +129,11 @@ export const StepsComponent = () => {
           </div>
 
           <div className="w-full md:w-[45%] md:pr-12">
-            <div className="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-[#111622]/60 p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/30">
+            <div className="group relative overflow-hidden rounded-xl border border-foreground/[0.06] bg-secondary/60 p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/30">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/[0.03] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 
               <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.08] bg-[#171e2e] text-cyan-400 shadow-inner">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.08] bg-secondary text-cyan-400 shadow-inner">
                   <MdOutlineDesignServices size={32} />
                 </div>
                 <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
@@ -141,7 +141,7 @@ export const StepsComponent = () => {
                 </h3>
               </div>
 
-              <ul className="space-y-4 text-sm font-light text-slate-300">
+              <ul className="space-y-4 text-sm font-light text-secondary-foreground/80">
                 <li className="flex items-center gap-3">
                   <FaArrowRight
                     className="shrink-0 text-cyan-400/90"
@@ -166,14 +166,14 @@ export const StepsComponent = () => {
               </ul>
             </div>
           </div>
-        </div>
+        </li>
 
-        <div className="relative mb-24 flex flex-col items-center justify-between md:mb-36 md:flex-row">
+        <li className="relative mb-24 flex flex-col items-center justify-between md:mb-36 md:flex-row">
           <div className="mb-6 w-full text-left md:mb-0 md:w-[45%] md:pr-12 md:text-right">
-            <h2 className="mb-4 text-2xl font-bold tracking-wide text-white md:text-3xl">
+            <h2 className="mb-4 text-2xl font-bold tracking-wide text-foreground md:text-3xl">
               Desenvolvimento Ágil
             </h2>
-            <p className="text-sm font-light leading-relaxed text-slate-400 md:text-base">
+            <p className="text-sm font-light leading-relaxed text-secondary-foreground/80 md:text-base">
               O código é escrito para escala, segurança e performance.
               Utilizamos sprints de duas semanas, integração contínua e revisões
               rigorosas por pares para manter uma qualidade de código
@@ -187,11 +187,11 @@ export const StepsComponent = () => {
           </div>
 
           <div className="w-full md:w-[45%] md:pl-12">
-            <div className="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-[#111622]/60 p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl transition-all duration-300 hover:border-amber-500/30">
+            <div className="group relative overflow-hidden rounded-xl border border-foreground/[0.06] bg-secondary/60 p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl transition-all duration-300 hover:border-amber-500/30">
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500/[0.03] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 
               <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.08] bg-[#171e2e] text-amber-400 shadow-inner">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.08] bg-secondary text-amber-400 shadow-inner">
                   <MdOutlineTerminal className="material-symbols-outlined text-[24px]" />
                 </div>
                 <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-amber-400">
@@ -199,7 +199,7 @@ export const StepsComponent = () => {
                 </h3>
               </div>
 
-              <ul className="space-y-4 text-sm font-light text-slate-300">
+              <ul className="space-y-4 text-sm font-light text-secondary-foreground/80">
                 <li className="flex items-center gap-3">
                   <MdCode className="material-symbols-outlined shrink-0 text-[20px] text-amber-400/90" />
                   Implementação Front-End
@@ -215,14 +215,14 @@ export const StepsComponent = () => {
               </ul>
             </div>
           </div>
-        </div>
+        </li>
 
-        <div className="relative flex flex-col items-center justify-between md:flex-row-reverse">
+        <li className="relative flex flex-col items-center justify-between md:flex-row-reverse">
           <div className="mb-6 w-full text-left md:mb-0 md:w-[45%] md:pl-12">
-            <h2 className="mb-4 text-2xl font-bold tracking-wide text-white md:text-3xl">
+            <h2 className="mb-4 text-2xl font-bold tracking-wide text-foreground md:text-3xl">
               Lançamento &amp; Escala
             </h2>
-            <p className="text-sm font-light leading-relaxed text-slate-400 md:text-base">
+            <p className="text-sm font-light leading-relaxed text-secondary-foreground/80 md:text-base">
               O deploy é apenas o começo. Gerenciamos uma sequência de
               lançamento impecável, seguida de monitoramento intensivo e ajuste
               de performance para garantir a resiliência da infraestrutura sob
@@ -236,11 +236,11 @@ export const StepsComponent = () => {
           </div>
 
           <div className="w-full md:w-[45%] md:pr-12">
-            <div className="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-[#111622]/60 p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/30">
+            <div className="group relative overflow-hidden rounded-xl border border-foreground/[0.06] bg-secondary/60 p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/30">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/[0.03] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 
               <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.08] bg-[#171e2e] text-cyan-400 shadow-inner">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.08] bg-secondary text-cyan-400 shadow-inner">
                   <MdRocketLaunch className="material-symbols-outlined text-[24px]" />
                 </div>
                 <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
@@ -248,7 +248,7 @@ export const StepsComponent = () => {
                 </h3>
               </div>
 
-              <ul className="space-y-4 text-sm font-light text-slate-300">
+              <ul className="space-y-4 text-sm font-light text-secondary-foreground/80">
                 <li className="flex items-center gap-3">
                   <MdCloudUpload className="material-symbols-outlined shrink-0 text-[20px] text-cyan-400/90" />
                   Execução de Pipeline CI/CD
@@ -264,13 +264,13 @@ export const StepsComponent = () => {
               </ul>
             </div>
           </div>
-        </div>
-      </section>
+        </li>
+      </ul>
 
       <section className="mx-auto max-w-[1200px] px-6 pb-32 md:px-16">
         <div className="relative mb-16 text-center">
           <div className="absolute left-1/2 top-1/2 -z-10 h-32 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/10 blur-3xl"></div>
-          <h2 className="mb-4 text-3xl font-extrabold tracking-wide text-white md:text-4xl">
+          <h2 className="mb-4 text-3xl font-extrabold tracking-wide text-foreground md:text-4xl">
             A Stack
           </h2>
           <p className="mx-auto max-w-2xl text-sm font-light leading-relaxed text-slate-400 md:text-base">
