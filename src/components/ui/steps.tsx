@@ -5,7 +5,7 @@ import Link from "next/link";
 // import { Button } from "./button";
 export const Steps = () => {
   return (
-    <section className="flex w-full items-center justify-center rounded-md p-1 py-10 min-[400px]:py-20 sm:py-32">
+    <section className="flex w-full items-center justify-center rounded-md bg-primary/20 p-1 py-10 min-[400px]:py-20 sm:py-32">
       <div className="relative flex w-full max-w-5xl flex-col gap-5 p-3 py-7 sm:gap-8">
         <h4 className="w-full text-3xl font-bold sm:w-3/4 sm:text-4xl">
           Contruímos juntos, com clareza e propósito
@@ -36,8 +36,8 @@ export const Steps = () => {
           </p>
           <FaDiamond className="absolute -bottom-2 -right-2 w-6 text-popover-foreground" />
         </div>
-        <Link href="/processos" className="block mt-10">
-          <button className="group relative flex h-10 w-max items-center justify-start overflow-hidden rounded-full border-none bg-primary pl-4 shadow-lg transition-all duration-500 ease-out hover:w-max">
+        <Link href="/processos" className="mt-10 block">
+          <button className="group relative flex h-10 w-max items-center justify-start break-words rounded-full border-none bg-primary pl-4 shadow-lg transition-all duration-500 ease-out hover:w-max">
             <div className="z-10 flex h-6 w-6 shrink-0 items-center justify-center">
               <FaArrowRight
                 size={18}
@@ -45,8 +45,8 @@ export const Steps = () => {
               />
             </div>
 
-            <span className="mx-4 w-max whitespace-nowrap text-sm font-bold uppercase tracking-widest text-secondary-foreground transition-all duration-500 ease-out group-hover:translate-x-0 group-hover:opacity-100">
-              Quero entender o processo
+            <span className="mx-4 w-max whitespace-nowrap break-words text-sm font-bold uppercase tracking-widest text-secondary-foreground transition-all duration-500 ease-out group-hover:translate-x-0 group-hover:opacity-100">
+              Quero entender
             </span>
 
             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-white/[0.03] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

@@ -36,15 +36,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${limelight.variable} ${geistMono.variable} ${libreFranklin.variable} font-sans antialiased`}
+        className={`${limelight.variable} font-franklin ${geistMono.variable} ${libreFranklin.variable} font-sans antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark">
           {children}
-        </ThemeProvider>{" "}
+        </ThemeProvider>
         <Suspense fallback={null}>
           <Analytics />
         </Suspense>
