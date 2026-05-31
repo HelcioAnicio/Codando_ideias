@@ -5,7 +5,6 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { Suspense } from "react";
 
-
 const libreFranklin = Libre_Franklin({
   variable: "--font-libre-franklin",
   subsets: ["latin"],
@@ -35,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body
         className={`${limelight.variable} ${geistMono.variable} ${libreFranklin.variable} font-sans antialiased`}
       >

@@ -9,37 +9,36 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+// import { Moon, Sun } from "lucide-react";
+// import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+// import {
+//   DropdownMenu,
+//   DropdownMenuContent,
+//   DropdownMenuItem,
+//   DropdownMenuTrigger,
+// } from "@/components/ui/dropdown-menu";
 import { Menu } from "lucide-react";
 import { Card } from "./card";
-import Logo3 from "../../../public/logo3.svg";
+// import Logo3 from "../../../public/logo3.svg";
 import Logo2 from "../../../public/logo2.svg";
 
 import Link from "next/link";
 import Image from "next/image";
+import { ButtonGeral } from "./buttonGeral";
 
 export const Header = () => {
-  const { theme, setTheme } = useTheme();
-
-
+  // const { theme, setTheme } = useTheme();
 
   return (
-    <header className="fixed top-0 z-50 flex w-full justify-center border-none bg-background shadow-none">
+    <header className="fixed top-0 z-50 flex w-full justify-center border-none bg-background font-franklin font-bold shadow-none">
       <Card className="w-full max-w-5xl rounded-t-none border-none bg-background px-5 shadow-none">
         <div className="m-auto flex max-w-5xl items-center justify-between py-4">
-          {theme === "light" ? (
-            <Image className="w-52 lg:w-60" src={Logo3} alt="Logo" />
-          ) : (
-            <Image className="w-40 lg:w-52" src={Logo2} alt="Logo" />
-          )}
+          {/* {theme === "light" ? ( */}
+          {/* <Image className="w-52 lg:w-60" src={Logo3} alt="Logo" /> */}
+          {/* ) : ( */}
+          <Image className="w-40 lg:w-52" src={Logo2} alt="Logo" />
+          {/* )} */}
 
           <nav className="hidden lg:block">
             <ul className="flex items-center gap-7">
@@ -83,7 +82,7 @@ export const Header = () => {
                   Fale comigo
                 </Link>
               </li>
-              <DropdownMenu>
+              {/* <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="outline"
@@ -105,12 +104,12 @@ export const Header = () => {
                   {/* <DropdownMenuItem onClick={() => setTheme("system")}>
                     System
                   </DropdownMenuItem> */}
-                </DropdownMenuContent>
-              </DropdownMenu>
+              {/* </DropdownMenuContent>
+              </DropdownMenu> */}
             </ul>
           </nav>
           <div className="flex items-center gap-10 lg:hidden">
-            <DropdownMenu>
+            {/* <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="outline"
@@ -132,8 +131,8 @@ export const Header = () => {
                 {/* <DropdownMenuItem onClick={() => setTheme("system")}>
                   System
                 </DropdownMenuItem> */}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {/* </DropdownMenuContent>
+            </DropdownMenu> */}
             <Sheet>
               <SheetTrigger>
                 <Button
@@ -151,16 +150,16 @@ export const Header = () => {
               >
                 <SheetHeader>
                   <SheetTitle>
-                    {theme === "light" ? (
-                      <Image className="w-40 lg:w-52" src={Logo3} alt="Logo" />
-                    ) : (
-                      <Image className="w-40 lg:w-52" src={Logo2} alt="Logo" />
-                    )}
+                    {/* {theme === "light" ? ( */}
+                    {/* <Image className="w-40 lg:w-52" src={Logo3} alt="Logo" /> */}
+                    {/* ) : ( */}
+                    <Image className="w-40 lg:w-52" src={Logo2} alt="Logo" />
+                    {/* )} */}
                   </SheetTitle>
                 </SheetHeader>
                 <SheetDescription>
                   <nav>
-                    <ul className="flex flex-col gap-6">
+                    <ul className="flex flex-col gap-6 font-franklin font-bold">
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>
                           <Link href="/#home">Home</Link>
@@ -184,6 +183,15 @@ export const Header = () => {
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>
                           <Link href="/#footer">Fale comigo</Link>
+                        </SheetClose>
+                      </li>
+                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
+                        <SheetClose asChild>
+                          <ButtonGeral
+                            text="Quero ser encontrado"
+                            link="https://wa.me/5531991973835?text=Olá,+quero+ser+encontrado!"
+                            classes="py-4 mx-auto"
+                          />
                         </SheetClose>
                       </li>
                     </ul>

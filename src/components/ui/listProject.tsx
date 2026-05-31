@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import {
   ArrowLeft,
   ArrowRight,
@@ -14,6 +13,7 @@ import {
   Tractor,
 } from "lucide-react";
 import { GiDelicatePerfume } from "react-icons/gi";
+import { ButtonGeral } from "./buttonGeral";
 
 const projects = [
   {
@@ -237,7 +237,7 @@ export const ListProjects = () => {
               Portfólio selecionado
             </span>
             <h2 className="mb-4 font-custom text-3xl font-bold leading-tight md:text-5xl">
-              Nossos projetos 
+              Nossos projetos
             </h2>
             <p className="max-w-2xl text-base leading-8 text-secondary-foreground/80 md:text-lg">
               Portfólio selecionado de soluções digitais de alto impacto, unindo
@@ -253,7 +253,6 @@ export const ListProjects = () => {
               <div key={pageIndex} className="min-w-full snap-start">
                 <div className="grid gap-6 sm:grid-cols-2">
                   {page.map((project) => {
-
                     return (
                       <article key={project.name} className="h-full">
                         <div className="flex h-full flex-col rounded-[1.9rem] border border-white/10 bg-white/[0.03] p-5 transition-all duration-300 hover:border-popover-foreground/20 hover:bg-white/[0.045] sm:p-6">
@@ -315,13 +314,11 @@ export const ListProjects = () => {
                             {project.description}
                           </p>
 
-                          <Link
-                            href={project.href}
-                            target="_blank"
-                            className="inline-flex w-full items-center justify-center rounded-2xl bg-[linear-gradient(90deg,#ffe16d_0%,#ff9800_100%)] px-5 py-4 text-base font-bold text-slate-900 transition duration-300 hover:brightness-105 active:scale-[0.99]"
-                          >
-                            Ver Projeto
-                          </Link>
+                          <ButtonGeral
+                            text="Ver projeto"
+                            link={project.href}
+                            classes="w-full max-w-none"
+                          />
                         </div>
                       </article>
                     );

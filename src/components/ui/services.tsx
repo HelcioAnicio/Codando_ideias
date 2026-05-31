@@ -14,8 +14,8 @@ import { HiMiniRocketLaunch } from "react-icons/hi2";
 import { FaCartShopping, FaCheck } from "react-icons/fa6";
 // import { GiPuzzle } from "react-icons/gi";
 import { ReactNode, useState } from "react";
-import Link from "next/link";
 import { FaArrowDown } from "react-icons/fa";
+import { ButtonGeral } from "./buttonGeral";
 
 interface ServiceDetail {
   icon: ReactNode;
@@ -121,14 +121,11 @@ export const ModalData = ({ data, onClose }: ModalProps) => {
             </div>
           </div>
           <div className="mt-6 flex items-center gap-4 border-t border-slate-800 pt-4">
-            <Link
-              href={`https://wa.me/5531991973835?text=${encodeURIComponent(data.whatsapp)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 rounded-md bg-yellow-400 px-4 py-3 text-center text-sm font-bold text-slate-950 transition-colors hover:bg-yellow-500"
-            >
-              Quero esse serviço
-            </Link>
+            <ButtonGeral
+              text={"Quero esse serviço"}
+              link={`https://wa.me/5531991973835?text=${encodeURIComponent(data.whatsapp)}`}
+              classes=" mx-auto "
+            />
             {/* <button className="flex-1 rounded-md border border-slate-700 px-4 py-3 text-center text-sm font-medium text-slate-300 transition-colors hover:bg-slate-800">
               Ver planos e preços
             </button> */}
@@ -391,7 +388,7 @@ export const Services = () => {
         />
       )}
 
-      <section className="relative z-30 flex w-full justify-center">
+      <section className="relative z-30 flex w-full justify-center pt-20">
         <article className="flex max-w-5xl flex-col gap-20 px-2 min-[400px]:px-5 sm:px-7 lg:px-2">
           <div className="flex flex-col gap-5">
             <p className="w-max rounded-full border border-secondary-foreground/20 bg-secondary-foreground/5 p-1 px-5 text-xs font-extralight uppercase text-secondary-foreground/80 sm:text-sm">
