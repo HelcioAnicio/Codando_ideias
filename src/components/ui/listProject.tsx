@@ -227,10 +227,13 @@ export const ListProjects = () => {
   };
 
   return (
-    <section className="mx-auto w-full max-w-5xl rounded-3xl" id="projects">
-      <div className="mx-auto rounded-3xl shadow-2xl">
+    <section
+      className="mx-auto w-full max-w-5xl bg-primary/20 xl:rounded-3xl"
+      id="projects"
+    >
+      <div className="mx-auto shadow-2xl xl:rounded-3xl">
         <div className="relative overflow-hidden px-5 py-10 md:px-8 md:py-14 xl:px-10">
-          <div className="absolute inset-0 rounded-tl-3xl bg-[radial-gradient(circle_at_top_left,rgba(250,204,21,0.08),transparent_24%),radial-gradient(circle_at_right,rgba(59,130,246,0.12),transparent_26%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(250,204,21,0.08),transparent_24%),radial-gradient(circle_at_right,rgba(59,130,246,0.12),transparent_26%)] xl:rounded-tl-3xl" />
 
           <div className="relative z-10 mb-10 max-w-3xl">
             <span className="mb-4 inline-flex rounded-full border border-secondary-foreground/20 bg-secondary-foreground/5 px-4 py-1 text-xs uppercase tracking-[0.26em] text-secondary-foreground/80">

@@ -5,7 +5,7 @@ const faqs = [
   {
     question: "Quanto tempo leva para desenvolver um site?",
     answer:
-      "Landing pages costumam levar de 7 a 15 dias. Projetos maiores, como e-commerce e sistemas, variam de 4 a 12 semanas conforme escopo.",
+      "Landing pages costumam levar de 3 a 7 dias. Projetos maiores, como e-commerce e sistemas, variam de 4 a 12 semanas conforme escopo.",
   },
   {
     question: "Vocês fazem manutenção após a entrega?",
@@ -49,10 +49,10 @@ export const StudioFaq = () => {
         </div>
       </div>
       <ButtonGeral
-        text={"Iniciar um novo projeto"}
+        text={"Tirar minhas dúvidas"}
         classes={"lg:w-full"}
         link={
-          "https://wa.me/5531991973835?text=Olá+gostaria+iniciar+um+projeto"
+          "https://wa.me/5531991973835?text=Olá,+quero+tirar+dúvidas+sobre..."
         }
       />
     </section>

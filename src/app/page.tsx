@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="relative mx-auto flex flex-wrap gap-16 overflow-hidden sm:items-center">
+      <main className="relative flex w-full flex-wrap gap-16 overflow-hidden sm:items-center">
         <CardImage />
         <ListProjects />
         <StudioAuthorityShowcase />
