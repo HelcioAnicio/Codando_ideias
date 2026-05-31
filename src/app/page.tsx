@@ -9,20 +9,19 @@ import { Services } from "@/components/ui/services";
 import { StudioFaq } from "@/components/ui/studio-faq";
 import { StudioAuthorityShowcase } from "@/components/ui/studio-authority-showcase";
 
-
 export default function Home() {
   return (
     <>
       <Header />
-      <main className="relative mx-auto flex flex-wrap gap-20 overflow-hidden sm:items-center">
+      <main className="relative mx-auto flex flex-wrap gap-16 overflow-hidden sm:items-center">
         <CardImage />
-        <Services />
-        <StudioAuthorityShowcase />
-        {/* <Cost /> */}
-        <Steps />
-        {/* <WhyDevLab /> */}
         <ListProjects />
+        <StudioAuthorityShowcase />
+        <Services />
+        <Steps />
         <StudioFaq />
+        {/* <Cost /> */}
+        {/* <WhyDevLab /> */}
       </main>
       <Footer />
     </>
