@@ -28,7 +28,7 @@ export const Footer = () => {
               <ButtonGeral
                 text={"Quero um site que converte"}
                 link={
-                  "https://wa.me/5531991973835?text=Olá+,+quero+um+site+que+converte!"
+                  "https://wa.me/5531991973835?text=Olá,+quero+ser+encontrado!"
                 }
               />
             </div>

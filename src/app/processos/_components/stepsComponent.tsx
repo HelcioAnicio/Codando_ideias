@@ -17,6 +17,7 @@ import {
 import { FaCheckCircle, FaArrowRight, FaDatabase } from "react-icons/fa";
 import { RiNextjsFill, RiSupabaseFill } from "react-icons/ri";
 import { TbApi } from "react-icons/tb";
+import { Footer } from "@/components/ui/footer";
 
 export const StepsComponent = () => {
   return (
@@ -313,6 +314,8 @@ export const StepsComponent = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };
