@@ -9,9 +9,10 @@ import Link from "next/link";
 
 export const CardImage = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [buttonVisible, setButtonVisible] = useState(false);
+  const [buttonVisible, setButtonVisible] = useState(true);
+  // Novo estado para controlar se o Observer já rodou a primeira vez
+  const [isInitialized, setIsInitialized] = useState(false);
   const elementRef = useRef<HTMLElement>(null);
-  const buttonRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const myObserver = new IntersectionObserver(
@@ -35,14 +36,13 @@ export const CardImage = () => {
     const myObserver = new IntersectionObserver(
       ([entry]) => {
         setButtonVisible(entry.isIntersecting);
+        setIsInitialized(true);
       },
       { threshold: 0.2 },
     );
 
-    const currentElement = buttonRef.current;
-    if (currentElement) {
-      myObserver.observe(currentElement);
-    }
+    const currentElement = elementRef.current;
+    if (currentElement) myObserver.observe(currentElement);
 
     return () => {
       if (currentElement) myObserver.unobserve(currentElement);
@@ -150,17 +150,18 @@ export const CardImage = () => {
             classes="py-6"
           />
         </div>
-        {!buttonVisible && (
-          <Link
-            href="/contato"
-            className={`${!buttonVisible && !isVisible ? "translate-x-0 opacity-100 blur-none" : "translate-x-40 opacity-0 blur-sm"} fixed bottom-4 right-2 z-50 flex w-max items-center gap-1 rounded-lg bg-green-800 bg-gradient-to-br from-green-500 to-green-800 p-4 shadow-lg transition-all duration-300 hover:scale-105 hover:bg-popover-foreground hover:to-green-700 2xl:right-[15%]`}
-          >
-            <BsChatRightTextFill className="size-4 min-[400px]:size-6" />
-            <span className="min-[]: text-xs font-extralight">
-              Fale com especialista
-            </span>
-          </Link>
-        )}
+        {/* {!buttonVisible && ( */}
+        <Link
+          href="https://wa.me/5531991973835?text=Olá,+quero+falar+com+um+especialista!"
+          className={`fixed bottom-4 right-2 z-50 flex w-max items-center gap-1 rounded-lg bg-green-800 bg-gradient-to-br from-green-500 to-green-800 p-4 shadow-lg hover:bg-popover-foreground 2xl:right-[15%] ${isInitialized ? "transition-all duration-500 ease-in-out" : "transition-none"} ${
+            isInitialized && !buttonVisible
+              ? "pointer-events-auto translate-x-0 opacity-100 blur-none"
+              : "pointer-events-none translate-x-40 opacity-0 blur-sm"
+          } `}
+        >
+          <BsChatRightTextFill className="size-4 min-[400px]:size-6" />
+          <span className="text-xs font-extralight">Fale com especialista</span>
+        </Link>
       </div>
     </section>
   );
