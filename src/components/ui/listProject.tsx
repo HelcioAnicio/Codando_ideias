@@ -231,7 +231,7 @@ export const ListProjects = () => {
       className="mx-auto w-full bg-primary/20 py-10 lg:py-20"
       id="projects"
     >
-      <div className="mx-auto max-w-5xl shadow-2xl min-[1040px]:rounded-3xl">
+      <div className="mx-auto max-w-6xl shadow-2xl min-[1040px]:rounded-3xl">
         <div className="relative overflow-hidden px-5 py-10 md:px-8 md:py-14 xl:px-10">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(250,204,21,0.08),transparent_24%),radial-gradient(circle_at_right,rgba(59,130,246,0.12),transparent_26%)] min-[1040px]:rounded-tl-3xl" />
 

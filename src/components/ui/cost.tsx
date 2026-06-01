@@ -6,7 +6,7 @@ export const Cost = () => {
   return (
     <>
       <section className="flex w-full justify-center">
-        <article className="flex w-full max-w-5xl flex-col items-center gap-16 px-2">
+        <article className="flex w-full max-w-6xl flex-col items-center gap-16 px-2">
           <ul className="grid items-center gap-12 sm:grid-cols-2">
             <li className="space-y-10 rounded-3xl border border-card-foreground/20 p-8 shadow-md">
               <div className="mb-8 flex items-center justify-between">

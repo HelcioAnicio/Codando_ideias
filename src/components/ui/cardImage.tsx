@@ -34,7 +34,7 @@ export const CardImage = () => {
       className="relative flex h-dvh max-h-[1100px] min-h-[600px] w-full items-center justify-center bg-background pt-16 sm:h-[calc(100dvh-160px)] sm:pt-20 md:h-[calc(100dvh-190px)] xl:h-[calc(100dvh-200px)]"
       ref={elementRef}
     >
-      <div className="relative mx-auto flex h-[90%] w-full max-w-5xl px-4 min-[400px]:h-5/6 min-[530px]:h-full sm:items-center">
+      <div className="relative mx-auto flex h-[90%] w-full max-w-6xl px-4 min-[400px]:h-5/6 min-[530px]:h-full sm:items-center">
         <div
           className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-background from-[20%] via-background/70 via-[40%] to-transparent to-[60%] sm:bg-gradient-to-r sm:from-[40%] sm:via-[58%] sm:to-[80%]"
           aria-hidden="true"

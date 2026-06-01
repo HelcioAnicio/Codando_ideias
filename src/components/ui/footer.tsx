@@ -10,7 +10,7 @@ export const Footer = () => {
   return (
     <footer className="m-auto w-full space-y-5 bg-primary/20 py-20" id="footer">
       <section id="contato" className="w-full px-6 lg:px-8">
-        <div className="mx-auto grid max-w-5xl gap-16">
+        <div className="mx-auto grid max-w-6xl gap-16">
           <ul className="flex flex-col items-start gap-2">
             <li>
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em]">
