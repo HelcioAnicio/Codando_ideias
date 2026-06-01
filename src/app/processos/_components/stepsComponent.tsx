@@ -43,9 +43,9 @@ export const StepsComponent = () => {
           </h1>
 
           <p className="max-w-2xl text-base font-light leading-relaxed text-slate-400 md:text-xl">
-            Nosso processo é uma sequência rigorosa de planejamento analítico,
-            engenharia de precisão e otimização contínua. Não apenas construímos
-            software; arquitetamos vantagens digitais.
+            Nosso processo combina estratégia de negócios, tecnologia de ponta e
+            foco total em velocidade. Você não recebe apenas um site; você ganha
+            uma estrutura profissional feita para o seu negócio faturar mais.
           </p>
         </div>
       </section>
@@ -59,10 +59,11 @@ export const StepsComponent = () => {
               Briefing &amp; Análise
             </h2>
             <p className="text-sm font-light leading-relaxed text-secondary-foreground/80 md:text-base">
-              Dissecamos seus objetivos de negócio, restrições técnicas e
-              posição de mercado. Esta fase entrega um blueprint abrangente,
-              garantindo que cada linha de código sirva a um propósito
-              estratégico.
+              Antes de escrever qualquer linha de código, nós estudamos o seu
+              mercado e o seu objetivo. Descobrimos o que o seu cliente busca
+              para garantir que o site seja desenhado estrategicamente para
+              vender o seu produto ou serviço. O que entregamos: O mapa visual e
+              comercial do seu novo site.
             </p>
           </div>
 
@@ -118,9 +119,11 @@ export const StepsComponent = () => {
               Engenharia de UX/UI
             </h2>
             <p className="text-sm font-light leading-relaxed text-secondary-foreground/80 md:text-base">
-              O design é tratado como uma disciplina técnica. Criamos interfaces
-              computacionalmente eficientes, intuitivamente navegáveis e
-              visualmente imponentes, utilizando sistemas de design robustos.
+              O design do seu site não é apenas bonito; ele é pensado para o
+              comportamento do usuário. Criamos telas elegantes, fáceis de
+              navegar no celular e focadas em guiar o cliente até o seu botão de
+              WhatsApp. O que entregamos: A aparência exata do site para sua
+              aprovação antes de ir para o ar.
             </p>
           </div>
 
@@ -175,10 +178,11 @@ export const StepsComponent = () => {
               Desenvolvimento Ágil
             </h2>
             <p className="text-sm font-light leading-relaxed text-secondary-foreground/80 md:text-base">
-              O código é escrito para escala, segurança e performance.
-              Utilizamos sprints de duas semanas, integração contínua e revisões
-              rigorosas por pares para manter uma qualidade de código
-              excepcional.
+              Aqui está o nosso maior diferencial: seu site é construído do
+              zero, em código puro. Não usamos moldes prontos ou plataformas
+              pesadas que travam. O resultado é um site ultra rápido, seguro e
+              que carrega instantaneamente. O que entregamos: Engenharia de
+              ponta que o Google adora e prioriza nas buscas.
             </p>
           </div>
 
@@ -224,10 +228,11 @@ export const StepsComponent = () => {
               Lançamento &amp; Escala
             </h2>
             <p className="text-sm font-light leading-relaxed text-secondary-foreground/80 md:text-base">
-              O deploy é apenas o começo. Gerenciamos uma sequência de
-              lançamento impecável, seguida de monitoramento intensivo e ajuste
-              de performance para garantir a resiliência da infraestrutura sob
-              carga.
+              Colocamos o seu site no ar de forma segura e configuramos todas as
+              ferramentas de rastreamento. Depois do lançamento, continuamos
+              monitorando a estabilidade para garantir que a sua estrutura
+              aguente milhares de acessos sem oscilar. O que entregamos: Seu
+              site pronto para receber anúncios e gerar vendas.
             </p>
           </div>
 
@@ -275,8 +280,9 @@ export const StepsComponent = () => {
             A Stack
           </h2>
           <p className="mx-auto max-w-2xl text-sm font-light leading-relaxed text-slate-400 md:text-base">
-            Empregamos uma stack tecnológica moderna e de alta performance para
-            garantir velocidade, segurança e escalabilidade.
+            Utilizamos a mesma base tecnológica de gigantes do mercado
+            internacional. Para você, isso se traduz em três coisas: velocidade
+            máxima, segurança contra invasões e um site que nunca fica obsoleto.
           </p>
         </div>
 
