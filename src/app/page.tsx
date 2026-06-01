@@ -16,7 +16,7 @@ export default function Home() {
       <main className="relative flex w-full flex-wrap gap-16 overflow-hidden sm:items-center">
         <CardImage />
         <ListProjects />
-        <StudioAuthorityShowcase />
+        {/* <StudioAuthorityShowcase /> */}
         <Services />
         <Steps />
         <StudioFaq />

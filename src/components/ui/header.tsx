@@ -189,7 +189,7 @@ export const Header = () => {
                         <SheetClose asChild>
                           <ButtonGeral
                             text="Quero ser encontrado"
-                            link="https://wa.me/5531991973835?text=Olá,+quero+ser+encontrado!"
+                            link="https://wa.me/5531991973835?text=Olá,+quero+um+site+que+me+permita+ser+encontrado!"
                             classes="py-4 mx-auto"
                           />
                         </SheetClose>

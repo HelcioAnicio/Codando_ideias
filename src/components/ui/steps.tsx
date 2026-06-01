@@ -7,30 +7,30 @@ export const Steps = () => {
   return (
     <section className="flex w-full items-center justify-center rounded-md bg-primary/20 p-1 py-10 min-[400px]:py-20 sm:py-32">
       <div className="relative flex w-full max-w-6xl flex-col gap-5 p-3 py-7 sm:gap-8">
-        <h4 className="w-full text-3xl font-bold sm:w-3/4 sm:text-4xl">
+        <h4 className="w-full text-3xl font-bold sm:w-3/4 sm:text-5xl">
           Contruímos juntos, com clareza e propósito
         </h4>
 
-        <p className="relative z-10 max-w-xs text-sm font-extralight text-secondary-foreground/80 md:max-w-xl md:text-base">
+        <p className="relative z-10 max-w-xs text-sm text-foreground/90 md:max-w-xl md:text-base">
           Planejamos o caminho ideal juntos, criamos um projeto personalizado e
           eficiente, garantindo que tudo funcione perfeitamente no final.
         </p>
         <div className="relative flex flex-col gap-5 border-b border-popover-foreground font-semibold sm:flex-row md:justify-between">
           <p className="flex items-center gap-2 pl-1 text-4xl text-popover-foreground sm:text-6xl">
             1
-            <span className="text-sm text-foreground sm:text-base">
+            <span className="text-sm text-secondary-foreground sm:text-base lg:text-lg">
               Entendimento e estratégia
             </span>
           </p>
           <p className="flex items-center gap-2 text-4xl text-popover-foreground sm:text-6xl">
             2
-            <span className="text-sm text-foreground sm:text-base">
+            <span className="text-sm text-secondary-foreground sm:text-base lg:text-lg">
               Desenvolvimento sob medida
             </span>
           </p>
           <p className="flex items-center gap-2 text-4xl text-popover-foreground sm:text-6xl">
             3
-            <span className="text-sm text-foreground sm:text-base">
+            <span className="text-sm text-secondary-foreground sm:text-base lg:text-lg">
               Testes, entrega e suporte
             </span>
           </p>
