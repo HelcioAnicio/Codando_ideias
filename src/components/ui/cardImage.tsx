@@ -153,7 +153,7 @@ export const CardImage = () => {
         </div>
         {/* {!buttonVisible && ( */}
         <Link
-          href="/contato"
+          href="https://wa.me/5531991973835?text=Olá,+quero+falar+com+um+especialista!"
           className={`fixed bottom-4 right-2 z-50 flex w-max items-center gap-1 rounded-lg bg-green-800 bg-gradient-to-br from-green-500 to-green-800 p-4 shadow-lg hover:bg-popover-foreground 2xl:right-[15%] ${isInitialized ? "transition-all duration-500 ease-in-out" : "transition-none"} ${
             isInitialized && !buttonVisible
               ? "pointer-events-auto translate-x-0 opacity-100 blur-none"
