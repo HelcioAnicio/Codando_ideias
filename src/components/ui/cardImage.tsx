@@ -13,7 +13,6 @@ export const CardImage = () => {
   // Novo estado para controlar se o Observer já rodou a primeira vez
   const [isInitialized, setIsInitialized] = useState(false);
   const elementRef = useRef<HTMLElement>(null);
-  const buttonRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const myObserver = new IntersectionObserver(
