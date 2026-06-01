@@ -4,10 +4,14 @@ import { useRef, useState, useEffect } from "react";
 import { ButtonGeral } from "./buttonGeral";
 import Image from "next/image";
 import { IoMdTrendingUp } from "react-icons/io";
+import { BsChatRightTextFill } from "react-icons/bs";
+import Link from "next/link";
 
 export const CardImage = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [buttonVisible, setButtonVisible] = useState(false);
   const elementRef = useRef<HTMLElement>(null);
+  const buttonRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const myObserver = new IntersectionObserver(
@@ -18,6 +22,24 @@ export const CardImage = () => {
     );
 
     const currentElement = elementRef.current;
+    if (currentElement) {
+      myObserver.observe(currentElement);
+    }
+
+    return () => {
+      if (currentElement) myObserver.unobserve(currentElement);
+    };
+  }, []);
+
+  useEffect(() => {
+    const myObserver = new IntersectionObserver(
+      ([entry]) => {
+        setButtonVisible(entry.isIntersecting);
+      },
+      { threshold: 0.2 },
+    );
+
+    const currentElement = buttonRef.current;
     if (currentElement) {
       myObserver.observe(currentElement);
     }
@@ -56,13 +78,13 @@ export const CardImage = () => {
               isVisible ? "opacity-100 blur-none" : "opacity-0 blur-sm"
             } `}
           >
-            Criamos sites estratégicos, landing pages e presença digital
-            profissional para transformar visitantes em clientes.
+            Criamos sites estratégicos, Landing Pages sem template pronto, em
+            código 100% puro, com alta performance. Um verdadeiro site que
+            converte!
           </p>
 
-          {/* CTA desktop */}
           <div
-            className={`hidden transition-all delay-300 duration-500 sm:block ${
+            className={`relative hidden transition-all delay-300 duration-500 sm:block ${
               isVisible
                 ? "translate-x-0 blur-none"
                 : "-translate-x-full blur-sm"
@@ -71,12 +93,12 @@ export const CardImage = () => {
             <ButtonGeral
               text="Quero ser encontrado"
               link="https://wa.me/5531991973835?text=Olá,+quero+um+site+que+me+permita+ser+encontrado!"
+              classes=""
             />
           </div>
         </div>
 
-        <div className="absolute bottom-[10%] right-0 h-[55%] w-2/3 sm:right-4 sm:top-0 sm:h-full sm:w-1/2">
-          {/* Imagem */}
+        <div className="absolute bottom-[10%] right-0 h-[60%] w-2/3 sm:right-4 sm:top-0 sm:h-full sm:w-1/2">
           <div className="relative h-full w-full" aria-hidden="true">
             <Image
               src="/profile.jpg"
@@ -88,10 +110,10 @@ export const CardImage = () => {
               className="rounded-xl object-cover object-bottom shadow-lg lg:object-center"
             />
             <div
-              className={`delay-[400ms] absolute -left-24 bottom-[8%] z-30 max-w-[250px] rounded-2xl border border-white/10 bg-primary/50 p-4 text-xs shadow-sm backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 sm:-bottom-10 sm:-left-8 sm:max-w-sm sm:p-6 md:-left-10 2xl:bottom-0 ${
+              className={`absolute -left-24 bottom-[8%] z-40 max-w-[250px] rounded-2xl border border-white/10 bg-primary/50 p-4 text-xs shadow-sm backdrop-blur-xl transition-all delay-300 duration-500 hover:-translate-y-2 sm:-bottom-10 sm:-left-8 sm:max-w-sm sm:p-6 md:-left-10 2xl:bottom-0 ${
                 isVisible
-                  ? "translate-y-0 opacity-100 blur-none"
-                  : "translate-y-full opacity-0 blur-sm"
+                  ? "translate-x-0 opacity-100 blur-none"
+                  : "translate-x-full opacity-0 blur-sm"
               }`}
               aria-label="Card Autoridade Digital"
             >
@@ -116,16 +138,29 @@ export const CardImage = () => {
         </div>
 
         <div
-          className={`/2 absolute bottom-[6%] z-30 w-full max-w-xs transition-all delay-300 duration-500 sm:hidden ${
-            isVisible ? "translate-y-0 blur-none" : "translate-y-full blur-sm"
+          className={`absolute bottom-[3%] z-30 w-full max-w-xs transition-all delay-300 duration-500 sm:hidden ${
+            isVisible
+              ? "translate-y-0 opacity-100 blur-none"
+              : "translate-y-full opacity-0 blur-sm"
           } `}
         >
           <ButtonGeral
             text="Quero ser encontrado"
-            link="https://wa.me/5531991973835?text=Olá,+quero+ser+encontrado!"
-            classes="py-4 "
+            link="https://wa.me/5531991973835?text=Olá,+quero+um+site+que+me+permita+ser+encontrado!"
+            classes="py-6"
           />
         </div>
+        {!buttonVisible && (
+          <Link
+            href="/contato"
+            className={`${!buttonVisible && !isVisible ? "translate-x-0 opacity-100 blur-none" : "translate-x-40 opacity-0 blur-sm"} fixed bottom-4 right-2 z-50 flex w-max items-center gap-1 rounded-lg bg-green-800 bg-gradient-to-br from-green-500 to-green-800 p-4 shadow-lg transition-all duration-300 hover:scale-105 hover:bg-popover-foreground hover:to-green-700 2xl:right-[15%]`}
+          >
+            <BsChatRightTextFill className="size-4 min-[400px]:size-6" />
+            <span className="min-[]: text-xs font-extralight">
+              Fale com especialista
+            </span>
+          </Link>
+        )}
       </div>
     </section>
   );

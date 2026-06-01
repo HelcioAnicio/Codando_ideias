@@ -7,7 +7,7 @@ import { Steps } from "@/components/ui/steps";
 import { Services } from "@/components/ui/services";
 // import { Cost } from "@/components/ui/cost";
 import { StudioFaq } from "@/components/ui/studio-faq";
-import { StudioAuthorityShowcase } from "@/components/ui/studio-authority-showcase";
+// import { StudioAuthorityShowcase } from "@/components/ui/studio-authority-showcase";
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
       <main className="relative flex w-full flex-wrap gap-16 overflow-hidden sm:items-center">
         <CardImage />
         <ListProjects />
-        <StudioAuthorityShowcase />
+        {/* <StudioAuthorityShowcase /> */}
         <Services />
         <Steps />
         <StudioFaq />
