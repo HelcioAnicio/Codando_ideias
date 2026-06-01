@@ -36,7 +36,7 @@ interface ModalProps {
 export const ModalData = ({ data, onClose }: ModalProps) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm duration-200 animate-in fade-in">
-      <ul className="relative flex h-[550px] w-full max-w-5xl flex-col overflow-hidden rounded-xl border border-slate-700 bg-[#1e293b] text-white shadow-2xl sm:flex-row">
+      <ul className="relative flex h-[550px] w-full max-w-6xl flex-col overflow-hidden rounded-xl border border-slate-700 bg-[#1e293b] text-white shadow-2xl sm:flex-row">
         <li className="flex flex-col items-center justify-center border-r border-slate-800 bg-[#111827] p-8 text-center sm:w-1/3">
           <div className="mb-2 rounded-xl bg-slate-800 p-4 text-yellow-400 sm:mb-6">
             {data.icon}
@@ -389,7 +389,7 @@ export const Services = () => {
       )}
 
       <section className="relative z-30 flex w-full justify-center pt-20">
-        <article className="flex max-w-5xl flex-col gap-20 px-2 min-[400px]:px-5 sm:px-7 lg:px-2">
+        <article className="flex max-w-6xl flex-col gap-20 px-2 min-[400px]:px-5 sm:px-7 lg:px-2">
           <div className="flex flex-col gap-5">
             <p className="w-max rounded-full border border-secondary-foreground/20 bg-secondary-foreground/5 p-1 px-5 text-xs font-extralight uppercase text-secondary-foreground/80 sm:text-sm">
               Serviços

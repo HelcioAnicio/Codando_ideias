@@ -29,6 +29,11 @@ export const metadata: Metadata = {
     default: "Codando Ideias | Sites e Sistemas para Pequenas Empresas",
     template: "%s | Codando Ideias",
   },
+
+  icons: {
+    icon: "/favicon.ico",
+  },
+
   description:
     "Criamos sites profissionais, landing pages e sistemas web para pequenas empresas e autônomos em todo o Brasil. Mais clientes, mais autoridade, mais resultado.",
 

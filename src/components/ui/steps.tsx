@@ -6,7 +6,7 @@ import Link from "next/link";
 export const Steps = () => {
   return (
     <section className="flex w-full items-center justify-center rounded-md bg-primary/20 p-1 py-10 min-[400px]:py-20 sm:py-32">
-      <div className="relative flex w-full max-w-5xl flex-col gap-5 p-3 py-7 sm:gap-8">
+      <div className="relative flex w-full max-w-6xl flex-col gap-5 p-3 py-7 sm:gap-8">
         <h4 className="w-full text-3xl font-bold sm:w-3/4 sm:text-4xl">
           Contruímos juntos, com clareza e propósito
         </h4>
