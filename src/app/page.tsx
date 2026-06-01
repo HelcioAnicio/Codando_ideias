@@ -7,7 +7,7 @@ import { Steps } from "@/components/ui/steps";
 import { Services } from "@/components/ui/services";
 // import { Cost } from "@/components/ui/cost";
 import { StudioFaq } from "@/components/ui/studio-faq";
-import { StudioAuthorityShowcase } from "@/components/ui/studio-authority-showcase";
+// import { StudioAuthorityShowcase } from "@/components/ui/studio-authority-showcase";
 
 export default function Home() {
   return (
