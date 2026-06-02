@@ -318,8 +318,9 @@ export const ListProjects = () => {
                           </p>
 
                           <ButtonGeral
-                            text="Ver projeto"
+                            text="Ir para o site"
                             link={project.href}
+                            variant="secondary"
                             classes="w-full max-w-none"
                           />
                         </div>
