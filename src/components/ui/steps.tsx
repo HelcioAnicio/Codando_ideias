@@ -44,10 +44,11 @@ export const Steps = () => {
 
         <ul className="relative mx-auto grid grid-cols-1 flex-col-reverse justify-items-center gap-10 pb-24 sm:grid-cols-2 sm:gap-x-5 lg:grid-cols-2">
           <li className="relative flex w-full max-w-sm flex-col justify-between lg:max-w-md">
-            <div className="group relative rounded-xl border-foreground/[0.06] bg-secondary/80 px-4 py-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl transition-all duration-300 hover:border-popover-foreground/30">
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/[0.03] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+            <div className="group relative rounded-xl border border-foreground/[0.06] bg-secondary/60 px-4 py-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl transition-all duration-300 hover:border-amber-500/30">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/[0.03] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+
               <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.08] bg-secondary text-amber-400 shadow-inner">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.08] bg-secondary px-2 text-amber-400 shadow-inner">
                   <MdOutlineArchitecture className="size-8 text-amber-400 md:size-12" />
                 </div>
                 <h3 className="flex w-full items-center gap-1 text-xs font-bold uppercase tracking-[0.2em] text-amber-400 min-[400px]:text-base">
@@ -125,11 +126,12 @@ export const Steps = () => {
           </li>
 
           <li className="relative flex w-full max-w-sm flex-col justify-between lg:max-w-md">
-            <div className="group relative overflow-hidden rounded-xl border border-foreground/[0.06] bg-secondary/80 p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl transition-all duration-300 hover:border-popover-foreground/30">
+            <div className="group relative rounded-xl border border-foreground/[0.06] bg-secondary/60 px-4 py-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl transition-all duration-300 hover:border-amber-500/30">
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500/[0.03] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+
               <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.08] bg-secondary text-amber-400 shadow-inner">
-                  <MdOutlineTerminal className="material-symbols-outlined size-8 md:size-12" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.08] bg-secondary px-2 text-cyan-400 shadow-inner">
+                  <MdOutlineTerminal className="size-8 text-amber-400 md:size-12" />
                 </div>
                 <h3 className="flex items-center gap-1 text-xs font-bold uppercase tracking-[0.2em] text-amber-400 min-[400px]:text-base">
                   <span>03</span>
@@ -155,11 +157,11 @@ export const Steps = () => {
           </li>
 
           <li className="relative flex w-full max-w-sm flex-col justify-between lg:max-w-md">
-            <div className="group relative overflow-hidden rounded-xl border border-foreground/[0.06] bg-secondary/60 p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/30">
+            <div className="group relative rounded-xl border border-foreground/[0.06] bg-secondary/60 px-4 py-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/30">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/[0.03] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
               <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.08] bg-secondary text-cyan-400 shadow-inner">
-                  <MdRocketLaunch className="material-symbols-outlined size-8 md:size-12" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/[0.08] bg-secondary px-2 text-cyan-400 shadow-inner">
+                  <MdRocketLaunch className="size-8 text-cyan-400 md:size-12" />
                 </div>
                 <h3 className="flex items-center gap-1 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 min-[400px]:text-base">
                   <span>04</span>
@@ -208,7 +210,7 @@ export const Steps = () => {
           <ul
             key={trackIndex}
             aria-hidden={trackIndex === 1}
-            className="animate-marquee flex w-max gap-40 whitespace-nowrap pl-40 sm:w-[200%] 2xl:gap-80 2xl:pl-80"
+            className="flex w-max animate-marquee gap-40 whitespace-nowrap pl-40 sm:w-[200%] 2xl:gap-80 2xl:pl-80"
           >
             {[
               { icon: <SiNetflix size={80} />, name: "Netflix" },
