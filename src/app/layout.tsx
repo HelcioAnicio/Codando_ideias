@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Geist_Mono, Limelight, Libre_Franklin } from "next/font/google";
 import "./globals.css";
 import { Suspense } from "react";
-import { MicrosoftClarity } from "@/lib/microsoftClarity";
+// import { MicrosoftClarity } from "@/lib/microsoftClarity";
 
 const libreFranklin = Libre_Franklin({
   variable: "--font-libre-franklin",
@@ -110,9 +110,9 @@ export default function RootLayout({
         className={`${limelight.variable} dark font-franklin ${geistMono.variable} ${libreFranklin.variable} font-sans antialiased`}
       >
         {children}
-        <Suspense fallback={null}>
+        {/* <Suspense fallback={null}>
           <MicrosoftClarity />
-        </Suspense>
+        </Suspense> */}
         <Suspense fallback={null}>
           <Analytics />
         </Suspense>
