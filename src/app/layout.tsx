@@ -2,8 +2,8 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Geist_Mono, Limelight, Libre_Franklin } from "next/font/google";
 import "./globals.css";
-// import { ThemeProvider } from "next-themes";
 import { Suspense } from "react";
+import { MicrosoftClarity } from "@/lib/microsoftClarity"; // ajuste o caminho se necessário
 
 const libreFranklin = Libre_Franklin({
   variable: "--font-libre-franklin",
@@ -58,7 +58,6 @@ export const metadata: Metadata = {
   creator: "Codando Ideias",
   publisher: "Codando Ideias",
 
-  // Open Graph (WhatsApp, Facebook, LinkedIn)
   openGraph: {
     type: "website",
     locale: "pt_BR",
@@ -69,7 +68,7 @@ export const metadata: Metadata = {
       "Sites profissionais, landing pages e sistemas web para pequenas empresas e autônomos. Atendemos todo o Brasil.",
     images: [
       {
-        url: "/og-image.png", // crie uma imagem 1200x630px
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Codando Ideias - Desenvolvimento Web Profissional",
@@ -77,7 +76,6 @@ export const metadata: Metadata = {
     ],
   },
 
-  // Twitter / X
   twitter: {
     card: "summary_large_image",
     title: "Codando Ideias | Sites e Sistemas para Pequenas Empresas",
@@ -85,7 +83,6 @@ export const metadata: Metadata = {
       "Sites profissionais, landing pages e sistemas web para pequenas empresas e autônomos em todo o Brasil.",
   },
 
-  // Indexação
   robots: {
     index: true,
     follow: true,
@@ -96,11 +93,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-
-  // Verificação Google Search Console
-  // verification: {
-  //   google: "SEU_CÓDIGO_AQUI",
-  // },
 
   alternates: {
     canonical: "https://codandoideias.com.br",
@@ -117,9 +109,8 @@ export default function RootLayout({
       <body
         className={`${limelight.variable} dark font-franklin ${geistMono.variable} ${libreFranklin.variable} font-sans antialiased`}
       >
-        {/* <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark"> */}
         {children}
-        {/* </ThemeProvider> */}
+        <MicrosoftClarity />
         <Suspense fallback={null}>
           <Analytics />
         </Suspense>
