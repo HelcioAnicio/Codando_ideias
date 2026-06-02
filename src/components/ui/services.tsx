@@ -35,7 +35,10 @@ interface ModalProps {
 
 export const ModalData = ({ data, onClose }: ModalProps) => {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm duration-200 animate-in fade-in">
+    <div
+      id="services"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm duration-200 animate-in fade-in"
+    >
       <ul className="relative flex h-[550px] w-full max-w-6xl flex-col overflow-hidden rounded-xl border border-slate-700 bg-[#1e293b] text-white shadow-2xl sm:flex-row">
         <li className="flex flex-col items-center justify-center border-r border-slate-800 bg-[#111827] p-8 text-center sm:w-1/3">
           <div className="mb-2 rounded-xl bg-slate-800 p-4 text-yellow-400 sm:mb-6">

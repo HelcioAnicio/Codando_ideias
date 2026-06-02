@@ -3,26 +3,9 @@
 @tailwind utilities;
 
 body {
-  /* font-family:  Helvetica sans-serif; */
-
   .withoutScroolBar {
     -ms-overflow-style: none; /* IE e Edge */
     scrollbar-width: none; /* Firefox */
-  }
-}
-
-@theme {
-  --animate: growUp 5s linear;
-
-  @keyframes growUp {
-    0% {
-      opacity: 0;
-      transform: scale(0);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
   }
 }
 
@@ -174,26 +157,6 @@ body {
 
   100% {
     transform: translateY(0) rotate(0deg);
-  }
-}
-
-@keyframes studio-meteor-drift {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 18px, 0) scale(var(--meteor-scale, 1));
-  }
-
-  10% {
-    opacity: 0.5;
-  }
-
-  55% {
-    opacity: 0.9;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate3d(135vw, -42px, 0) scale(var(--meteor-scale, 1));
   }
 }
 

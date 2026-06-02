@@ -9,36 +9,22 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-// import { Moon, Sun } from "lucide-react";
-// import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
-// import {
-//   DropdownMenu,
-//   DropdownMenuContent,
-//   DropdownMenuItem,
-//   DropdownMenuTrigger,
-// } from "@/components/ui/dropdown-menu";
 import { Menu } from "lucide-react";
 import { Card } from "./card";
-// import Logo3 from "../../../public/logo3.svg";
 import Logo2 from "../../../public/logo2.svg";
 
 import Link from "next/link";
 import Image from "next/image";
 import { ButtonGeral } from "./buttonGeral";
+import { FaInstagram } from "react-icons/fa6";
 
 export const Header = () => {
-  // const { theme, setTheme } = useTheme();
-
   return (
     <header className="fixed top-0 z-50 flex w-full justify-center border-none bg-background font-franklin font-bold shadow-none">
       <Card className="w-full max-w-6xl rounded-t-none border-none bg-background px-5 shadow-none">
         <div className="m-auto flex max-w-6xl items-center justify-between py-4">
-          {/* {theme === "light" ? ( */}
-          {/* <Image className="w-52 lg:w-60" src={Logo3} alt="Logo" /> */}
-          {/* ) : ( */}
           <Image className="w-40 lg:w-52" src={Logo2} alt="Logo" />
-          {/* )} */}
 
           <nav className="hidden lg:block">
             <ul className="flex items-center gap-7">
@@ -58,17 +44,17 @@ export const Header = () => {
                   Projetos
                 </Link>
               </li>
-              {/* <li className="relative">
-                <Link
-                  href="/#whyCodandoIdeias"
-                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
-                >
-                  Pilares
-                </Link>
-              </li> */}
               <li className="relative">
                 <Link
-                  href="/processos"
+                  href="#services"
+                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
+                >
+                  Serviços
+                </Link>
+              </li>
+              <li className="relative">
+                <Link
+                  href="#steps"
                   className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
                 >
                   Processo criativo
@@ -82,57 +68,9 @@ export const Header = () => {
                   Fale comigo
                 </Link>
               </li>
-              {/* <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="border-none text-foreground"
-                  >
-                    <Sun className="scale-100transition-all h-[1.2rem] w-[1.2rem] rotate-0 dark:-rotate-90 dark:scale-0" />
-                    <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                    <span className="sr-only">Toggle theme</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem onClick={() => setTheme("light")}>
-                    Light
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setTheme("dark")}>
-                    Dark
-                  </DropdownMenuItem>
-                  {/* <DropdownMenuItem onClick={() => setTheme("system")}>
-                    System
-                  </DropdownMenuItem> */}
-              {/* </DropdownMenuContent>
-              </DropdownMenu> */}
             </ul>
           </nav>
           <div className="flex items-center gap-10 lg:hidden">
-            {/* <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="border-none text-foreground"
-                >
-                  <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                  <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                  <span className="sr-only">Toggle theme</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setTheme("light")}>
-                  Light
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("dark")}>
-                  Dark
-                </DropdownMenuItem>
-                {/* <DropdownMenuItem onClick={() => setTheme("system")}>
-                  System
-                </DropdownMenuItem> */}
-            {/* </DropdownMenuContent>
-            </DropdownMenu> */}
             <Sheet>
               <SheetTrigger>
                 <Button
@@ -172,20 +110,32 @@ export const Header = () => {
                       </li>
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>
-                          <Link href="/processos">Processo criativo</Link>
+                          <Link href="#services">Serviços</Link>
+                        </SheetClose>
+                      </li>
+                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
+                        <SheetClose asChild>
+                          <Link href="#steps">Processo criativo</Link>
                         </SheetClose>{" "}
                       </li>
-                      {/* <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                        <SheetClose asChild>
-                          <Link href="/#whyCodandoIdeias">Pilares</Link>
-                        </SheetClose>
-                      </li> */}
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>
                           <Link href="/#footer">Fale comigo</Link>
                         </SheetClose>
                       </li>
-                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
+                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300">
+                        <SheetClose asChild>
+                          <Link
+                            href="https://www.instagram.com/dev.helcioanicio"
+                            target="_blank"
+                            className="relative z-10 flex items-center gap-1 underline decoration-popover-foreground underline-offset-4 transition-transform duration-200 hover:-translate-y-1 hover:scale-105"
+                          >
+                            <FaInstagram className="rounded-lg bg-gradient-to-tr from-[#F59618] via-[#F7085C] to-[#E11CAE] p-1 text-3xl text-foreground" />
+                            @dev.helcioanicio
+                          </Link>
+                        </SheetClose>
+                      </li>
+                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300">
                         <SheetClose asChild>
                           <ButtonGeral
                             text="Quero ser encontrado"

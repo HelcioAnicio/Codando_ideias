@@ -21,7 +21,10 @@ const faqs = [
 
 export const StudioFaq = () => {
   return (
-    <section className="m-auto flex w-full max-w-5xl flex-col items-center gap-5 rounded-md px-6 py-24 lg:px-8">
+    <section
+      id="faq"
+      className="m-auto flex w-full max-w-5xl flex-col items-center gap-5 rounded-md px-6 py-24 lg:px-8"
+    >
       <div className="mx-auto w-full max-w-4xl">
         <div className="mb-14 text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-amber-300/80">
