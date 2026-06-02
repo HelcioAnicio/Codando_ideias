@@ -4,8 +4,8 @@ import { useRef, useState, useEffect } from "react";
 import { ButtonGeral } from "./buttonGeral";
 import Image from "next/image";
 import { IoMdTrendingUp } from "react-icons/io";
-import { BsChatRightTextFill } from "react-icons/bs";
 import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa";
 
 export const CardImage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -91,9 +91,9 @@ export const CardImage = () => {
             } `}
           >
             <ButtonGeral
-              text="Quero ser encontrado"
+              text="Fale comigo agora"
               link="https://wa.me/5531991973835?text=Olá,+quero+um+site+que+me+permita+ser+encontrado!"
-              classes=""
+              classes="max-w-60 min-[400px]:max-w-sm"
             />
           </div>
         </div>
@@ -107,7 +107,7 @@ export const CardImage = () => {
               priority
               fetchPriority="high"
               sizes="(max-width: 640px) 50vw, 512px"
-              className="rounded-xl object-cover object-bottom shadow-lg lg:object-center"
+              className="rounded-xl object-cover object-bottom shadow-lg lg:object-contain lg:object-center"
             />
             <div
               className={`absolute -left-24 bottom-[8%] z-40 max-w-[250px] rounded-2xl border border-white/10 bg-primary/50 p-4 text-xs shadow-sm backdrop-blur-xl transition-all delay-300 duration-500 hover:-translate-y-2 sm:-bottom-10 sm:-left-8 sm:max-w-sm sm:p-6 md:-left-10 2xl:bottom-0 ${
@@ -145,22 +145,21 @@ export const CardImage = () => {
           } `}
         >
           <ButtonGeral
-            text="Quero ser encontrado"
+            text="Fale comigo agora"
             link="https://wa.me/5531991973835?text=Olá,+quero+um+site+que+me+permita+ser+encontrado!"
-            classes="py-6"
+            classes="max-w-60 min-[400px]:max-w-sm"
           />
         </div>
         {/* {!buttonVisible && ( */}
         <Link
           href="https://wa.me/5531991973835?text=Olá,+quero+falar+com+um+especialista!"
-          className={`fixed bottom-4 right-2 z-50 flex w-max items-center gap-1 rounded-lg bg-green-800 bg-gradient-to-br from-green-500 to-green-800 p-4 shadow-lg hover:bg-popover-foreground 2xl:right-[15%] ${isInitialized ? "transition-all duration-500 ease-in-out" : "transition-none"} ${
+          className={`fixed bottom-4 right-2 z-50 flex w-max items-center gap-1 rounded-full bg-green-800 bg-gradient-to-br from-green-500 to-green-800 p-4 shadow-[0_0_20px] shadow-green-300 hover:scale-105 2xl:right-[15%] ${isInitialized ? "transition-all duration-500 ease-in-out" : "transition-none"} ${
             isInitialized && !buttonVisible
               ? "pointer-events-auto translate-x-0 opacity-100 blur-none"
               : "pointer-events-none translate-x-40 opacity-0 blur-sm"
           } `}
         >
-          <BsChatRightTextFill className="size-4 min-[400px]:size-6" />
-          <span className="text-xs font-extralight">Fale com especialista</span>
+          <FaWhatsapp className="size-6 min-[400px]:size-9" />
         </Link>
       </div>
     </section>

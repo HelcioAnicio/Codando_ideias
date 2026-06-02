@@ -74,20 +74,12 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       animation: {
-        growUp: "growUp 3s linear ",
+        marquee: "marquee 15s linear infinite",
       },
       keyframes: {
-        growUp: {
-          "0%": {
-            opacity: "0",
-            transform: "scale(0)",
-            "z-index": "100",
-          },
-          "50%": { opacity: "0.5" },
-          "100%": {
-            opacity: "1",
-            transform: "scale(1)",
-          },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
         },
       },
     },
