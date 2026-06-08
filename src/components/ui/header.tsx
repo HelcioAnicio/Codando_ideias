@@ -76,6 +76,14 @@ export const Header = () => {
                   Fale comigo
                 </Link>
               </li>
+              <li className="relative">
+                <Link
+                  href="/simulacao"
+                  className="flex items-center gap-1.5 rounded-lg border border-yellow-500/40 bg-yellow-500/10 px-3 py-1.5 text-xs font-bold text-yellow-400 transition-all duration-200 hover:bg-yellow-500/20 md:text-sm"
+                >
+                  Simulação
+                </Link>
+              </li>
             </ul>
           </nav>
           <div className="flex items-center gap-10 lg:hidden">
@@ -134,6 +142,16 @@ export const Header = () => {
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>
                           <Link href="/#footer">Fale comigo</Link>
+                        </SheetClose>
+                      </li>
+                      <li className="flex w-max items-center gap-1">
+                        <SheetClose asChild>
+                          <Link
+                            href="/simulacao"
+                            className="flex items-center gap-1.5 rounded-lg border border-yellow-500/40 bg-yellow-500/10 px-4 py-2 text-sm font-bold text-yellow-400"
+                          >
+                            ✨ Simulação gratuita
+                          </Link>
                         </SheetClose>
                       </li>
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300">
