@@ -7,6 +7,7 @@ import { Steps } from "@/components/ui/steps";
 import { Services } from "@/components/ui/services";
 // import { Cost } from "@/components/ui/cost";
 import { StudioFaq } from "@/components/ui/studio-faq";
+import { StudioPlans } from "@/components/ui/studioplans";
 // import { StudioAuthorityShowcase } from "@/components/ui/studio-authority-showcase";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
         {/* <StudioAuthorityShowcase /> */}
         <Services />
         <Steps />
+        <StudioPlans />
         <StudioFaq />
         {/* <Cost /> */}
         {/* <WhyDevLab /> */}
