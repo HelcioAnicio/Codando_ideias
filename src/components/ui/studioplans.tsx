@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Check } from "lucide-react";
 
@@ -30,10 +31,9 @@ const subscriptionPlans = [
     description:
       "Para empresas que precisam de mais presença. Site com múltiplas páginas, blog e estrutura completa para posicionamento de marca.",
     items: [
-      "3 templates prontos por segmento",
+      "Até 6 páginas + Blog",
       "Personalização de texto e logo",
       "Escolha da paleta de cores",
-      "Até 6 páginas + Blog",
       "Domínio e hospedagem inclusos",
       "Suporte via WhatsApp",
     ],
@@ -247,21 +247,40 @@ export const StudioPlans = () => {
                     ))}
                   </ul>
 
-                  <div className="mt-6">
-                    <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-                      Templates por segmento
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {segments.map((s) => (
-                        <span
-                          key={s}
-                          className="rounded-full border border-amber-300/20 bg-amber-300/5 px-3 py-1 text-xs text-amber-200"
-                        >
-                          {s}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  {/* Landing page: templates + contractual note */}
+                  {plan.id === "landing" && (
+                    <>
+                      <div className="mt-6">
+                        <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                          Templates por segmento
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {segments.map((s) => (
+                            <span
+                              key={s}
+                              className="rounded-full border border-amber-300/20 bg-amber-300/5 px-3 py-1 text-xs text-amber-200"
+                            >
+                              {s}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Contractual note */}
+                      <p className="mt-4 rounded-xl border border-slate-700/60 bg-slate-800/60 px-4 py-3 text-xs text-slate-400">
+                        📄 Tudo é feito contratualmente — o modelo escolhido, personalizações e
+                        prazos ficam formalizados antes do início do trabalho.
+                      </p>
+
+                      {/* Link to model selection */}
+                      <Link
+                        href="/simulacao"
+                        className="mt-3 flex items-center justify-center gap-2 rounded-xl border border-dashed border-slate-600 px-4 py-3 text-xs font-semibold text-slate-300 transition-all hover:border-yellow-500/50 hover:bg-yellow-500/5 hover:text-yellow-400"
+                      >
+                        🎨 Escolher o estilo do modelo →
+                      </Link>
+                    </>
+                  )}
 
                   <a
                     href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -270,7 +289,7 @@ export const StudioPlans = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={[
-                      "mt-8 block rounded-xl px-5 py-4 text-center font-bold transition",
+                      "mt-6 block rounded-xl px-5 py-4 text-center font-bold transition",
                       plan.featured
                         ? "studio-gold-surface text-slate-950 hover:brightness-110"
                         : "border border-slate-700 text-white hover:border-amber-300/50 hover:bg-white/5",
@@ -283,8 +302,8 @@ export const StudioPlans = () => {
             </div>
 
             <p className="mt-8 text-center text-sm text-slate-500">
-              * Os planos de assinatura são baseados em templates prontos. Você
-              poderá personalizar texto, logo e paleta de cores antes da entrega.
+              * O plano Landing Page é baseado em templates prontos. Textos, imagens,
+              serviços e paleta de cores são personalizados com o conteúdo fornecido pelo cliente.
             </p>
           </div>
         )}

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>André Lemos — Personal Trainer & Coach de Performance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --moss:#2C4A2E;--moss-lt:#3D6640;--moss-mid:#5A8F5D;
+  --moss-pale:#EBF2EB;--moss-accent:#7DBF82;
+  --cream:#F9F6EF;--cream-dk:#F0EBE0;--sand:#E2D5BC;
+  --white:#FFFFF8;--ink:#1C1C16;--ink-lt:#3A3A30;
+  --muted:#8A8A78;--muted-lt:#B8B8A8;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+nav{background:var(--cream);border-bottom:1px solid var(--sand);
+  padding:0 5rem;height:70px;position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Cormorant Garamond',serif;font-size:20px;
+  font-weight:400;letter-spacing:.04em;color:var(--ink)}
+.logo em{font-style:italic;color:var(--moss)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:12px;font-weight:400;letter-spacing:.08em;
+  color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--moss)}
+.nav-cta{padding:10px 26px;border:1px solid var(--moss);
+  background:transparent;color:var(--moss);
+  font-family:'Jost',sans-serif;font-size:12px;font-weight:500;
+  cursor:pointer;transition:all .25s}
+.nav-cta:hover{background:var(--moss);color:var(--white)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr}
+.hero-l{background:var(--moss);display:flex;flex-direction:column;
+  justify-content:flex-end;padding:6rem 5rem;position:relative;overflow:hidden}
+.hero-l::before{content:'';position:absolute;top:-100px;right:-100px;
+  width:400px;height:400px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.06)}
+.hero-l::after{content:'';position:absolute;bottom:-60px;left:-60px;
+  width:280px;height:280px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.04)}
+.hero-top{flex:1;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:1rem;position:relative;z-index:1}
+.hero-top svg{opacity:.2}
+.hero-top p{font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,248,.3)}
+.hero-pre{font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--moss-accent);margin-bottom:1rem;
+  display:flex;align-items:center;gap:10px;position:relative;z-index:1}
+.hero-pre::before{content:'';width:24px;height:1px;background:var(--moss-accent)}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,4.5vw,60px);
+  font-weight:300;line-height:1.1;color:var(--white);
+  margin-bottom:1.5rem;position:relative;z-index:1}
+h1 em{font-style:italic}
+.hero-sub{font-size:14px;font-weight:300;line-height:1.9;
+  color:rgba(255,255,248,.65);max-width:400px;
+  margin-bottom:2.5rem;position:relative;z-index:1}
+.hero-btns{display:flex;gap:12px;position:relative;z-index:1}
+.btn-moss-lt{padding:14px 32px;background:rgba(255,255,255,.12);color:var(--white);
+  border:1px solid rgba(255,255,255,.25);
+  font-family:'Jost',sans-serif;font-size:12px;font-weight:500;
+  cursor:pointer;transition:all .25s}
+.btn-moss-lt:hover{background:rgba(255,255,255,.2)}
+.btn-cream{padding:14px 32px;background:var(--cream);color:var(--moss);
+  border:none;font-family:'Jost',sans-serif;font-size:12px;font-weight:600;
+  cursor:pointer;transition:all .25s}
+.btn-cream:hover{background:var(--white)}
+
+.hero-r{background:var(--cream-dk);display:flex;flex-direction:column;
+  justify-content:center;padding:6rem 5rem 5rem}
+.hero-r-eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--moss);margin-bottom:2rem;
+  display:flex;align-items:center;gap:10px}
+.hero-r-eyebrow::before{content:'';width:24px;height:1px;background:var(--moss-accent)}
+.hero-r-name{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,54px);
+  font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:.5rem}
+.hero-r-name em{font-style:italic;color:var(--moss)}
+.hero-r-title{font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:2rem}
+.hero-r-bio{font-size:15px;font-weight:300;line-height:1.9;
+  color:var(--muted);max-width:400px;margin-bottom:2.5rem}
+.hero-creds{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.cred-item{background:var(--cream);padding:1.25rem;border-left:2px solid var(--moss-accent)}
+.cred-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:.25rem}
+.cred-val{font-size:14px;font-weight:500;color:var(--ink)}
+
+/* NÚMEROS */
+.numeros{background:var(--moss);padding:2rem 5rem;
+  display:grid;grid-template-columns:repeat(4,1fr)}
+.num-item{text-align:center;padding:.5rem;border-right:1px solid rgba(255,255,255,.1)}
+.num-item:last-child{border-right:none}
+.num-n{font-family:'Cormorant Garamond',serif;font-size:32px;
+  font-weight:300;color:var(--white)}
+.num-l{font-size:11px;color:rgba(255,255,255,.5);margin-top:3px}
+
+/* FILOSOFIA */
+.filosofia{padding:7rem 5rem;background:var(--cream);
+  display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center}
+.sec-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--moss);margin-bottom:.75rem;
+  display:flex;align-items:center;gap:10px}
+.sec-tag::before{content:'';width:24px;height:1px;background:var(--moss-accent)}
+.sec-title{font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,3.5vw,46px);font-weight:300;
+  line-height:1.15;color:var(--ink)}
+.sec-title em{font-style:italic;color:var(--moss)}
+.fil-text{font-size:15px;font-weight:300;color:var(--muted);
+  line-height:1.9;margin-top:1.25rem;margin-bottom:2rem}
+.fil-items{display:flex;flex-direction:column;gap:0;
+  border-top:1px solid var(--sand)}
+.fil-item{padding:1.25rem 0;border-bottom:1px solid var(--sand);
+  display:flex;align-items:flex-start;gap:1.25rem}
+.fi-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.fi-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:.25rem}
+.fi-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.65}
+.fil-right{display:flex;flex-direction:column;gap:1px;background:var(--sand)}
+.fil-r-item{background:var(--cream);padding:2.5rem;
+  display:flex;flex-direction:column;gap:.5rem;
+  border-left:2px solid transparent;transition:border-color .3s}
+.fil-r-item:hover{border-left-color:var(--moss)}
+.fir-num{font-family:'Cormorant Garamond',serif;font-size:40px;
+  font-weight:300;color:var(--sand);line-height:1}
+.fir-title{font-family:'Cormorant Garamond',serif;font-size:20px;
+  font-weight:400;color:var(--ink)}
+.fir-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7}
+
+/* PROGRAMAS */
+.programas{background:var(--cream-dk);padding:7rem 5rem}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.prog-card{background:var(--cream);padding:2.5rem;
+  border:1px solid var(--sand);transition:all .3s}
+.prog-card:hover{border-color:var(--moss-accent);transform:translateY(-3px)}
+.prog-card.featured{background:var(--moss);border-color:var(--moss)}
+.prog-tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--moss);margin-bottom:1rem}
+.prog-card.featured .prog-tag{color:var(--moss-accent)}
+.prog-name{font-family:'Cormorant Garamond',serif;font-size:24px;
+  font-weight:400;color:var(--ink);margin-bottom:.5rem}
+.prog-card.featured .prog-name{color:var(--white)}
+.prog-desc{font-size:13px;font-weight:300;color:var(--muted);
+  line-height:1.75;margin-bottom:1.5rem}
+.prog-card.featured .prog-desc{color:rgba(255,255,248,.6)}
+.prog-includes{list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.75rem}
+.prog-includes li{font-size:12px;color:var(--muted);
+  display:flex;align-items:center;gap:8px;font-weight:300}
+.prog-includes li::before{content:'—';color:var(--moss-accent);font-weight:300}
+.prog-card.featured .prog-includes li{color:rgba(255,255,248,.55)}
+.prog-price{font-family:'Cormorant Garamond',serif;font-size:34px;
+  font-weight:300;color:var(--moss)}
+.prog-card.featured .prog-price{color:var(--white)}
+.prog-price sub{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--muted)}
+.prog-card.featured .prog-price sub{color:rgba(255,255,248,.4)}
+.prog-btn{display:block;margin-top:1.25rem;padding:12px 0;text-align:center;
+  border:1px solid var(--moss);color:var(--moss);
+  font-family:'Jost',sans-serif;font-size:12px;font-weight:500;
+  background:transparent;cursor:pointer;width:100%;transition:all .2s}
+.prog-btn:hover{background:var(--moss);color:var(--white)}
+.prog-card.featured .prog-btn{border-color:rgba(255,255,255,.3);color:var(--white)}
+.prog-card.featured .prog-btn:hover{background:rgba(255,255,255,.15)}
+
+/* DEPOIMENTOS */
+.depoimentos{padding:7rem 5rem;background:var(--cream)}
+.dep-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3.5rem}
+.dep-card{background:var(--cream-dk);padding:2.5rem}
+.dep-stars{color:var(--moss-mid);font-size:14px;letter-spacing:2px;margin-bottom:1rem}
+.dep-text{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;
+  font-style:italic;color:var(--ink);line-height:1.65;margin-bottom:1.5rem}
+.dep-author strong{font-size:14px;font-weight:500;color:var(--ink);display:block}
+.dep-author span{font-size:11px;color:var(--moss);letter-spacing:.06em}
+
+/* CTA */
+.cta{padding:7rem 5rem;background:var(--cream-dk);
+  display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center}
+.cta-title{font-family:'Cormorant Garamond',serif;
+  font-size:clamp(30px,3.5vw,48px);font-weight:300;
+  color:var(--ink);line-height:1.15;margin-bottom:1.5rem}
+.cta-title em{font-style:italic;color:var(--moss)}
+.cta-desc{font-size:15px;font-weight:300;color:var(--muted);
+  line-height:1.9;margin-bottom:2.5rem}
+.cta-items{display:flex;flex-direction:column;gap:.75rem}
+.ci{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-lt)}
+.ci-dot{width:5px;height:5px;border-radius:50%;background:var(--moss-accent);flex-shrink:0}
+
+.cta-form{background:var(--cream);padding:3rem;border-top:2px solid var(--moss)}
+.cta-form-title{font-family:'Cormorant Garamond',serif;font-size:26px;
+  font-weight:300;color:var(--ink);margin-bottom:.25rem}
+.cta-form-sub{font-size:12px;color:var(--muted);margin-bottom:2rem}
+.f-field{margin-bottom:1.25rem}
+.f-field label{display:block;font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.f-field input,.f-field select{width:100%;padding:12px 0;
+  background:transparent;border:none;border-bottom:1px solid var(--sand);
+  color:var(--ink);font-family:'Jost',sans-serif;font-size:14px;
+  outline:none;transition:border-color .2s}
+.f-field input::placeholder{color:var(--muted-lt)}
+.f-field input:focus,.f-field select:focus{border-bottom-color:var(--moss)}
+.f-field select option{background:var(--cream)}
+.btn-sub{width:100%;margin-top:1.5rem;padding:15px;
+  background:var(--moss);color:var(--white);
+  font-family:'Jost',sans-serif;font-size:13px;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;
+  border:none;cursor:pointer;transition:background .25s}
+.btn-sub:hover{background:var(--moss-lt)}
+.f-note{font-size:11px;color:var(--muted-lt);text-align:center;margin-top:.75rem}
+
+footer{background:var(--moss);padding:2.5rem 5rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-brand{font-family:'Cormorant Garamond',serif;font-size:18px;
+  font-weight:300;font-style:italic;color:rgba(255,255,248,.4)}
+.foot-links{display:flex;gap:2rem}
+.foot-links a{font-size:11px;color:rgba(255,255,248,.3);text-decoration:none}
+.foot-links a:hover{color:rgba(255,255,248,.6)}
+.foot-dev{font-size:11px;color:rgba(255,255,255,.15)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:960px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-l{min-height:420px;padding:4rem 2rem}
+  .hero-r{padding:4rem 2rem}
+  .numeros{grid-template-columns:repeat(2,1fr);padding:1.5rem}
+  .filosofia,.programas,.depoimentos,.cta{padding:4rem 2rem}
+  .filosofia,.cta{grid-template-columns:1fr;gap:3rem}
+  .prog-grid{grid-template-columns:1fr}
+  .dep-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo"><em>André</em> Lemos</div>
+  <ul class="nav-links">
+    <li><a href="#filosofia">Método</a></li>
+    <li><a href="#programas">Programas</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <button class="nav-cta">Agendar avaliação</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-top">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="white" stroke-width="1">
+        <circle cx="24" cy="24" r="20"/><path d="M24 4v40M4 24h40"/>
+        <circle cx="24" cy="24" r="10"/>
+      </svg>
+      <p>Foto do personal</p>
+    </div>
+    <div class="hero-pre">Personal Trainer & Coach</div>
+    <h1>Treinamento que<br>respeita o seu<br><em>processo</em></h1>
+    <p class="hero-sub">Cada corpo tem uma história. Cada objetivo, um caminho. O meu trabalho é encontrar o método certo para você — não para um padrão.</p>
+    <div class="hero-btns">
+      <button class="btn-cream">Agendar avaliação</button>
+      <button class="btn-moss-lt">Ver programas</button>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-r-eyebrow">Personal Trainer Premium</div>
+    <div class="hero-r-name"><em>André</em><br>Lemos</div>
+    <div class="hero-r-title">Personal Trainer · Coach de Performance · CREF 12345-G/SP</div>
+    <p class="hero-r-bio">Especialista em periodização avançada e coaching comportamental. Formado pela USP com certificações internacionais em biomecânica e nutrição esportiva. 10 anos transformando corpos e mentalidades.</p>
+    <div class="hero-creds">
+      <div class="cred-item"><div class="cred-label">Formação</div><div class="cred-val">Educação Física USP</div></div>
+      <div class="cred-item"><div class="cred-label">Certificação</div><div class="cred-val">NSCA-CSCS</div></div>
+      <div class="cred-item"><div class="cred-label">Especialidade</div><div class="cred-val">Hipertrofia avançada</div></div>
+      <div class="cred-item"><div class="cred-label">Atuação</div><div class="cred-val">Presencial + Online</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="numeros">
+  <div class="num-item"><div class="num-n">+300</div><div class="num-l">Alunos transformados</div></div>
+  <div class="num-item"><div class="num-n">10 anos</div><div class="num-l">De experiência</div></div>
+  <div class="num-item"><div class="num-n">4.9★</div><div class="num-l">Avaliação média</div></div>
+  <div class="num-item"><div class="num-n">92%</div><div class="num-l">Renovam contrato</div></div>
+</div>
+
+<section class="filosofia" id="filosofia">
+  <div class="reveal">
+    <div class="sec-tag">Minha filosofia</div>
+    <h2 class="sec-title">Resultado sustentável<br>nasce de <em>base sólida</em></h2>
+    <p class="fil-text">Não acredito em transformações rápidas sem fundamento. Acredito em construir o hábito, respeitar a biologia e ajustar o método à realidade de cada pessoa.</p>
+    <div class="fil-items">
+      <div class="fil-item"><div class="fi-icon">🧬</div><div><div class="fi-title">Individualização real</div><p class="fi-desc">Planilha construída do zero para o seu corpo, não adaptada de uma genérica.</p></div></div>
+      <div class="fil-item"><div class="fi-icon">📊</div><div><div class="fi-title">Evolução medida</div><p class="fi-desc">Métricas objetivas a cada reavaliação para ajuste fino do protocolo.</p></div></div>
+      <div class="fil-item"><div class="fi-icon">🧠</div><div><div class="fi-title">Coaching comportamental</div><p class="fi-desc">Trabalho de mentalidade para sustentar os resultados além do treino.</p></div></div>
+    </div>
+  </div>
+  <div class="fil-right reveal">
+    <div class="fil-r-item"><div class="fir-num">01</div><div class="fir-title">Avaliação completa</div><p class="fir-desc">Bioimpedância, análise postural e entrevista de estilo de vida antes de qualquer planilha.</p></div>
+    <div class="fil-r-item"><div class="fir-num">02</div><div class="fir-title">Protocolo exclusivo</div><p class="fir-desc">Periodização personalizada com cargas, volumes e intensidades definidas para você.</p></div>
+    <div class="fil-r-item"><div class="fir-num">03</div><div class="fir-title">Acompanhamento real</div><p class="fir-desc">Não desapareço entre as sessões. Suporte, ajustes e motivação no dia a dia.</p></div>
+  </div>
+</section>
+
+<section class="programas" id="programas">
+  <div class="reveal">
+    <div class="sec-tag">Programas</div>
+    <h2 class="sec-title">O cuidado certo<br>para cada <em>objetivo</em></h2>
+  </div>
+  <div class="prog-grid">
+    <div class="prog-card reveal">
+      <div class="prog-tag">Presencial</div>
+      <div class="prog-name">Coaching Presencial</div>
+      <p class="prog-desc">Treinos supervisionados em academia parceira ou na sua academia. Técnica e resultado em pessoa.</p>
+      <ul class="prog-includes">
+        <li>3 sessões semanais de 60min</li><li>Avaliação mensal</li>
+        <li>Planilha personalizada</li><li>Suporte via app</li>
+      </ul>
+      <div class="prog-price"><sub>R$</sub> 890<sub>/mês</sub></div>
+      <button class="prog-btn">Quero presencial</button>
+    </div>
+    <div class="prog-card featured reveal">
+      <div class="prog-tag">⭐ Recomendado</div>
+      <div class="prog-name">Coaching Premium</div>
+      <p class="prog-desc">O programa completo. Presencial + online + nutrição + coaching de comportamento integrado.</p>
+      <ul class="prog-includes">
+        <li>5 sessões semanais</li><li>Nutrição esportiva inclusa</li>
+        <li>Coaching comportamental</li><li>Suporte diário</li><li>Análise de movimento em vídeo</li>
+      </ul>
+      <div class="prog-price"><sub>R$</sub> 1.490<sub>/mês</sub></div>
+      <button class="prog-btn">Quero o Premium</button>
+    </div>
+    <div class="prog-card reveal">
+      <div class="prog-tag">Online</div>
+      <div class="prog-name">Coaching Online</div>
+      <p class="prog-desc">Todo o método, onde você estiver. Planilha, acompanhamento e suporte sem precisar ser em SP.</p>
+      <ul class="prog-includes">
+        <li>Planilha semanal enviada</li><li>Reavaliação quinzenal online</li>
+        <li>Análise de vídeo dos treinos</li><li>Chat direto 7 dias</li>
+      </ul>
+      <div class="prog-price"><sub>R$</sub> 590<sub>/mês</sub></div>
+      <button class="prog-btn">Quero online</button>
+    </div>
+  </div>
+</section>
+
+<section class="depoimentos">
+  <div class="reveal">
+    <div class="sec-tag">Resultados</div>
+    <h2 class="sec-title">O que dizem<br>quem <em>transformou</em></h2>
+  </div>
+  <div class="dep-grid">
+    <div class="dep-card reveal">
+      <div class="dep-stars">★★★★★</div>
+      <p class="dep-text">"O André não é só personal. É a primeira vez que alguém olhou para mim como um todo — treino, alimentação, sono, estresse. Em 5 meses mudei mais do que nos 3 anos anteriores."</p>
+      <div class="dep-author"><strong>Mariana Fonseca</strong><span>Coaching Premium · 5 meses</span></div>
+    </div>
+    <div class="dep-card reveal">
+      <div class="dep-stars">★★★★★</div>
+      <p class="dep-text">"Treino online com ele de Porto Alegre. A planilha é completíssima, a análise de vídeo dos meus exercícios corrigiu erros que eu tinha há anos. Resultado melhor do que quando treinava com alguém presencialmente."</p>
+      <div class="dep-author"><strong>Pedro Nunes</strong><span>Coaching Online · 8 meses</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <div class="reveal">
+    <h2 class="cta-title">Comece com<br>a avaliação <em>certa</em></h2>
+    <p class="cta-desc">Primeira avaliação gratuita e sem compromisso. Entendo seu histórico, seus objetivos e te apresento o melhor caminho.</p>
+    <div class="cta-items">
+      <div class="ci"><div class="ci-dot"></div>Avaliação física completa gratuita</div>
+      <div class="ci"><div class="ci-dot"></div>Presencial em SP ou online</div>
+      <div class="ci"><div class="ci-dot"></div>Sem fidelidade obrigatória</div>
+      <div class="ci"><div class="ci-dot"></div>Resposta em até 2 horas</div>
+    </div>
+  </div>
+  <div class="cta-form reveal">
+    <div class="cta-form-title">Agendar avaliação</div>
+    <div class="cta-form-sub">Gratuita · Sem compromisso · 45 minutos</div>
+    <div class="f-field"><label>Nome</label><input type="text" placeholder="Seu nome"></div>
+    <div class="f-field"><label>WhatsApp</label><input type="tel" placeholder="(00) 00000-0000"></div>
+    <div class="f-field"><label>Modalidade preferida</label>
+      <select><option>Selecione...</option>
+      <option>Presencial em SP</option><option>Online</option><option>Sem preferência</option></select>
+    </div>
+    <div class="f-field"><label>Objetivo principal</label>
+      <select><option>Selecione...</option>
+      <option>Emagrecimento</option><option>Hipertrofia / ganho de massa</option>
+      <option>Condicionamento físico</option><option>Performance atlética</option>
+      <option>Saúde e qualidade de vida</option></select>
+    </div>
+    <button class="btn-sub">Solicitar avaliação gratuita</button>
+    <p class="f-note">Resposta em até 2h · Agendamento confirmado via WhatsApp</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-brand">André Lemos · Personal Trainer</div>
+  <div class="foot-links"><a href="#">Método</a><a href="#">Programas</a><a href="#">Instagram</a><a href="#">Privacidade</a></div>
+  <div class="foot-dev">Desenvolvido por CodandoIdeias</div>
+</footer>
+
+<script>
+const r=document.querySelectorAll('.reveal');
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}})},{threshold:0.1});
+r.forEach(el=>o.observe(el));
+</script>
+</body>
+</html>

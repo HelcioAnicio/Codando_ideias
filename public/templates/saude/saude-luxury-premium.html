@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica Espaço Vital — Saúde de Alto Padrão</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --forest:   #1E3A2F;
+    --forest-mid: #2D5441;
+    --gold:     #C9A96E;
+    --gold-lt:  #E8D5B0;
+    --cream:    #F7F3EC;
+    --cream-dk: #EDE7DB;
+    --ink:      #1A1A18;
+    --muted:    #7A7A6E;
+    --white:    #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 4rem;
+    height: 72px;
+    background: rgba(247, 243, 236, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .nav-logo-mark {
+    width: 36px; height: 36px;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nav-logo-mark svg { width: 16px; height: 16px; }
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 400; letter-spacing: 0.06em;
+    color: var(--forest);
+  }
+  .nav-brand span { color: var(--gold); }
+
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: 12px; font-weight: 400; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--forest); }
+
+  .nav-cta {
+    padding: 10px 22px;
+    border: 1px solid var(--gold);
+    background: transparent;
+    color: var(--forest);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.25s;
+  }
+  .nav-cta:hover { background: var(--forest); color: var(--cream); border-color: var(--forest); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 72px;
+  }
+
+  .hero-left {
+    background: var(--forest);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 5rem 6rem 5rem;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-left::before {
+    content: '';
+    position: absolute; top: -120px; left: -120px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    border: 1px solid rgba(201, 169, 110, 0.12);
+  }
+  .hero-left::after {
+    content: '';
+    position: absolute; bottom: -80px; right: -80px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 1px solid rgba(201, 169, 110, 0.08);
+  }
+
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 2rem;
+  }
+  .hero-eyebrow-line {
+    width: 32px; height: 1px; background: var(--gold);
+  }
+  .hero-eyebrow span {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 5vw, 64px);
+    font-weight: 300; line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+  .hero-title em { font-style: italic; color: var(--gold); }
+
+  .hero-sub {
+    font-size: 15px; font-weight: 300; line-height: 1.8;
+    color: rgba(247, 243, 236, 0.65);
+    max-width: 380px; margin-bottom: 3rem;
+  }
+
+  .hero-actions {
+    display: flex; flex-direction: column; gap: 12px; align-items: flex-start;
+  }
+
+  .btn-primary {
+    padding: 16px 36px;
+    background: var(--gold);
+    color: var(--forest);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    border: none; cursor: pointer; transition: all 0.25s;
+  }
+  .btn-primary:hover { background: var(--gold-lt); }
+
+  .btn-ghost {
+    padding: 14px 32px;
+    background: transparent;
+    color: rgba(247,243,236,0.7);
+    border: 1px solid rgba(201, 169, 110, 0.3);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.25s;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--cream); }
+
+  .hero-right {
+    background: var(--cream-dk);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 4rem;
+    position: relative;
+  }
+
+  .hero-img-frame {
+    width: 100%; aspect-ratio: 3/4;
+    background: var(--forest-mid);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    max-height: 480px;
+  }
+  .hero-img-frame::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(45,84,65,0.6) 0%, transparent 60%);
+  }
+  .hero-img-placeholder {
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    position: relative; z-index: 1;
+  }
+  .hero-img-placeholder svg { opacity: 0.3; }
+  .hero-img-placeholder p {
+    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(247,243,236,0.4);
+  }
+
+  .hero-card {
+    position: absolute; bottom: 3rem; left: 2rem; right: 2rem;
+    background: var(--white);
+    padding: 1.5rem 2rem;
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 1px; background-color: var(--cream-dk);
+  }
+  .hero-stat {
+    background: var(--white);
+    padding: 1.2rem;
+    text-align: center;
+  }
+  .hero-stat-n {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 300; color: var(--forest);
+    line-height: 1;
+  }
+  .hero-stat-l {
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); margin-top: 4px;
+  }
+
+  /* ── SEÇÃO ESPECIALIDADES ── */
+  .section { padding: 7rem 4rem; }
+  .section-alt { background: var(--cream-dk); }
+
+  .section-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 4rem;
+  }
+  .section-eyebrow {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 48px); font-weight: 300; line-height: 1.1;
+    color: var(--forest);
+  }
+  .section-title em { font-style: italic; }
+  .section-link {
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); text-decoration: none;
+    display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+  }
+
+  .especialidades-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--cream-dk);
+  }
+  .espec-card {
+    background: var(--cream);
+    padding: 2.5rem 2rem;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .espec-card:hover { background: var(--forest); }
+  .espec-card:hover .espec-name { color: var(--cream); }
+  .espec-card:hover .espec-desc { color: rgba(247,243,236,0.6); }
+  .espec-card:hover .espec-icon { color: var(--gold); }
+  .espec-card:hover .espec-num { color: rgba(201,169,110,0.2); }
+
+  .espec-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px; font-weight: 300; color: var(--cream-dk);
+    line-height: 1; margin-bottom: 0.5rem;
+    transition: color 0.3s;
+  }
+  .espec-icon {
+    font-size: 24px; margin-bottom: 1rem; color: var(--gold);
+    display: block; transition: color 0.3s;
+  }
+  .espec-name {
+    font-size: 16px; font-weight: 500; color: var(--forest);
+    margin-bottom: 0.5rem; transition: color 0.3s;
+  }
+  .espec-desc {
+    font-size: 13px; font-weight: 300; color: var(--muted);
+    line-height: 1.7; transition: color 0.3s;
+  }
+
+  /* ── COMO FUNCIONA ── */
+  .processo {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 3rem;
+  }
+  .processo-step { position: relative; }
+  .processo-step::after {
+    content: '';
+    position: absolute; top: 22px; left: calc(100% + 1px); right: -3rem;
+    height: 1px; background: var(--gold-lt);
+  }
+  .processo-step:last-child::after { display: none; }
+
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px; color: var(--gold); letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+  .step-title {
+    font-size: 15px; font-weight: 500; color: var(--forest);
+    margin-bottom: 0.5rem;
+  }
+  .step-desc {
+    font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.7;
+  }
+
+  /* ── DEPOIMENTO ── */
+  .depoimento-section {
+    background: var(--forest);
+    padding: 7rem 4rem;
+    display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; align-items: center;
+  }
+
+  .dep-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .dep-side-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 300; color: var(--cream); line-height: 1.2;
+  }
+
+  .dep-content { position: relative; padding-left: 3rem; }
+  .dep-content::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 120px; color: var(--gold); opacity: 0.2;
+    position: absolute; top: -30px; left: -10px; line-height: 1;
+  }
+  .dep-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 300; font-style: italic;
+    color: var(--cream); line-height: 1.6; margin-bottom: 2rem;
+  }
+  .dep-author { font-size: 13px; color: var(--gold); }
+  .dep-author strong { display: block; font-size: 15px; font-weight: 500; color: var(--cream); margin-bottom: 2px; }
+
+  /* ── EQUIPE ── */
+  .equipe-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+  }
+  .equipe-card { }
+  .equipe-foto {
+    width: 100%; aspect-ratio: 3/4;
+    background: var(--forest-mid);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+    position: relative; overflow: hidden;
+    max-height: 280px;
+  }
+  .equipe-foto-inner {
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  }
+  .equipe-foto-inner svg { opacity: 0.25; }
+  .equipe-foto-inner span { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,236,0.3); }
+  .equipe-nome { font-size: 16px; font-weight: 500; color: var(--forest); margin-bottom: 2px; }
+  .equipe-spec { font-size: 12px; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; }
+  .equipe-crm { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+  /* ── CTA FINAL ── */
+  .cta-section {
+    padding: 7rem 4rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+  }
+
+  .cta-left .section-eyebrow { margin-bottom: 0.5rem; }
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px); font-weight: 300; line-height: 1.15;
+    color: var(--forest); margin-bottom: 1.5rem;
+  }
+  .cta-title em { font-style: italic; color: var(--gold); }
+  .cta-desc { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.8; }
+
+  .cta-right {
+    background: var(--forest);
+    padding: 3rem;
+  }
+  .cta-form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 300; color: var(--cream);
+    margin-bottom: 2rem;
+  }
+  .form-field { margin-bottom: 1rem; }
+  .form-field label {
+    display: block; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(247,243,236,0.5); margin-bottom: 6px;
+  }
+  .form-field input, .form-field select {
+    width: 100%; padding: 12px 0;
+    background: transparent;
+    border: none; border-bottom: 1px solid rgba(201,169,110,0.3);
+    color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 14px;
+    outline: none; transition: border-color 0.2s;
+  }
+  .form-field input::placeholder { color: rgba(247,243,236,0.25); }
+  .form-field input:focus { border-bottom-color: var(--gold); }
+  .form-field select { cursor: pointer; }
+  .form-field select option { background: var(--forest); }
+  .btn-submit {
+    width: 100%; margin-top: 1.5rem; padding: 16px;
+    background: var(--gold); color: var(--forest);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    border: none; cursor: pointer; transition: background 0.25s;
+  }
+  .btn-submit:hover { background: var(--gold-lt); }
+  .form-note { font-size: 11px; color: rgba(247,243,236,0.3); text-align: center; margin-top: 0.75rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    padding: 3rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px; color: rgba(247,243,236,0.4); letter-spacing: 0.06em;
+  }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { font-size: 11px; color: rgba(247,243,236,0.3); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; }
+  .footer-note { font-size: 11px; color: rgba(247,243,236,0.2); }
+
+  /* ── REVEAL ANIMATION ── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 4rem 2rem; }
+    .hero-right { padding: 3rem 2rem; min-height: 400px; }
+    .section { padding: 4rem 2rem; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .especialidades-grid { grid-template-columns: 1fr; }
+    .processo { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .processo-step::after { display: none; }
+    .depoimento-section { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 2rem; }
+    .dep-content { padding-left: 1.5rem; }
+    .equipe-grid { grid-template-columns: 1fr 1fr; }
+    .cta-section { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 16 16" fill="none" stroke="#C9A96E" stroke-width="1.2">
+        <path d="M8 2C8 2 3 5 3 9a5 5 0 0010 0c0-4-5-7-5-7z"/>
+      </svg>
+    </div>
+    <span class="nav-brand">Espaço <span>Vital</span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#especialidades">Especialidades</a></li>
+    <li><a href="#processo">Como funciona</a></li>
+    <li><a href="#equipe">Equipe</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <button class="nav-cta">Agendar consulta</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span>Clínica de medicina integrativa</span>
+    </div>
+    <h1 class="hero-title">
+      Saúde que cuida<br>do ser <em>inteiro</em>
+    </h1>
+    <p class="hero-sub">
+      Medicina de alto padrão com olhar humanizado. Diagnóstico preciso, tratamento personalizado e acompanhamento que vai além do sintoma.
+    </p>
+    <div class="hero-actions">
+      <button class="btn-primary">Agendar primeira consulta</button>
+      <button class="btn-ghost">Conhecer especialidades</button>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-img-frame">
+      <div class="hero-img-placeholder">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#C9A96E" stroke-width="1">
+          <circle cx="24" cy="16" r="8"/>
+          <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/>
+        </svg>
+        <p>Foto do espaço ou equipe</p>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-stat">
+        <div class="hero-stat-n">+12k</div>
+        <div class="hero-stat-l">Pacientes atendidos</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n">18</div>
+        <div class="hero-stat-l">Especialidades</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n">97%</div>
+        <div class="hero-stat-l">Satisfação</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section class="section" id="especialidades">
+  <div class="section-header reveal">
+    <div>
+      <p class="section-eyebrow">Nossas especialidades</p>
+      <h2 class="section-title">Cuidado completo,<br>da prevenção ao <em>tratamento</em></h2>
+    </div>
+    <a href="#contato" class="section-link">Ver todas → </a>
+  </div>
+  <div class="especialidades-grid">
+    <div class="espec-card reveal">
+      <div class="espec-num">01</div>
+      <span class="espec-icon">🫀</span>
+      <div class="espec-name">Cardiologia</div>
+      <p class="espec-desc">Prevenção, diagnóstico e tratamento de doenças cardiovasculares com exames de alta precisão.</p>
+    </div>
+    <div class="espec-card reveal">
+      <div class="espec-num">02</div>
+      <span class="espec-icon">🧠</span>
+      <div class="espec-name">Neurologia</div>
+      <p class="espec-desc">Avaliação e tratamento de condições neurológicas com tecnologia de ponta e cuidado especializado.</p>
+    </div>
+    <div class="espec-card reveal">
+      <div class="espec-num">03</div>
+      <span class="espec-icon">🦴</span>
+      <div class="espec-name">Ortopedia</div>
+      <p class="espec-desc">Diagnóstico e tratamento cirúrgico e conservador de lesões e doenças do sistema musculoesquelético.</p>
+    </div>
+    <div class="espec-card reveal">
+      <div class="espec-num">04</div>
+      <span class="espec-icon">🌿</span>
+      <div class="espec-name">Medicina Integrativa</div>
+      <p class="espec-desc">Abordagem que une medicina convencional a práticas complementares para bem-estar completo.</p>
+    </div>
+    <div class="espec-card reveal">
+      <div class="espec-num">05</div>
+      <span class="espec-icon">🔬</span>
+      <div class="espec-name">Dermatologia</div>
+      <p class="espec-desc">Cuidados clínicos e estéticos da pele com protocolos avançados e tratamentos personalizados.</p>
+    </div>
+    <div class="espec-card reveal">
+      <div class="espec-num">06</div>
+      <span class="espec-icon">👁️</span>
+      <div class="espec-name">Oftalmologia</div>
+      <p class="espec-desc">Saúde ocular completa, do exame de rotina ao tratamento cirúrgico com equipamentos modernos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="section section-alt" id="processo">
+  <div class="section-header reveal">
+    <div>
+      <p class="section-eyebrow">Como funciona</p>
+      <h2 class="section-title">Do agendamento ao<br><em>acompanhamento</em></h2>
+    </div>
+  </div>
+  <div class="processo">
+    <div class="processo-step reveal">
+      <div class="step-num">01</div>
+      <div class="step-title">Agendamento online</div>
+      <p class="step-desc">Escolha o especialista e o horário ideal pela plataforma, sem filas e sem burocracia.</p>
+    </div>
+    <div class="processo-step reveal">
+      <div class="step-num">02</div>
+      <div class="step-title">Consulta presencial</div>
+      <p class="step-desc">Ambiente acolhedor e tempo adequado para cada paciente. Sem pressa, sem protocolo frio.</p>
+    </div>
+    <div class="processo-step reveal">
+      <div class="step-num">03</div>
+      <div class="step-title">Diagnóstico preciso</div>
+      <p class="step-desc">Exames internos com resultado rápido e laudos detalhados para decisões seguras.</p>
+    </div>
+    <div class="processo-step reveal">
+      <div class="step-num">04</div>
+      <div class="step-title">Plano de cuidado</div>
+      <p class="step-desc">Tratamento individualizado com acompanhamento contínuo e acesso direto ao médico.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTO -->
+<section class="depoimento-section">
+  <div class="reveal">
+    <p class="dep-label">O que dizem nossos pacientes</p>
+    <h3 class="dep-side-title">Histórias de cuidado real</h3>
+  </div>
+  <div class="dep-content reveal">
+    <p class="dep-text">
+      "Depois de anos de diagnósticos imprecisos, encontrei na Espaço Vital uma equipe que realmente me ouviu. O tratamento mudou não só minha saúde, mudou minha qualidade de vida por completo."
+    </p>
+    <div class="dep-author">
+      <strong>Mariana Cardoso</strong>
+      Paciente há 3 anos · Neurologia e Medicina Integrativa
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPE -->
+<section class="section" id="equipe">
+  <div class="section-header reveal">
+    <div>
+      <p class="section-eyebrow">Nossa equipe</p>
+      <h2 class="section-title">Especialistas que<br>vão além do <em>diagnóstico</em></h2>
+    </div>
+  </div>
+  <div class="equipe-grid">
+    <div class="equipe-card reveal">
+      <div class="equipe-foto">
+        <div class="equipe-foto-inner">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1">
+            <circle cx="16" cy="11" r="5"/>
+            <path d="M6 28c0-5.523 4.477-10 10-10s10 4.477 10 10"/>
+          </svg>
+          <span>Foto do médico</span>
+        </div>
+      </div>
+      <div class="equipe-nome">Dra. Ana Luiza Ferreira</div>
+      <div class="equipe-spec">Cardiologia</div>
+      <div class="equipe-crm">CRM 54.321 · 18 anos de experiência</div>
+    </div>
+    <div class="equipe-card reveal">
+      <div class="equipe-foto">
+        <div class="equipe-foto-inner">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1">
+            <circle cx="16" cy="11" r="5"/>
+            <path d="M6 28c0-5.523 4.477-10 10-10s10 4.477 10 10"/>
+          </svg>
+          <span>Foto do médico</span>
+        </div>
+      </div>
+      <div class="equipe-nome">Dr. Rafael Monteiro</div>
+      <div class="equipe-spec">Neurologia</div>
+      <div class="equipe-crm">CRM 67.890 · 14 anos de experiência</div>
+    </div>
+    <div class="equipe-card reveal">
+      <div class="equipe-foto">
+        <div class="equipe-foto-inner">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1">
+            <circle cx="16" cy="11" r="5"/>
+            <path d="M6 28c0-5.523 4.477-10 10-10s10 4.477 10 10"/>
+          </svg>
+          <span>Foto do médico</span>
+        </div>
+      </div>
+      <div class="equipe-nome">Dra. Camila Neves</div>
+      <div class="equipe-spec">Medicina Integrativa</div>
+      <div class="equipe-crm">CRM 43.210 · 10 anos de experiência</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section section-alt cta-section" id="contato">
+  <div class="cta-left reveal">
+    <p class="section-eyebrow">Agende sua consulta</p>
+    <h2 class="cta-title">O primeiro passo<br>para uma saúde<br><em>de verdade</em></h2>
+    <p class="cta-desc">Atendimento presencial em São Paulo e teleconsulta para todo o Brasil. Primeira consulta com avaliação completa incluída.</p>
+  </div>
+  <div class="cta-right reveal">
+    <div class="cta-form-title">Solicitar agendamento</div>
+    <div class="form-field">
+      <label>Nome completo</label>
+      <input type="text" placeholder="Seu nome">
+    </div>
+    <div class="form-field">
+      <label>Telefone / WhatsApp</label>
+      <input type="tel" placeholder="(00) 00000-0000">
+    </div>
+    <div class="form-field">
+      <label>Especialidade desejada</label>
+      <select>
+        <option>Selecione uma especialidade</option>
+        <option>Cardiologia</option>
+        <option>Neurologia</option>
+        <option>Dermatologia</option>
+        <option>Ortopedia</option>
+        <option>Medicina Integrativa</option>
+      </select>
+    </div>
+    <button class="btn-submit">Solicitar agendamento</button>
+    <p class="form-note">Retornamos em até 2 horas no horário comercial</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Espaço Vital © 2025</div>
+  <div class="footer-links">
+    <a href="#">Especialidades</a>
+    <a href="#">Equipe</a>
+    <a href="#">Convênios</a>
+    <a href="#">Política de privacidade</a>
+  </div>
+  <div class="footer-note">Desenvolvido por CodandoIdeias</div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80 * (Array.from(reveals).indexOf(entry.target) % 4));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

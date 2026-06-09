@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Forma — Arquitetura & Interiores</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#FFFFFF;--off:#F9F8F6;--ink:#0D0D0B;--ink-lt:#2A2A26;
+  --muted:#888880;--muted-lt:#BBBBAF;--sand:#E8E2D5;--sand-dk:#C8BEA8;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden}
+
+nav{background:var(--white);border-bottom:1px solid var(--sand);
+  padding:0 5rem;height:70px;position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:400;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:11px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{padding:10px 26px;border:1px solid var(--ink);background:transparent;
+  color:var(--ink);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.nav-cta:hover{background:var(--ink);color:var(--white)}
+
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--sand)}
+.hero-l{background:var(--ink);display:flex;flex-direction:column;justify-content:space-between;padding:5rem}
+.hero-l-top{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-lt);
+  margin-bottom:auto;padding-top:1rem}
+.hero-l-main{margin-top:auto}
+h1{font-family:'Playfair Display',serif;font-size:clamp(52px,7vw,88px);font-weight:300;
+  line-height:.95;color:var(--white);margin-bottom:1.5rem;letter-spacing:-.01em}
+h1 em{font-style:italic}
+.hero-l-sub{font-size:14px;font-weight:300;color:var(--muted-lt);line-height:1.85;
+  max-width:340px;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:10px}
+.btn-white{padding:14px 32px;background:var(--white);color:var(--ink);
+  font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .25s}
+.btn-white:hover{background:var(--off)}
+.btn-outline-w{padding:13px 30px;background:transparent;border:1px solid rgba(255,255,255,.2);
+  color:var(--muted-lt);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:400;
+  letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.btn-outline-w:hover{border-color:rgba(255,255,255,.5);color:var(--white)}
+
+.hero-r{display:grid;grid-template-rows:2fr 1fr}
+.hero-r-img{background:var(--sand);display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:.75rem;border-bottom:1px solid var(--sand-dk)}
+.hero-r-img svg{opacity:.3}
+.hero-r-img p{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.hero-r-stats{display:grid;grid-template-columns:repeat(3,1fr)}
+.hr-stat{padding:2rem 1.5rem;border-right:1px solid var(--sand);text-align:center}
+.hr-stat:last-child{border-right:none}
+.hr-n{font-family:'Playfair Display',serif;font-size:28px;font-weight:300;color:var(--ink)}
+.hr-l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+.portfolio{padding:8rem 5rem;background:var(--off)}
+.port-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:4rem;
+  padding-bottom:1.5rem;border-bottom:1px solid var(--sand)}
+.port-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,46px);
+  font-weight:300;color:var(--ink)}
+.port-title em{font-style:italic}
+.port-link{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.port-grid{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto;gap:1px;background:var(--sand)}
+.port-item{background:var(--off);position:relative;overflow:hidden;cursor:pointer}
+.port-item:first-child{grid-column:span 2;grid-row:span 2}
+.port-img{background:var(--sand-dk);display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:.5rem;transition:transform .5s}
+.port-item:first-child .port-img{min-height:480px}
+.port-img-tall{min-height:240px}
+.port-item:hover .port-img{transform:scale(1.03)}
+.port-img svg{opacity:.3}
+.port-img p{font-size:10px;letter-spacing:.1em;color:var(--muted)}
+.port-overlay{position:absolute;bottom:0;left:0;right:0;padding:2rem;
+  background:linear-gradient(transparent,rgba(13,13,11,.7));
+  transform:translateY(100%);transition:transform .4s}
+.port-item:hover .port-overlay{transform:translateY(0)}
+.port-overlay-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:300;color:var(--white)}
+.port-overlay-sub{font-size:11px;color:rgba(255,255,255,.6);margin-top:3px}
+.port-info{padding:1.25rem 1.5rem;border-top:1px solid var(--sand)}
+.port-info-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:400;color:var(--ink);margin-bottom:2px}
+.port-info-type{font-size:11px;letter-spacing:.08em;color:var(--muted)}
+
+.servicos{padding:8rem 5rem;background:var(--white);
+  display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:start}
+.serv-l .port-title{font-size:clamp(26px,3vw,40px);margin-bottom:1.5rem}
+.serv-l p{font-size:15px;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:2.5rem}
+.serv-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--sand)}
+.serv-item{padding:1.5rem 0;border-bottom:1px solid var(--sand);
+  display:flex;align-items:flex-start;justify-content:space-between;gap:2rem}
+.si-left{}
+.si-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:400;color:var(--ink);margin-bottom:.3rem}
+.si-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.65}
+.si-arrow{font-size:18px;color:var(--sand-dk);flex-shrink:0;margin-top:2px}
+.serv-r{display:flex;flex-direction:column;gap:1.5rem;margin-top:4.5rem}
+.serv-stat{padding:2rem;background:var(--off);border-left:2px solid var(--ink)}
+.ss-n{font-family:'Playfair Display',serif;font-size:40px;font-weight:300;color:var(--ink)}
+.ss-l{font-size:12px;font-weight:300;color:var(--muted);margin-top:.25rem}
+
+.dep{background:var(--ink);padding:8rem 5rem;
+  display:grid;grid-template-columns:1fr 2fr;gap:8rem;align-items:center}
+.dep-l-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-lt);margin-bottom:.75rem}
+.dep-l-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:300;color:var(--white);line-height:1.2}
+.dep-q-mark{font-family:'Playfair Display',serif;font-size:100px;font-weight:300;
+  color:rgba(255,255,255,.06);line-height:1;margin-bottom:-.5rem}
+.dep-text{font-family:'Playfair Display',serif;font-size:clamp(17px,2.2vw,23px);font-weight:300;
+  font-style:italic;color:var(--white);line-height:1.65;margin-bottom:2rem}
+.dep-author strong{display:block;font-size:14px;font-weight:500;color:var(--white)}
+.dep-author span{font-size:11px;color:var(--muted-lt);letter-spacing:.06em}
+
+.cta{padding:8rem 5rem;background:var(--off);
+  display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:center}
+.cta-l-title{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,50px);
+  font-weight:300;color:var(--ink);line-height:1.15;margin-bottom:1.5rem}
+.cta-l-title em{font-style:italic}
+.cta-l-sub{font-size:15px;font-weight:300;color:var(--muted);line-height:1.9}
+.cta-form{background:var(--white);padding:3rem;border-top:2px solid var(--ink)}
+.cta-form-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:300;color:var(--ink);margin-bottom:.25rem}
+.cta-form-sub{font-size:12px;color:var(--muted);margin-bottom:2rem}
+.f-field{margin-bottom:1.25rem}
+.f-field label{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.f-field input,.f-field select{width:100%;padding:12px 0;background:transparent;
+  border:none;border-bottom:1px solid var(--sand);color:var(--ink);
+  font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color .2s}
+.f-field input::placeholder{color:var(--muted-lt)}
+.f-field input:focus,.f-field select:focus{border-bottom-color:var(--ink)}
+.f-field select option{background:var(--white)}
+.btn-sub{width:100%;margin-top:1.5rem;padding:15px;background:var(--ink);color:var(--white);
+  font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;border:none;cursor:pointer;transition:all .25s}
+.btn-sub:hover{background:var(--ink-lt)}
+.f-note{font-size:10px;color:var(--muted);text-align:center;margin-top:.75rem}
+
+footer{background:var(--white);border-top:1px solid var(--sand);padding:2.5rem 5rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-brand{font-family:'Playfair Display',serif;font-size:15px;font-weight:400;letter-spacing:.08em;color:rgba(13,13,11,.4)}
+.foot-links{display:flex;gap:2rem}
+.foot-links a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--ink)}
+.foot-dev{font-size:11px;color:var(--muted-lt)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:960px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-l{padding:4rem 2rem;min-height:60vh}
+  .hero-r{min-height:320px}
+  .portfolio,.servicos,.dep,.cta{padding:4rem 2rem}
+  .port-grid{grid-template-columns:1fr}
+  .port-item:first-child{grid-column:span 1;grid-row:span 1}
+  .servicos,.dep,.cta{grid-template-columns:1fr;gap:3rem}
+  footer{flex-direction:column;text-align:center;padding:2rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Studio Forma</div>
+  <ul class="nav-links">
+    <li><a href="#portfolio">Portfólio</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <button class="nav-cta">Iniciar projeto</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-l-top">Arquitetura · Design de interiores · São Paulo</div>
+    <div class="hero-l-main">
+      <h1>Espaços que<br>contam sua<br><em>história</em></h1>
+      <p class="hero-l-sub">Cada projeto é único. Transformamos intenções em ambientes que equilibram estética, função e a identidade de quem vive neles.</p>
+      <div class="hero-btns">
+        <button class="btn-white">Ver portfólio</button>
+        <button class="btn-outline-w">Falar sobre projeto</button>
+      </div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-r-img">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="#888880" stroke-width="1">
+        <rect x="8" y="16" width="36" height="28" rx="1"/><path d="M8 22h36M20 22v22M8 16L26 6l18 10"/>
+      </svg>
+      <p>Foto do projeto destaque</p>
+    </div>
+    <div class="hero-r-stats">
+      <div class="hr-stat"><div class="hr-n">+80</div><div class="hr-l">Projetos entregues</div></div>
+      <div class="hr-stat"><div class="hr-n">12</div><div class="hr-l">Anos de atuação</div></div>
+      <div class="hr-stat"><div class="hr-n">3</div><div class="hr-l">Prêmios IAB</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="port-header reveal">
+    <h2 class="port-title">Portfólio<br>selecionado <em>2024</em></h2>
+    <span class="port-link">Ver todos os projetos →</span>
+  </div>
+  <div class="port-grid">
+    <div class="port-item reveal">
+      <div class="port-img" style="min-height:480px">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#888880" stroke-width="1"><rect x="6" y="12" width="28" height="22"/><path d="M6 17h28M18 17v17M6 12L20 4l14 8"/></svg>
+        <p>Foto do projeto</p>
+      </div>
+      <div class="port-overlay">
+        <div class="port-overlay-title">Residência Jardins</div>
+        <div class="port-overlay-sub">Projeto completo · 380m²</div>
+      </div>
+      <div class="port-info">
+        <div class="port-info-name">Residência Jardins</div>
+        <div class="port-info-type">Arquitetura residencial · 2024</div>
+      </div>
+    </div>
+    <div class="port-item reveal">
+      <div class="port-img port-img-tall">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#888880" stroke-width="1"><rect x="4" y="8" width="20" height="16"/><path d="M4 12h20M10 12v12M4 8L14 2l10 6"/></svg>
+        <p>Foto do projeto</p>
+      </div>
+      <div class="port-info">
+        <div class="port-info-name">Escritório Faria Lima</div>
+        <div class="port-info-type">Design de interiores corporativo</div>
+      </div>
+    </div>
+    <div class="port-item reveal">
+      <div class="port-img port-img-tall">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#888880" stroke-width="1"><rect x="4" y="8" width="20" height="16"/><path d="M4 12h20M10 12v12M4 8L14 2l10 6"/></svg>
+        <p>Foto do projeto</p>
+      </div>
+      <div class="port-info">
+        <div class="port-info-name">Apartamento Vila Madalena</div>
+        <div class="port-info-type">Reforma e interiores · 120m²</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="servicos" id="servicos">
+  <div class="serv-l reveal">
+    <h2 class="port-title" style="font-size:clamp(26px,3.5vw,44px)">O que<br>criamos <em>juntos</em></h2>
+    <p>Do conceito à entrega, cada decisão é tomada com rigor técnico e sensibilidade estética. Trabalhamos em projetos residenciais e comerciais com dedicação exclusiva.</p>
+    <div class="serv-list">
+      <div class="serv-item"><div class="si-left"><div class="si-title">Arquitetura residencial</div><p class="si-desc">Projetos de construção, reforma e ampliação com aprovação em prefeitura.</p></div><span class="si-arrow">→</span></div>
+      <div class="serv-item"><div class="si-left"><div class="si-title">Design de interiores</div><p class="si-desc">Ambientação completa — mobiliário, iluminação, revestimentos e obra.</p></div><span class="si-arrow">→</span></div>
+      <div class="serv-item"><div class="si-left"><div class="si-title">Projetos comerciais</div><p class="si-desc">Escritórios, lojas e restaurantes com foco em identidade e funcionalidade.</p></div><span class="si-arrow">→</span></div>
+      <div class="serv-item"><div class="si-left"><div class="si-title">Consultoria de projeto</div><p class="si-desc">Revisão e orientação técnica para projetos em desenvolvimento.</p></div><span class="si-arrow">→</span></div>
+    </div>
+  </div>
+  <div class="serv-r reveal">
+    <div class="serv-stat"><div class="ss-n">+80</div><p class="ss-l">Projetos entregues desde 2012</p></div>
+    <div class="serv-stat"><div class="ss-n">12</div><p class="ss-l">Anos de experiência em arquitetura e interiores</p></div>
+    <div class="serv-stat"><div class="ss-n">3</div><p class="ss-l">Prêmios pelo Instituto de Arquitetos do Brasil</p></div>
+  </div>
+</section>
+
+<section class="dep">
+  <div class="reveal"><div class="dep-l-label">O que dizem nossos clientes</div><div class="dep-l-title">Projetos que ficam<br>na memória</div></div>
+  <div class="reveal">
+    <div class="dep-q-mark">"</div>
+    <p class="dep-text">"O Studio Forma entendeu desde a primeira reunião o que a gente queria sem saber expressar. O projeto superou todas as expectativas — um espaço que é completamente nosso."</p>
+    <div class="dep-author"><strong>Paulo & Luisa Mendonça</strong><span>Residência em Jardins · 2023</span></div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <div class="reveal">
+    <h2 class="cta-l-title">Seu projeto<br>começa com uma<br><em>conversa</em></h2>
+    <p class="cta-l-sub">Conte sobre seu espaço, seus sonhos e seu prazo. A primeira reunião é gratuita e sem compromisso.</p>
+  </div>
+  <div class="cta-form reveal">
+    <div class="cta-form-title">Iniciar conversa</div>
+    <div class="cta-form-sub">Gratuita · Sem compromisso · Confidencial</div>
+    <div class="f-field"><label>Nome</label><input type="text" placeholder="Seu nome"></div>
+    <div class="f-field"><label>E-mail</label><input type="email" placeholder="seu@email.com"></div>
+    <div class="f-field"><label>Tipo de projeto</label>
+      <select><option>Selecione...</option><option>Residência — construção</option>
+      <option>Residência — reforma</option><option>Apartamento — interiores</option>
+      <option>Projeto comercial</option><option>Consultoria</option></select>
+    </div>
+    <div class="f-field"><label>Breve descrição</label>
+      <input type="text" placeholder="Tamanho, localização, prazo...">
+    </div>
+    <button class="btn-sub">Enviar para o estúdio</button>
+    <p class="f-note">Respondemos em até 24h</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-brand">Studio Forma</div>
+  <div class="foot-links"><a href="#">Portfólio</a><a href="#">Estúdio</a><a href="#">Imprensa</a><a href="#">Privacidade</a></div>
+  <div class="foot-dev">Desenvolvido por CodandoIdeias</div>
+</footer>
+<script>
+const r=document.querySelectorAll('.reveal');
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}})},{threshold:0.08});
+r.forEach(el=>o.observe(el));
+</script>
+</body>
+</html>

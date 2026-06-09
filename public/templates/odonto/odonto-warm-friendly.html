@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorriso em Família — Odontologia para Todos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --coral:#E8664A;
+  --coral-lt:#F08060;
+  --coral-pale:#FEF0EC;
+  --coral-mid:#FADDD5;
+  --sand:#F5EDD8;
+  --sand-dk:#EAD8BA;
+  --cream:#FDFAF5;
+  --cream-dk:#F5EFE4;
+  --warm-white:#FFFCF8;
+  --brown:#3D2B1F;
+  --brown-lt:#6B4C38;
+  --muted:#9A806A;
+  --muted-lt:#C4AA94;
+  --yellow:#F5C842;
+  --green-soft:#A8C5A0;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--brown);overflow-x:hidden}
+
+/* NAV */
+nav{background:var(--warm-white);border-bottom:2px solid var(--sand);
+  padding:0 3.5rem;height:70px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:38px;height:38px;background:var(--coral);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px}
+.logo-text{font-family:'Nunito',sans-serif;font-size:17px;
+  font-weight:800;color:var(--brown)}
+.logo-text span{color:var(--coral)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:13px;font-weight:700;color:var(--muted);
+  text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--coral)}
+.nav-cta{padding:10px 24px;background:var(--coral);color:var(--warm-white);
+  font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;
+  border:none;border-radius:50px;cursor:pointer;transition:all .25s;
+  box-shadow:0 4px 12px rgba(232,102,74,.3)}
+.nav-cta:hover{background:var(--coral-lt);transform:translateY(-1px)}
+
+/* HERO */
+.hero{background:var(--coral-pale);padding:4rem 3.5rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;
+  position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;
+  width:350px;height:350px;border-radius:50%;
+  background:rgba(232,102,74,.08)}
+.hero::after{content:'';position:absolute;bottom:-80px;left:30%;
+  width:200px;height:200px;border-radius:50%;
+  background:rgba(245,200,66,.12)}
+.hero-l{position:relative;z-index:1}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;
+  background:var(--coral);color:var(--warm-white);
+  border-radius:50px;padding:6px 16px;font-size:12px;font-weight:800;
+  margin-bottom:1.5rem;box-shadow:0 4px 12px rgba(232,102,74,.3)}
+h1{font-family:'Lora',serif;font-size:clamp(34px,4.5vw,54px);
+  font-weight:500;line-height:1.15;color:var(--brown);margin-bottom:1rem}
+h1 em{font-style:italic;color:var(--coral)}
+.hero-sub{font-size:16px;font-weight:400;color:var(--brown-lt);
+  line-height:1.8;max-width:420px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+.btn-coral{padding:14px 32px;background:var(--coral);color:var(--warm-white);
+  font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;
+  border:none;border-radius:50px;cursor:pointer;transition:all .25s;
+  box-shadow:0 6px 20px rgba(232,102,74,.35)}
+.btn-coral:hover{background:var(--coral-lt);transform:translateY(-2px)}
+.btn-sand{padding:13px 28px;background:var(--sand);color:var(--brown);
+  font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;
+  border:2px solid var(--sand-dk);border-radius:50px;cursor:pointer;transition:all .25s}
+.btn-sand:hover{border-color:var(--coral);color:var(--coral)}
+.hero-trust{display:flex;align-items:center;gap:12px}
+.trust-stars{color:var(--yellow);font-size:16px;letter-spacing:2px}
+.trust-txt{font-size:13px;font-weight:600;color:var(--muted)}
+.trust-txt strong{color:var(--brown)}
+
+.hero-r{position:relative;z-index:1}
+.hero-cards-stack{position:relative}
+.hero-main-card{background:var(--warm-white);border-radius:24px;
+  padding:2rem;box-shadow:0 16px 48px rgba(60,40,20,.1);
+  text-align:center;margin-bottom:1rem}
+.hero-main-card-emoji{font-size:64px;display:block;margin-bottom:.75rem}
+.hero-main-card-title{font-family:'Lora',serif;font-size:20px;
+  font-weight:500;color:var(--brown);margin-bottom:.25rem}
+.hero-main-card-sub{font-size:13px;color:var(--muted)}
+.hero-float-cards{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.hero-mini-card{background:var(--warm-white);border-radius:16px;
+  padding:1rem 1.25rem;box-shadow:0 8px 24px rgba(60,40,20,.07);
+  display:flex;align-items:center;gap:10px}
+.hmc-icon{font-size:22px;flex-shrink:0}
+.hmc-title{font-size:12px;font-weight:700;color:var(--brown);margin-bottom:1px}
+.hmc-sub{font-size:11px;color:var(--muted)}
+
+/* PROMISE */
+.promise{background:var(--warm-white);padding:5rem 3.5rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.promise-left .sec-tag{display:inline-block;padding:5px 14px;
+  border-radius:20px;background:var(--coral-pale);color:var(--coral);
+  font-size:11px;font-weight:800;text-transform:uppercase;
+  letter-spacing:.08em;margin-bottom:.75rem}
+.promise-left .sec-title{font-family:'Lora',serif;
+  font-size:clamp(26px,3vw,38px);font-weight:500;
+  color:var(--brown);line-height:1.25;margin-bottom:1rem}
+.promise-left .sec-title em{font-style:italic;color:var(--coral)}
+.promise-left .sec-sub{font-size:15px;color:var(--brown-lt);
+  line-height:1.8;margin-bottom:2rem}
+.promise-list{display:flex;flex-direction:column;gap:.75rem}
+.promise-item{display:flex;align-items:flex-start;gap:12px;
+  font-size:14px;color:var(--brown-lt);line-height:1.5}
+.promise-check{width:24px;height:24px;border-radius:50%;
+  background:var(--coral);display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:var(--warm-white);flex-shrink:0;font-weight:800}
+.promise-right{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.prom-stat{background:var(--cream-dk);border-radius:20px;
+  padding:1.5rem;text-align:center}
+.prom-stat-n{font-family:'Lora',serif;font-size:36px;font-weight:500;color:var(--coral)}
+.prom-stat-l{font-size:12px;font-weight:600;color:var(--muted);margin-top:4px}
+
+/* TRATAMENTOS */
+.tratamentos{background:var(--cream-dk);padding:5rem 3.5rem}
+.sec-header{margin-bottom:3rem;text-align:center}
+.sec-tag{display:inline-block;padding:5px 14px;border-radius:20px;
+  background:var(--coral-pale);color:var(--coral);
+  font-size:11px;font-weight:800;text-transform:uppercase;
+  letter-spacing:.08em;margin-bottom:.75rem}
+.sec-title{font-family:'Lora',serif;font-size:clamp(26px,3vw,40px);
+  font-weight:500;color:var(--brown);line-height:1.2}
+.sec-title em{font-style:italic;color:var(--coral)}
+.trat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.trat-card{background:var(--warm-white);border-radius:20px;
+  padding:2rem;text-align:center;
+  border:2px solid transparent;transition:all .3s}
+.trat-card:hover{border-color:var(--coral);transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(232,102,74,.12)}
+.trat-emoji{font-size:36px;display:block;margin-bottom:.75rem}
+.trat-name{font-family:'Lora',serif;font-size:17px;
+  font-weight:500;color:var(--brown);margin-bottom:.4rem}
+.trat-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:.75rem}
+.trat-tag{display:inline-block;padding:4px 12px;border-radius:20px;
+  background:var(--coral-pale);color:var(--coral);
+  font-size:11px;font-weight:700}
+
+/* DEPOIMENTOS */
+.depoimentos{padding:5rem 3.5rem;background:var(--warm-white)}
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.dep-card{background:var(--cream);border-radius:20px;
+  padding:1.75rem;border:2px solid var(--sand)}
+.dep-rating{display:flex;align-items:center;gap:6px;margin-bottom:1rem}
+.dep-stars{color:var(--yellow);font-size:14px;letter-spacing:1px}
+.dep-badge{font-size:10px;font-weight:800;color:var(--coral);
+  background:var(--coral-pale);padding:2px 8px;border-radius:20px;text-transform:uppercase}
+.dep-text{font-family:'Lora',serif;font-size:14px;font-style:italic;
+  color:var(--brown);line-height:1.7;margin-bottom:1.25rem}
+.dep-person{display:flex;align-items:center;gap:10px}
+.dep-av{width:40px;height:40px;border-radius:50%;
+  background:var(--coral-mid);display:flex;align-items:center;justify-content:center;font-size:18px}
+.dep-name{font-size:13px;font-weight:800;color:var(--brown)}
+.dep-info{font-size:11px;color:var(--muted)}
+
+/* ANTES/DEPOIS CALLOUT */
+.callout{background:var(--coral);padding:3rem 3.5rem;
+  display:grid;grid-template-columns:2fr 1fr;gap:4rem;align-items:center}
+.callout-title{font-family:'Lora',serif;font-size:clamp(24px,3vw,36px);
+  font-weight:500;color:var(--warm-white);line-height:1.25;margin-bottom:.75rem}
+.callout-sub{font-size:15px;color:rgba(255,255,255,.8);line-height:1.7}
+.callout-btn{padding:14px 32px;background:var(--warm-white);
+  color:var(--coral);font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;
+  border:none;border-radius:50px;cursor:pointer;transition:all .25s;
+  white-space:nowrap}
+.callout-btn:hover{transform:scale(1.03)}
+
+/* CTA FORM */
+.cta-form-section{padding:5rem 3.5rem;background:var(--cream-dk);
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.cta-form-left .sec-tag{display:inline-block;padding:5px 14px;
+  border-radius:20px;background:var(--coral-pale);color:var(--coral);
+  font-size:11px;font-weight:800;text-transform:uppercase;
+  letter-spacing:.08em;margin-bottom:.75rem}
+.cta-form-title{font-family:'Lora',serif;font-size:clamp(26px,3vw,38px);
+  font-weight:500;color:var(--brown);line-height:1.25;margin-bottom:1rem}
+.cta-form-title em{font-style:italic;color:var(--coral)}
+.cta-form-desc{font-size:15px;color:var(--brown-lt);line-height:1.8;margin-bottom:2rem}
+.cta-extras{display:flex;flex-direction:column;gap:.75rem}
+.cta-extra{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--brown-lt)}
+.cta-extra-icon{font-size:20px}
+
+.form-box{background:var(--warm-white);border-radius:24px;padding:2.5rem;
+  box-shadow:0 8px 40px rgba(60,40,20,.08)}
+.form-box-title{font-family:'Lora',serif;font-size:22px;
+  font-weight:500;color:var(--brown);margin-bottom:.25rem}
+.form-box-sub{font-size:13px;color:var(--muted);margin-bottom:2rem}
+.f-field{margin-bottom:1rem}
+.f-field label{display:block;font-size:12px;font-weight:800;
+  color:var(--brown);margin-bottom:6px}
+.f-field input,.f-field select{width:100%;padding:12px 16px;
+  border-radius:12px;border:2px solid var(--sand-dk);
+  background:var(--cream);color:var(--brown);
+  font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;
+  outline:none;transition:border-color .2s}
+.f-field input:focus,.f-field select:focus{border-color:var(--coral)}
+.f-field input::placeholder{color:var(--muted-lt)}
+.btn-form{width:100%;padding:15px;border-radius:50px;
+  background:var(--coral);color:var(--warm-white);
+  font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;
+  border:none;cursor:pointer;transition:all .25s;margin-top:.5rem;
+  box-shadow:0 6px 20px rgba(232,102,74,.35)}
+.btn-form:hover{background:var(--coral-lt);transform:translateY(-1px)}
+.form-note{font-size:12px;color:var(--muted);
+  text-align:center;margin-top:.75rem;display:flex;align-items:center;justify-content:center;gap:5px}
+
+/* FOOTER */
+footer{background:var(--brown);padding:2.5rem 3.5rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-brand{font-family:'Lora',serif;font-size:16px;
+  font-style:italic;color:rgba(255,255,255,.45)}
+.foot-links{display:flex;gap:2rem}
+.foot-links a{font-size:12px;color:rgba(255,255,255,.3);
+  text-decoration:none;font-weight:700}
+.foot-links a:hover{color:rgba(255,255,255,.6)}
+.foot-dev{font-size:11px;color:rgba(255,255,255,.2)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:960px){
+  nav{padding:0 1.5rem}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:3rem 1.5rem}
+  .promise{grid-template-columns:1fr;padding:4rem 1.5rem;gap:3rem}
+  .promise-right{grid-template-columns:repeat(2,1fr)}
+  .tratamentos{padding:4rem 1.5rem}
+  .trat-grid{grid-template-columns:1fr}
+  .depoimentos{padding:4rem 1.5rem}
+  .dep-grid{grid-template-columns:1fr}
+  .callout{grid-template-columns:1fr;padding:3rem 1.5rem;gap:2rem}
+  .cta-form-section{grid-template-columns:1fr;padding:4rem 1.5rem;gap:3rem}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <div class="logo-icon">🦷</div>
+    <span class="logo-text">Sorriso em <span>Família</span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#tratamentos">Tratamentos</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#contato">Agendar</a></li>
+  </ul>
+  <button class="nav-cta">Agendar consulta</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-tag">🌟 Clínica família em São Paulo</div>
+    <h1>Cuidando do sorriso<br>de toda a sua <em>família</em></h1>
+    <p class="hero-sub">De crianças a adultos, tratamentos acessíveis, sem dor e com aquele cuidado gostoso de quem te conhece pelo nome.</p>
+    <div class="hero-btns">
+      <button class="btn-coral">Agendar consulta grátis</button>
+      <button class="btn-sand">Ver tratamentos</button>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-stars">★★★★★</div>
+      <p class="trust-txt"><strong>+4.200 avaliações</strong> no Google</p>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-cards-stack">
+      <div class="hero-main-card">
+        <span class="hero-main-card-emoji">😁</span>
+        <div class="hero-main-card-title">Foto do espaço ou equipe</div>
+        <div class="hero-main-card-sub">Ambiente acolhedor e familiar</div>
+      </div>
+      <div class="hero-float-cards">
+        <div class="hero-mini-card"><div class="hmc-icon">👶</div><div><div class="hmc-title">Odonto pediátrica</div><div class="hmc-sub">Crianças adoram!</div></div></div>
+        <div class="hero-mini-card"><div class="hmc-icon">💳</div><div><div class="hmc-title">12x sem juros</div><div class="hmc-sub">Facilidade para você</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE -->
+<section class="promise" id="sobre">
+  <div class="promise-left reveal">
+    <div class="sec-tag">Por que somos diferentes</div>
+    <h2 class="sec-title">Dentista que<br>você vai <em>querer voltar</em></h2>
+    <p class="sec-sub">Sabemos que muita gente tem medo de dentista. Por isso criamos um ambiente diferente — tranquilo, sem aperto e com profissionais que explicam tudo antes de fazer.</p>
+    <div class="promise-list">
+      <div class="promise-item"><div class="promise-check">✓</div>Atendemos crianças a partir de 2 anos</div>
+      <div class="promise-item"><div class="promise-check">✓</div>Sem dor — anestesia indolor com tecnologia avançada</div>
+      <div class="promise-item"><div class="promise-check">✓</div>Horários noturnos e aos sábados</div>
+      <div class="promise-item"><div class="promise-check">✓</div>Parcelamento em até 18x no cartão</div>
+    </div>
+  </div>
+  <div class="promise-right reveal">
+    <div class="prom-stat"><div class="prom-stat-n">+12k</div><div class="prom-stat-l">Pacientes atendidos</div></div>
+    <div class="prom-stat"><div class="prom-stat-n">16</div><div class="prom-stat-l">Anos de experiência</div></div>
+    <div class="prom-stat"><div class="prom-stat-n">4.9★</div><div class="prom-stat-l">Google Reviews</div></div>
+    <div class="prom-stat"><div class="prom-stat-n">0</div><div class="prom-stat-l">Espera em consulta</div></div>
+  </div>
+</section>
+
+<!-- TRATAMENTOS -->
+<section class="tratamentos" id="tratamentos">
+  <div class="sec-header reveal">
+    <div class="sec-tag">Tratamentos</div>
+    <h2 class="sec-title">Para toda a família,<br>a qualquer <em>fase da vida</em></h2>
+  </div>
+  <div class="trat-grid">
+    <div class="trat-card reveal">
+      <span class="trat-emoji">👶</span>
+      <div class="trat-name">Odontopediatria</div>
+      <p class="trat-desc">Atendimento lúdico e sem medo para crianças. Primeiras consultas, prevenção e acompanhamento do crescimento dental.</p>
+      <div class="trat-tag">A partir de 2 anos</div>
+    </div>
+    <div class="trat-card reveal">
+      <span class="trat-emoji">✨</span>
+      <div class="trat-name">Clareamento dental</div>
+      <p class="trat-desc">Protocolo clínico ou caseiro para um sorriso mais branco e iluminado. Resultado natural e seguro para o esmalte.</p>
+      <div class="trat-tag">Resultado em 1 semana</div>
+    </div>
+    <div class="trat-card reveal">
+      <span class="trat-emoji">🦷</span>
+      <div class="trat-name">Restaurações estéticas</div>
+      <p class="trat-desc">Resinas de última geração que imitam a cor natural do dente. Estética e função sem ninguém perceber.</p>
+      <div class="trat-tag">Sem dor</div>
+    </div>
+    <div class="trat-card reveal">
+      <span class="trat-emoji">😬</span>
+      <div class="trat-name">Aparelho e ortodontia</div>
+      <p class="trat-desc">Aparelho convencional, autoligado e estético. Alinhamento que cabe no seu bolso e na sua rotina.</p>
+      <div class="trat-tag">12x sem juros</div>
+    </div>
+    <div class="trat-card reveal">
+      <span class="trat-emoji">💆</span>
+      <div class="trat-name">Tratamento de gengiva</div>
+      <p class="trat-desc">Prevenção e tratamento da gengivite e periodontite. Saúde gengival é saúde do corpo inteiro.</p>
+      <div class="trat-tag">Prevenção e tratamento</div>
+    </div>
+    <div class="trat-card reveal">
+      <span class="trat-emoji">🔩</span>
+      <div class="trat-name">Implante dental</div>
+      <p class="trat-desc">Substituição do dente perdido com implante de titânio. Função e estética definitivas com o melhor custo-benefício.</p>
+      <div class="trat-tag">Financiamento disponível</div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos" id="depoimentos">
+  <div class="sec-header reveal">
+    <div class="sec-tag">Depoimentos</div>
+    <h2 class="sec-title">Famílias que já <em>sorriem</em><br>com a gente</h2>
+  </div>
+  <div class="dep-grid">
+    <div class="dep-card reveal">
+      <div class="dep-rating"><div class="dep-stars">★★★★★</div><div class="dep-badge">Família</div></div>
+      <p class="dep-text">"Levo meus dois filhos aqui desde bebês. Nunca tiveram medo de dentista porque o ambiente é incrível. São toda a diferença."</p>
+      <div class="dep-person">
+        <div class="dep-av">👨‍👧‍👦</div>
+        <div><div class="dep-name">Roberto Silva</div><div class="dep-info">Paciente há 8 anos · 4 membros da família</div></div>
+      </div>
+    </div>
+    <div class="dep-card reveal">
+      <div class="dep-rating"><div class="dep-stars">★★★★★</div><div class="dep-badge">Adulto</div></div>
+      <p class="dep-text">"Tinha muito medo de dentista. Aqui me explicaram tudo com calma, não senti nada. Meu sorriso mudou e minha autoestima também."</p>
+      <div class="dep-person">
+        <div class="dep-av">👩</div>
+        <div><div class="dep-name">Ana Cristina</div><div class="dep-info">Clareamento + restaurações</div></div>
+      </div>
+    </div>
+    <div class="dep-card reveal">
+      <div class="dep-rating"><div class="dep-stars">★★★★★</div><div class="dep-badge">Idoso</div></div>
+      <p class="dep-text">"Fiz implante aqui com 68 anos. Foram pacientes, cuidadosos e o preço foi justo. Recomendo para toda a família!"</p>
+      <div class="dep-person">
+        <div class="dep-av">👴</div>
+        <div><div class="dep-name">José Antônio</div><div class="dep-info">Implante dental · 68 anos</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALLOUT -->
+<div class="callout">
+  <div class="reveal">
+    <div class="callout-title">Primeira consulta gratuita para toda a família</div>
+    <p class="callout-sub">Traga seus filhos, seu parceiro, seus pais. A avaliação inicial é 100% gratuita e sem compromisso.</p>
+  </div>
+  <button class="callout-btn reveal">Agendar agora 🦷</button>
+</div>
+
+<!-- CTA FORM -->
+<section class="cta-form-section" id="contato">
+  <div class="cta-form-left reveal">
+    <div class="sec-tag">Agendar consulta</div>
+    <h2 class="cta-form-title">Pronto para um sorriso<br>que você <em>ama</em>?</h2>
+    <p class="cta-form-desc">Atendemos de segunda a sábado, com horários a partir das 8h e até as 20h. Venha de metrô, estacionamento gratuito!</p>
+    <div class="cta-extras">
+      <div class="cta-extra"><div class="cta-extra-icon">📍</div>Rua das Flores, 234 — Pinheiros, SP</div>
+      <div class="cta-extra"><div class="cta-extra-icon">🕐</div>Seg–Sex 8h–20h · Sáb 8h–14h</div>
+      <div class="cta-extra"><div class="cta-extra-icon">🚗</div>Estacionamento gratuito</div>
+      <div class="cta-extra"><div class="cta-extra-icon">💳</div>Todos os convênios e cartões</div>
+    </div>
+  </div>
+  <div class="form-box reveal">
+    <div class="form-box-title">Agendar agora</div>
+    <div class="form-box-sub">Consulta inicial gratuita para toda a família</div>
+    <div class="f-field"><label>Nome</label><input type="text" placeholder="Seu nome"></div>
+    <div class="f-field"><label>WhatsApp</label><input type="tel" placeholder="(00) 00000-0000"></div>
+    <div class="f-field"><label>Quem vai à consulta?</label>
+      <select>
+        <option>Selecione...</option>
+        <option>Adulto</option>
+        <option>Criança</option>
+        <option>Adolescente</option>
+        <option>Idoso</option>
+        <option>Toda a família</option>
+      </select>
+    </div>
+    <div class="f-field"><label>Interesse</label>
+      <select>
+        <option>Selecione...</option>
+        <option>Avaliação geral</option>
+        <option>Clareamento</option>
+        <option>Aparelho ortod.</option>
+        <option>Implante</option>
+        <option>Odontopediatria</option>
+      </select>
+    </div>
+    <button class="btn-form">Quero agendar grátis 😁</button>
+    <p class="form-note">🔒 Seus dados estão seguros · Resposta em até 1h</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-brand">Sorriso em Família</div>
+  <div class="foot-links">
+    <a href="#">Tratamentos</a><a href="#">Equipe</a>
+    <a href="#">Convênios</a><a href="#">Privacidade</a>
+  </div>
+  <div class="foot-dev">Desenvolvido por CodandoIdeias</div>
+</footer>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+},{threshold:0.1});
+reveals.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

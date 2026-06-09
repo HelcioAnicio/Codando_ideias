@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noir Studio — Beleza que Transforma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300;400;600;700;900&family=Mulish:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#070707;
+  --black-2:#0F0F0F;
+  --black-3:#171717;
+  --black-4:#222222;
+  --pink:#FF2D78;
+  --pink-lt:#FF6BA4;
+  --pink-pale:rgba(255,45,120,0.08);
+  --pink-glow:rgba(255,45,120,0.15);
+  --white:#FFFFFF;
+  --off:#F8F4F6;
+  --muted:#888;
+  --muted-lt:#AAAAAA;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Mulish',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;
+  height:70px;padding:0 4rem;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(7,7,7,0.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,45,120,0.1)}
+.logo{font-family:'Big Shoulders Display',sans-serif;font-size:22px;
+  font-weight:700;letter-spacing:0.08em;color:var(--white)}
+.logo span{color:var(--pink)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--pink)}
+.nav-cta{padding:10px 24px;border:1px solid var(--pink);
+  background:transparent;color:var(--pink);
+  font-family:'Mulish',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:0.12em;text-transform:uppercase;
+  cursor:pointer;transition:all .25s}
+.nav-cta:hover{background:var(--pink);color:var(--black)}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:70px;
+  display:grid;grid-template-columns:1fr 1fr}
+.hero-l{padding:6rem 4rem 6rem 5rem;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden}
+.hero-l::before{content:'';position:absolute;
+  top:-200px;left:-200px;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,45,120,0.06) 0%,transparent 70%)}
+.hero-pretitle{display:flex;align-items:center;gap:12px;margin-bottom:2rem}
+.hero-pretitle-line{width:30px;height:1px;background:var(--pink)}
+.hero-pretitle span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--pink)}
+h1{font-family:'Big Shoulders Display',sans-serif;
+  font-size:clamp(56px,7vw,96px);font-weight:900;line-height:.95;
+  text-transform:uppercase;letter-spacing:-0.02em;
+  color:var(--white);margin-bottom:1.5rem}
+h1 span{color:var(--pink);display:block}
+.hero-sub{font-size:15px;font-weight:300;line-height:1.85;
+  color:var(--muted-lt);max-width:380px;margin-bottom:3rem}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-pink{padding:16px 36px;background:var(--pink);color:var(--black);
+  font-family:'Mulish',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  border:none;cursor:pointer;transition:all .25s;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+.btn-pink:hover{background:var(--pink-lt)}
+.btn-outline{padding:15px 34px;background:transparent;
+  border:1px solid rgba(255,255,255,0.2);color:var(--muted-lt);
+  font-family:'Mulish',sans-serif;font-size:12px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;transition:all .25s}
+.btn-outline:hover{border-color:var(--pink);color:var(--pink)}
+.hero-social{display:flex;gap:1.5rem;margin-top:2.5rem}
+.social-item{font-size:11px;color:var(--muted);letter-spacing:.1em;
+  text-transform:uppercase;display:flex;align-items:center;gap:6px}
+.social-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--pink)}
+
+.hero-r{background:var(--black-2);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;overflow:hidden}
+.hero-r-main{flex:1;position:relative;
+  display:flex;align-items:center;justify-content:center}
+.hero-r-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,45,120,0.12) 0%,transparent 70%)}
+.hero-r-placeholder{position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;gap:1rem}
+.hero-r-placeholder svg{opacity:.2}
+.hero-r-placeholder p{font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(255,45,120,.4)}
+.hero-ticker{background:var(--black-3);border-top:1px solid rgba(255,45,120,0.15);
+  padding:1.25rem 2rem;display:flex;gap:3rem;overflow:hidden}
+.ticker-item{display:flex;align-items:center;gap:8px;flex-shrink:0;white-space:nowrap}
+.ticker-dot{width:4px;height:4px;border-radius:50%;background:var(--pink)}
+.ticker-text{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* SERVIÇOS */
+.servicos{padding:8rem 5rem;background:var(--black-2)}
+.sec-eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:.75rem}
+.sec-title{font-family:'Big Shoulders Display',sans-serif;
+  font-size:clamp(36px,5vw,60px);font-weight:700;line-height:1.05;
+  text-transform:uppercase;color:var(--white);margin-bottom:3.5rem}
+.sec-title span{color:var(--pink)}
+.servicos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--black-4)}
+.serv-card{background:var(--black-2);padding:2.5rem;
+  position:relative;overflow:hidden;transition:background .3s;cursor:default}
+.serv-card::after{content:'';position:absolute;bottom:0;left:0;
+  height:2px;width:0;background:var(--pink);transition:width .4s}
+.serv-card:hover{background:var(--black-3)}
+.serv-card:hover::after{width:100%}
+.serv-num{font-family:'Big Shoulders Display',sans-serif;
+  font-size:64px;font-weight:900;color:rgba(255,45,120,.06);
+  line-height:1;margin-bottom:-.5rem}
+.serv-icon{font-size:26px;margin-bottom:1rem;display:block}
+.serv-name{font-family:'Big Shoulders Display',sans-serif;
+  font-size:22px;font-weight:600;text-transform:uppercase;
+  color:var(--white);margin-bottom:.4rem;letter-spacing:.04em}
+.serv-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7;margin-bottom:1rem}
+.serv-price{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink)}
+
+/* EXPERIÊNCIA */
+.experiencia{padding:8rem 5rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:center}
+.exp-left .sec-eyebrow{margin-bottom:.75rem}
+.exp-left .sec-title{margin-bottom:1.5rem}
+.exp-left p{font-size:15px;font-weight:300;color:var(--muted-lt);
+  line-height:1.85;margin-bottom:2.5rem}
+.exp-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--black-4)}
+.exp-stat{background:var(--black-2);padding:1.5rem;text-align:center}
+.exp-stat-n{font-family:'Big Shoulders Display',sans-serif;
+  font-size:36px;font-weight:700;color:var(--pink)}
+.exp-stat-l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.exp-right{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--black-4)}
+.exp-item{background:var(--black-2);padding:2rem;
+  display:flex;flex-direction:column;justify-content:space-between;min-height:160px}
+.exp-item-tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink)}
+.exp-item-title{font-family:'Big Shoulders Display',sans-serif;
+  font-size:20px;font-weight:600;color:var(--white);margin-top:auto;text-transform:uppercase}
+.exp-item.featured{background:var(--pink);grid-column:span 2}
+.exp-item.featured .exp-item-tag{color:rgba(0,0,0,.6)}
+.exp-item.featured .exp-item-title{color:var(--black);font-size:28px}
+
+/* DEPOIMENTO */
+.depoimento{background:var(--black-3);padding:8rem 5rem;
+  display:grid;grid-template-columns:1fr 2fr;gap:8rem;align-items:center}
+.dep-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:1rem}
+.dep-side-title{font-family:'Big Shoulders Display',sans-serif;
+  font-size:32px;font-weight:700;text-transform:uppercase;color:var(--white);line-height:1.1}
+.dep-side-title span{color:var(--pink)}
+.dep-mark{font-family:'Big Shoulders Display',sans-serif;
+  font-size:160px;font-weight:900;color:rgba(255,45,120,.06);
+  line-height:1;margin-bottom:-.5rem}
+.dep-quote{font-size:clamp(16px,2.2vw,22px);font-weight:300;font-style:italic;
+  color:var(--white);line-height:1.65;margin-bottom:2rem}
+.dep-author strong{display:block;font-size:15px;font-weight:500;color:var(--white)}
+.dep-author span{font-size:12px;color:var(--pink)}
+
+/* PROFISSIONAIS */
+.profissionais{padding:8rem 5rem;background:var(--black-2)}
+.prof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--black-4)}
+.prof-card{background:var(--black-2);overflow:hidden;position:relative}
+.prof-foto{height:280px;background:var(--black-3);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem}
+.prof-foto svg{opacity:.2}
+.prof-foto span{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,45,120,.3)}
+.prof-overlay{position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(7,7,7,.95));padding:1.5rem}
+.prof-nome{font-family:'Big Shoulders Display',sans-serif;
+  font-size:18px;font-weight:600;text-transform:uppercase;color:var(--white);margin-bottom:2px}
+.prof-spec{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink)}
+
+/* CTA */
+.cta-section{padding:8rem 5rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:center}
+.cta-l .sec-title{margin-bottom:1.5rem}
+.cta-l p{font-size:15px;font-weight:300;color:var(--muted-lt);
+  line-height:1.85;margin-bottom:2.5rem}
+.cta-horarios{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:2rem}
+.cta-hor{background:var(--black-2);padding:.75rem 1rem;
+  font-size:12px;color:var(--muted-lt);border-left:2px solid var(--pink)}
+.cta-hor strong{display:block;color:var(--white);margin-bottom:2px}
+
+.cta-form{background:var(--black-2);border:1px solid var(--black-4);padding:3rem}
+.cta-form-title{font-family:'Big Shoulders Display',sans-serif;
+  font-size:26px;font-weight:600;text-transform:uppercase;color:var(--white);margin-bottom:.25rem}
+.cta-form-sub{font-size:12px;color:var(--muted);margin-bottom:2rem}
+.f-field{margin-bottom:1.25rem}
+.f-field label{display:block;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.f-field input,.f-field select{width:100%;padding:13px 0;
+  background:transparent;border:none;border-bottom:1px solid var(--black-4);
+  color:var(--white);font-family:'Mulish',sans-serif;font-size:14px;
+  outline:none;transition:border-color .2s}
+.f-field input::placeholder{color:rgba(255,255,255,.15)}
+.f-field input:focus,.f-field select:focus{border-bottom-color:var(--pink)}
+.f-field select option{background:var(--black-2)}
+.btn-submit{width:100%;margin-top:1.5rem;padding:16px;
+  background:var(--pink);color:var(--black);
+  font-family:'Mulish',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  border:none;cursor:pointer;transition:all .25s;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%)}
+.btn-submit:hover{background:var(--pink-lt)}
+.f-note{font-size:10px;color:var(--muted);text-align:center;margin-top:.75rem}
+
+/* FOOTER */
+footer{background:var(--black);border-top:1px solid var(--black-4);
+  padding:2.5rem 5rem;display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-logo{font-family:'Big Shoulders Display',sans-serif;font-size:18px;
+  font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.08em}
+.foot-logo span{color:var(--pink)}
+.foot-links{display:flex;gap:2rem}
+.foot-links a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--pink)}
+.foot-dev{font-size:11px;color:rgba(255,255,255,.15)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:960px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-l{padding:4rem 2rem}
+  .hero-r{min-height:320px}
+  .servicos,.experiencia,.depoimento,.profissionais,.cta-section{padding:4rem 2rem}
+  .servicos-grid,.exp-right{grid-template-columns:1fr}
+  .experiencia,.depoimento,.cta-section{grid-template-columns:1fr;gap:3rem}
+  .prof-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">NOIR <span>Studio</span></div>
+  <ul class="nav-links">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#profissionais">Equipe</a></li>
+    <li><a href="#contato">Agendar</a></li>
+  </ul>
+  <button class="nav-cta">Agendar horário</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-pretitle"><div class="hero-pretitle-line"></div><span>Studio de beleza premium</span></div>
+    <h1>BELEZA<br><span>SEM</span><br>LIMITE</h1>
+    <p class="hero-sub">Transformações que vão além do espelho. Cada atendimento é uma experiência pensada para revelar sua melhor versão.</p>
+    <div class="hero-btns">
+      <button class="btn-pink">Agendar agora</button>
+      <button class="btn-outline">Ver serviços</button>
+    </div>
+    <div class="hero-social">
+      <div class="social-item">@noirstudio</div>
+      <div class="social-item">+2.1k no Instagram</div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-r-main">
+      <div class="hero-r-glow"></div>
+      <div class="hero-r-placeholder">
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#FF2D78" stroke-width="1">
+          <circle cx="28" cy="20" r="10"/><path d="M10 48c0-9.94 8.06-18 18-18s18 8.06 18 18"/>
+        </svg>
+        <p>Foto do ambiente / work</p>
+      </div>
+    </div>
+    <div class="hero-ticker">
+      <div class="ticker-item"><div class="ticker-dot"></div><span class="ticker-text">Coloração profissional</span></div>
+      <div class="ticker-item"><div class="ticker-dot"></div><span class="ticker-text">Corte + escova</span></div>
+      <div class="ticker-item"><div class="ticker-dot"></div><span class="ticker-text">Unhas em gel</span></div>
+      <div class="ticker-item"><div class="ticker-dot"></div><span class="ticker-text">Sobrancelhas design</span></div>
+      <div class="ticker-item"><div class="ticker-dot"></div><span class="ticker-text">Tratamentos capilares</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="servicos" id="servicos">
+  <p class="sec-eyebrow reveal">O que fazemos</p>
+  <h2 class="sec-title reveal">NOSSOS<br><span>SERVIÇOS</span></h2>
+  <div class="servicos-grid">
+    <div class="serv-card reveal">
+      <div class="serv-num">01</div>
+      <span class="serv-icon">✂️</span>
+      <div class="serv-name">Corte & Styling</div>
+      <p class="serv-desc">Cortes personalizados para seu rosto, estilo e rotina. Do clássico ao mais ousado, com acabamento impecável.</p>
+      <div class="serv-price">A partir de R$ 80</div>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-num">02</div>
+      <span class="serv-icon">🎨</span>
+      <div class="serv-name">Coloração</div>
+      <p class="serv-desc">Coloração, luzes, balayage e técnicas de fusão. Cores vibrantes ou naturais com proteção máxima do fio.</p>
+      <div class="serv-price">A partir de R$ 150</div>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-num">03</div>
+      <span class="serv-icon">💅</span>
+      <div class="serv-name">Nail Art</div>
+      <p class="serv-desc">Unhas em gel, acrílico e fibra com acabamento de alta precisão. Nail art personalizada para cada ocasião.</p>
+      <div class="serv-price">A partir de R$ 90</div>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-num">04</div>
+      <span class="serv-icon">🌿</span>
+      <div class="serv-name">Tratamentos Capilares</div>
+      <p class="serv-desc">Hidratação profunda, reconstrução, cronograma capilar e tratamentos exclusivos para fios danificados.</p>
+      <div class="serv-price">A partir de R$ 120</div>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-num">05</div>
+      <span class="serv-icon">✨</span>
+      <div class="serv-name">Sobrancelhas & Cílios</div>
+      <p class="serv-desc">Design de sobrancelhas, micropigmentação, extensão de cílios e lash lifting com durabilidade garantida.</p>
+      <div class="serv-price">A partir de R$ 70</div>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-num">06</div>
+      <span class="serv-icon">💄</span>
+      <div class="serv-name">Maquiagem</div>
+      <p class="serv-desc">Make para eventos, noivas e ensaios fotográficos. Técnicas profissionais com produtos de alto padrão.</p>
+      <div class="serv-price">A partir de R$ 180</div>
+    </div>
+  </div>
+</section>
+
+<section class="experiencia">
+  <div class="exp-left reveal">
+    <p class="sec-eyebrow">Por que o NOIR</p>
+    <h2 class="sec-title" style="font-size:clamp(32px,4vw,52px);margin-bottom:1.5rem">MAIS QUE UM SALÃO.<br><span>UMA</span> EXPERIÊNCIA.</h2>
+    <p>Do momento em que você entra até a última foto no espelho, cada detalhe é pensado para você se sentir única. Ambiente exclusivo, produtos de luxo, profissionais que respiram tendência.</p>
+    <div class="exp-stats" style="margin-top:2.5rem">
+      <div class="exp-stat"><div class="exp-stat-n">+7k</div><div class="exp-stat-l">Clientes atendidas</div></div>
+      <div class="exp-stat"><div class="exp-stat-n">9 anos</div><div class="exp-stat-l">No mercado</div></div>
+      <div class="exp-stat"><div class="exp-stat-n">4.9★</div><div class="exp-stat-l">Google</div></div>
+    </div>
+  </div>
+  <div class="exp-right reveal">
+    <div class="exp-item featured">
+      <div class="exp-item-tag">Nosso diferencial</div>
+      <div class="exp-item-title">Produtos L'Oréal Professionnel exclusivos</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-item-tag">Ambiente</div>
+      <div class="exp-item-title">Espaço privativo disponível</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-item-tag">Atendimento</div>
+      <div class="exp-item-title">Agendamento online 24h</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-item-tag">Benefício</div>
+      <div class="exp-item-title">Programa de fidelidade</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-item-tag">Horários</div>
+      <div class="exp-item-title">Seg–Sáb 9h–20h</div>
+    </div>
+  </div>
+</section>
+
+<section class="depoimento">
+  <div class="reveal">
+    <p class="dep-label">Quem viveu</p>
+    <div class="dep-side-title">HISTÓRIAS<br>QUE O <span>ESPELHO</span><br>CONTA</div>
+  </div>
+  <div class="reveal">
+    <div class="dep-mark">"</div>
+    <p class="dep-quote">"Fui ao NOIR para mudar o visual antes de uma viagem importante. Saí de lá completamente transformada — não só no cabelo, mas na confiança. Voltei no mês seguinte e não pretendo ir a outro lugar."</p>
+    <div class="dep-author">
+      <strong>Priscila Andrade</strong>
+      <span>Coloração balayage + corte + escova modelada</span>
+    </div>
+  </div>
+</section>
+
+<section class="profissionais" id="profissionais">
+  <div style="padding:0 0 3.5rem">
+    <p class="sec-eyebrow reveal">A equipe</p>
+    <h2 class="sec-title reveal" style="font-size:clamp(32px,4vw,52px)">PROFISSIONAIS<br><span>DE VERDADE</span></h2>
+  </div>
+  <div class="prof-grid">
+    <div class="prof-card reveal">
+      <div class="prof-foto">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#FF2D78" stroke-width="1"><circle cx="15" cy="10" r="5.5"/><path d="M5 28c0-5.5 4.5-10 10-10s10 4.5 10 10"/></svg>
+        <span>Foto da profissional</span>
+      </div>
+      <div class="prof-overlay">
+        <div class="prof-nome">Gabriela Lima</div>
+        <div class="prof-spec">Hair Stylist · Colorista</div>
+      </div>
+    </div>
+    <div class="prof-card reveal">
+      <div class="prof-foto">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#FF2D78" stroke-width="1"><circle cx="15" cy="10" r="5.5"/><path d="M5 28c0-5.5 4.5-10 10-10s10 4.5 10 10"/></svg>
+        <span>Foto da profissional</span>
+      </div>
+      <div class="prof-overlay">
+        <div class="prof-nome">Camila Torres</div>
+        <div class="prof-spec">Nail Designer</div>
+      </div>
+    </div>
+    <div class="prof-card reveal">
+      <div class="prof-foto">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#FF2D78" stroke-width="1"><circle cx="15" cy="10" r="5.5"/><path d="M5 28c0-5.5 4.5-10 10-10s10 4.5 10 10"/></svg>
+        <span>Foto da profissional</span>
+      </div>
+      <div class="prof-overlay">
+        <div class="prof-nome">Renata Moura</div>
+        <div class="prof-spec">Sobrancelhas · Cílios</div>
+      </div>
+    </div>
+    <div class="prof-card reveal">
+      <div class="prof-foto">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#FF2D78" stroke-width="1"><circle cx="15" cy="10" r="5.5"/><path d="M5 28c0-5.5 4.5-10 10-10s10 4.5 10 10"/></svg>
+        <span>Foto da profissional</span>
+      </div>
+      <div class="prof-overlay">
+        <div class="prof-nome">Julia Ferreira</div>
+        <div class="prof-spec">Maquiadora · Make Artist</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contato">
+  <div class="cta-l reveal">
+    <p class="sec-eyebrow">Reserve seu horário</p>
+    <h2 class="sec-title" style="font-size:clamp(32px,4vw,52px);margin-bottom:1.5rem">VOCÊ MERECE<br><span>ISSO</span></h2>
+    <p>Atendimento com hora marcada para garantir a atenção exclusiva que você merece. Sem espera, sem correria.</p>
+    <div class="cta-horarios" style="margin-top:2rem">
+      <div class="cta-hor"><strong>Segunda a Sexta</strong>9h às 20h</div>
+      <div class="cta-hor"><strong>Sábado</strong>9h às 18h</div>
+    </div>
+    <button class="btn-pink" style="width:fit-content">Ligar no WhatsApp</button>
+  </div>
+  <div class="cta-form reveal">
+    <div class="cta-form-title">Agendar horário</div>
+    <div class="cta-form-sub">Resposta em até 30 minutos</div>
+    <div class="f-field"><label>Nome</label><input type="text" placeholder="Seu nome"></div>
+    <div class="f-field"><label>WhatsApp</label><input type="tel" placeholder="(00) 00000-0000"></div>
+    <div class="f-field"><label>Serviço desejado</label>
+      <select><option>Selecione...</option><option>Corte + escova</option>
+      <option>Coloração / Luzes</option><option>Nail art / Unhas</option>
+      <option>Sobrancelhas / Cílios</option><option>Maquiagem</option>
+      <option>Tratamento capilar</option></select>
+    </div>
+    <button class="btn-submit">Quero agendar</button>
+    <p class="f-note">Confirmação via WhatsApp</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">NOIR <span>Studio</span></div>
+  <div class="foot-links">
+    <a href="#">Serviços</a><a href="#">Equipe</a>
+    <a href="#">Instagram</a><a href="#">Privacidade</a>
+  </div>
+  <div class="foot-dev">Desenvolvido por CodandoIdeias</div>
+</footer>
+
+<script>
+const r=document.querySelectorAll('.reveal');
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}})},{threshold:0.1});
+r.forEach(el=>o.observe(el));
+</script>
+</body>
+</html>

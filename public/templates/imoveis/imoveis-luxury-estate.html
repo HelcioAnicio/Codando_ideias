@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prestige Imóveis — Propriedades de Alto Padrão</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#080808;--black-2:#111;--black-3:#181818;--black-4:#242424;
+  --gold:#C4933A;--gold-lt:#DDB06A;--gold-pale:rgba(196,147,58,.08);
+  --white:#FFFFF8;--off:#F5F2EA;--muted:#888;--muted-lt:#AAA;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;padding:0 5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(8,8,8,.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(196,147,58,.1)}
+.logo{font-family:'Cormorant',serif;font-size:20px;font-weight:400;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--white)}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:11px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{padding:10px 26px;border:1px solid var(--gold);background:transparent;
+  color:var(--gold);font-family:'Jost',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.nav-cta:hover{background:var(--gold);color:var(--black)}
+
+.hero{min-height:100vh;padding-top:72px;display:grid;grid-template-columns:1fr 1fr}
+.hero-l{background:var(--black-2);display:flex;flex-direction:column;
+  justify-content:flex-end;padding:5rem;position:relative;overflow:hidden}
+.hero-l-img{flex:1;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:.75rem;position:relative;z-index:1}
+.hero-l-img svg{opacity:.2}
+.hero-l-img p{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,147,58,.35)}
+.hero-property-tag{position:absolute;top:2rem;left:2rem;
+  background:var(--gold);color:var(--black);
+  font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  padding:6px 14px}
+.hero-bottom{position:relative;z-index:1}
+.hero-pre{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.hero-pre::before{content:'';width:24px;height:1px;background:var(--gold)}
+.hero-feat{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--black-4);margin-top:1.5rem}
+.hf-item{background:var(--black-2);padding:1rem;text-align:center}
+.hf-n{font-family:'Cormorant',serif;font-size:22px;font-weight:400;color:var(--gold)}
+.hf-l{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+
+.hero-r{padding:6rem 5rem;display:flex;flex-direction:column;justify-content:center}
+.hero-eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:1.5rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+h1{font-family:'Cormorant',serif;font-size:clamp(40px,5vw,66px);font-weight:300;
+  line-height:1.1;color:var(--white);margin-bottom:1.5rem}
+h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:15px;font-weight:300;color:var(--muted-lt);line-height:1.9;
+  max-width:400px;margin-bottom:3rem}
+.hero-btns{display:flex;flex-direction:column;gap:10px;width:fit-content}
+.btn-gold{padding:15px 38px;background:var(--gold);color:var(--black);
+  font-family:'Jost',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;border:none;cursor:pointer;transition:all .25s}
+.btn-gold:hover{background:var(--gold-lt)}
+.btn-outline{padding:14px 36px;background:transparent;border:1px solid rgba(196,147,58,.3);
+  color:var(--muted-lt);font-family:'Jost',sans-serif;font-size:11px;font-weight:400;
+  letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+.imoveis{background:var(--black-2);padding:8rem 5rem}
+.sec-pre{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:.75rem;display:flex;align-items:center;gap:12px}
+.sec-pre::before{content:'';width:28px;height:1px;background:var(--gold)}
+.sec-title{font-family:'Cormorant',serif;font-size:clamp(30px,4vw,50px);font-weight:300;
+  line-height:1.1;color:var(--white);margin-bottom:3.5rem}
+.sec-title em{font-style:italic;color:var(--gold)}
+.imoveis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--black-4)}
+.imovel-card{background:var(--black-2);overflow:hidden;transition:background .3s}
+.imovel-card:hover{background:var(--black-3)}
+.imovel-foto{height:220px;background:var(--black-3);position:relative;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem}
+.imovel-foto svg{opacity:.2}
+.imovel-foto p{font-size:10px;color:rgba(196,147,58,.35);letter-spacing:.1em}
+.imovel-tipo{position:absolute;top:1rem;right:1rem;
+  background:var(--gold);color:var(--black);
+  font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px}
+.imovel-info{padding:1.5rem 2rem}
+.imovel-nome{font-family:'Cormorant',serif;font-size:18px;font-weight:400;color:var(--white);margin-bottom:3px}
+.imovel-loc{font-size:11px;color:var(--gold);letter-spacing:.06em;margin-bottom:1rem}
+.imovel-specs{display:flex;gap:1.5rem;margin-bottom:1rem}
+.imovel-spec{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px}
+.imovel-preco{font-family:'Cormorant',serif;font-size:22px;font-weight:400;color:var(--gold)}
+
+.sobre{padding:8rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:center}
+.sobre-left .sec-pre{margin-bottom:.75rem}
+.sobre-left .sec-title{margin-bottom:1.5rem}
+.sobre-left p{font-size:15px;font-weight:300;color:var(--muted-lt);line-height:1.9;margin-bottom:2rem}
+.sobre-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--black-4)}
+.stat{background:var(--black-2);padding:1.5rem;text-align:center}
+.stat-n{font-family:'Cormorant',serif;font-size:32px;font-weight:300;color:var(--gold)}
+.stat-l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.sobre-right{display:flex;flex-direction:column;gap:1px;background:var(--black-4)}
+.sobre-item{background:var(--black-2);padding:2rem;border-left:2px solid transparent;transition:border-color .3s}
+.sobre-item:hover{border-left-color:var(--gold)}
+.si-icon{font-size:22px;margin-bottom:.75rem;display:block}
+.si-title{font-size:14px;font-weight:500;color:var(--white);margin-bottom:.3rem}
+.si-desc{font-size:12px;font-weight:300;color:var(--muted);line-height:1.65}
+
+.depoimento{background:var(--black-3);padding:8rem 5rem;display:grid;grid-template-columns:1fr 2fr;gap:8rem;align-items:center}
+.dep-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.dep-side-title{font-family:'Cormorant',serif;font-size:28px;font-weight:300;color:var(--white);line-height:1.2}
+.dep-mark{font-family:'Cormorant',serif;font-size:120px;font-weight:300;color:rgba(196,147,58,.06);line-height:1;margin-bottom:-.5rem}
+.dep-text{font-family:'Cormorant',serif;font-size:clamp(17px,2.2vw,23px);font-weight:300;font-style:italic;color:var(--white);line-height:1.65;margin-bottom:2rem}
+.dep-author strong{display:block;font-size:14px;font-weight:500;color:var(--white)}
+.dep-author span{font-size:12px;color:var(--gold)}
+
+.cta{padding:8rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:center}
+.cta-l .sec-pre{margin-bottom:.75rem}
+.cta-l .sec-title{margin-bottom:1.5rem;font-size:clamp(28px,3.5vw,44px)}
+.cta-l p{font-size:15px;font-weight:300;color:var(--muted-lt);line-height:1.9}
+.cta-form{background:var(--black-2);border-top:2px solid var(--gold);padding:3rem}
+.cta-form-title{font-family:'Cormorant',serif;font-size:24px;font-weight:300;color:var(--white);margin-bottom:.25rem}
+.cta-form-sub{font-size:12px;color:var(--muted);margin-bottom:2rem}
+.f-field{margin-bottom:1.25rem}
+.f-field label{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.f-field input,.f-field select{width:100%;padding:12px 0;background:transparent;
+  border:none;border-bottom:1px solid var(--black-4);color:var(--white);
+  font-family:'Jost',sans-serif;font-size:14px;outline:none;transition:border-color .2s}
+.f-field input::placeholder{color:rgba(255,255,255,.15)}
+.f-field input:focus,.f-field select:focus{border-bottom-color:var(--gold)}
+.f-field select option{background:var(--black-2)}
+.btn-sub{width:100%;margin-top:1.5rem;padding:15px;background:var(--gold);color:var(--black);
+  font-family:'Jost',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;border:none;cursor:pointer;transition:all .25s}
+.btn-sub:hover{background:var(--gold-lt)}
+.f-note{font-size:10px;color:var(--muted);text-align:center;margin-top:.75rem}
+
+footer{background:var(--black);border-top:1px solid var(--black-4);padding:2.5rem 5rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-brand{font-family:'Cormorant',serif;font-size:15px;font-weight:300;letter-spacing:.1em;color:rgba(255,255,248,.3)}
+.foot-links{display:flex;gap:2rem}
+.foot-links a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--gold)}
+.foot-dev{font-size:11px;color:rgba(255,255,255,.15)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:960px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-l{min-height:400px;padding:3rem 2rem}
+  .hero-r{padding:4rem 2rem}
+  .imoveis,.sobre,.depoimento,.cta{padding:4rem 2rem}
+  .imoveis-grid{grid-template-columns:1fr}
+  .sobre,.depoimento,.cta{grid-template-columns:1fr;gap:3rem}
+  footer{flex-direction:column;text-align:center;padding:2rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">PRESTIGE <span>IMÓVEIS</span></div>
+  <ul class="nav-links">
+    <li><a href="#imoveis">Portfólio</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <button class="nav-cta">Agendar visita</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-l-img">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="#C4933A" stroke-width="1">
+        <path d="M26 6L4 22v24h44V22L26 6z"/><rect x="18" y="32" width="16" height="14"/>
+        <path d="M26 6L44 22"/>
+      </svg>
+      <p>Foto do imóvel destaque</p>
+    </div>
+    <div class="hero-property-tag">Destaque</div>
+    <div class="hero-bottom">
+      <div class="hero-pre">Portfólio exclusivo</div>
+      <div class="hero-feat">
+        <div class="hf-item"><div class="hf-n">480m²</div><div class="hf-l">Área total</div></div>
+        <div class="hf-item"><div class="hf-n">5 suítes</div><div class="hf-l">Dormitórios</div></div>
+        <div class="hf-item"><div class="hf-n">R$4.2M</div><div class="hf-l">Valor</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-eyebrow">Imóveis de alto padrão em SP</div>
+    <h1>Propriedades que<br>refletem quem<br>você <em>é</em></h1>
+    <p class="hero-sub">Curadoria exclusiva de imóveis residenciais e comerciais de alto padrão. Cada propriedade selecionada com critério, cada negociação conduzida com discrição.</p>
+    <div class="hero-btns">
+      <button class="btn-gold">Ver portfólio completo</button>
+      <button class="btn-outline">Falar com consultor</button>
+    </div>
+  </div>
+</section>
+
+<section class="imoveis" id="imoveis">
+  <p class="sec-pre reveal">Portfólio selecionado</p>
+  <h2 class="sec-title reveal">Propriedades que<br>você vai <em>querer</em></h2>
+  <div class="imoveis-grid">
+    <div class="imovel-card reveal">
+      <div class="imovel-foto">
+        <div class="imovel-tipo">À venda</div>
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#C4933A" stroke-width="1"><path d="M18 4L3 15v18h30V15L18 4z"/><rect x="12" y="22" width="12" height="11"/></svg>
+        <p>Foto do imóvel</p>
+      </div>
+      <div class="imovel-info">
+        <div class="imovel-nome">Cobertura Jardins</div>
+        <div class="imovel-loc">Jardins · São Paulo</div>
+        <div class="imovel-specs">
+          <span class="imovel-spec">🛏 4 suítes</span>
+          <span class="imovel-spec">🚗 4 vagas</span>
+          <span class="imovel-spec">📐 380m²</span>
+        </div>
+        <div class="imovel-preco">R$ 5.800.000</div>
+      </div>
+    </div>
+    <div class="imovel-card reveal">
+      <div class="imovel-foto">
+        <div class="imovel-tipo">Novo</div>
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#C4933A" stroke-width="1"><path d="M18 4L3 15v18h30V15L18 4z"/><rect x="12" y="22" width="12" height="11"/></svg>
+        <p>Foto do imóvel</p>
+      </div>
+      <div class="imovel-info">
+        <div class="imovel-nome">Casa Condomínio Premium</div>
+        <div class="imovel-loc">Alphaville · Barueri</div>
+        <div class="imovel-specs">
+          <span class="imovel-spec">🛏 5 suítes</span>
+          <span class="imovel-spec">🚗 6 vagas</span>
+          <span class="imovel-spec">📐 620m²</span>
+        </div>
+        <div class="imovel-preco">R$ 4.200.000</div>
+      </div>
+    </div>
+    <div class="imovel-card reveal">
+      <div class="imovel-foto">
+        <div class="imovel-tipo">Exclusivo</div>
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#C4933A" stroke-width="1"><path d="M18 4L3 15v18h30V15L18 4z"/><rect x="12" y="22" width="12" height="11"/></svg>
+        <p>Foto do imóvel</p>
+      </div>
+      <div class="imovel-info">
+        <div class="imovel-nome">Apartamento Alto de Pinheiros</div>
+        <div class="imovel-loc">Alto de Pinheiros · São Paulo</div>
+        <div class="imovel-specs">
+          <span class="imovel-spec">🛏 3 suítes</span>
+          <span class="imovel-spec">🚗 3 vagas</span>
+          <span class="imovel-spec">📐 210m²</span>
+        </div>
+        <div class="imovel-preco">R$ 2.900.000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sobre" id="sobre">
+  <div class="sobre-left reveal">
+    <p class="sec-pre">Por que a Prestige</p>
+    <h2 class="sec-title">Expertise que<br>abre <em>portas</em></h2>
+    <p>Mais de 20 anos conectando pessoas a propriedades extraordinárias. Não somos uma imobiliária comum — somos consultores de patrimônio com acesso a imóveis que nunca chegam ao mercado aberto.</p>
+    <div class="sobre-stats" style="margin-top:2.5rem">
+      <div class="stat"><div class="stat-n">+500</div><div class="stat-l">Negócios fechados</div></div>
+      <div class="stat"><div class="stat-n">20 anos</div><div class="stat-l">De experiência</div></div>
+      <div class="stat"><div class="stat-n">R$2Bi</div><div class="stat-l">Em transações</div></div>
+      <div class="stat"><div class="stat-n">98%</div><div class="stat-l">Satisfação</div></div>
+    </div>
+  </div>
+  <div class="sobre-right reveal">
+    <div class="sobre-item"><span class="si-icon">🏛️</span><div class="si-title">Portfólio curado</div><p class="si-desc">Acesso a imóveis exclusivos, muitos disponíveis apenas para clientes cadastrados.</p></div>
+    <div class="sobre-item"><span class="si-icon">🤝</span><div class="si-title">Negociação discreta</div><p class="si-desc">Condução sigilosa de cada negócio com total proteção dos interesses do cliente.</p></div>
+    <div class="sobre-item"><span class="si-icon">📋</span><div class="si-title">Assessoria completa</div><p class="si-desc">Da busca ao registro, cuidamos de cada etapa jurídica, financeira e documental.</p></div>
+  </div>
+</section>
+
+<section class="depoimento">
+  <div class="reveal">
+    <p class="dep-label">O que dizem nossos clientes</p>
+    <div class="dep-side-title">Relacionamentos<br>que duram</div>
+  </div>
+  <div class="reveal">
+    <div class="dep-mark">"</div>
+    <p class="dep-text">"A Prestige encontrou para minha família uma propriedade que não estava no mercado. A discrição, o cuidado com cada detalhe e o conhecimento do mercado de alto padrão foram excepcionais."</p>
+    <div class="dep-author"><strong>Família Rodrigues</strong><span>Casa em condomínio fechado · Alphaville</span></div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <div class="cta-l reveal">
+    <p class="sec-pre">Encontre seu imóvel</p>
+    <h2 class="sec-title">A propriedade<br>certa começa<br>com a <em>conversa</em> certa</h2>
+    <p>Consultoria personalizada e confidencial. Cadastre seu perfil e tenha acesso a imóveis exclusivos antes de chegarem ao mercado.</p>
+  </div>
+  <div class="cta-form reveal">
+    <div class="cta-form-title">Solicitar consultoria</div>
+    <div class="cta-form-sub">Confidencial · Sem compromisso</div>
+    <div class="f-field"><label>Nome</label><input type="text" placeholder="Seu nome"></div>
+    <div class="f-field"><label>WhatsApp</label><input type="tel" placeholder="(00) 00000-0000"></div>
+    <div class="f-field"><label>Perfil de interesse</label>
+      <select><option>Selecione...</option><option>Apartamento alto padrão</option>
+      <option>Casa em condomínio</option><option>Cobertura</option>
+      <option>Imóvel comercial</option><option>Terreno / lote</option></select>
+    </div>
+    <div class="f-field"><label>Faixa de investimento</label>
+      <select><option>Selecione...</option><option>R$ 1M – R$ 2M</option>
+      <option>R$ 2M – R$ 5M</option><option>R$ 5M – R$ 10M</option>
+      <option>Acima de R$ 10M</option></select>
+    </div>
+    <button class="btn-sub">Solicitar consultoria exclusiva</button>
+    <p class="f-note">Todas as informações são tratadas com total sigilo</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-brand">PRESTIGE IMÓVEIS</div>
+  <div class="foot-links"><a href="#">Portfólio</a><a href="#">Sobre</a><a href="#">Blog</a><a href="#">Privacidade</a></div>
+  <div class="foot-dev">Desenvolvido por CodandoIdeias</div>
+</footer>
+<script>
+const r=document.querySelectorAll('.reveal');
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}})},{threshold:0.1});
+r.forEach(el=>o.observe(el));
+</script>
+</body>
+</html>
