@@ -5,9 +5,9 @@ import { TrendingUp, Search, ArrowRight } from "lucide-react";
 
 export const VisibilidadeCta = () => {
   return (
-    <section className="w-full px-6 py-20 lg:px-8">
+    <section className="w-full px-4 py-14 xl:px-0">
       <div className="mx-auto max-w-6xl">
-        <div className="relative overflow-hidden rounded-3xl border border-amber-300/20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-8 py-14 text-center shadow-2xl md:px-16">
+        <div className="relative overflow-hidden rounded-3xl border border-amber-300/20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-2 py-14 text-center shadow-2xl md:px-16">
           {/* Glow background */}
           <div
             className="pointer-events-none absolute -top-32 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-amber-400/10 blur-3xl"
@@ -20,28 +20,28 @@ export const VisibilidadeCta = () => {
               Diagnóstico gratuito
             </div>
 
-            <h2 className="max-w-2xl text-3xl font-extrabold leading-tight md:text-4xl lg:text-5xl">
+            <h2 className="max-w-2xl text-[26px] font-extrabold leading-[1.1] md:text-4xl lg:text-5xl xl:max-w-4xl">
               Quantas pessoas buscam o seu negócio{" "}
-              <span className="text-amber-300">todo mês</span> — e não te
+              <span className="text-amber-300">todo mês</span> e não te
               encontram?
             </h2>
 
-            <p className="max-w-xl text-base leading-relaxed text-slate-400 md:text-lg">
+            <p className="max-w-xl text-sm font-light leading-tight text-slate-400 md:text-lg">
               Descubra em segundos o volume de pesquisas no Google para o seu
               segmento no seu estado e veja quanto você está deixando na mesa
               por não ter presença digital.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-col items-center justify-center gap-4">
               <Link
                 href="/calculadora"
-                className="flex items-center gap-2 rounded-xl bg-amber-400 px-7 py-4 font-bold text-slate-950 shadow-lg transition-all duration-200 hover:brightness-110 hover:scale-[1.03]"
+                className="flex items-center gap-2 rounded-xl bg-yellow-500 px-7 py-4 font-bold shadow-lg transition-all duration-200 hover:scale-[1.03] hover:brightness-110"
               >
                 <TrendingUp size={18} />
                 Calcular meu potencial
                 <ArrowRight size={16} />
               </Link>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-foreground/60">
                 100% gratuito · resultado na hora · sem compromisso
               </p>
             </div>

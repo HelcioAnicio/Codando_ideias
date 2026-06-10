@@ -19,7 +19,7 @@ const subscriptionPlans = [
       "Personalização de texto e logo",
       "Escolha da paleta de cores",
       "Hospedagem inclusa",
-      "Domínio não incluso",
+      "Domínio '.com.br'",
       "Suporte via WhatsApp",
     ],
     featured: false,
@@ -65,12 +65,16 @@ const segments = ["Clínicas", "Barbearias", "Restaurantes"];
 type FormData = { name: string; email: string; phone: string };
 
 function ContactForm({ planName }: { planName: string }) {
-  const [form, setForm] = useState<FormData>({ name: "", email: "", phone: "" });
+  const [form, setForm] = useState<FormData>({
+    name: "",
+    email: "",
+    phone: "",
+  });
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const msg = encodeURIComponent(
-      `Olá! Me chamo ${form.name} e tenho interesse no plano *${planName}*.\n\nE-mail: ${form.email}\nTelefone: ${form.phone}\n\nGostaria de saber mais detalhes!`
+      `Olá! Me chamo ${form.name} e tenho interesse no plano *${planName}*.\n\nE-mail: ${form.email}\nTelefone: ${form.phone}\n\nGostaria de saber mais detalhes!`,
     );
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
   }
@@ -103,7 +107,7 @@ function ContactForm({ planName }: { planName: string }) {
       />
       <button
         type="submit"
-        className="studio-gold-surface mt-2 rounded-xl px-5 py-4 font-bold text-slate-950 transition hover:brightness-110"
+        className="studio-gold-surface mt-2 rounded-xl px-5 py-4 font-bold transition hover:brightness-110"
       >
         Quero um site personalizado →
       </button>
@@ -140,7 +144,7 @@ export const StudioPlans = () => {
               className={[
                 "rounded-xl px-6 py-2.5 text-sm font-bold transition-all duration-200",
                 tab === "assinatura"
-                  ? "studio-gold-surface text-slate-950"
+                  ? "studio-gold-surface text-popover-foreground"
                   : "text-slate-400 hover:text-white",
               ].join(" ")}
             >
@@ -151,7 +155,7 @@ export const StudioPlans = () => {
               className={[
                 "rounded-xl px-6 py-2.5 text-sm font-bold transition-all duration-200",
                 tab === "personalizado"
-                  ? "studio-gold-surface text-slate-950"
+                  ? "studio-gold-surface text-popover-foreground"
                   : "text-slate-400 hover:text-white",
               ].join(" ")}
             >
@@ -186,8 +190,10 @@ export const StudioPlans = () => {
               >
                 <span
                   className={[
-                    "absolute top-1 h-5 w-5 rounded-full bg-white shadow transition-transform duration-300",
-                    billing === "anual" ? "translate-x-8" : "translate-x-1",
+                    "absolute left-1 top-1 h-5 w-5 rounded-full bg-white shadow transition-transform duration-300",
+                    billing === "anual"
+                      ? "translate-x-[140%]"
+                      : "translate-x-0",
                   ].join(" ")}
                 />
               </button>
@@ -224,7 +230,9 @@ export const StudioPlans = () => {
                   )}
 
                   <h3 className="text-2xl font-bold">{plan.name}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-400">{plan.description}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-400">
+                    {plan.description}
+                  </p>
 
                   <div className="mt-6">
                     <span className="text-4xl font-black text-white">
@@ -253,7 +261,7 @@ export const StudioPlans = () => {
                   {/* Landing page: segment tags + model selector */}
                   {plan.id === "landing" && (
                     <div className="mt-6 space-y-3">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-foreground/50">
                         Prontos por segmento
                       </p>
                       <div className="flex flex-wrap gap-2">
@@ -280,14 +288,14 @@ export const StudioPlans = () => {
 
                   <a
                     href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                      `Olá! Tenho interesse no plano de Assinatura *${plan.name}* (${billing}). Podemos conversar?`
+                      `Olá! Tenho interesse no plano de Assinatura *${plan.name}* (${billing}). Podemos conversar?`,
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={[
                       "mt-6 block rounded-xl px-5 py-4 text-center font-bold transition",
                       plan.featured
-                        ? "studio-gold-surface text-slate-950 hover:brightness-110"
+                        ? "studio-gold-surface transition-all duration-500 hover:underline hover:underline-offset-2"
                         : "border border-amber-300/40 bg-amber-300/10 text-amber-200 hover:bg-amber-300/20 hover:text-white",
                     ].join(" ")}
                   >
@@ -297,8 +305,9 @@ export const StudioPlans = () => {
               ))}
             </div>
 
-            <p className="mt-8 text-center text-sm text-slate-500">
-              * Textos, imagens, serviços e paleta de cores são personalizados com o conteúdo fornecido pelo cliente.
+            <p className="mt-8 text-center text-sm text-foreground/70">
+              * Textos, imagens, serviços e paleta de cores são personalizados
+              com o conteúdo fornecido pelo cliente.
             </p>
           </div>
         )}
@@ -312,7 +321,9 @@ export const StudioPlans = () => {
                 className="rounded-[1.75rem] border border-white/10 bg-slate-900 p-8"
               >
                 <h3 className="text-xl font-bold">{plan.name}</h3>
-                <p className="mt-2 text-sm text-slate-400">{plan.description}</p>
+                <p className="mt-2 text-sm text-slate-400">
+                  {plan.description}
+                </p>
 
                 <div className="mt-6">
                   <span className="text-3xl font-black text-white">

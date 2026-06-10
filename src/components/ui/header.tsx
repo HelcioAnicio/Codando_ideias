@@ -16,7 +16,6 @@ import Logo2 from "../../../public/logo2.svg";
 
 import Link from "next/link";
 import Image from "next/image";
-import { ButtonGeral } from "./buttonGeral";
 import { FaInstagram } from "react-icons/fa6";
 
 export const Header = () => {
@@ -60,20 +59,28 @@ export const Header = () => {
                   Serviços
                 </Link>
               </li>
-              <li className="relative">
+              {/* <li className="relative">
                 <Link
                   href="#steps"
                   className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
                 >
                   Processo criativo
                 </Link>
-              </li>
+              </li> */}
               <li className="relative">
                 <Link
                   href="/#footer"
                   className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
                 >
-                  Fale comigo
+                  Contato
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://wa.me/5531991973835?text=Olá,+quero+um+site+para+o+meu+negócio!"
+                  className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500/10 px-5 py-3 text-sm font-bold uppercase text-yellow-400 transition-all duration-200 hover:scale-[1.02] hover:bg-yellow-500/20"
+                >
+                  site pro meu negocio
                 </Link>
               </li>
             </ul>
@@ -126,14 +133,14 @@ export const Header = () => {
                           <Link href="#services">Serviços</Link>
                         </SheetClose>
                       </li>
-                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
+                      {/* <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>
                           <Link href="#steps">Processo criativo</Link>
                         </SheetClose>{" "}
-                      </li>
+                      </li> */}
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>
-                          <Link href="/#footer">Fale comigo</Link>
+                          <Link href="/#footer">Contato</Link>
                         </SheetClose>
                       </li>
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300">
@@ -148,13 +155,15 @@ export const Header = () => {
                           </Link>
                         </SheetClose>
                       </li>
+
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300">
                         <SheetClose asChild>
-                          <ButtonGeral
-                            text="Quero ser encontrado"
-                            link="https://wa.me/5531991973835?text=Olá,+quero+um+site+que+me+permita+ser+encontrado!"
-                            classes="py-4 mx-auto"
-                          />
+                          <Link
+                            href="https://wa.me/5531991973835?text=Olá,+quero+um+site+para+o+meu+negócio!"
+                            className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500/10 px-5 py-3 text-sm font-bold uppercase text-yellow-400 transition-all duration-200 hover:scale-[1.02] hover:bg-yellow-500/20"
+                          >
+                            site pro meu negocio
+                          </Link>
                         </SheetClose>
                       </li>
                     </ul>

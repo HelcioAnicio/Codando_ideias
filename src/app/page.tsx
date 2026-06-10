@@ -19,10 +19,10 @@ export default function Home() {
         <CardImage />
         <ListProjects />
         {/* <StudioAuthorityShowcase /> */}
-        <Services />
         <VisibilidadeCta />
-        <Steps />
+        <Services />
         <StudioPlans />
+        <Steps />
         <StudioFaq />
         {/* <Cost /> */}
         {/* <WhyDevLab /> */}

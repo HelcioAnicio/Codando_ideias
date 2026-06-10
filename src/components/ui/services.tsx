@@ -391,7 +391,10 @@ export const Services = () => {
         />
       )}
 
-      <section className="relative z-30 flex w-full justify-center pt-20">
+      <section
+        className="relative z-30 flex w-full justify-center pt-10"
+        id="#services"
+      >
         <article className="flex max-w-6xl flex-col gap-20 px-2 min-[400px]:px-5 sm:px-7 lg:px-2">
           <div className="flex flex-col gap-5">
             <p className="w-max rounded-full border border-secondary-foreground/20 bg-secondary-foreground/5 p-1 px-5 text-xs font-extralight uppercase text-secondary-foreground/80 sm:text-sm">
@@ -400,7 +403,7 @@ export const Services = () => {
             <h2 className="text-4xl font-bold sm:w-3/4 sm:text-4xl md:text-5xl lg:w-full">
               O que seu negócio precisa?
             </h2>
-            <p className="text-base font-light opacity-80 min-[400px]:text-lg sm:text-xl">
+            <p className="max-w-2xl text-base font-light leading-snug opacity-80 min-[400px]:text-lg sm:text-xl">
               Desenvolvemos produtos digitais que funcionam. Desde páginas que
               vendem até sistemas que organizam seu negócio, cada solução é
               feita sob medida para seus objetivos.
@@ -417,14 +420,14 @@ export const Services = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="flex flex-col gap-5 py-1">
-                    <p className="text-base opacity-75 md:text-lg">
+                    <p className="text-base leading-snug opacity-75 md:text-lg">
                       {card.description}
                     </p>
                     <Button
                       className="relative w-max bg-transparent px-1 py-6 text-base text-popover-foreground shadow-none transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:bg-transparent hover:after:w-full"
                       onClick={() => setActiveServiceSlug(card.id)}
                     >
-                      Mais informações
+                      Ver mais ...
                       <IoIosArrowForward />
                     </Button>
                   </CardContent>
