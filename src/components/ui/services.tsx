@@ -421,10 +421,10 @@ export const Services = () => {
                       {card.description}
                     </p>
                     <Button
-                      className="relative w-max bg-transparent px-1 py-6 text-lg text-popover-foreground shadow-none transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:bg-transparent hover:after:w-full"
+                      className="relative w-max bg-transparent px-1 py-6 text-base text-popover-foreground shadow-none transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:bg-transparent hover:after:w-full"
                       onClick={() => setActiveServiceSlug(card.id)}
                     >
-                      Saiba mais
+                      Mais informações
                       <IoIosArrowForward />
                     </Button>
                   </CardContent>

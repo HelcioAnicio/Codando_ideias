@@ -6,6 +6,7 @@ import Image from "next/image";
 import { IoMdTrendingUp } from "react-icons/io";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
+import { Sparkles } from "lucide-react";
 
 export const CardImage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -84,12 +85,19 @@ export const CardImage = () => {
           </p>
 
           <div
-            className={`relative hidden transition-all delay-300 duration-500 sm:block ${
+            className={`relative hidden flex-col gap-3 transition-all delay-300 duration-500 sm:flex ${
               isVisible
                 ? "translate-x-0 blur-none"
                 : "-translate-x-full blur-sm"
             } `}
           >
+            <Link
+              href="/simulacao"
+              className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500/10 px-5 py-3 text-sm font-bold text-yellow-400 transition-all duration-200 hover:bg-yellow-500/20 hover:scale-[1.02]"
+            >
+              <Sparkles size={15} />
+              Simule seu site gratuitamente
+            </Link>
             <ButtonGeral
               text="Fale comigo agora"
               link="https://wa.me/5531991973835?text=Olá,+quero+um+site+que+me+permita+ser+encontrado!"
@@ -138,12 +146,19 @@ export const CardImage = () => {
         </div>
 
         <div
-          className={`absolute bottom-[3%] z-30 w-full max-w-xs transition-all delay-300 duration-500 sm:hidden ${
+          className={`absolute bottom-[3%] z-30 flex w-full max-w-xs flex-col gap-2 transition-all delay-300 duration-500 sm:hidden ${
             isVisible
               ? "translate-y-0 opacity-100 blur-none"
               : "translate-y-full opacity-0 blur-sm"
           } `}
         >
+          <Link
+            href="/simulacao"
+            className="flex items-center justify-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500/10 px-5 py-3 text-sm font-bold text-yellow-400"
+          >
+            <Sparkles size={14} />
+            Simule seu site gratuitamente
+          </Link>
           <ButtonGeral
             text="Fale comigo agora"
             link="https://wa.me/5531991973835?text=Olá,+quero+um+site+que+me+permita+ser+encontrado!"

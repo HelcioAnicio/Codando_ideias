@@ -13,12 +13,13 @@ const subscriptionPlans = [
     monthly: 80,
     annual: 50,
     description:
-      "Ideal para apresentar seu produto ou serviço com foco em conversão. Uma página estratégica, rápida e otimizada para capturar leads.",
+      "Página estratégica, rápida e otimizada para converter visitantes em clientes. Ideal para negócios que querem capturar leads e aparecer no Google.",
     items: [
-      "3 templates prontos por segmento",
+      "Template pronto por segmento",
       "Personalização de texto e logo",
       "Escolha da paleta de cores",
-      "Domínio e hospedagem inclusos",
+      "Hospedagem inclusa",
+      "Domínio não incluso",
       "Suporte via WhatsApp",
     ],
     featured: false,
@@ -29,12 +30,13 @@ const subscriptionPlans = [
     monthly: 140,
     annual: 100,
     description:
-      "Para empresas que precisam de mais presença. Site com múltiplas páginas, blog e estrutura completa para posicionamento de marca.",
+      "Presença digital completa para sua marca. Site com múltiplas páginas, blog e estrutura pensada para gerar autoridade e ranqueamento orgânico.",
     items: [
       "Até 6 páginas + Blog",
       "Personalização de texto e logo",
       "Escolha da paleta de cores",
-      "Domínio e hospedagem inclusos",
+      "Hospedagem inclusa",
+      "Domínio não incluso",
       "Suporte via WhatsApp",
     ],
     featured: true,
@@ -58,7 +60,7 @@ const customPlans = [
   },
 ];
 
-const segments = ["Advogados", "Clínicas", "Barbearias", "Restaurantes"];
+const segments = ["Clínicas", "Barbearias", "Restaurantes"];
 
 type FormData = { name: string; email: string; phone: string };
 
@@ -173,6 +175,7 @@ export const StudioPlans = () => {
                 Mensal
               </span>
               <button
+                type="button"
                 onClick={() =>
                   setBilling((b) => (b === "mensal" ? "anual" : "mensal"))
                 }
@@ -203,12 +206,12 @@ export const StudioPlans = () => {
             </div>
 
             {/* Plans grid */}
-            <div className="mx-auto grid max-w-3xl gap-8 md:grid-cols-2">
+            <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
               {subscriptionPlans.map((plan) => (
                 <article
                   key={plan.id}
                   className={[
-                    "relative flex h-full flex-col rounded-[1.75rem] border p-8",
+                    "relative flex h-full flex-col rounded-[1.75rem] border p-10",
                     plan.featured
                       ? "border-amber-300 bg-slate-800 shadow-2xl shadow-amber-950/20"
                       : "border-white/10 bg-slate-900",
@@ -220,8 +223,8 @@ export const StudioPlans = () => {
                     </span>
                   )}
 
-                  <h3 className="text-xl font-bold">{plan.name}</h3>
-                  <p className="mt-2 text-sm text-slate-400">{plan.description}</p>
+                  <h3 className="text-2xl font-bold">{plan.name}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-400">{plan.description}</p>
 
                   <div className="mt-6">
                     <span className="text-4xl font-black text-white">
@@ -247,39 +250,32 @@ export const StudioPlans = () => {
                     ))}
                   </ul>
 
-                  {/* Landing page: templates + contractual note */}
+                  {/* Landing page: segment tags + model selector */}
                   {plan.id === "landing" && (
-                    <>
-                      <div className="mt-6">
-                        <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-                          Templates por segmento
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {segments.map((s) => (
-                            <span
-                              key={s}
-                              className="rounded-full border border-amber-300/20 bg-amber-300/5 px-3 py-1 text-xs text-amber-200"
-                            >
-                              {s}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Contractual note */}
-                      <p className="mt-4 rounded-xl border border-slate-700/60 bg-slate-800/60 px-4 py-3 text-xs text-slate-400">
-                        📄 Tudo é feito contratualmente — o modelo escolhido, personalizações e
-                        prazos ficam formalizados antes do início do trabalho.
+                    <div className="mt-6 space-y-3">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                        Prontos por segmento
                       </p>
-
-                      {/* Link to model selection */}
+                      <div className="flex flex-wrap gap-2">
+                        {segments.map((s) => (
+                          <span
+                            key={s}
+                            className="rounded-full border border-amber-300/20 bg-amber-300/5 px-3 py-1 text-xs text-amber-200"
+                          >
+                            {s}
+                          </span>
+                        ))}
+                        <span className="rounded-full border border-slate-700 bg-slate-800 px-3 py-1 text-xs text-slate-400">
+                          + outros
+                        </span>
+                      </div>
                       <Link
                         href="/simulacao"
-                        className="mt-3 flex items-center justify-center gap-2 rounded-xl border border-dashed border-slate-600 px-4 py-3 text-xs font-semibold text-slate-300 transition-all hover:border-yellow-500/50 hover:bg-yellow-500/5 hover:text-yellow-400"
+                        className="flex items-center justify-center gap-2 rounded-xl border border-dashed border-slate-600 px-4 py-3 text-xs font-semibold text-slate-300 transition-all hover:border-yellow-500/50 hover:bg-yellow-500/5 hover:text-yellow-400"
                       >
-                        🎨 Escolher o estilo do modelo →
+                        🎨 Ver modelos disponíveis →
                       </Link>
-                    </>
+                    </div>
                   )}
 
                   <a
@@ -292,7 +288,7 @@ export const StudioPlans = () => {
                       "mt-6 block rounded-xl px-5 py-4 text-center font-bold transition",
                       plan.featured
                         ? "studio-gold-surface text-slate-950 hover:brightness-110"
-                        : "border border-slate-700 text-white hover:border-amber-300/50 hover:bg-white/5",
+                        : "border border-amber-300/40 bg-amber-300/10 text-amber-200 hover:bg-amber-300/20 hover:text-white",
                     ].join(" ")}
                   >
                     Quero assinar →
@@ -302,8 +298,7 @@ export const StudioPlans = () => {
             </div>
 
             <p className="mt-8 text-center text-sm text-slate-500">
-              * O plano Landing Page é baseado em templates prontos. Textos, imagens,
-              serviços e paleta de cores são personalizados com o conteúdo fornecido pelo cliente.
+              * Textos, imagens, serviços e paleta de cores são personalizados com o conteúdo fornecido pelo cliente.
             </p>
           </div>
         )}
