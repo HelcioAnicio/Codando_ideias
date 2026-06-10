@@ -320,20 +320,48 @@ function StepTicket({
   );
 }
 
+function validateContato(form: { nome: string; email: string; telefone: string }) {
+  const errors: { nome?: string; email?: string; telefone?: string } = {};
+  if (!form.nome.trim()) errors.nome = "Informe seu nome.";
+  if (!form.email.includes("@") || !form.email.includes("."))
+    errors.email = "Digite um e-mail válido (ex: nome@email.com).";
+  const tel = form.telefone.replace(/\D/g, "");
+  if (tel.length < 10) errors.telefone = "Celular inválido — informe com DDD (ex: 31 9 1234-5678).";
+  return errors;
+}
+
 function StepContato({
   form,
   onChange,
   onSubmit,
   onBack,
   loading,
+  submitError,
 }: {
   form: { nome: string; email: string; telefone: string };
   onChange: (field: keyof typeof form, value: string) => void;
   onSubmit: () => void;
   onBack: () => void;
   loading: boolean;
+  submitError: string | null;
 }) {
-  const valid = form.nome.trim() && form.email.includes("@") && form.telefone.trim().length >= 8;
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const errors = validateContato(form);
+  const allValid = Object.keys(errors).length === 0 && form.nome.trim() !== "";
+
+  function blur(field: string) {
+    setTouched((t) => ({ ...t, [field]: true }));
+  }
+
+  function fieldClass(field: string) {
+    const hasError = touched[field] && errors[field as keyof typeof errors];
+    return [
+      "w-full rounded-xl border py-4 pl-11 pr-4 text-white placeholder-slate-500 outline-none bg-slate-800 transition-colors",
+      hasError
+        ? "border-red-500/70 focus:border-red-500"
+        : "border-white/10 focus:border-amber-300/50",
+    ].join(" ");
+  }
 
   return (
     <div className="flex flex-col gap-6">
@@ -342,8 +370,7 @@ function StepContato({
           Para quem enviamos o diagnóstico?
         </h2>
         <p className="mt-1 text-slate-400">
-          Seu relatório é gerado na hora — 100% gratuito, sem compromisso e sem
-          spam. Não entraremos em contato a menos que você queira.
+          Seu relatório é gerado na hora — 100% gratuito, sem compromisso.
         </p>
       </div>
 
@@ -352,45 +379,76 @@ function StepContato({
         aparece na tela agora mesmo.
       </div>
 
-      <div className="flex flex-col gap-4">
-        <div className="relative">
-          <User className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={16} />
-          <input
-            type="text"
-            placeholder="Seu nome"
-            required
-            value={form.nome}
-            onChange={(e) => onChange("nome", e.target.value)}
-            className="w-full rounded-xl border border-white/10 bg-slate-800 py-4 pl-11 pr-4 text-white placeholder-slate-500 outline-none focus:border-amber-300/50"
-          />
+      <div className="flex flex-col gap-3">
+        {/* Nome */}
+        <div className="flex flex-col gap-1">
+          <div className="relative">
+            <User className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={16} />
+            <input
+              type="text"
+              placeholder="Seu nome"
+              value={form.nome}
+              onChange={(e) => onChange("nome", e.target.value)}
+              onBlur={() => blur("nome")}
+              className={fieldClass("nome")}
+            />
+          </div>
+          {touched.nome && errors.nome && (
+            <p className="ml-1 text-xs text-red-400">{errors.nome}</p>
+          )}
         </div>
-        <div className="relative">
-          <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={16} />
-          <input
-            type="email"
-            placeholder="Seu e-mail"
-            required
-            value={form.email}
-            onChange={(e) => onChange("email", e.target.value)}
-            className="w-full rounded-xl border border-white/10 bg-slate-800 py-4 pl-11 pr-4 text-white placeholder-slate-500 outline-none focus:border-amber-300/50"
-          />
+
+        {/* Email */}
+        <div className="flex flex-col gap-1">
+          <div className="relative">
+            <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={16} />
+            <input
+              type="email"
+              placeholder="Seu e-mail"
+              value={form.email}
+              onChange={(e) => onChange("email", e.target.value)}
+              onBlur={() => blur("email")}
+              className={fieldClass("email")}
+            />
+          </div>
+          {touched.email && errors.email && (
+            <p className="ml-1 text-xs text-red-400">{errors.email}</p>
+          )}
         </div>
-        <div className="relative">
-          <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={16} />
-          <input
-            type="tel"
-            placeholder="Celular / WhatsApp"
-            required
-            value={form.telefone}
-            onChange={(e) => onChange("telefone", e.target.value)}
-            className="w-full rounded-xl border border-white/10 bg-slate-800 py-4 pl-11 pr-4 text-white placeholder-slate-500 outline-none focus:border-amber-300/50"
-          />
+
+        {/* Telefone */}
+        <div className="flex flex-col gap-1">
+          <div className="relative">
+            <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={16} />
+            <input
+              type="tel"
+              placeholder="Celular / WhatsApp (com DDD)"
+              value={form.telefone}
+              onChange={(e) => onChange("telefone", e.target.value)}
+              onBlur={() => blur("telefone")}
+              className={fieldClass("telefone")}
+            />
+          </div>
+          {touched.telefone && errors.telefone && (
+            <p className="ml-1 text-xs text-red-400">{errors.telefone}</p>
+          )}
         </div>
       </div>
 
+      {/* Erro de envio (ex: falha de rede) */}
+      {submitError && (
+        <div className="flex items-start gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+          <span className="mt-0.5 text-base leading-none">⚠</span>
+          <div>
+            <p className="font-semibold">Não foi possível enviar</p>
+            <p className="mt-0.5 text-xs text-red-400">{submitError}</p>
+          </div>
+        </div>
+      )}
+
       <p className="text-xs text-slate-600">
-        Seus dados são usados apenas para personalizar o diagnóstico. Não
-        compartilhamos com terceiros.
+        🔒 Seu e-mail não será usado para envio de promoções ou newsletters.
+        Os dados servem apenas para gerar e personalizar o seu diagnóstico.
       </p>
 
       <div className="flex gap-3">
@@ -403,12 +461,18 @@ function StepContato({
         </button>
         <button
           type="button"
-          disabled={!valid || loading}
-          onClick={onSubmit}
+          disabled={!allValid || loading}
+          onClick={() => {
+            setTouched({ nome: true, email: true, telefone: true });
+            if (allValid) onSubmit();
+          }}
           className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 py-4 font-bold text-slate-950 transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40"
         >
           {loading ? (
-            "Calculando..."
+            <span className="flex items-center gap-2">
+              <span className="h-4 w-4 animate-spin rounded-full border-2 border-slate-900 border-t-transparent" />
+              Calculando...
+            </span>
           ) : (
             <>
               <Sparkles size={16} /> Ver meu diagnóstico
@@ -622,6 +686,7 @@ function ProgressBar({ current }: { current: Step }) {
 export default function CalculadoraPage() {
   const [step, setStep] = useState<Step>("segmento");
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [form, setForm] = useState<FormState>({
     segmentoId: "",
     segmentoNome: "",
@@ -637,13 +702,25 @@ export default function CalculadoraPage() {
     setForm((prev) => ({ ...prev, ...patch }));
   }
 
-  function handleSubmit() {
+  async function handleSubmit() {
     setLoading(true);
-    // Simula um pequeno delay para feedback visual
-    setTimeout(() => {
-      setLoading(false);
-      setStep("resultado");
-    }, 900);
+    setSubmitError(null);
+    try {
+      const res = await fetch("/api/leads/calculadora", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        // Exibe o erro mas ainda mostra o diagnóstico
+        setSubmitError(data.error ?? "Tente novamente em instantes.");
+      }
+    } catch {
+      setSubmitError("Sem conexão com o servidor. Verifique sua internet e tente novamente.");
+    }
+    setLoading(false);
+    setStep("resultado");
   }
 
   return (
@@ -704,10 +781,11 @@ export default function CalculadoraPage() {
         {step === "contato" && (
           <StepContato
             form={{ nome: form.nome, email: form.email, telefone: form.telefone }}
-            onChange={(field, value) => updateForm({ [field]: value })}
+            onChange={(field, value) => { updateForm({ [field]: value }); setSubmitError(null); }}
             onSubmit={handleSubmit}
             onBack={() => setStep("ticket")}
             loading={loading}
+            submitError={submitError}
           />
         )}
 

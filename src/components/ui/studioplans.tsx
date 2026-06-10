@@ -64,52 +64,172 @@ const segments = ["Clínicas", "Barbearias", "Restaurantes"];
 
 type FormData = { name: string; email: string; phone: string };
 
-function ContactForm({ planName }: { planName: string }) {
-  const [form, setForm] = useState<FormData>({
-    name: "",
-    email: "",
-    phone: "",
-  });
+function validateContato(name: string, email: string, phone: string) {
+  const errors: { name?: string; email?: string; phone?: string } = {};
+  if (!name.trim()) errors.name = "Informe seu nome.";
+  if (!email.includes("@") || !email.includes("."))
+    errors.email = "Digite um e-mail válido (ex: nome@email.com).";
+  if (phone.replace(/\D/g, "").length < 10)
+    errors.phone = "Informe o celular com DDD (ex: 31 9 1234-5678).";
+  return errors;
+}
 
-  function handleSubmit(e: React.FormEvent) {
+function ContactForm({ planName }: { planName: string }) {
+  const [form, setForm] = useState<FormData>({ name: "", email: "", phone: "" });
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  const errors = validateContato(form.name, form.email, form.phone);
+  const allValid = Object.keys(errors).length === 0;
+
+  function blur(field: string) {
+    setTouched((t) => ({ ...t, [field]: true }));
+  }
+
+  function inputClass(field: string) {
+    const hasError = touched[field] && errors[field as keyof typeof errors];
+    return [
+      "rounded-xl border px-4 py-3 text-sm text-white placeholder-slate-400 outline-none bg-slate-800 transition-colors w-full",
+      hasError ? "border-red-500/60 focus:border-red-500" : "border-white/10 focus:border-amber-300/60",
+    ].join(" ");
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setTouched({ name: true, email: true, phone: true });
+    if (!allValid) return;
+
+    setStatus("loading");
+    setErrorMsg(null);
+
+    try {
+      const res = await fetch("/api/leads/contato", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ plano: planName, nome: form.name, email: form.email, telefone: form.phone }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setStatus("error");
+        setErrorMsg(data.error ?? "Não foi possível registrar seu contato. Tente novamente.");
+        return;
+      }
+
+      setStatus("success");
+    } catch {
+      setStatus("error");
+      setErrorMsg("Sem conexão com o servidor. Verifique sua internet e tente novamente.");
+      return;
+    }
+
+    // Abre WhatsApp após sucesso
     const msg = encodeURIComponent(
       `Olá! Me chamo ${form.name} e tenho interesse no plano *${planName}*.\n\nE-mail: ${form.email}\nTelefone: ${form.phone}\n\nGostaria de saber mais detalhes!`,
     );
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
   }
 
+  // Estado de sucesso
+  if (status === "success") {
+    return (
+      <div className="mt-6 flex flex-col items-center gap-4 rounded-2xl border border-green-500/30 bg-green-500/5 p-6 text-center">
+        <span className="text-3xl">✅</span>
+        <div>
+          <p className="font-bold text-green-300">Tudo certo, {form.name.split(" ")[0]}!</p>
+          <p className="mt-1 text-sm text-slate-400">
+            Seu contato foi registrado. O WhatsApp deve ter aberto — se não abriu,{" "}
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá! Interesse no plano ${planName}.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-300 underline"
+            >
+              clique aqui
+            </a>
+            .
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => { setStatus("idle"); setForm({ name: "", email: "", phone: "" }); setTouched({}); }}
+          className="text-xs text-slate-500 underline transition hover:text-slate-300"
+        >
+          Enviar outro contato
+        </button>
+      </div>
+    );
+  }
+
   return (
     <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-3">
-      <input
-        required
-        type="text"
-        placeholder="Seu nome"
-        value={form.name}
-        onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
-        className="rounded-xl border border-white/10 bg-slate-800 px-4 py-3 text-sm text-white placeholder-slate-400 outline-none focus:border-amber-300/60"
-      />
-      <input
-        required
-        type="email"
-        placeholder="Seu e-mail"
-        value={form.email}
-        onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
-        className="rounded-xl border border-white/10 bg-slate-800 px-4 py-3 text-sm text-white placeholder-slate-400 outline-none focus:border-amber-300/60"
-      />
-      <input
-        required
-        type="tel"
-        placeholder="Seu telefone / WhatsApp"
-        value={form.phone}
-        onChange={(e) => setForm((p) => ({ ...p, phone: e.target.value }))}
-        className="rounded-xl border border-white/10 bg-slate-800 px-4 py-3 text-sm text-white placeholder-slate-400 outline-none focus:border-amber-300/60"
-      />
+      {/* Nome */}
+      <div className="flex flex-col gap-1">
+        <input
+          type="text"
+          placeholder="Seu nome"
+          value={form.name}
+          onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
+          onBlur={() => blur("name")}
+          className={inputClass("name")}
+        />
+        {touched.name && errors.name && (
+          <p className="ml-1 text-xs text-red-400">{errors.name}</p>
+        )}
+      </div>
+
+      {/* Email */}
+      <div className="flex flex-col gap-1">
+        <input
+          type="email"
+          placeholder="Seu e-mail"
+          value={form.email}
+          onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
+          onBlur={() => blur("email")}
+          className={inputClass("email")}
+        />
+        {touched.email && errors.email && (
+          <p className="ml-1 text-xs text-red-400">{errors.email}</p>
+        )}
+      </div>
+
+      {/* Telefone */}
+      <div className="flex flex-col gap-1">
+        <input
+          type="tel"
+          placeholder="Telefone / WhatsApp (com DDD)"
+          value={form.phone}
+          onChange={(e) => setForm((p) => ({ ...p, phone: e.target.value }))}
+          onBlur={() => blur("phone")}
+          className={inputClass("phone")}
+        />
+        {touched.phone && errors.phone && (
+          <p className="ml-1 text-xs text-red-400">{errors.phone}</p>
+        )}
+      </div>
+
+      {/* Erro de envio */}
+      {status === "error" && errorMsg && (
+        <div className="flex items-start gap-2 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-xs text-red-300">
+          <span className="mt-0.5">⚠</span>
+          <p>{errorMsg}</p>
+        </div>
+      )}
+
       <button
         type="submit"
-        className="studio-gold-surface mt-2 rounded-xl px-5 py-4 font-bold transition hover:brightness-110"
+        disabled={status === "loading"}
+        className="studio-gold-surface mt-2 flex items-center justify-center gap-2 rounded-xl px-5 py-4 font-bold transition hover:brightness-110 disabled:opacity-60"
       >
-        Quero um site personalizado →
+        {status === "loading" ? (
+          <>
+            <span className="h-4 w-4 animate-spin rounded-full border-2 border-slate-900 border-t-transparent" />
+            Enviando...
+          </>
+        ) : (
+          "Quero um site personalizado →"
+        )}
       </button>
     </form>
   );

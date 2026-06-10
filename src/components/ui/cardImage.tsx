@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { ButtonGeral } from "./buttonGeral";
 import Image from "next/image";
 import { IoMdTrendingUp } from "react-icons/io";
 import Link from "next/link";
