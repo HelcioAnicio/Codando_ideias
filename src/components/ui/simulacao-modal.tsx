@@ -14,7 +14,7 @@ const WA_LINK =
   "https://wa.me/5531991973835?text=Olá!+Vi+os+modelos+na+simulação+e+quero+um+site+para+meu+negócio!";
 
 /** Abre o HTML em nova aba e dispara o diálogo Salvar como PDF */
-function openAsPdf(file: string, title: string) {
+function openAsPdf(file: string) {
   const win = window.open(file, "_blank");
   if (!win) return;
   win.addEventListener("load", () => {
@@ -161,7 +161,7 @@ function TemplateCard({
         {/* Click overlay → PDF */}
         <div
           className="absolute inset-0 flex cursor-pointer items-center justify-center bg-black/0 transition-all group-hover:bg-black/50"
-          onClick={() => openAsPdf(variant.file, `${segmentoNome} — ${variant.name}`)}
+          onClick={() => openAsPdf(variant.file)}
         >
           <div className="flex scale-75 items-center gap-2 rounded-xl bg-red-500 px-4 py-2.5 text-sm font-black text-white opacity-0 shadow-lg transition-all duration-200 group-hover:scale-100 group-hover:opacity-100">
             <MdPictureAsPdf size={18} />
@@ -177,7 +177,7 @@ function TemplateCard({
           <p className="mt-0.5 text-[11px] text-slate-500">{variant.desc}</p>
         </div>
         <button
-          onClick={() => openAsPdf(variant.file, `${segmentoNome} — ${variant.name}`)}
+          onClick={() => openAsPdf(variant.file)}
           className="flex items-center gap-1.5 rounded-lg border border-slate-700 px-3 py-1.5 text-xs font-bold text-slate-300 transition-all hover:border-red-400/50 hover:bg-red-500/10 hover:text-red-400"
         >
           <MdPictureAsPdf size={13} />
