@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APEX Training — Resultados Sem Desculpas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#060606;--black-2:#0E0E0E;--black-3:#161616;--black-4:#202020;
+  --yellow:#FFE000;--yellow-dk:#D4B800;--yellow-pale:rgba(255,224,0,.08);
+  --white:#FFFFFF;--muted:#666;--muted-lt:#999;--red:#FF3B30;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;padding:0 4rem;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(6,6,6,.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,224,0,.1)}
+.logo{font-family:'Barlow Condensed',sans-serif;font-size:26px;
+  font-weight:900;letter-spacing:.06em;color:var(--white)}
+.logo span{color:var(--yellow)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:12px;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--yellow)}
+.nav-cta{padding:10px 26px;background:var(--yellow);color:var(--black);
+  font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .2s}
+.nav-cta:hover{background:var(--yellow-dk)}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:68px;display:grid;grid-template-columns:1fr 1fr}
+.hero-l{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden}
+.hero-l::before{content:'APEX';font-family:'Barlow Condensed',sans-serif;
+  font-size:320px;font-weight:900;color:rgba(255,224,0,.025);
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  white-space:nowrap;letter-spacing:-.02em;pointer-events:none}
+.hero-tag{display:flex;align-items:center;gap:10px;margin-bottom:1.5rem}
+.hero-tag-dot{width:8px;height:8px;border-radius:50%;background:var(--yellow);
+  animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-tag span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--yellow)}
+h1{font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(64px,9vw,120px);font-weight:900;line-height:.92;
+  text-transform:uppercase;letter-spacing:-.01em;
+  color:var(--white);margin-bottom:1.5rem;position:relative;z-index:1}
+h1 span{color:var(--yellow);display:block}
+.hero-sub{font-size:15px;font-weight:300;line-height:1.85;
+  color:var(--muted-lt);max-width:380px;margin-bottom:2.5rem;
+  position:relative;z-index:1}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:1}
+.btn-yellow{padding:16px 36px;background:var(--yellow);color:var(--black);
+  font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .2s}
+.btn-yellow:hover{background:var(--yellow-dk)}
+.btn-outline{padding:15px 34px;background:transparent;
+  border:1px solid rgba(255,255,255,.15);color:var(--muted-lt);
+  font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.btn-outline:hover{border-color:var(--yellow);color:var(--yellow)}
+
+.hero-r{background:var(--black-2);display:flex;flex-direction:column}
+.hero-r-main{flex:1;position:relative;
+  display:flex;align-items:center;justify-content:center;min-height:400px}
+.hero-r-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,224,0,.06) 0%,transparent 70%)}
+.hero-r-placeholder{position:relative;z-index:1;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:.75rem}
+.hero-r-placeholder svg{opacity:.2}
+.hero-r-placeholder p{font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(255,224,0,.35)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--black-4)}
+.h-stat{padding:1.5rem 2rem;border-right:1px solid var(--black-4);text-align:center}
+.h-stat:last-child{border-right:none}
+.h-n{font-family:'Barlow Condensed',sans-serif;font-size:36px;
+  font-weight:900;color:var(--yellow);letter-spacing:-.01em}
+.h-l{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+
+/* MANIFESTO */
+.manifesto{background:var(--yellow);padding:4rem;text-align:center}
+.manifesto-text{font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(28px,4vw,52px);font-weight:900;
+  text-transform:uppercase;letter-spacing:-.01em;color:var(--black);line-height:1.1}
+.manifesto-text span{font-style:italic;color:var(--black-3)}
+
+/* PROGRAMAS */
+.programas{padding:7rem 4rem;background:var(--black-2)}
+.sec-pre{font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--yellow);margin-bottom:.5rem}
+.sec-title{font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(36px,5vw,64px);font-weight:900;
+  text-transform:uppercase;letter-spacing:-.01em;
+  color:var(--white);margin-bottom:3.5rem;line-height:.95}
+.sec-title span{color:var(--yellow)}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--black-4)}
+.prog-card{background:var(--black-2);padding:2.5rem;position:relative;overflow:hidden;
+  border-top:3px solid transparent;transition:all .3s}
+.prog-card.featured{border-top-color:var(--yellow)}
+.prog-card:hover{background:var(--black-3)}
+.prog-tag{font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--yellow);margin-bottom:1rem}
+.prog-name{font-family:'Barlow Condensed',sans-serif;font-size:28px;
+  font-weight:800;text-transform:uppercase;color:var(--white);margin-bottom:.5rem}
+.prog-desc{font-size:13px;font-weight:300;color:var(--muted);
+  line-height:1.7;margin-bottom:1.5rem}
+.prog-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.5rem}
+.prog-list li{font-size:12px;color:var(--muted-lt);display:flex;align-items:center;gap:8px}
+.prog-list li::before{content:'';width:4px;height:4px;border-radius:50%;
+  background:var(--yellow);flex-shrink:0}
+.prog-price{font-family:'Barlow Condensed',sans-serif;font-size:32px;
+  font-weight:900;color:var(--yellow)}
+.prog-price sub{font-size:14px;font-weight:400;color:var(--muted)}
+.prog-cta{display:block;margin-top:1.25rem;padding:12px 0;text-align:center;
+  background:var(--yellow);color:var(--black);
+  font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
+  border:none;width:100%;transition:all .2s}
+.prog-cta:hover{background:var(--yellow-dk)}
+.prog-cta-outline{background:transparent;border:1px solid rgba(255,224,0,.25);
+  color:var(--muted-lt)}
+.prog-cta-outline:hover{background:transparent;border-color:var(--yellow);color:var(--yellow)}
+
+/* MÉTODO */
+.metodo{padding:7rem 4rem;background:var(--black)}
+.metodo-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.metodo-steps{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--black-4)}
+.metodo-step{padding:1.5rem 0;border-bottom:1px solid var(--black-4);
+  display:flex;align-items:flex-start;gap:1.5rem}
+.ms-num{font-family:'Barlow Condensed',sans-serif;font-size:40px;
+  font-weight:900;color:rgba(255,224,0,.2);line-height:1;flex-shrink:0;width:50px}
+.ms-title{font-family:'Barlow Condensed',sans-serif;font-size:20px;
+  font-weight:700;text-transform:uppercase;color:var(--white);margin-bottom:.3rem;letter-spacing:.04em}
+.ms-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7}
+.metodo-right{display:flex;flex-direction:column;gap:1px;background:var(--black-4)}
+.mr-item{background:var(--black-2);padding:2rem;display:flex;gap:1.25rem;align-items:flex-start}
+.mr-icon{font-size:24px;flex-shrink:0}
+.mr-title{font-size:14px;font-weight:500;color:var(--white);margin-bottom:.25rem}
+.mr-desc{font-size:12px;font-weight:300;color:var(--muted);line-height:1.65}
+
+/* RESULTADOS */
+.resultados{background:var(--black-2);padding:7rem 4rem}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.res-card{background:var(--black-3);padding:2rem;
+  border-left:3px solid var(--yellow);position:relative}
+.res-badge{display:inline-block;padding:3px 10px;background:var(--yellow);
+  color:var(--black);font-family:'Barlow Condensed',sans-serif;
+  font-size:12px;font-weight:800;text-transform:uppercase;margin-bottom:1rem}
+.res-quote{font-size:14px;font-weight:300;color:var(--muted-lt);
+  line-height:1.7;font-style:italic;margin-bottom:1.25rem}
+.res-author{font-family:'Barlow Condensed',sans-serif;font-size:16px;
+  font-weight:700;text-transform:uppercase;color:var(--white)}
+.res-detail{font-size:11px;color:var(--yellow);margin-top:2px;letter-spacing:.06em}
+
+/* CTA */
+.cta{padding:7rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center}
+.cta-l .sec-title{margin-bottom:1.25rem}
+.cta-l p{font-size:15px;font-weight:300;color:var(--muted-lt);
+  line-height:1.85;margin-bottom:2.5rem}
+.cta-guarantees{display:flex;flex-direction:column;gap:.6rem}
+.cg{display:flex;align-items:center;gap:10px;
+  font-size:13px;color:var(--muted-lt);font-weight:300}
+.cg::before{content:'✓';color:var(--yellow);font-weight:700;font-size:14px;flex-shrink:0}
+
+.cta-form{background:var(--black-2);border-top:3px solid var(--yellow);padding:3rem}
+.cta-form-title{font-family:'Barlow Condensed',sans-serif;font-size:28px;
+  font-weight:800;text-transform:uppercase;color:var(--white);margin-bottom:.25rem}
+.cta-form-sub{font-size:12px;color:var(--muted);margin-bottom:2rem;letter-spacing:.04em}
+.f-field{margin-bottom:1.25rem}
+.f-field label{display:block;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.f-field input,.f-field select{width:100%;padding:13px 0;
+  background:transparent;border:none;border-bottom:1px solid var(--black-4);
+  color:var(--white);font-family:'Barlow',sans-serif;font-size:14px;
+  outline:none;transition:border-color .2s}
+.f-field input::placeholder{color:rgba(255,255,255,.15)}
+.f-field input:focus,.f-field select:focus{border-bottom-color:var(--yellow)}
+.f-field select option{background:var(--black-2)}
+.btn-sub{width:100%;margin-top:1.5rem;padding:16px;
+  background:var(--yellow);color:var(--black);
+  font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;
+  letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .2s}
+.btn-sub:hover{background:var(--yellow-dk)}
+.f-note{font-size:10px;color:var(--muted);text-align:center;margin-top:.75rem}
+
+footer{background:var(--black);border-top:1px solid var(--black-4);
+  padding:2.5rem 4rem;display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-logo{font-family:'Barlow Condensed',sans-serif;font-size:20px;
+  font-weight:900;color:rgba(255,255,255,.3)}
+.foot-logo span{color:var(--yellow)}
+.foot-links{display:flex;gap:2rem}
+.foot-links a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--yellow)}
+.foot-dev{font-size:11px;color:rgba(255,255,255,.15)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:960px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-l{padding:4rem 2rem}
+  .hero-r{min-height:300px}
+  .manifesto{padding:3rem 2rem}
+  .programas,.metodo,.resultados,.cta{padding:4rem 2rem}
+  .prog-grid{grid-template-columns:1fr}
+  .metodo-grid,.cta{grid-template-columns:1fr;gap:3rem}
+  .res-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center;padding:2rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">APEX <span>TRAINING</span></div>
+  <ul class="nav-links">
+    <li><a href="#programas">Programas</a></li>
+    <li><a href="#metodo">Método</a></li>
+    <li><a href="#contato">Começar</a></li>
+  </ul>
+  <button class="nav-cta">Começar agora</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-tag"><div class="hero-tag-dot"></div><span>Personal trainer certificado · CREF ativo</span></div>
+    <h1>SEM<br><span>DESCULPA,</span><br>SEM LIMITE</h1>
+    <p class="hero-sub">Treinos que funcionam de verdade. Protocolos baseados em ciência, executados com intensidade. Para quem quer transformação real — não apenas promessa.</p>
+    <div class="hero-btns">
+      <button class="btn-yellow">Começar minha transformação</button>
+      <button class="btn-outline">Ver programas</button>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-r-main">
+      <div class="hero-r-glow"></div>
+      <div class="hero-r-placeholder">
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#FFE000" stroke-width="1">
+          <path d="M10 28h6l4-12 6 24 4-16 4 8h6M4 28h4M48 28h4"/>
+        </svg>
+        <p>Foto do personal / treino</p>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><div class="h-n">+500</div><div class="h-l">Alunos transformados</div></div>
+      <div class="h-stat"><div class="h-n">8</div><div class="h-l">Anos de experiência</div></div>
+      <div class="h-stat"><div class="h-n">4.9★</div><div class="h-l">Avaliação</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="manifesto">
+  <p class="manifesto-text">Seu corpo tem potencial.<br><span>Você é que decide ativá-lo.</span></p>
+</div>
+
+<section class="programas" id="programas">
+  <p class="sec-pre reveal">Programas de treinamento</p>
+  <h2 class="sec-title reveal">ESCOLHA<br>SEU <span>NÍVEL</span></h2>
+  <div class="prog-grid">
+    <div class="prog-card reveal">
+      <div class="prog-tag">Iniciante</div>
+      <div class="prog-name">Foundation</div>
+      <p class="prog-desc">Base sólida de movimento, postura e condicionamento. Ideal para quem está começando ou voltando.</p>
+      <ul class="prog-list">
+        <li>3x treinos por semana</li>
+        <li>Avaliação física inicial</li>
+        <li>Planilha personalizada</li>
+        <li>Suporte via WhatsApp</li>
+      </ul>
+      <div class="prog-price"><sub>R$</sub> 390<sub>/mês</sub></div>
+      <button class="prog-cta prog-cta-outline">Começar no Foundation</button>
+    </div>
+    <div class="prog-card featured reveal">
+      <div class="prog-tag">⚡ Mais popular</div>
+      <div class="prog-name">Performance</div>
+      <p class="prog-desc">Foco em resultados visíveis. Periodização avançada, acompanhamento nutricional e evolução monitorada.</p>
+      <ul class="prog-list">
+        <li>5x treinos por semana</li>
+        <li>Avaliação física mensal</li>
+        <li>Guia nutricional incluso</li>
+        <li>Suporte diário</li>
+        <li>Análise de vídeo dos exercícios</li>
+      </ul>
+      <div class="prog-price"><sub>R$</sub> 690<sub>/mês</sub></div>
+      <button class="prog-cta">Quero o Performance</button>
+    </div>
+    <div class="prog-card reveal">
+      <div class="prog-tag">Elite</div>
+      <div class="prog-name">Apex</div>
+      <p class="prog-desc">Programa completo de alta performance. Para atletas e quem quer extrair o máximo do próprio corpo.</p>
+      <ul class="prog-list">
+        <li>Treinos ilimitados</li>
+        <li>Acompanhamento diário</li>
+        <li>Nutrição esportiva completa</li>
+        <li>Acesso prioritário</li>
+        <li>Suplementação orientada</li>
+      </ul>
+      <div class="prog-price"><sub>R$</sub> 1.290<sub>/mês</sub></div>
+      <button class="prog-cta prog-cta-outline">Quero o Apex</button>
+    </div>
+  </div>
+</section>
+
+<section class="metodo" id="metodo">
+  <div class="metodo-grid">
+    <div class="reveal">
+      <p class="sec-pre">Como funciona</p>
+      <h2 class="sec-title" style="font-size:clamp(32px,4vw,56px);margin-bottom:2.5rem">O MÉTODO<br><span>APEX</span></h2>
+      <div class="metodo-steps">
+        <div class="metodo-step"><div class="ms-num">01</div><div><div class="ms-title">Avaliação completa</div><p class="ms-desc">Bioimpedância, análise postural, testes de força e resistência. Ponto de partida preciso.</p></div></div>
+        <div class="metodo-step"><div class="ms-num">02</div><div><div class="ms-title">Protocolo personalizado</div><p class="ms-desc">Planilha construída para o seu corpo, seus objetivos e sua disponibilidade de tempo.</p></div></div>
+        <div class="metodo-step"><div class="ms-num">03</div><div><div class="ms-title">Execução supervisionada</div><p class="ms-desc">Cada exercício executado com técnica perfeita. Segurança e eficiência em todo treino.</p></div></div>
+        <div class="metodo-step"><div class="ms-num">04</div><div><div class="ms-title">Evolução medida</div><p class="ms-desc">Reavaliações periódicas para ajuste do protocolo e visualização do progresso real.</p></div></div>
+      </div>
+    </div>
+    <div class="metodo-right reveal">
+      <div class="mr-item"><div class="mr-icon">🏋️</div><div><div class="mr-title">Musculação e força</div><p class="mr-desc">Periodização linear e ondulatória para ganho contínuo de massa e força.</p></div></div>
+      <div class="mr-item"><div class="mr-icon">⚡</div><div><div class="mr-title">HIIT e condicionamento</div><p class="mr-desc">Protocolos de alta intensidade para queima de gordura sem perda muscular.</p></div></div>
+      <div class="mr-item"><div class="mr-icon">🧘</div><div><div class="mr-title">Mobilidade e prevenção</div><p class="mr-desc">Trabalho de mobilidade integrado para performance e longevidade articular.</p></div></div>
+      <div class="mr-item"><div class="mr-icon">🥗</div><div><div class="mr-title">Suporte nutricional</div><p class="mr-desc">Orientação alimentar alinhada ao treino para potencializar cada resultado.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="resultados">
+  <p class="sec-pre reveal">Resultados reais</p>
+  <h2 class="sec-title reveal" style="font-size:clamp(32px,4vw,56px)">ELES <span>TRANSFORMARAM</span></h2>
+  <div class="res-grid">
+    <div class="res-card reveal">
+      <div class="res-badge">−18kg em 4 meses</div>
+      <p class="res-quote">"Nunca acreditei que conseguiria. O método é intenso mas funciona de verdade. Mudei o corpo e a mentalidade completamente."</p>
+      <div class="res-author">Rodrigo Mendes</div>
+      <div class="res-detail">Programa Performance · Emagrecimento</div>
+    </div>
+    <div class="res-card reveal">
+      <div class="res-badge">+12kg de massa</div>
+      <p class="res-quote">"Treinei por anos sem resultado. Com o protocolo do Apex em 6 meses conquistei o que não consegui em 3 anos antes."</p>
+      <div class="res-author">Thiago Carvalho</div>
+      <div class="res-detail">Programa Apex · Hipertrofia</div>
+    </div>
+    <div class="res-card reveal">
+      <div class="res-badge">−8% de gordura</div>
+      <p class="res-quote">"Voltei de uma lesão e o trabalho de reabilitação + retorno ao treino foi preciso. Hoje estou mais forte do que antes da lesão."</p>
+      <div class="res-author">Juliana Ramos</div>
+      <div class="res-detail">Programa Foundation → Performance</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <div class="cta-l reveal">
+    <p class="sec-pre">Comece hoje</p>
+    <h2 class="sec-title" style="font-size:clamp(32px,4vw,56px);margin-bottom:1.25rem">SUA<br>TRANSFOR<span>MAÇÃO</span><br>COMEÇA AQUI</h2>
+    <p>Avaliação física gratuita para novos alunos. Descubra o que o seu corpo é capaz de alcançar com o método certo.</p>
+    <div class="cta-guarantees" style="margin-top:1.5rem">
+      <div class="cg">Avaliação física completa grátis</div>
+      <div class="cg">7 dias para testar sem compromisso</div>
+      <div class="cg">Treinos online ou presenciais</div>
+      <div class="cg">CREF ativo e certificações internacionais</div>
+    </div>
+  </div>
+  <div class="cta-form reveal">
+    <div class="cta-form-title">Começar agora</div>
+    <div class="cta-form-sub">Avaliação gratuita · Resposta em até 1h</div>
+    <div class="f-field"><label>Nome</label><input type="text" placeholder="Seu nome"></div>
+    <div class="f-field"><label>WhatsApp</label><input type="tel" placeholder="(00) 00000-0000"></div>
+    <div class="f-field"><label>Objetivo principal</label>
+      <select><option>Selecione...</option>
+      <option>Emagrecimento</option><option>Ganho de massa muscular</option>
+      <option>Condicionamento físico</option><option>Reabilitação e retorno</option>
+      <option>Performance atlética</option></select>
+    </div>
+    <button class="btn-sub">Quero minha avaliação gratuita</button>
+    <p class="f-note">Sem compromisso · Você decide depois da avaliação</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">APEX <span>TRAINING</span></div>
+  <div class="foot-links">
+    <a href="#">Programas</a><a href="#">Método</a>
+    <a href="#">Instagram</a><a href="#">Privacidade</a>
+  </div>
+  <div class="foot-dev">Desenvolvido por CodandoIdeias</div>
+</footer>
+
+<script>
+const r=document.querySelectorAll('.reveal');
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}})},{threshold:0.1});
+r.forEach(el=>o.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitFlow — Treino Online com Personal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --purple:#6C2BD9;--purple-lt:#8B4FF0;--purple-dk:#5020B0;
+  --purple-pale:#F3EEFF;--purple-mid:#E8D5FF;
+  --white:#FFFFFF;--off:#FAFAFA;--gray-50:#F5F5F8;
+  --gray-100:#EBEBF0;--gray-200:#D8D8E0;--gray-400:#9090A0;
+  --gray-600:#606070;--gray-800:#2A2A38;--ink:#12121E;
+  --green:#00C471;--green-pale:#DFFFEF;
+  --orange:#FF6B35;--yellow:#FFD23F;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden}
+
+nav{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--gray-100);
+  padding:0 4rem;height:68px;position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:34px;height:34px;background:var(--purple);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;font-size:16px}
+.logo-text{font-size:18px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.logo-text span{color:var(--purple)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--gray-600);
+  text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--purple)}
+.nav-actions{display:flex;gap:10px}
+.btn-ghost{padding:9px 18px;border:1.5px solid var(--gray-200);
+  background:transparent;color:var(--gray-600);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;
+  border-radius:8px;cursor:pointer;transition:all .2s}
+.btn-ghost:hover{border-color:var(--purple);color:var(--purple)}
+.btn-purple{padding:9px 22px;background:var(--purple);color:var(--white);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;
+  border:none;border-radius:8px;cursor:pointer;transition:background .2s}
+.btn-purple:hover{background:var(--purple-lt)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--purple) 0%,var(--purple-dk) 100%);
+  padding:5rem 4rem 0;display:grid;grid-template-columns:1fr 1fr;
+  gap:3rem;align-items:end;overflow:hidden;position:relative}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;
+  width:400px;height:400px;border-radius:50%;
+  background:rgba(255,255,255,.04)}
+.hero-l{padding-bottom:5rem;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.15);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.2);color:var(--white);
+  border-radius:50px;padding:6px 16px;font-size:12px;font-weight:600;margin-bottom:1.5rem}
+.bdot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-size:clamp(38px,5.5vw,66px);font-weight:800;line-height:1.05;
+  letter-spacing:-.03em;color:var(--white);margin-bottom:1.2rem}
+h1 span{color:var(--yellow)}
+.hero-sub{font-size:16px;font-weight:400;color:rgba(255,255,255,.75);
+  line-height:1.75;max-width:460px;margin-bottom:2.5rem}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+.btn-white{padding:14px 30px;background:var(--white);color:var(--purple);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;
+  border:none;border-radius:10px;cursor:pointer;transition:all .2s;
+  box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.btn-white:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.btn-outline-w{padding:14px 26px;background:rgba(255,255,255,.1);color:var(--white);
+  border:1.5px solid rgba(255,255,255,.3);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:600;
+  border-radius:10px;cursor:pointer;transition:all .2s}
+.btn-outline-w:hover{background:rgba(255,255,255,.2)}
+.hero-social-proof{display:flex;align-items:center;gap:12px}
+.proof-avatars{display:flex}
+.proof-av{width:30px;height:30px;border-radius:50%;
+  background:rgba(255,255,255,.25);border:2px solid rgba(255,255,255,.4);
+  margin-left:-8px;display:flex;align-items:center;justify-content:center;font-size:12px}
+.proof-av:first-child{margin-left:0}
+.proof-text{font-size:12px;color:rgba(255,255,255,.75);font-weight:500}
+.proof-text strong{color:var(--white)}
+
+.hero-r{position:relative;z-index:1;align-self:stretch;display:flex;flex-direction:column}
+.hero-app-mockup{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.15);border-radius:20px 20px 0 0;
+  flex:1;min-height:380px;padding:2rem;display:flex;flex-direction:column;gap:1rem}
+.app-header{display:flex;align-items:center;justify-content:space-between}
+.app-title{font-size:14px;font-weight:700;color:var(--white)}
+.app-badge{background:var(--green);color:var(--ink);font-size:10px;
+  font-weight:700;padding:3px 10px;border-radius:20px}
+.app-cards{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;flex:1}
+.app-card{background:rgba(255,255,255,.1);border-radius:12px;padding:1rem}
+.app-card-label{font-size:10px;color:rgba(255,255,255,.5);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem}
+.app-card-val{font-size:22px;font-weight:800;color:var(--white);letter-spacing:-.02em}
+.app-card-sub{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
+.app-card.green .app-card-val{color:var(--green)}
+.app-progress{background:rgba(255,255,255,.08);border-radius:12px;padding:1rem}
+.app-prog-label{font-size:12px;font-weight:600;color:var(--white);margin-bottom:.75rem}
+.app-prog-bar-bg{background:rgba(255,255,255,.1);height:6px;border-radius:3px}
+.app-prog-bar{height:6px;border-radius:3px;background:var(--green);width:72%}
+.app-prog-sub{display:flex;justify-content:space-between;margin-top:.4rem}
+.app-prog-sub span{font-size:10px;color:rgba(255,255,255,.4)}
+
+/* NÚMEROS */
+.numeros{background:var(--gray-50);padding:1.5rem 4rem;
+  display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--gray-100)}
+.num-item{text-align:center;padding:.5rem;border-right:1px solid var(--gray-200)}
+.num-item:last-child{border-right:none}
+.num-n{font-size:26px;font-weight:800;color:var(--purple);letter-spacing:-.02em}
+.num-l{font-size:11px;color:var(--gray-400);margin-top:2px;font-weight:500}
+
+/* COMO FUNCIONA */
+.como{padding:6rem 4rem;background:var(--white)}
+.sec-h{margin-bottom:3.5rem}
+.sec-tag{display:inline-flex;align-items:center;gap:6px;
+  background:var(--purple-pale);color:var(--purple);
+  border-radius:6px;padding:5px 12px;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem}
+.sec-t{font-size:clamp(28px,4vw,46px);font-weight:800;
+  letter-spacing:-.025em;color:var(--ink);line-height:1.1}
+.sec-t span{color:var(--purple)}
+.sec-s{font-size:15px;color:var(--gray-600);line-height:1.7;margin-top:.75rem;max-width:500px}
+.como-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.como-step{background:var(--gray-50);border-radius:16px;padding:2rem;
+  border:1.5px solid var(--gray-100);transition:all .25s}
+.como-step:hover{border-color:var(--purple-mid);transform:translateY(-3px)}
+.cs-num{width:44px;height:44px;background:var(--purple);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;font-weight:800;color:var(--white);margin-bottom:1.25rem}
+.cs-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:.4rem}
+.cs-desc{font-size:13px;color:var(--gray-600);line-height:1.65}
+
+/* PROGRAMAS */
+.programas{background:var(--gray-50);padding:6rem 4rem}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem}
+.prog-card{background:var(--white);border:1.5px solid var(--gray-200);
+  border-radius:16px;padding:2rem;transition:all .25s}
+.prog-card:hover{border-color:var(--purple)}
+.prog-card.featured{background:var(--purple);border-color:var(--purple)}
+.prog-tag{font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--purple);margin-bottom:1rem}
+.prog-card.featured .prog-tag{color:rgba(255,255,255,.6)}
+.prog-name{font-size:22px;font-weight:800;color:var(--ink);
+  letter-spacing:-.01em;margin-bottom:.4rem}
+.prog-card.featured .prog-name{color:var(--white)}
+.prog-desc{font-size:13px;color:var(--gray-600);line-height:1.65;margin-bottom:1.5rem}
+.prog-card.featured .prog-desc{color:rgba(255,255,255,.65)}
+.prog-features{list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.75rem}
+.prog-features li{font-size:12px;color:var(--gray-600);
+  display:flex;align-items:center;gap:8px}
+.prog-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+.prog-card.featured .prog-features li{color:rgba(255,255,255,.7)}
+.prog-price{font-size:36px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.prog-card.featured .prog-price{color:var(--yellow)}
+.prog-price sub{font-size:13px;font-weight:400;color:var(--gray-400)}
+.prog-card.featured .prog-price sub{color:rgba(255,255,255,.4)}
+.prog-btn{display:block;width:100%;margin-top:1.25rem;padding:12px;
+  border-radius:10px;border:1.5px solid var(--purple);
+  background:transparent;color:var(--purple);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;
+  cursor:pointer;transition:all .2s;text-align:center}
+.prog-btn:hover{background:var(--purple);color:var(--white)}
+.prog-card.featured .prog-btn{background:rgba(255,255,255,.15);
+  border-color:rgba(255,255,255,.3);color:var(--white)}
+.prog-card.featured .prog-btn:hover{background:rgba(255,255,255,.25)}
+
+/* DEPOIMENTOS */
+.depoimentos{padding:6rem 4rem;background:var(--white)}
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem}
+.dep-card{background:var(--gray-50);border:1.5px solid var(--gray-100);
+  border-radius:16px;padding:1.75rem;transition:border-color .25s}
+.dep-card:hover{border-color:var(--purple-mid)}
+.dep-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.dep-stars{color:var(--yellow);font-size:13px;letter-spacing:2px}
+.dep-badge{background:var(--green-pale);color:var(--green);font-size:10px;
+  font-weight:700;padding:3px 10px;border-radius:20px}
+.dep-text{font-size:14px;color:var(--gray-800);line-height:1.7;
+  margin-bottom:1.25rem;font-style:italic}
+.dep-person{display:flex;align-items:center;gap:10px}
+.dep-av{width:36px;height:36px;border-radius:50%;
+  background:var(--purple-pale);display:flex;align-items:center;justify-content:center;font-size:16px}
+.dep-name{font-size:13px;font-weight:700;color:var(--ink)}
+.dep-info{font-size:11px;color:var(--gray-400)}
+
+/* CTA */
+.cta{background:var(--ink);padding:6rem 4rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.cta-l-title{font-size:clamp(30px,4vw,50px);font-weight:800;
+  letter-spacing:-.025em;color:var(--white);line-height:1.1;margin-bottom:1.25rem}
+.cta-l-title span{color:var(--yellow)}
+.cta-l-sub{font-size:15px;color:rgba(255,255,255,.6);
+  line-height:1.75;margin-bottom:2rem}
+.cta-checks{display:flex;flex-direction:column;gap:.75rem}
+.cc{display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,.75)}
+.cc-icon{width:20px;height:20px;border-radius:50%;
+  background:rgba(0,196,113,.15);border:1px solid rgba(0,196,113,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:var(--green);flex-shrink:0}
+
+.form-card{background:var(--white);border-radius:20px;padding:2.5rem}
+.form-title{font-size:22px;font-weight:800;color:var(--ink);
+  letter-spacing:-.01em;margin-bottom:.25rem}
+.form-sub{font-size:13px;color:var(--gray-600);margin-bottom:2rem}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0}
+.f-field{margin-bottom:1rem}
+.f-field label{display:block;font-size:12px;font-weight:700;
+  color:var(--gray-800);margin-bottom:5px}
+.f-field input,.f-field select{width:100%;padding:11px 14px;border-radius:8px;
+  border:1.5px solid var(--gray-200);background:var(--white);
+  color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;
+  outline:none;transition:border-color .2s}
+.f-field input:focus,.f-field select:focus{border-color:var(--purple);
+  outline:3px solid var(--purple-pale)}
+.f-field input::placeholder{color:var(--gray-400)}
+.btn-form{width:100%;padding:14px;border-radius:10px;
+  background:var(--purple);color:var(--white);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;
+  border:none;cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn-form:hover{background:var(--purple-lt)}
+.form-note{font-size:11px;color:var(--gray-400);text-align:center;margin-top:.75rem}
+
+footer{background:var(--gray-800);padding:2.5rem 4rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-logo{font-size:17px;font-weight:800;color:rgba(255,255,255,.4);letter-spacing:-.02em}
+.foot-logo span{color:var(--purple-lt)}
+.foot-links{display:flex;gap:2rem}
+.foot-links a{font-size:12px;color:rgba(255,255,255,.3);text-decoration:none}
+.foot-links a:hover{color:rgba(255,255,255,.6)}
+.foot-dev{font-size:11px;color:rgba(255,255,255,.15)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:960px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:3rem 1.5rem 0;gap:2rem}
+  .hero-l{padding-bottom:2rem}
+  .hero-r{min-height:320px}
+  .numeros{grid-template-columns:repeat(2,1fr);padding:1.5rem}
+  .como,.programas,.depoimentos,.cta{padding:4rem 1.5rem}
+  .como-grid{grid-template-columns:1fr 1fr}
+  .prog-grid,.dep-grid{grid-template-columns:1fr}
+  .cta{grid-template-columns:1fr;gap:3rem}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo"><div class="logo-icon">⚡</div><span class="logo-text">Fit<span>Flow</span></span></div>
+  <ul class="nav-links">
+    <li><a href="#como">Como funciona</a></li>
+    <li><a href="#programas">Planos</a></li>
+    <li><a href="#contato">Começar</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-ghost">Ver planos</button>
+    <button class="btn-purple">Começar grátis</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-badge"><div class="bdot"></div>Personal trainer online · +800 alunos ativos</div>
+    <h1>Treino feito<br>para <span>você</span>,<br>onde você estiver</h1>
+    <p class="hero-sub">Personal trainer no seu bolso. Planilha personalizada, acompanhamento real e resultado em 90 dias — ou seu dinheiro de volta.</p>
+    <div class="hero-cta">
+      <button class="btn-white">Começar com 7 dias grátis</button>
+      <button class="btn-outline-w">Ver como funciona</button>
+    </div>
+    <div class="hero-social-proof">
+      <div class="proof-avatars">
+        <div class="proof-av">😊</div><div class="proof-av">💪</div>
+        <div class="proof-av">🌟</div><div class="proof-av">+</div>
+      </div>
+      <p class="proof-text"><strong>+800 alunos</strong> transformando o corpo agora</p>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-app-mockup">
+      <div class="app-header">
+        <div class="app-title">Meu Dashboard</div>
+        <div class="app-badge">● Ao vivo</div>
+      </div>
+      <div class="app-cards">
+        <div class="app-card"><div class="app-card-label">Esta semana</div><div class="app-card-val">4/5</div><div class="app-card-sub">Treinos feitos</div></div>
+        <div class="app-card green"><div class="app-card-label">Streak atual</div><div class="app-card-val">18 dias</div><div class="app-card-sub">Sem faltar</div></div>
+      </div>
+      <div class="app-progress">
+        <div class="app-prog-label">Meta do mês: Emagrecimento</div>
+        <div class="app-prog-bar-bg"><div class="app-prog-bar"></div></div>
+        <div class="app-prog-sub"><span>Semana 3 de 4</span><span>72%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="numeros">
+  <div class="num-item"><div class="num-n">+800</div><div class="num-l">Alunos ativos</div></div>
+  <div class="num-item"><div class="num-n">4.9★</div><div class="num-l">Avaliação média</div></div>
+  <div class="num-item"><div class="num-n">90 dias</div><div class="num-l">Garantia de resultado</div></div>
+  <div class="num-item"><div class="num-n">7 dias</div><div class="num-l">Grátis para testar</div></div>
+</div>
+
+<section class="como" id="como">
+  <div class="sec-h reveal">
+    <div class="sec-tag">Como funciona</div>
+    <h2 class="sec-t">Em 4 passos você<br><span>já está treinando</span></h2>
+    <p class="sec-s">Sem academia obrigatória, sem horário fixo. O método FitFlow se adapta à sua rotina.</p>
+  </div>
+  <div class="como-grid">
+    <div class="como-step reveal"><div class="cs-num">01</div><div class="cs-title">Avaliação online</div><p class="cs-desc">Questionário completo sobre seu corpo, objetivos, histórico e disponibilidade de tempo.</p></div>
+    <div class="como-step reveal"><div class="cs-num">02</div><div class="cs-title">Planilha personalizada</div><p class="cs-desc">Treino montado especialmente para você. Não existe planilha padrão aqui.</p></div>
+    <div class="como-step reveal"><div class="cs-num">03</div><div class="cs-title">Execução + suporte</div><p class="cs-desc">Treina quando quiser com suporte diário, análise de vídeo e ajustes em tempo real.</p></div>
+    <div class="como-step reveal"><div class="cs-num">04</div><div class="cs-title">Evolução medida</div><p class="cs-desc">Reavaliação quinzenal com métricas reais. Você vê o progresso acontecendo.</p></div>
+  </div>
+</section>
+
+<section class="programas" id="programas">
+  <div class="sec-h reveal">
+    <div class="sec-tag">Planos</div>
+    <h2 class="sec-t">Escolha seu<br><span>plano ideal</span></h2>
+  </div>
+  <div class="prog-grid">
+    <div class="prog-card reveal">
+      <div class="prog-tag">Starter</div>
+      <div class="prog-name">Essencial</div>
+      <p class="prog-desc">Tudo que você precisa para começar com o pé direito e construir consistência.</p>
+      <ul class="prog-features">
+        <li>Planilha personalizada semanal</li><li>3 treinos por semana</li>
+        <li>Suporte via chat (horário comercial)</li><li>Reavaliação mensal</li>
+      </ul>
+      <div class="prog-price"><sub>R$</sub>197<sub>/mês</sub></div>
+      <button class="prog-btn">Começar no Essencial</button>
+    </div>
+    <div class="prog-card featured reveal">
+      <div class="prog-tag">⚡ Mais escolhido</div>
+      <div class="prog-name">Performance</div>
+      <p class="prog-desc">O plano completo com suporte diário, nutrição e análise de execução.</p>
+      <ul class="prog-features">
+        <li>Planilha personalizada diária</li><li>5 treinos por semana</li>
+        <li>Suporte diário 7 dias</li><li>Guia nutricional incluso</li>
+        <li>Análise de vídeo dos exercícios</li><li>Reavaliação quinzenal</li>
+      </ul>
+      <div class="prog-price"><sub>R$</sub>397<sub>/mês</sub></div>
+      <button class="prog-btn">Quero o Performance</button>
+    </div>
+    <div class="prog-card reveal">
+      <div class="prog-tag">VIP</div>
+      <div class="prog-name">Elite</div>
+      <p class="prog-desc">Acesso total e experiência 1:1. Para quem quer resultados de alto nível sem limitações.</p>
+      <ul class="prog-features">
+        <li>Tudo do Performance</li><li>Videochamada semanal ao vivo</li>
+        <li>Nutrição personalizada completa</li><li>Resposta prioritária em 30min</li>
+      </ul>
+      <div class="prog-price"><sub>R$</sub>697<sub>/mês</sub></div>
+      <button class="prog-btn">Quero o Elite</button>
+    </div>
+  </div>
+</section>
+
+<section class="depoimentos">
+  <div class="sec-h reveal" style="text-align:center;max-width:500px;margin:0 auto">
+    <div class="sec-tag">Resultados</div>
+    <h2 class="sec-t">Eles mudaram<br><span>de vida</span> treinando online</h2>
+  </div>
+  <div class="dep-grid">
+    <div class="dep-card reveal">
+      <div class="dep-top"><div class="dep-stars">★★★★★</div><div class="dep-badge">−14kg</div></div>
+      <p class="dep-text">"Nunca pensei que treino online funcionaria. Em 3 meses perdi 14kg e ganhei mais consistência do que nunca tive numa academia. O suporte diário faz toda a diferença."</p>
+      <div class="dep-person"><div class="dep-av">💪</div><div><div class="dep-name">Vitor Almeida</div><div class="dep-info">Plano Performance · 3 meses</div></div></div>
+    </div>
+    <div class="dep-card reveal">
+      <div class="dep-top"><div class="dep-stars">★★★★★</div><div class="dep-badge">+8kg massa</div></div>
+      <p class="dep-text">"Sou engenheiro e não consigo ir pra academia em horário fixo. O FitFlow foi perfeito — treino quando posso, com planilha que muda toda semana e alguém que olha minha execução."</p>
+      <div class="dep-person"><div class="dep-av">🏋️</div><div><div class="dep-name">Lucas Freitas</div><div class="dep-info">Plano Elite · 6 meses</div></div></div>
+    </div>
+    <div class="dep-card reveal">
+      <div class="dep-top"><div class="dep-stars">★★★★★</div><div class="dep-badge">Garantia usada</div></div>
+      <p class="dep-text">"Comecei insegura sobre online funcionar. Usei a garantia de 90 dias para testar com tranquilidade. Não precisei — os resultados chegaram bem antes."</p>
+      <div class="dep-person"><div class="dep-av">🌟</div><div><div class="dep-name">Camila Duarte</div><div class="dep-info">Plano Performance · 4 meses</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <div class="reveal">
+    <h2 class="cta-l-title">Comece hoje.<br>Resultado em<br><span>90 dias.</span></h2>
+    <p class="cta-l-sub">7 dias grátis para testar tudo. Se não gostar, cancela sem custo. Se gostar — e vai gostar — começa a transformação.</p>
+    <div class="cta-checks">
+      <div class="cc"><div class="cc-icon">✓</div>7 dias grátis, sem cartão de crédito</div>
+      <div class="cc"><div class="cc-icon">✓</div>Garantia de 90 dias ou reembolso total</div>
+      <div class="cc"><div class="cc-icon">✓</div>Cancele quando quiser, sem multa</div>
+      <div class="cc"><div class="cc-icon">✓</div>Planilha personalizada desde o 1° dia</div>
+    </div>
+  </div>
+  <div class="form-card reveal">
+    <div class="form-title">Começar grátis por 7 dias</div>
+    <div class="form-sub">Sem cartão · Sem compromisso · Resultado garantido</div>
+    <div class="f-row">
+      <div class="f-field"><label>Nome</label><input type="text" placeholder="Seu nome"></div>
+      <div class="f-field"><label>WhatsApp</label><input type="tel" placeholder="(00) 00000-0000"></div>
+    </div>
+    <div class="f-field"><label>Objetivo</label>
+      <select><option>Selecione...</option>
+      <option>Emagrecer</option><option>Ganhar massa muscular</option>
+      <option>Condicionamento físico</option><option>Saúde e disposição</option>
+      <option>Performance atlética</option></select>
+    </div>
+    <div class="f-field"><label>Plano de interesse</label>
+      <select><option>Selecione...</option>
+      <option>Essencial — R$197/mês</option>
+      <option>Performance — R$397/mês</option>
+      <option>Elite — R$697/mês</option></select>
+    </div>
+    <button class="btn-form">Começar meus 7 dias grátis →</button>
+    <p class="form-note">🔒 Dados protegidos · Cancelamento com 1 clique</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Fit<span>Flow</span></div>
+  <div class="foot-links"><a href="#">Planos</a><a href="#">Como funciona</a><a href="#">Instagram</a><a href="#">Privacidade</a></div>
+  <div class="foot-dev">Desenvolvido por CodandoIdeias</div>
+</footer>
+
+<script>
+const r=document.querySelectorAll('.reveal');
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}})},{threshold:0.1});
+r.forEach(el=>o.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Cores — Seu Sorriso Começa no Espelho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#FFFFFF;
+  --off:#FAFAFA;
+  --ink:#111111;
+  --ink-lt:#333333;
+  --purple:#7B2FBE;
+  --purple-lt:#9B4FDE;
+  --purple-pale:#F0E6FA;
+  --yellow:#FFD93D;
+  --yellow-dk:#F0C000;
+  --green:#06D6A0;
+  --green-dk:#04A87E;
+  --pink:#FF6B9D;
+  --pink-dk:#E0447C;
+  --orange:#FF9F43;
+  --gray-100:#F5F5F5;
+  --gray-200:#E8E8E8;
+  --gray-400:#999;
+  --gray-600:#666;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden}
+
+/* NAV */
+nav{background:var(--white);border-bottom:2px solid var(--ink);
+  padding:0 3.5rem;height:68px;position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;
+  color:var(--ink);letter-spacing:-0.02em}
+.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:13px;font-weight:600;color:var(--gray-600);
+  text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--purple)}
+.nav-cta{padding:10px 22px;background:var(--yellow);color:var(--ink);
+  font-family:'Syne',sans-serif;font-size:13px;font-weight:700;
+  border:2px solid var(--ink);cursor:pointer;transition:all .2s;
+  box-shadow:3px 3px 0 var(--ink)}
+.nav-cta:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
+.nav-cta:active{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink)}
+
+/* HERO */
+.hero{background:var(--yellow);border-bottom:2px solid var(--ink);
+  padding:5rem 3.5rem;display:grid;grid-template-columns:1fr 1fr;
+  gap:3rem;align-items:center;position:relative;overflow:hidden}
+.hero::before{content:'✦';font-size:200px;position:absolute;
+  top:-50px;right:30%;color:rgba(0,0,0,.04);font-family:'Syne',sans-serif}
+.hero-l{position:relative;z-index:1}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;
+  background:var(--purple);color:var(--white);
+  padding:6px 16px;font-size:12px;font-weight:700;
+  border:2px solid var(--ink);margin-bottom:1.5rem;
+  box-shadow:3px 3px 0 var(--ink)}
+h1{font-family:'Syne',sans-serif;font-size:clamp(42px,6vw,76px);
+  font-weight:800;line-height:1;letter-spacing:-0.03em;
+  color:var(--ink);margin-bottom:1.2rem}
+h1 span{display:block;color:var(--purple)}
+.hero-sub{font-size:16px;font-weight:400;color:var(--ink-lt);
+  line-height:1.75;max-width:420px;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-purple{padding:15px 32px;background:var(--purple);color:var(--white);
+  font-family:'Syne',sans-serif;font-size:14px;font-weight:700;
+  border:2px solid var(--ink);cursor:pointer;transition:all .2s;
+  box-shadow:4px 4px 0 var(--ink)}
+.btn-purple:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn-white{padding:14px 30px;background:var(--white);color:var(--ink);
+  font-family:'Syne',sans-serif;font-size:14px;font-weight:700;
+  border:2px solid var(--ink);cursor:pointer;transition:all .2s;
+  box-shadow:4px 4px 0 var(--ink)}
+.btn-white:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+
+.hero-r{position:relative;z-index:1}
+.hero-cards{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.hero-card{background:var(--white);border:2px solid var(--ink);
+  padding:1.5rem;box-shadow:4px 4px 0 var(--ink)}
+.hero-card.featured{background:var(--purple);border-color:var(--ink);
+  color:var(--white);grid-column:span 2}
+.hero-card-label{font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.1em;opacity:.6;margin-bottom:.25rem}
+.hero-card-val{font-family:'Syne',sans-serif;font-size:28px;
+  font-weight:800;letter-spacing:-0.02em;color:var(--ink)}
+.hero-card.featured .hero-card-val{color:var(--yellow)}
+.hero-card-sub{font-size:12px;color:var(--gray-600);margin-top:2px}
+.hero-card.featured .hero-card-sub{color:rgba(255,255,255,.6)}
+.hero-card-emoji{font-size:32px;margin-bottom:.5rem;display:block}
+
+/* SERVIÇOS */
+.servicos{padding:6rem 3.5rem;background:var(--off)}
+.sec-header{margin-bottom:3rem}
+.sec-eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--purple);margin-bottom:.5rem}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(30px,4.5vw,52px);
+  font-weight:800;letter-spacing:-0.025em;color:var(--ink);line-height:1.05}
+.sec-title span{color:var(--purple)}
+
+.servicos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.serv-card{background:var(--white);border:2px solid var(--ink);
+  padding:2rem;position:relative;overflow:hidden;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:4px 4px 0 var(--ink)}
+.serv-card:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--ink)}
+.serv-card-accent{position:absolute;top:0;left:0;right:0;height:4px}
+.accent-purple{background:var(--purple)}
+.accent-yellow{background:var(--yellow-dk)}
+.accent-green{background:var(--green)}
+.accent-pink{background:var(--pink)}
+.accent-orange{background:var(--orange)}
+.accent-blue{background:#4285F4}
+.serv-emoji{font-size:32px;margin-bottom:1rem;display:block}
+.serv-name{font-family:'Syne',sans-serif;font-size:18px;
+  font-weight:700;color:var(--ink);margin-bottom:.4rem}
+.serv-desc{font-size:13px;font-weight:400;color:var(--gray-600);
+  line-height:1.65;margin-bottom:1rem}
+.serv-price{display:inline-block;padding:4px 12px;
+  font-size:12px;font-weight:700;
+  border:1.5px solid var(--ink);color:var(--ink)}
+
+/* SOBRE */
+.sobre{padding:6rem 3.5rem;background:var(--purple);
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.sobre-title{font-family:'Syne',sans-serif;font-size:clamp(30px,4vw,48px);
+  font-weight:800;letter-spacing:-0.025em;color:var(--white);
+  line-height:1.05;margin-bottom:1.5rem}
+.sobre-title span{color:var(--yellow)}
+.sobre-text{font-size:15px;font-weight:400;color:rgba(255,255,255,.75);
+  line-height:1.85;margin-bottom:2rem}
+.btn-yellow{padding:14px 30px;background:var(--yellow);color:var(--ink);
+  font-family:'Syne',sans-serif;font-size:14px;font-weight:700;
+  border:2px solid var(--ink);cursor:pointer;transition:all .2s;
+  box-shadow:4px 4px 0 rgba(0,0,0,.3)}
+.btn-yellow:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(0,0,0,.3)}
+.sobre-stats{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.sobre-stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
+  padding:1.5rem;text-align:center}
+.sobre-stat-n{font-family:'Syne',sans-serif;font-size:36px;
+  font-weight:800;color:var(--yellow);letter-spacing:-0.03em}
+.sobre-stat-l{font-size:12px;color:rgba(255,255,255,.55);margin-top:4px;font-weight:600}
+
+/* DEPOIMENTOS */
+.depoimentos{padding:6rem 3.5rem;background:var(--white)}
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.dep-card{border:2px solid var(--ink);padding:1.75rem;
+  position:relative;box-shadow:4px 4px 0 var(--ink)}
+.dep-color-bar{position:absolute;top:0;left:0;right:0;height:4px}
+.dep-stars{font-size:14px;letter-spacing:2px;margin-bottom:1rem}
+.dep-stars.purple{color:var(--purple)}
+.dep-stars.green{color:var(--green-dk)}
+.dep-stars.pink{color:var(--pink-dk)}
+.dep-text{font-size:14px;font-weight:400;color:var(--ink-lt);
+  line-height:1.7;margin-bottom:1.25rem}
+.dep-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--ink)}
+.dep-info{font-size:11px;color:var(--gray-400);margin-top:2px;font-weight:600}
+
+/* PROMOÇÃO */
+.promo{background:var(--green);border-top:2px solid var(--ink);
+  border-bottom:2px solid var(--ink);padding:3rem 3.5rem;
+  display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center}
+.promo-title{font-family:'Syne',sans-serif;font-size:clamp(22px,3vw,36px);
+  font-weight:800;color:var(--ink);letter-spacing:-0.02em}
+.promo-sub{font-size:15px;color:rgba(0,0,0,.6);margin-top:.4rem}
+.btn-promo{padding:16px 36px;background:var(--ink);color:var(--yellow);
+  font-family:'Syne',sans-serif;font-size:14px;font-weight:800;
+  border:2px solid var(--ink);cursor:pointer;white-space:nowrap;
+  box-shadow:4px 4px 0 rgba(0,0,0,.3);transition:all .2s}
+.btn-promo:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(0,0,0,.3)}
+
+/* FORM */
+.cta-form-section{padding:6rem 3.5rem;background:var(--off);
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.cta-form-l-title{font-family:'Syne',sans-serif;
+  font-size:clamp(28px,4vw,46px);font-weight:800;
+  letter-spacing:-0.025em;color:var(--ink);line-height:1.05;margin-bottom:1rem}
+.cta-form-l-title span{color:var(--purple)}
+.cta-form-l-sub{font-size:15px;color:var(--gray-600);
+  line-height:1.8;margin-bottom:2rem}
+.cta-info-list{display:flex;flex-direction:column;gap:.75rem}
+.cta-info-item{display:flex;align-items:center;gap:10px;
+  font-size:14px;font-weight:600;color:var(--ink-lt)}
+.cta-info-dot{width:10px;height:10px;border-radius:50%;
+  border:2px solid var(--ink);flex-shrink:0}
+.cta-info-dot.purple{background:var(--purple)}
+.cta-info-dot.yellow{background:var(--yellow)}
+.cta-info-dot.green{background:var(--green)}
+.cta-info-dot.pink{background:var(--pink)}
+
+.form-box{background:var(--white);border:2px solid var(--ink);
+  padding:2.5rem;box-shadow:6px 6px 0 var(--ink)}
+.form-box-title{font-family:'Syne',sans-serif;font-size:22px;
+  font-weight:800;color:var(--ink);margin-bottom:.25rem}
+.form-box-sub{font-size:13px;color:var(--gray-600);margin-bottom:2rem;font-weight:600}
+.f-field{margin-bottom:1rem}
+.f-field label{display:block;font-size:12px;font-weight:700;
+  color:var(--ink);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+.f-field input,.f-field select{width:100%;padding:12px 14px;
+  border:2px solid var(--ink);background:var(--white);
+  color:var(--ink);font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;
+  outline:none;transition:border-color .2s}
+.f-field input:focus,.f-field select:focus{border-color:var(--purple);outline:3px solid var(--purple-pale)}
+.f-field input::placeholder{color:var(--gray-400)}
+.btn-form{width:100%;padding:15px;background:var(--yellow);color:var(--ink);
+  font-family:'Syne',sans-serif;font-size:15px;font-weight:800;
+  border:2px solid var(--ink);cursor:pointer;margin-top:.75rem;
+  box-shadow:4px 4px 0 var(--ink);transition:all .2s}
+.btn-form:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.form-note{font-size:12px;color:var(--gray-400);
+  text-align:center;margin-top:.75rem;font-weight:600}
+
+/* FOOTER */
+footer{background:var(--ink);padding:2.5rem 3.5rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-logo{font-family:'Syne',sans-serif;font-size:18px;
+  font-weight:800;color:rgba(255,255,255,.4)}
+.foot-logo span{color:var(--yellow)}
+.foot-links{display:flex;gap:2rem}
+.foot-links a{font-size:12px;color:rgba(255,255,255,.3);
+  text-decoration:none;font-weight:700}
+.foot-links a:hover{color:rgba(255,255,255,.6)}
+.foot-dev{font-size:11px;color:rgba(255,255,255,.2)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:960px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:3rem 1.5rem}
+  .servicos,.sobre,.depoimentos,.cta-form-section{padding:4rem 1.5rem}
+  .servicos-grid{grid-template-columns:1fr}
+  .sobre{grid-template-columns:1fr;gap:3rem}
+  .dep-grid{grid-template-columns:1fr}
+  .promo{grid-template-columns:1fr;padding:2.5rem 1.5rem;gap:1.5rem}
+  .cta-form-section{grid-template-columns:1fr;gap:3rem}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Studio <span>Cores</span></div>
+  <ul class="nav-links">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#sobre">Sobre nós</a></li>
+    <li><a href="#contato">Agendar</a></li>
+  </ul>
+  <button class="nav-cta">Agendar agora ✨</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-tag">💇 Salão completo · São Paulo</div>
+    <h1>VOCÊ<br><span>ARRASANDO</span><br>SEMPRE</h1>
+    <p class="hero-sub">Corte, cor, unhas, sobrancelhas e muito mais num salão que te entende, te valoriza e te deixa saindo linda.</p>
+    <div class="hero-btns">
+      <button class="btn-purple">Agendar agora</button>
+      <button class="btn-white">Ver serviços</button>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-cards">
+      <div class="hero-card featured">
+        <span class="hero-card-emoji">✨</span>
+        <div class="hero-card-val">+8 anos</div>
+        <div class="hero-card-sub">Transformando sorrisos no espelho</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-label">Avaliações</div>
+        <div class="hero-card-val" style="color:var(--purple)">4.9★</div>
+        <div class="hero-card-sub">+1.200 no Google</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-label">Serviços</div>
+        <div class="hero-card-val" style="color:var(--purple)">15+</div>
+        <div class="hero-card-sub">Para você se cuidar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="servicos" id="servicos">
+  <div class="sec-header reveal">
+    <div class="sec-eyebrow">O que fazemos</div>
+    <h2 class="sec-title">Tudo que você<br><span>precisa</span> num só lugar</h2>
+  </div>
+  <div class="servicos-grid">
+    <div class="serv-card reveal">
+      <div class="serv-card-accent accent-purple"></div>
+      <span class="serv-emoji">✂️</span>
+      <div class="serv-name">Corte e escova</div>
+      <p class="serv-desc">Para todos os tipos de cabelo, do liso ao crespo. Corte personalizado para o seu rosto e estilo.</p>
+      <div class="serv-price">A partir de R$ 60</div>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-card-accent accent-yellow"></div>
+      <span class="serv-emoji">🎨</span>
+      <div class="serv-name">Coloração e mechas</div>
+      <p class="serv-desc">Luzes, balayage, coloração fantasia e cobertura de branco com técnicas profissionais.</p>
+      <div class="serv-price">A partir de R$ 120</div>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-card-accent accent-pink"></div>
+      <span class="serv-emoji">💅</span>
+      <div class="serv-name">Unhas em gel</div>
+      <p class="serv-desc">Fibra, acrílico, gel construtor e nail art personalizada. Durabilidade e beleza garantidas.</p>
+      <div class="serv-price">A partir de R$ 80</div>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-card-accent accent-green"></div>
+      <span class="serv-emoji">🌿</span>
+      <div class="serv-name">Tratamentos</div>
+      <p class="serv-desc">Hidratação, reconstrução, botox capilar e cronograma para fios mais saudáveis e brilhosos.</p>
+      <div class="serv-price">A partir de R$ 100</div>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-card-accent accent-orange"></div>
+      <span class="serv-emoji">🌟</span>
+      <div class="serv-name">Sobrancelhas</div>
+      <p class="serv-desc">Design, micropigmentação e henna. O enquadramento perfeito para realçar o seu olhar.</p>
+      <div class="serv-price">A partir de R$ 50</div>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-card-accent accent-blue"></div>
+      <span class="serv-emoji">💄</span>
+      <div class="serv-name">Maquiagem</div>
+      <p class="serv-desc">Make para formaturas, noivas, eventos e fotos. Duração e acabamento profissional.</p>
+      <div class="serv-price">A partir de R$ 150</div>
+    </div>
+  </div>
+</section>
+
+<section class="sobre" id="sobre">
+  <div class="reveal">
+    <h2 class="sobre-title">Um salão que<br>te vê de<br><span>verdade</span></h2>
+    <p class="sobre-text">Aqui ninguém é número. Cada cliente é atendida com atenção, carinho e o cuidado de quem sabe que autoestima começa no espelho. Somos um time de profissionais apaixonadas pelo que fazem.</p>
+    <button class="btn-yellow">Conhecer a equipe →</button>
+  </div>
+  <div class="sobre-stats reveal">
+    <div class="sobre-stat"><div class="sobre-stat-n">+6k</div><div class="sobre-stat-l">Clientes atendidas</div></div>
+    <div class="sobre-stat"><div class="sobre-stat-n">8</div><div class="sobre-stat-l">Anos no bairro</div></div>
+    <div class="sobre-stat"><div class="sobre-stat-n">4.9★</div><div class="sobre-stat-l">Google Reviews</div></div>
+    <div class="sobre-stat"><div class="sobre-stat-n">15</div><div class="sobre-stat-l">Serviços oferecidos</div></div>
+  </div>
+</section>
+
+<section class="depoimentos">
+  <div class="sec-header reveal">
+    <div class="sec-eyebrow">Quem já veio</div>
+    <h2 class="sec-title">Elas <span>amaram</span>,<br>você vai amar também</h2>
+  </div>
+  <div class="dep-grid">
+    <div class="dep-card reveal">
+      <div class="dep-color-bar" style="background:var(--purple)"></div>
+      <div class="dep-stars purple">★★★★★</div>
+      <p class="dep-text">"Sempre fui de salão em salão sem me sentir bem em nenhum. Aqui me trataram como se fosse da família. O resultado foi incrível e o preço justo. Não saio mais daqui!"</p>
+      <div class="dep-name">Larissa Mendes</div>
+      <div class="dep-info">Coloração + escova + unhas</div>
+    </div>
+    <div class="dep-card reveal">
+      <div class="dep-color-bar" style="background:var(--green)"></div>
+      <div class="dep-stars green">★★★★★</div>
+      <p class="dep-text">"Fiz meu cabelo para o casamento aqui e ficou melhor do que eu tinha imaginado. Me senti rainha! Toda a equipe é muito atenciosa e profissional."</p>
+      <div class="dep-name">Tamires Souza</div>
+      <div class="dep-info">Penteado de noiva + make</div>
+    </div>
+    <div class="dep-card reveal">
+      <div class="dep-color-bar" style="background:var(--pink)"></div>
+      <div class="dep-stars pink">★★★★★</div>
+      <p class="dep-text">"Fui experimentar as unhas em gel e nunca mais parei. Nail art incrível, dura muito e a manicure é um amor. Recomendo pra todo mundo!"</p>
+      <div class="dep-name">Fernanda Lima</div>
+      <div class="dep-info">Nail art gel · Cliente há 2 anos</div>
+    </div>
+  </div>
+</section>
+
+<div class="promo">
+  <div class="reveal">
+    <div class="promo-title">🎉 Primeira visita com 20% de desconto</div>
+    <p class="promo-sub">Válido para qualquer serviço. Mostre esse banner na hora do agendamento!</p>
+  </div>
+  <button class="btn-promo reveal">Quero meu desconto</button>
+</div>
+
+<section class="cta-form-section" id="contato">
+  <div class="reveal">
+    <h2 class="cta-form-l-title">Bora marcar<br>o seu <span>horário?</span></h2>
+    <p class="cta-form-l-sub">A gente responde rápido e cuida de tudo pra você chegar e ser bem atendida, sem espera!</p>
+    <div class="cta-info-list">
+      <div class="cta-info-item"><div class="cta-info-dot purple"></div>Seg a Sáb, 9h às 20h</div>
+      <div class="cta-info-item"><div class="cta-info-dot yellow"></div>Confirmação via WhatsApp em até 30min</div>
+      <div class="cta-info-item"><div class="cta-info-dot green"></div>Estacionamento na porta</div>
+      <div class="cta-info-item"><div class="cta-info-dot pink"></div>Cartão, Pix e parcelamento disponíveis</div>
+    </div>
+  </div>
+  <div class="form-box reveal">
+    <div class="form-box-title">Agendar horário</div>
+    <div class="form-box-sub">Resposta em até 30 minutos ⚡</div>
+    <div class="f-field"><label>Nome</label><input type="text" placeholder="Qual é seu nome?"></div>
+    <div class="f-field"><label>WhatsApp</label><input type="tel" placeholder="(00) 00000-0000"></div>
+    <div class="f-field"><label>Serviço</label>
+      <select><option>Selecione o serviço...</option>
+      <option>Corte + escova</option><option>Coloração / mechas</option>
+      <option>Unhas em gel</option><option>Sobrancelhas</option>
+      <option>Tratamento capilar</option><option>Maquiagem</option>
+      <option>Combo completo</option></select>
+    </div>
+    <button class="btn-form">Quero agendar! 💜</button>
+    <p class="form-note">Resposta rápida pelo WhatsApp · Cancele sem custo</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Studio <span>Cores</span></div>
+  <div class="foot-links">
+    <a href="#">Serviços</a><a href="#">Equipe</a>
+    <a href="#">Instagram</a><a href="#">Privacidade</a>
+  </div>
+  <div class="foot-dev">Desenvolvido por CodandoIdeias</div>
+</footer>
+
+<script>
+const r=document.querySelectorAll('.reveal');
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}})},{threshold:0.1});
+r.forEach(el=>o.observe(el));
+</script>
+</body>
+</html>

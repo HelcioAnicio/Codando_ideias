@@ -7,6 +7,8 @@ import { Steps } from "@/components/ui/steps";
 import { Services } from "@/components/ui/services";
 // import { Cost } from "@/components/ui/cost";
 import { StudioFaq } from "@/components/ui/studio-faq";
+import { StudioPlans } from "@/components/ui/studioplans";
+import { VisibilidadeCta } from "@/components/ui/visibilidade-cta";
 // import { StudioAuthorityShowcase } from "@/components/ui/studio-authority-showcase";
 
 export default function Home() {
@@ -17,7 +19,9 @@ export default function Home() {
         <CardImage />
         <ListProjects />
         {/* <StudioAuthorityShowcase /> */}
+        <VisibilidadeCta />
         <Services />
+        <StudioPlans />
         <Steps />
         <StudioFaq />
         {/* <Cost /> */}

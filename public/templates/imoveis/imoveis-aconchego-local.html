@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa Certa Imóveis — Seu Lar, Nossa Missão</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --terra:#C0622A;--terra-lt:#D97A42;--terra-pale:#FEF0E8;--terra-mid:#F4CEBB;
+  --sand:#F0E5D2;--sand-dk:#DDD0B8;--cream:#FAF6EE;--cream-dk:#F2EAD8;
+  --brown:#3D2410;--brown-lt:#6B4020;--muted:#9A7860;--muted-lt:#C4AA94;
+  --white:#FFFFF8;--green-soft:#5A8A5A;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--brown);overflow-x:hidden}
+
+nav{background:var(--white);border-bottom:2px solid var(--sand);padding:0 4rem;height:70px;
+  position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:38px;height:38px;background:var(--terra);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:18px}
+.logo-text{font-family:'Lora',serif;font-size:18px;font-weight:500;color:var(--brown)}
+.logo-text span{color:var(--terra);font-style:italic}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:13px;font-weight:700;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--terra)}
+.nav-cta{padding:10px 24px;background:var(--terra);color:var(--white);
+  font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;
+  border:none;border-radius:50px;cursor:pointer;transition:all .25s;
+  box-shadow:0 4px 12px rgba(192,98,42,.3)}
+.nav-cta:hover{background:var(--terra-lt)}
+
+.hero{background:var(--terra-pale);padding:5rem 4rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;
+  position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;
+  width:300px;height:300px;border-radius:50%;background:rgba(192,98,42,.07)}
+.hero-l{position:relative;z-index:1}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;
+  background:var(--terra);color:var(--white);border-radius:50px;
+  padding:6px 16px;font-size:12px;font-weight:800;margin-bottom:1.5rem;
+  box-shadow:0 4px 12px rgba(192,98,42,.3)}
+h1{font-family:'Lora',serif;font-size:clamp(34px,4.5vw,54px);font-weight:500;
+  line-height:1.15;color:var(--brown);margin-bottom:1rem}
+h1 em{font-style:italic;color:var(--terra)}
+.hero-sub{font-size:16px;font-weight:500;color:var(--brown-lt);line-height:1.75;
+  max-width:420px;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+.btn-terra{padding:14px 30px;background:var(--terra);color:var(--white);
+  font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;
+  border:none;border-radius:50px;cursor:pointer;transition:all .25s;
+  box-shadow:0 6px 20px rgba(192,98,42,.35)}
+.btn-terra:hover{background:var(--terra-lt);transform:translateY(-2px)}
+.btn-sand{padding:13px 26px;background:var(--sand);color:var(--brown);
+  font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;
+  border:2px solid var(--sand-dk);border-radius:50px;cursor:pointer;transition:all .25s}
+.btn-sand:hover{border-color:var(--terra);color:var(--terra)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.hs{background:var(--white);border-radius:14px;padding:1.25rem;text-align:center;
+  box-shadow:0 4px 16px rgba(60,36,16,.06)}
+.hs-n{font-family:'Lora',serif;font-size:26px;font-weight:500;color:var(--terra)}
+.hs-l{font-size:11px;font-weight:600;color:var(--muted);margin-top:3px}
+
+.hero-r{position:relative;z-index:1}
+.hero-main-card{background:var(--white);border-radius:20px;padding:2rem;
+  box-shadow:0 12px 40px rgba(60,36,16,.1);margin-bottom:.75rem}
+.hmc-tag{display:inline-block;background:var(--terra);color:var(--white);
+  font-size:10px;font-weight:800;padding:4px 10px;border-radius:20px;margin-bottom:1rem}
+.hmc-nome{font-family:'Lora',serif;font-size:18px;font-weight:500;color:var(--brown);margin-bottom:.25rem}
+.hmc-loc{font-size:12px;font-weight:600;color:var(--terra);margin-bottom:.75rem}
+.hmc-specs{display:flex;gap:1rem;margin-bottom:.75rem}
+.hmc-spec{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:4px}
+.hmc-preco{font-family:'Lora',serif;font-size:22px;font-weight:500;color:var(--brown)}
+.hmc-img{height:160px;background:var(--sand);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  gap:.5rem;margin-bottom:1rem}
+.hmc-img svg{opacity:.3}
+.hmc-img p{font-size:10px;color:var(--terra);opacity:.6}
+.hero-mini-cards{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.hmc-mini{background:var(--white);border-radius:12px;padding:1rem;
+  box-shadow:0 4px 14px rgba(60,36,16,.07);display:flex;align-items:center;gap:8px}
+.hmc-mini-emoji{font-size:20px;flex-shrink:0}
+.hmc-mini-title{font-size:12px;font-weight:700;color:var(--brown);margin-bottom:2px}
+.hmc-mini-sub{font-size:10px;color:var(--muted)}
+
+.imoveis{padding:5rem 4rem;background:var(--cream-dk)}
+.sec-tag{display:inline-block;padding:5px 14px;border-radius:20px;
+  background:var(--terra-pale);color:var(--terra);font-size:11px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem}
+.sec-title{font-family:'Lora',serif;font-size:clamp(26px,3.5vw,42px);font-weight:500;
+  color:var(--brown);line-height:1.2;margin-bottom:3rem}
+.sec-title em{font-style:italic;color:var(--terra)}
+.imoveis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.imovel-card{background:var(--white);border-radius:18px;overflow:hidden;
+  border:2px solid transparent;transition:all .3s}
+.imovel-card:hover{border-color:var(--terra);transform:translateY(-3px);
+  box-shadow:0 16px 40px rgba(192,98,42,.12)}
+.imovel-foto{height:180px;background:var(--sand);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;position:relative}
+.imovel-foto svg{opacity:.3}
+.imovel-foto p{font-size:10px;color:var(--terra);opacity:.6}
+.imovel-tipo{position:absolute;top:1rem;left:1rem;
+  background:var(--terra);color:var(--white);font-size:9px;font-weight:800;
+  padding:4px 10px;border-radius:20px}
+.imovel-body{padding:1.25rem}
+.imovel-nome{font-family:'Lora',serif;font-size:16px;font-weight:500;color:var(--brown);margin-bottom:3px}
+.imovel-loc{font-size:12px;font-weight:600;color:var(--terra);margin-bottom:.75rem}
+.imovel-specs{display:flex;gap:.75rem;margin-bottom:.75rem;flex-wrap:wrap}
+.imovel-spec{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px}
+.imovel-preco{font-family:'Lora',serif;font-size:20px;font-weight:500;color:var(--brown)}
+
+.porque{padding:5rem 4rem;background:var(--white);
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.pq-l .sec-tag{margin-bottom:.75rem}
+.pq-title{font-family:'Lora',serif;font-size:clamp(26px,3vw,38px);font-weight:500;
+  color:var(--brown);line-height:1.25;margin-bottom:1rem}
+.pq-title em{font-style:italic;color:var(--terra)}
+.pq-desc{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:2rem}
+.pq-list{display:flex;flex-direction:column;gap:.75rem}
+.pq-item{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--brown-lt);line-height:1.5}
+.pq-check{width:24px;height:24px;border-radius:50%;background:var(--terra);
+  display:flex;align-items:center;justify-content:center;font-size:11px;
+  color:var(--white);flex-shrink:0;font-weight:800}
+.pq-r{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.pq-stat{background:var(--cream-dk);border-radius:18px;padding:1.5rem;text-align:center}
+.pq-stat-n{font-family:'Lora',serif;font-size:32px;font-weight:500;color:var(--terra)}
+.pq-stat-l{font-size:11px;font-weight:700;color:var(--muted);margin-top:4px}
+
+.dep{background:var(--terra);padding:4rem;display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:center}
+.dep-l-title{font-family:'Lora',serif;font-size:28px;font-weight:500;color:var(--white);line-height:1.2}
+.dep-l-sub{font-size:13px;color:rgba(255,255,255,.6);margin-top:.75rem}
+.dep-stars{color:#FFD93D;font-size:14px;letter-spacing:2px;margin-bottom:1.25rem}
+.dep-text{font-family:'Lora',serif;font-size:clamp(15px,2vw,20px);font-weight:400;font-style:italic;
+  color:rgba(255,255,255,.95);line-height:1.65;margin-bottom:1.5rem}
+.dep-author strong{display:block;font-size:14px;font-weight:700;color:var(--white)}
+.dep-author span{font-size:12px;color:rgba(255,255,255,.6)}
+
+.cta{padding:5rem 4rem;background:var(--cream-dk);
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.cta-l-title{font-family:'Lora',serif;font-size:clamp(26px,3.5vw,40px);font-weight:500;
+  color:var(--brown);line-height:1.2;margin-bottom:1rem}
+.cta-l-title em{font-style:italic;color:var(--terra)}
+.cta-l-sub{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:2rem}
+.cta-extras{display:flex;flex-direction:column;gap:.75rem}
+.ce{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--brown-lt)}
+.ce-icon{font-size:18px;flex-shrink:0}
+.form-box{background:var(--white);border-radius:20px;padding:2.5rem;
+  box-shadow:0 8px 32px rgba(60,36,16,.08)}
+.form-title{font-family:'Lora',serif;font-size:22px;font-weight:500;color:var(--brown);margin-bottom:.25rem}
+.form-sub{font-size:13px;color:var(--muted);margin-bottom:2rem}
+.f-field{margin-bottom:1rem}
+.f-field label{display:block;font-size:12px;font-weight:800;color:var(--brown);margin-bottom:6px}
+.f-field input,.f-field select{width:100%;padding:12px 16px;border-radius:12px;
+  border:2px solid var(--sand-dk);background:var(--cream);
+  color:var(--brown);font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;
+  outline:none;transition:border-color .2s}
+.f-field input:focus,.f-field select:focus{border-color:var(--terra)}
+.f-field input::placeholder{color:var(--muted-lt)}
+.btn-form{width:100%;padding:15px;border-radius:50px;background:var(--terra);color:var(--white);
+  font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;
+  border:none;cursor:pointer;transition:all .25s;margin-top:.5rem;
+  box-shadow:0 6px 20px rgba(192,98,42,.35)}
+.btn-form:hover{background:var(--terra-lt)}
+.form-note{font-size:12px;color:var(--muted);text-align:center;margin-top:.75rem}
+
+footer{background:var(--brown);padding:2.5rem 4rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-brand{font-family:'Lora',serif;font-size:16px;font-weight:400;font-style:italic;color:rgba(255,255,255,.4)}
+.foot-links{display:flex;gap:2rem}
+.foot-links a{font-size:12px;color:rgba(255,255,255,.3);text-decoration:none;font-weight:700}
+.foot-links a:hover{color:rgba(255,255,255,.6)}
+.foot-dev{font-size:11px;color:rgba(255,255,255,.2)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:960px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:3rem 1.5rem}
+  .imoveis,.porque,.cta{padding:4rem 1.5rem}
+  .imoveis-grid{grid-template-columns:1fr}
+  .porque,.cta{grid-template-columns:1fr;gap:3rem}
+  .dep{grid-template-columns:1fr;padding:3rem 1.5rem;gap:2.5rem}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo"><div class="logo-icon">🏠</div><span class="logo-text">Casa <span>Certa</span> Imóveis</span></div>
+  <ul class="nav-links">
+    <li><a href="#imoveis">Imóveis</a></li>
+    <li><a href="#porque">Por que nós</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <button class="nav-cta">Falar conosco</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-tag">🏡 Imobiliária local há 18 anos</div>
+    <h1>Aqui a gente<br>encontra seu<br><em>lar de verdade</em></h1>
+    <p class="hero-sub">Imóveis para comprar, vender e alugar com atendimento humano, honesto e de quem conhece o bairro como a palma da mão.</p>
+    <div class="hero-btns">
+      <button class="btn-terra">Ver imóveis disponíveis</button>
+      <button class="btn-sand">Anunciar meu imóvel</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-n">+1.2k</div><div class="hs-l">Famílias atendidas</div></div>
+      <div class="hs"><div class="hs-n">18 anos</div><div class="hs-l">No bairro</div></div>
+      <div class="hs"><div class="hs-n">4.8★</div><div class="hs-l">Google</div></div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-main-card">
+      <div class="hmc-tag">🌟 Destaque da semana</div>
+      <div class="hmc-img"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#C0622A" stroke-width="1"><path d="M16 3L2 13v17h28V13L16 3z"/><rect x="10" y="20" width="12" height="10"/></svg><p>Foto do imóvel</p></div>
+      <div class="hmc-nome">Casa com quintal — Jardim Paulista</div>
+      <div class="hmc-loc">Jardim Paulista · R$ 680.000</div>
+      <div class="hmc-specs"><span class="hmc-spec">🛏 3 dorms</span><span class="hmc-spec">🚗 2 vagas</span><span class="hmc-spec">📐 140m²</span></div>
+    </div>
+    <div class="hero-mini-cards">
+      <div class="hmc-mini"><div class="hmc-mini-emoji">🔑</div><div><div class="hmc-mini-title">48 imóveis à venda</div><div class="hmc-mini-sub">Atualizado hoje</div></div></div>
+      <div class="hmc-mini"><div class="hmc-mini-emoji">📋</div><div><div class="hmc-mini-title">32 para alugar</div><div class="hmc-mini-sub">Disponíveis agora</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="imoveis" id="imoveis">
+  <div class="reveal"><div class="sec-tag">Portfólio</div>
+    <h2 class="sec-title">Imóveis para toda<br>a família encontrar<br>o seu <em>lugar</em></h2>
+  </div>
+  <div class="imoveis-grid">
+    <div class="imovel-card reveal">
+      <div class="imovel-foto"><div class="imovel-tipo">À venda</div><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#C0622A" stroke-width="1"><path d="M14 3L2 11v15h24V11L14 3z"/><rect x="9" y="18" width="10" height="8"/></svg><p>Foto</p></div>
+      <div class="imovel-body"><div class="imovel-nome">Sobrado 3 dorms</div><div class="imovel-loc">Tatuapé · SP</div><div class="imovel-specs"><span class="imovel-spec">🛏 3</span><span class="imovel-spec">🚗 2</span><span class="imovel-spec">📐 160m²</span></div><div class="imovel-preco">R$ 780.000</div></div>
+    </div>
+    <div class="imovel-card reveal">
+      <div class="imovel-foto"><div class="imovel-tipo">Aluguel</div><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#C0622A" stroke-width="1"><path d="M14 3L2 11v15h24V11L14 3z"/><rect x="9" y="18" width="10" height="8"/></svg><p>Foto</p></div>
+      <div class="imovel-body"><div class="imovel-nome">Apto 2 dorms reformado</div><div class="imovel-loc">Penha · SP</div><div class="imovel-specs"><span class="imovel-spec">🛏 2</span><span class="imovel-spec">🚗 1</span><span class="imovel-spec">📐 72m²</span></div><div class="imovel-preco">R$ 2.200/mês</div></div>
+    </div>
+    <div class="imovel-card reveal">
+      <div class="imovel-foto"><div class="imovel-tipo">Novo</div><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#C0622A" stroke-width="1"><path d="M14 3L2 11v15h24V11L14 3z"/><rect x="9" y="18" width="10" height="8"/></svg><p>Foto</p></div>
+      <div class="imovel-body"><div class="imovel-nome">Casa com quintal</div><div class="imovel-loc">Itaquera · SP</div><div class="imovel-specs"><span class="imovel-spec">🛏 3</span><span class="imovel-spec">🚗 1</span><span class="imovel-spec">📐 120m²</span></div><div class="imovel-preco">R$ 520.000</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="porque" id="porque">
+  <div class="pq-l reveal">
+    <div class="sec-tag">Por que a Casa Certa</div>
+    <h2 class="pq-title">Imobiliária de bairro<br>que te trata como <em>gente</em></h2>
+    <p class="pq-desc">Nenhum script, nenhuma pressa. Somos uma equipe pequena que cuida de cada cliente como se fosse da família.</p>
+    <div class="pq-list">
+      <div class="pq-item"><div class="pq-check">✓</div>Avaliação gratuita e honesta do seu imóvel</div>
+      <div class="pq-item"><div class="pq-check">✓</div>Assessoria jurídica completa sem custo extra</div>
+      <div class="pq-item"><div class="pq-check">✓</div>Atendimento de segunda a sábado, inclusive à noite</div>
+      <div class="pq-item"><div class="pq-check">✓</div>CRECI ativo e registro em cartório incluso</div>
+    </div>
+  </div>
+  <div class="pq-r reveal">
+    <div class="pq-stat"><div class="pq-stat-n">+1.2k</div><div class="pq-stat-l">Famílias atendidas</div></div>
+    <div class="pq-stat"><div class="pq-stat-n">18</div><div class="pq-stat-l">Anos no bairro</div></div>
+    <div class="pq-stat"><div class="pq-stat-n">98%</div><div class="pq-stat-l">Recomendam</div></div>
+    <div class="pq-stat"><div class="pq-stat-n">4.8★</div><div class="pq-stat-l">Google Reviews</div></div>
+  </div>
+</section>
+
+<section class="dep">
+  <div class="reveal"><div class="dep-l-title">Famílias que encontraram o lar aqui</div><p class="dep-l-sub">+1.200 histórias de pessoas que confiaram na gente</p></div>
+  <div class="reveal">
+    <div class="dep-stars">★★★★★</div>
+    <p class="dep-text">"Fui atendida com atenção e sem pressa. Explicaram tudo, ajudaram com a documentação e encontraram a casa perfeita para a minha família. Em outros lugares me senti apenas mais um número."</p>
+    <div class="dep-author"><strong>Rosana Ferreira</strong><span>Comprou casa em Tatuapé · Cliente de indicação</span></div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <div class="reveal">
+    <h2 class="cta-l-title">Vamos encontrar<br>o seu <em>lar juntos</em>?</h2>
+    <p class="cta-l-sub">Atendemos de segunda a sábado, com horário estendido até às 20h. A gente vai aonde você precisar.</p>
+    <div class="cta-extras">
+      <div class="ce"><div class="ce-icon">📍</div>Rua das Acácias, 500 — Tatuapé, SP</div>
+      <div class="ce"><div class="ce-icon">🕐</div>Seg–Sex 9h–20h · Sáb 9h–16h</div>
+      <div class="ce"><div class="ce-icon">🚗</div>Visitas com transporte por conta nossa</div>
+      <div class="ce"><div class="ce-icon">📋</div>Documentação cuidamos nós</div>
+    </div>
+  </div>
+  <div class="form-box reveal">
+    <div class="form-title">Fale com a gente</div>
+    <div class="form-sub">Respondemos em até 30 minutos ⚡</div>
+    <div class="f-field"><label>Nome</label><input type="text" placeholder="Seu nome completo"></div>
+    <div class="f-field"><label>WhatsApp</label><input type="tel" placeholder="(00) 00000-0000"></div>
+    <div class="f-field"><label>O que você precisa?</label>
+      <select><option>Selecione...</option><option>Quero comprar um imóvel</option>
+      <option>Quero alugar um imóvel</option><option>Quero anunciar para vender</option>
+      <option>Quero anunciar para alugar</option><option>Avaliação do meu imóvel</option></select>
+    </div>
+    <button class="btn-form">Quero falar com um corretor 🏠</button>
+    <p class="form-note">🔒 Seus dados são seguros · CRECI 54321-J/SP</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-brand">Casa Certa Imóveis</div>
+  <div class="foot-links"><a href="#">Imóveis</a><a href="#">Sobre</a><a href="#">CRECI</a><a href="#">Privacidade</a></div>
+  <div class="foot-dev">Desenvolvido por CodandoIdeias</div>
+</footer>
+<script>
+const r=document.querySelectorAll('.reveal');
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}})},{threshold:0.1});
+r.forEach(el=>o.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carlos Mendes Corretor — Compra, Venda e Locação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B2240;--navy-lt:#163360;--blue:#1A56DB;--blue-lt:#3B72F0;
+  --blue-pale:#EEF3FF;--blue-mid:#DBEAFE;
+  --white:#FFFFFF;--off:#F8FAFF;--gray-50:#F9FAFB;--gray-100:#F3F4F6;
+  --gray-200:#E5E7EB;--gray-400:#9CA3AF;--gray-600:#6B7280;--ink:#111827;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden}
+
+nav{background:var(--white);border-bottom:1px solid var(--gray-200);
+  padding:0 4rem;height:68px;position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-av{width:38px;height:38px;background:var(--navy);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;color:var(--white)}
+.logo-text{font-size:14px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.logo-text span{color:var(--blue);display:block;font-size:11px;font-weight:500}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--gray-600);
+  text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--blue)}
+.nav-actions{display:flex;gap:10px}
+.btn-outline{padding:9px 20px;border:1.5px solid var(--blue);color:var(--blue);
+  background:transparent;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
+  border-radius:8px;cursor:pointer;transition:all .2s}
+.btn-outline:hover{background:var(--blue-pale)}
+.btn-navy{padding:9px 22px;background:var(--navy);color:var(--white);
+  font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
+  border:none;border-radius:8px;cursor:pointer;transition:background .2s}
+.btn-navy:hover{background:var(--navy-lt)}
+
+.hero{background:var(--navy);padding:5rem 4rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
+  color:rgba(255,255,255,.8);border-radius:6px;padding:6px 14px;
+  font-size:12px;font-weight:600;margin-bottom:1.5rem}
+.bdot{width:6px;height:6px;border-radius:50%;background:#60A5FA;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-size:clamp(36px,5vw,60px);font-weight:800;line-height:1.08;
+  letter-spacing:-.025em;color:var(--white);margin-bottom:1.2rem}
+h1 span{color:#60A5FA}
+.hero-sub{font-size:16px;font-weight:400;color:rgba(255,255,255,.7);
+  line-height:1.75;max-width:440px;margin-bottom:2.5rem}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-white{padding:14px 30px;border-radius:8px;background:var(--white);color:var(--navy);
+  font-family:'Inter',sans-serif;font-size:14px;font-weight:700;
+  border:none;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.btn-white:hover{transform:translateY(-1px)}
+.btn-outline-w{padding:14px 26px;border-radius:8px;background:rgba(255,255,255,.1);
+  color:var(--white);border:1.5px solid rgba(255,255,255,.2);
+  font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-outline-w:hover{background:rgba(255,255,255,.2)}
+.hero-trust{display:flex;gap:2rem;flex-wrap:wrap}
+.ht{display:flex;align-items:center;gap:7px;font-size:12px;color:rgba(255,255,255,.6)}
+.ht-check{color:#60A5FA}
+
+.hero-r{background:rgba(255,255,255,.06);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:2rem}
+.search-title{font-size:14px;font-weight:700;color:var(--white);margin-bottom:1.25rem}
+.search-tabs{display:flex;gap:6px;margin-bottom:1.5rem}
+.s-tab{padding:7px 18px;border-radius:6px;background:rgba(255,255,255,.08);
+  color:rgba(255,255,255,.6);font-size:12px;font-weight:600;cursor:pointer;border:none;transition:all .2s}
+.s-tab.active{background:var(--blue);color:var(--white)}
+.search-fields{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem}
+.sf{background:var(--white);border-radius:8px;padding:.75rem 1rem}
+.sf-label{font-size:10px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.sf-val{font-size:13px;font-weight:600;color:var(--ink)}
+.search-btn{width:100%;padding:13px;border-radius:8px;background:var(--blue);color:var(--white);
+  font-family:'Inter',sans-serif;font-size:14px;font-weight:700;border:none;cursor:pointer;transition:background .2s}
+.search-btn:hover{background:var(--blue-lt)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);margin-top:.75rem;border-radius:8px;overflow:hidden}
+.hs{background:rgba(255,255,255,.05);padding:1rem;text-align:center}
+.hs-n{font-size:22px;font-weight:800;color:var(--white)}
+.hs-l{font-size:10px;color:rgba(255,255,255,.45);margin-top:2px}
+
+.imoveis{padding:6rem 4rem;background:var(--white)}
+.sec-h{margin-bottom:3.5rem}
+.sec-tag{display:inline-flex;align-items:center;gap:6px;background:var(--blue-pale);color:var(--blue);
+  border-radius:6px;padding:5px 12px;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem}
+.sec-t{font-size:clamp(26px,3.5vw,42px);font-weight:800;letter-spacing:-.025em;color:var(--ink);line-height:1.1}
+.sec-t span{color:var(--blue)}
+.imoveis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.imovel-card{background:var(--white);border:1.5px solid var(--gray-200);
+  border-radius:14px;overflow:hidden;transition:all .25s}
+.imovel-card:hover{border-color:var(--blue);box-shadow:0 8px 24px rgba(26,86,219,.1);transform:translateY(-2px)}
+.imovel-img{height:200px;background:var(--blue-mid);position:relative;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem}
+.imovel-img svg{opacity:.3}
+.imovel-img p{font-size:10px;color:var(--blue);font-weight:500;opacity:.6}
+.imovel-badge{position:absolute;top:1rem;left:1rem;
+  background:var(--navy);color:var(--white);font-size:10px;font-weight:700;
+  padding:4px 10px;border-radius:4px}
+.imovel-body{padding:1.25rem}
+.imovel-nome{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.imovel-loc{font-size:12px;color:var(--blue);font-weight:500;margin-bottom:.75rem}
+.imovel-specs{display:flex;gap:1rem;margin-bottom:.75rem}
+.imovel-spec{font-size:12px;color:var(--gray-600);display:flex;align-items:center;gap:4px}
+.imovel-preco{font-size:20px;font-weight:800;color:var(--navy);letter-spacing:-.01em}
+
+.por-que{background:var(--gray-50);padding:6rem 4rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.pq-l .sec-tag{margin-bottom:.75rem}
+.pq-title{font-size:clamp(26px,3.5vw,40px);font-weight:800;letter-spacing:-.025em;
+  color:var(--ink);line-height:1.1;margin-bottom:1rem}
+.pq-title span{color:var(--blue)}
+.pq-sub{font-size:15px;color:var(--gray-600);line-height:1.75;margin-bottom:2rem}
+.pq-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}
+.pq-stat{background:var(--white);border:1.5px solid var(--gray-200);border-radius:10px;padding:1.25rem;text-align:center}
+.pq-stat-n{font-size:28px;font-weight:800;color:var(--blue);letter-spacing:-.02em}
+.pq-stat-l{font-size:11px;color:var(--gray-400);margin-top:3px}
+.pq-r{display:grid;grid-template-columns:1fr;gap:.75rem}
+.pq-item{background:var(--white);border:1.5px solid var(--gray-200);border-radius:12px;
+  padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color .25s}
+.pq-item:hover{border-color:var(--blue)}
+.pq-icon{width:44px;height:44px;background:var(--blue-pale);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.pq-item-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:.25rem}
+.pq-item-desc{font-size:13px;color:var(--gray-600);line-height:1.65}
+
+.dep{background:var(--navy);padding:5rem 4rem;
+  display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:center}
+.dep-l{font-size:26px;font-weight:800;color:var(--white);letter-spacing:-.01em;line-height:1.2}
+.dep-l span{color:#60A5FA}
+.dep-stars{color:#FCD34D;font-size:14px;letter-spacing:2px;margin-bottom:1.25rem}
+.dep-text{font-size:clamp(15px,2vw,20px);font-weight:300;font-style:italic;
+  color:rgba(255,255,255,.9);line-height:1.65;margin-bottom:1.75rem}
+.dep-author strong{display:block;font-size:14px;font-weight:600;color:var(--white)}
+.dep-author span{font-size:12px;color:rgba(255,255,255,.5)}
+
+.cta{background:var(--white);padding:6rem 4rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.cta-l-title{font-size:clamp(28px,3.5vw,44px);font-weight:800;letter-spacing:-.025em;
+  color:var(--ink);line-height:1.1;margin-bottom:1rem}
+.cta-l-title span{color:var(--blue)}
+.cta-l-sub{font-size:15px;color:var(--gray-600);line-height:1.75;margin-bottom:2rem}
+.cta-checks{display:flex;flex-direction:column;gap:.75rem}
+.cc{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ink)}
+.cc-icon{width:20px;height:20px;border-radius:50%;background:var(--blue-pale);
+  border:1px solid #C7D9FF;display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:var(--blue);flex-shrink:0}
+.form-card{background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:14px;padding:2.5rem}
+.form-title{font-size:20px;font-weight:700;color:var(--ink);margin-bottom:.25rem}
+.form-sub{font-size:13px;color:var(--gray-600);margin-bottom:2rem}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.f-field{margin-bottom:1rem}
+.f-field label{display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:5px}
+.f-field input,.f-field select{width:100%;padding:11px 14px;border-radius:8px;
+  border:1.5px solid var(--gray-200);background:var(--white);
+  color:var(--ink);font-family:'Inter',sans-serif;font-size:14px;
+  outline:none;transition:border-color .2s}
+.f-field input:focus,.f-field select:focus{border-color:var(--blue)}
+.f-field input::placeholder{color:var(--gray-400)}
+.btn-form{width:100%;padding:14px;border-radius:8px;background:var(--navy);color:var(--white);
+  font-family:'Inter',sans-serif;font-size:14px;font-weight:700;
+  border:none;cursor:pointer;transition:background .2s}
+.btn-form:hover{background:var(--navy-lt)}
+.form-note{font-size:11px;color:var(--gray-400);text-align:center;margin-top:.75rem}
+
+footer{background:var(--ink);padding:2.5rem 4rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-logo{font-size:14px;font-weight:700;color:rgba(255,255,255,.4)}
+.foot-logo span{color:#60A5FA}
+.foot-links{display:flex;gap:2rem}
+.foot-links a{font-size:12px;color:rgba(255,255,255,.3);text-decoration:none}
+.foot-links a:hover{color:rgba(255,255,255,.6)}
+.foot-dev{font-size:11px;color:rgba(255,255,255,.15)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:960px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:3rem 1.5rem}
+  .imoveis,.por-que,.cta{padding:4rem 1.5rem}
+  .imoveis-grid{grid-template-columns:1fr}
+  .por-que,.cta{grid-template-columns:1fr;gap:3rem}
+  .dep{grid-template-columns:1fr;padding:4rem 1.5rem;gap:2.5rem}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">
+    <div class="logo-av">CM</div>
+    <div class="logo-text">Carlos Mendes<span>CRECI 123456-F · SP</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#imoveis">Imóveis</a></li>
+    <li><a href="#por-que">Por que eu</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-outline">Anunciar imóvel</button>
+    <button class="btn-navy">Falar comigo</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-badge"><div class="bdot"></div>Corretor com CRECI ativo · SP</div>
+    <h1>Encontre o<br>imóvel certo<br>com quem <span>entende</span></h1>
+    <p class="hero-sub">Mais de 15 anos ajudando famílias e empresas a comprar, vender e alugar imóveis com segurança, agilidade e transparência.</p>
+    <div class="hero-cta">
+      <button class="btn-white">Ver imóveis disponíveis</button>
+      <button class="btn-outline-w">Anunciar meu imóvel</button>
+    </div>
+    <div class="hero-trust">
+      <div class="ht"><span class="ht-check">✓</span>+800 negócios fechados</div>
+      <div class="ht"><span class="ht-check">✓</span>CRECI ativo</div>
+      <div class="ht"><span class="ht-check">✓</span>Avaliação gratuita</div>
+    </div>
+  </div>
+  <div>
+    <div class="hero-r">
+      <div class="search-title">O que você está buscando?</div>
+      <div class="search-tabs">
+        <button class="s-tab active">Comprar</button>
+        <button class="s-tab">Alugar</button>
+        <button class="s-tab">Vender</button>
+      </div>
+      <div class="search-fields">
+        <div class="sf"><div class="sf-label">Localização</div><div class="sf-val">São Paulo · SP</div></div>
+        <div class="sf"><div class="sf-label">Tipo</div><div class="sf-val">Apartamento</div></div>
+        <div class="sf"><div class="sf-label">Quartos</div><div class="sf-val">2+ quartos</div></div>
+        <div class="sf"><div class="sf-label">Valor até</div><div class="sf-val">R$ 800.000</div></div>
+      </div>
+      <button class="search-btn">Buscar imóveis →</button>
+      <div class="hero-stats">
+        <div class="hs"><div class="hs-n">+1.2k</div><div class="hs-l">Imóveis</div></div>
+        <div class="hs"><div class="hs-n">15</div><div class="hs-l">Anos de mercado</div></div>
+        <div class="hs"><div class="hs-n">4.9★</div><div class="hs-l">Google</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="imoveis" id="imoveis">
+  <div class="sec-h reveal">
+    <div class="sec-tag">Imóveis em destaque</div>
+    <h2 class="sec-t">Oportunidades<br><span>selecionadas</span> para você</h2>
+  </div>
+  <div class="imoveis-grid">
+    <div class="imovel-card reveal">
+      <div class="imovel-img"><div class="imovel-badge">À venda</div><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#1A56DB" stroke-width="1"><path d="M16 3L2 13v17h28V13L16 3z"/><rect x="10" y="20" width="12" height="10"/></svg><p>Foto do imóvel</p></div>
+      <div class="imovel-body">
+        <div class="imovel-nome">Apto 3 quartos Moema</div>
+        <div class="imovel-loc">Moema · São Paulo</div>
+        <div class="imovel-specs"><span class="imovel-spec">🛏 3 dorms</span><span class="imovel-spec">🚗 2 vagas</span><span class="imovel-spec">📐 95m²</span></div>
+        <div class="imovel-preco">R$ 950.000</div>
+      </div>
+    </div>
+    <div class="imovel-card reveal">
+      <div class="imovel-img"><div class="imovel-badge">Aluguel</div><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#1A56DB" stroke-width="1"><path d="M16 3L2 13v17h28V13L16 3z"/><rect x="10" y="20" width="12" height="10"/></svg><p>Foto do imóvel</p></div>
+      <div class="imovel-body">
+        <div class="imovel-nome">Casa Vila Madalena</div>
+        <div class="imovel-loc">Vila Madalena · São Paulo</div>
+        <div class="imovel-specs"><span class="imovel-spec">🛏 4 dorms</span><span class="imovel-spec">🚗 3 vagas</span><span class="imovel-spec">📐 220m²</span></div>
+        <div class="imovel-preco">R$ 9.500/mês</div>
+      </div>
+    </div>
+    <div class="imovel-card reveal">
+      <div class="imovel-img"><div class="imovel-badge">Novo</div><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#1A56DB" stroke-width="1"><path d="M16 3L2 13v17h28V13L16 3z"/><rect x="10" y="20" width="12" height="10"/></svg><p>Foto do imóvel</p></div>
+      <div class="imovel-body">
+        <div class="imovel-nome">Studio Pinheiros</div>
+        <div class="imovel-loc">Pinheiros · São Paulo</div>
+        <div class="imovel-specs"><span class="imovel-spec">🛏 Studio</span><span class="imovel-spec">🚗 1 vaga</span><span class="imovel-spec">📐 42m²</span></div>
+        <div class="imovel-preco">R$ 420.000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="por-que" id="por-que">
+  <div class="pq-l reveal">
+    <div class="sec-tag">Por que me escolher</div>
+    <h2 class="pq-title">Corretor que trabalha<br>pelo seu <span>interesse</span></h2>
+    <p class="pq-sub">Em 15 anos de mercado, aprendi que o melhor negócio é aquele onde o cliente sai satisfeito. Transparência, agilidade e resultado.</p>
+    <div class="pq-stats">
+      <div class="pq-stat"><div class="pq-stat-n">+800</div><div class="pq-stat-l">Negócios fechados</div></div>
+      <div class="pq-stat"><div class="pq-stat-n">15</div><div class="pq-stat-l">Anos de mercado</div></div>
+      <div class="pq-stat"><div class="pq-stat-n">4.9★</div><div class="pq-stat-l">Avaliação Google</div></div>
+      <div class="pq-stat"><div class="pq-stat-n">98%</div><div class="pq-stat-l">Indicação de clientes</div></div>
+    </div>
+  </div>
+  <div class="pq-r reveal">
+    <div class="pq-item"><div class="pq-icon">📊</div><div><div class="pq-item-title">Avaliação gratuita do imóvel</div><p class="pq-item-desc">Análise técnica e de mercado para você saber o preço justo antes de anunciar.</p></div></div>
+    <div class="pq-item"><div class="pq-icon">📸</div><div><div class="pq-item-title">Fotos profissionais inclusas</div><p class="pq-item-desc">Imóveis com fotos profissionais vendem 3x mais rápido. Custo zero para você.</p></div></div>
+    <div class="pq-item"><div class="pq-icon">⚡</div><div><div class="pq-item-title">Resposta em até 1 hora</div><p class="pq-item-desc">Nenhum contato fica sem resposta. Agilidade do anúncio até o fechamento.</p></div></div>
+  </div>
+</section>
+
+<section class="dep">
+  <div class="dep-l reveal">O que meus<br>clientes <span>dizem</span></div>
+  <div class="reveal">
+    <div class="dep-stars">★★★★★</div>
+    <p class="dep-text">"Tentei vender meu apartamento sozinho por 6 meses. Com o Carlos, fechei em 3 semanas pelo preço que queria. A avaliação precisa e a divulgação certeira fizeram toda a diferença."</p>
+    <div class="dep-author"><strong>Marcos Tavares</strong><span>Vendeu apartamento em Moema em 22 dias</span></div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <div class="reveal">
+    <h2 class="cta-l-title">Pronto para encontrar<br>o imóvel <span>certo</span>?</h2>
+    <p class="cta-l-sub">Seja comprando, vendendo ou alugando, te acompanho em cada etapa com segurança e transparência.</p>
+    <div class="cta-checks">
+      <div class="cc"><div class="cc-icon">✓</div>Avaliação gratuita do seu imóvel</div>
+      <div class="cc"><div class="cc-icon">✓</div>Fotos profissionais sem custo adicional</div>
+      <div class="cc"><div class="cc-icon">✓</div>Assessoria jurídica e documental inclusa</div>
+      <div class="cc"><div class="cc-icon">✓</div>Resposta em até 1 hora</div>
+    </div>
+  </div>
+  <div class="form-card reveal">
+    <div class="form-title">Entrar em contato</div>
+    <div class="form-sub">Respondo em até 1 hora em horário comercial</div>
+    <div class="f-row">
+      <div class="f-field"><label>Nome</label><input type="text" placeholder="Seu nome"></div>
+      <div class="f-field"><label>WhatsApp</label><input type="tel" placeholder="(00) 00000-0000"></div>
+    </div>
+    <div class="f-field"><label>Objetivo</label>
+      <select><option>Selecione...</option><option>Quero comprar um imóvel</option>
+      <option>Quero alugar um imóvel</option><option>Quero vender meu imóvel</option>
+      <option>Avaliação do meu imóvel</option></select>
+    </div>
+    <div class="f-field"><label>Bairro / Região de interesse</label>
+      <input type="text" placeholder="Ex: Pinheiros, Moema, Jardins...">
+    </div>
+    <button class="btn-form">Entrar em contato →</button>
+    <p class="form-note">🔒 Seus dados são sigilosos · CRECI 123456-F/SP</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Carlos Mendes · <span>Corretor de Imóveis</span></div>
+  <div class="foot-links"><a href="#">Imóveis</a><a href="#">Sobre</a><a href="#">CRECI</a><a href="#">Privacidade</a></div>
+  <div class="foot-dev">Desenvolvido por CodandoIdeias</div>
+</footer>
+<script>
+const r=document.querySelectorAll('.reveal');
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}})},{threshold:0.08});
+r.forEach(el=>o.observe(el));
+</script>
+</body>
+</html>

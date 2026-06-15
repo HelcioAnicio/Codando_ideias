@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raiz Studio — Beleza Natural & Consciente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FAF6F1;
+  --cream-dk:#F2EBE0;
+  --sand:#E8D9C4;
+  --sand-dk:#D4BFA0;
+  --terra:#B5714A;
+  --terra-lt:#CC8A62;
+  --terra-pale:#F5E8DF;
+  --brown:#3A2416;
+  --brown-lt:#6B4A34;
+  --muted:#9A8070;
+  --muted-lt:#C4B0A0;
+  --sage:#8A9E88;
+  --sage-lt:#B8CEB6;
+  --white:#FFFFF8;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--brown);overflow-x:hidden}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;
+  background:rgba(250,246,241,0.97);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--sand);
+  padding:0 4rem;height:68px;
+  display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Cormorant',serif;font-size:22px;font-weight:400;
+  letter-spacing:0.06em;color:var(--brown)}
+.logo em{font-style:italic;color:var(--terra)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:12px;font-weight:400;letter-spacing:.08em;
+  color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--terra)}
+.nav-cta{padding:10px 24px;border:1px solid var(--terra);
+  background:transparent;color:var(--terra);
+  font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;
+  cursor:pointer;transition:all .25s}
+.nav-cta:hover{background:var(--terra);color:var(--white)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr}
+.hero-l{background:var(--cream-dk);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 4rem 5rem;position:relative;overflow:hidden}
+.hero-l::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B5714A' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-img-area{flex:1;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:1rem;position:relative;z-index:1}
+.hero-img-area svg{opacity:.25}
+.hero-img-area p{font-size:11px;letter-spacing:.12em;color:var(--terra);opacity:.5}
+.hero-bottom{position:relative;z-index:1}
+.hero-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--terra);margin-bottom:1rem;
+  display:flex;align-items:center;gap:10px}
+.hero-tag::before{content:'';width:24px;height:1px;background:var(--terra)}
+.hero-quote{font-family:'Cormorant',serif;font-size:clamp(28px,3.5vw,42px);
+  font-weight:300;font-style:italic;line-height:1.2;color:var(--brown);
+  margin-bottom:1.5rem}
+.hero-meta{display:flex;gap:2rem}
+.hero-meta-item{font-size:11px;color:var(--muted)}
+.hero-meta-item strong{display:block;font-size:18px;font-family:'Cormorant',serif;
+  font-weight:400;color:var(--brown);margin-bottom:2px}
+
+.hero-r{background:var(--cream);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:6rem 5rem 6rem 4rem}
+.hero-r-top{font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--terra);margin-bottom:2rem;
+  display:flex;align-items:center;gap:10px}
+.hero-r-top::before{content:'';width:24px;height:1px;background:var(--terra)}
+h1{font-family:'Cormorant',serif;font-size:clamp(40px,5vw,64px);
+  font-weight:300;line-height:1.1;color:var(--brown);margin-bottom:1.5rem}
+h1 em{font-style:italic;color:var(--terra)}
+.hero-r-text{font-size:15px;font-weight:300;line-height:1.9;
+  color:var(--muted);max-width:400px;margin-bottom:2.5rem}
+.hero-r-btns{display:flex;flex-direction:column;gap:10px;width:fit-content}
+.btn-terra{padding:15px 36px;background:var(--terra);color:var(--white);
+  font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;
+  letter-spacing:.08em;border:none;cursor:pointer;transition:all .25s}
+.btn-terra:hover{background:var(--terra-lt)}
+.btn-ghost-terra{padding:14px 34px;background:transparent;
+  border:1px solid var(--sand-dk);color:var(--muted);
+  font-family:'DM Sans',sans-serif;font-size:12px;font-weight:400;
+  letter-spacing:.08em;cursor:pointer;transition:all .25s}
+.btn-ghost-terra:hover{border-color:var(--terra);color:var(--terra)}
+.hero-r-note{font-size:12px;color:var(--muted-lt);margin-top:1.5rem;
+  display:flex;align-items:center;gap:8px}
+.hero-r-note::before{content:'🌿';font-size:14px}
+
+/* MANIFESTO */
+.manifesto{background:var(--brown);padding:7rem 5rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:center}
+.manifesto-title{font-family:'Cormorant',serif;
+  font-size:clamp(32px,4vw,52px);font-weight:300;font-style:italic;
+  color:var(--cream);line-height:1.2}
+.manifesto-title span{color:var(--terra-lt);font-style:normal}
+.manifesto-right p{font-size:15px;font-weight:300;
+  color:rgba(250,246,241,.65);line-height:2;margin-bottom:1.5rem}
+.manifesto-right p:last-child{margin-bottom:0}
+.manifesto-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--terra-lt);margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:10px}
+.manifesto-tag::before{content:'';width:24px;height:1px;background:var(--terra-lt)}
+
+/* SERVIÇOS */
+.servicos{padding:7rem 5rem;background:var(--cream-dk)}
+.sec-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--terra);margin-bottom:.75rem;
+  display:inline-flex;align-items:center;gap:10px}
+.sec-tag::before{content:'';width:24px;height:1px;background:var(--terra)}
+.sec-title{font-family:'Cormorant',serif;
+  font-size:clamp(32px,4vw,50px);font-weight:300;
+  color:var(--brown);line-height:1.15;margin-bottom:3.5rem}
+.sec-title em{font-style:italic;color:var(--terra)}
+.servicos-layout{display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:start}
+.servicos-menu{position:sticky;top:88px}
+.menu-item{padding:1rem 0;border-bottom:1px solid var(--sand);
+  cursor:pointer;display:flex;align-items:center;justify-content:space-between;
+  transition:all .2s}
+.menu-item:hover .menu-item-name{color:var(--terra)}
+.menu-item-name{font-family:'Cormorant',serif;font-size:18px;
+  font-weight:400;color:var(--brown-lt);transition:color .2s}
+.menu-item-arr{font-size:14px;color:var(--sand-dk);transition:color .2s}
+.menu-item:hover .menu-item-arr{color:var(--terra)}
+.servicos-content{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.serv-card{background:var(--cream);padding:2.5rem;position:relative;
+  border:1px solid transparent;transition:border-color .3s}
+.serv-card:hover{border-color:var(--sand-dk)}
+.serv-card-icon{font-size:28px;margin-bottom:1.2rem;display:block}
+.serv-card-name{font-family:'Cormorant',serif;font-size:20px;
+  font-weight:400;color:var(--brown);margin-bottom:.4rem}
+.serv-card-desc{font-size:13px;font-weight:300;color:var(--muted);
+  line-height:1.75;margin-bottom:1rem}
+.serv-card-detail{font-size:11px;color:var(--terra);letter-spacing:.06em}
+.serv-card.highlight{background:var(--terra-pale);border-color:var(--sand-dk)}
+
+/* RITUAIS */
+.rituais{padding:7rem 5rem;background:var(--cream)}
+.rituais-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--sand);margin-top:3.5rem}
+.ritual{background:var(--cream);padding:2rem}
+.ritual-num{font-family:'Cormorant',serif;font-size:48px;
+  font-weight:300;color:var(--sand);line-height:1;margin-bottom:.25rem}
+.ritual-title{font-family:'Cormorant',serif;font-size:17px;
+  font-weight:400;color:var(--brown);margin-bottom:.4rem}
+.ritual-desc{font-size:12px;font-weight:300;color:var(--muted);line-height:1.7}
+
+/* DEPOIMENTOS */
+.depoimentos{background:var(--cream-dk);padding:7rem 5rem}
+.dep-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3.5rem}
+.dep-card{background:var(--cream);padding:2.5rem;border-left:2px solid var(--terra)}
+.dep-text{font-family:'Cormorant',serif;font-size:18px;font-weight:300;
+  font-style:italic;color:var(--brown);line-height:1.65;margin-bottom:1.5rem}
+.dep-author strong{font-size:13px;font-weight:500;color:var(--brown);display:block}
+.dep-author span{font-size:11px;color:var(--terra);letter-spacing:.06em}
+.dep-stars{color:var(--terra);letter-spacing:2px;font-size:12px;margin-bottom:1rem}
+
+/* CTA */
+.cta{padding:7rem 5rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;
+  background:var(--cream)}
+.cta-left .sec-tag{margin-bottom:.75rem}
+.cta-title{font-family:'Cormorant',serif;font-size:clamp(32px,4vw,50px);
+  font-weight:300;color:var(--brown);line-height:1.15;margin-bottom:1.5rem}
+.cta-title em{font-style:italic;color:var(--terra)}
+.cta-desc{font-size:15px;font-weight:300;color:var(--muted);
+  line-height:1.85;margin-bottom:2.5rem}
+.cta-info{display:flex;flex-direction:column;gap:.75rem}
+.cta-info-item{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--brown-lt)}
+.cta-info-icon{font-size:16px;flex-shrink:0}
+
+.cta-form-box{background:var(--cream-dk);padding:3rem}
+.cta-form-title{font-family:'Cormorant',serif;font-size:26px;
+  font-weight:400;color:var(--brown);margin-bottom:.25rem}
+.cta-form-sub{font-size:12px;color:var(--muted);margin-bottom:2rem}
+.f-field{margin-bottom:1.25rem}
+.f-field label{display:block;font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.f-field input,.f-field select{width:100%;padding:12px 0;
+  background:transparent;border:none;border-bottom:1px solid var(--sand-dk);
+  color:var(--brown);font-family:'DM Sans',sans-serif;font-size:14px;
+  outline:none;transition:border-color .2s}
+.f-field input::placeholder{color:var(--muted-lt)}
+.f-field input:focus,.f-field select:focus{border-bottom-color:var(--terra)}
+.f-field select option{background:var(--cream)}
+.btn-submit{width:100%;margin-top:1.5rem;padding:15px;
+  background:var(--terra);color:var(--white);
+  font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  border:none;cursor:pointer;transition:all .25s}
+.btn-submit:hover{background:var(--terra-lt)}
+.f-note{font-size:11px;color:var(--muted-lt);text-align:center;margin-top:.75rem}
+
+/* FOOTER */
+footer{background:var(--brown);padding:2.5rem 5rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-logo{font-family:'Cormorant',serif;font-size:18px;
+  font-weight:300;font-style:italic;color:rgba(250,246,241,.4)}
+.foot-links{display:flex;gap:2rem}
+.foot-links a{font-size:11px;color:rgba(250,246,241,.3);text-decoration:none}
+.foot-links a:hover{color:rgba(250,246,241,.6)}
+.foot-dev{font-size:11px;color:rgba(255,255,255,.15)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:960px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-l{min-height:360px;padding:2rem 2rem 3rem}
+  .hero-r{padding:4rem 2rem}
+  .manifesto{grid-template-columns:1fr;padding:4rem 2rem;gap:2.5rem}
+  .servicos,.rituais,.depoimentos,.cta{padding:4rem 2rem}
+  .servicos-layout{grid-template-columns:1fr}
+  .servicos-menu{position:static;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2rem}
+  .menu-item{border:1px solid var(--sand);padding:.5rem 1rem}
+  .menu-item-arr{display:none}
+  .servicos-content{grid-template-columns:1fr}
+  .rituais-grid{grid-template-columns:1fr 1fr}
+  .dep-grid{grid-template-columns:1fr}
+  .cta{grid-template-columns:1fr;gap:3rem}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><em>Raiz</em> Studio</div>
+  <ul class="nav-links">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#rituais">Rituais</a></li>
+    <li><a href="#contato">Agendar</a></li>
+  </ul>
+  <button class="nav-cta">Agendar visita</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-img-area">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="#B5714A" stroke-width="1">
+        <path d="M26 4C26 4 10 16 10 28a16 16 0 0032 0c0-12-16-24-16-24z"/>
+      </svg>
+      <p>Foto ambiente / serviço</p>
+    </div>
+    <div class="hero-bottom">
+      <div class="hero-tag">Fundado em 2016</div>
+      <p class="hero-quote">"Beleza que nasce do cuidado consciente"</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><strong>+5k</strong>clientes</div>
+        <div class="hero-meta-item"><strong>8</strong>anos de história</div>
+        <div class="hero-meta-item"><strong>100%</strong>natural</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-r-top">Studio de beleza consciente</div>
+    <h1>Cabelo, pele<br>e alma em<br><em>harmonia</em></h1>
+    <p class="hero-r-text">Acreditamos que beleza genuína vem de ingredientes puros, mãos cuidadosas e tempo respeitado. Aqui não existe correria — existe ritual.</p>
+    <div class="hero-r-btns">
+      <button class="btn-terra">Agendar minha visita</button>
+      <button class="btn-ghost-terra">Conhecer os rituais</button>
+    </div>
+    <p class="hero-r-note">Produtos veganos e livres de crueldade animal</p>
+  </div>
+</section>
+
+<section class="manifesto">
+  <div class="reveal">
+    <div class="manifesto-tag">Nossa filosofia</div>
+    <h2 class="manifesto-title">Beleza que <span>respeita</span><br>quem você <em>é</em></h2>
+  </div>
+  <div class="reveal">
+    <p>Não acreditamos em padrões. Acreditamos em potencializar o que cada pessoa tem de único — a textura natural do seu cabelo, o tônus natural da sua pele, a sua essência.</p>
+    <p>Trabalhamos apenas com marcas que compartilham nossos valores: fórmulas limpas, embalagens responsáveis, sem testes em animais. Porque cuidar de você e cuidar do planeta são a mesma coisa.</p>
+  </div>
+</section>
+
+<section class="servicos" id="servicos">
+  <div class="reveal">
+    <div class="sec-tag">O que oferecemos</div>
+    <h2 class="sec-title">Serviços que<br>respeitam o <em>natural</em></h2>
+  </div>
+  <div class="servicos-layout">
+    <div class="servicos-menu reveal">
+      <div class="menu-item"><div class="menu-item-name">Cabelo</div><div class="menu-item-arr">→</div></div>
+      <div class="menu-item"><div class="menu-item-name">Coloração natural</div><div class="menu-item-arr">→</div></div>
+      <div class="menu-item"><div class="menu-item-name">Skincare</div><div class="menu-item-arr">→</div></div>
+      <div class="menu-item"><div class="menu-item-name">Sobrancelhas</div><div class="menu-item-arr">→</div></div>
+      <div class="menu-item"><div class="menu-item-name">Unhas</div><div class="menu-item-arr">→</div></div>
+    </div>
+    <div class="servicos-content">
+      <div class="serv-card reveal highlight">
+        <span class="serv-card-icon">🌿</span>
+        <div class="serv-card-name">Corte consciente</div>
+        <p class="serv-card-desc">Análise do fio e do couro cabeludo, corte respeitando o crescimento natural e saúde do cabelo.</p>
+        <div class="serv-card-detail">Inclui diagnóstico + finalização</div>
+      </div>
+      <div class="serv-card reveal">
+        <span class="serv-card-icon">🍃</span>
+        <div class="serv-card-name">Coloração natural</div>
+        <p class="serv-card-desc">Henna, indigo e tinturas orgânicas sem amônia. Cobertura de branco com respeito aos fios.</p>
+        <div class="serv-card-detail">Sem amônia · Fórmula orgânica</div>
+      </div>
+      <div class="serv-card reveal">
+        <span class="serv-card-icon">💧</span>
+        <div class="serv-card-name">Hidratação profunda</div>
+        <p class="serv-card-desc">Tratamento com óleos vegetais puros e proteínas naturais. Cronograma personalizado para seu tipo de fio.</p>
+        <div class="serv-card-detail">Diagnóstico incluso</div>
+      </div>
+      <div class="serv-card reveal">
+        <span class="serv-card-icon">✨</span>
+        <div class="serv-card-name">Skincare ritual</div>
+        <p class="serv-card-desc">Limpeza, esfoliação e hidratação facial com produtos clean beauty. Pele limpa, saudável e radiante.</p>
+        <div class="serv-card-detail">Clean beauty certificado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rituais" id="rituais">
+  <div class="reveal">
+    <div class="sec-tag">Como funciona</div>
+    <h2 class="sec-title">Cada visita é<br>um <em>ritual</em> completo</h2>
+  </div>
+  <div class="rituais-grid">
+    <div class="ritual reveal"><div class="ritual-num">01</div><div class="ritual-title">Acolhimento</div><p class="ritual-desc">Chegada sem pressa, chá da casa e conversa sobre seus cabelos, sua rotina e seus desejos.</p></div>
+    <div class="ritual reveal"><div class="ritual-num">02</div><div class="ritual-title">Diagnóstico</div><p class="ritual-desc">Análise do fio, couro cabeludo e saúde geral. Recomendações personalizadas e honestas.</p></div>
+    <div class="ritual reveal"><div class="ritual-num">03</div><div class="ritual-title">O ritual</div><p class="ritual-desc">Cada serviço executado com atenção e sem pressa. Seu tempo é respeitado do início ao fim.</p></div>
+    <div class="ritual reveal"><div class="ritual-num">04</div><div class="ritual-title">Cuidado em casa</div><p class="ritual-desc">Orientação detalhada para manter o resultado e um ritual de cuidados para sua rotina.</p></div>
+  </div>
+</section>
+
+<section class="depoimentos">
+  <div class="reveal">
+    <div class="sec-tag">Depoimentos</div>
+    <h2 class="sec-title">Beleza que<br>fica na <em>memória</em></h2>
+  </div>
+  <div class="dep-grid">
+    <div class="dep-card reveal">
+      <div class="dep-stars">★★★★★</div>
+      <p class="dep-text">"Levei anos procurando alguém que entendesse meu cabelo crespo sem querer modificá-lo. No Raiz encontrei acolhimento e uma profissional que ama o cabelo natural de verdade."</p>
+      <div class="dep-author"><strong>Natasha Oliveira</strong><span>Corte + hidratação · Cabelo crespo</span></div>
+    </div>
+    <div class="dep-card reveal">
+      <div class="dep-stars">★★★★★</div>
+      <p class="dep-text">"A coloração com henna foi a melhor decisão que tomei. Meu cabelo ficou mais vivo, mais saudável, e eu sei exatamente o que foi colocado nele. Nunca mais quis outra coisa."</p>
+      <div class="dep-author"><strong>Beatriz Campos</strong><span>Coloração natural + cronograma</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <div class="cta-left reveal">
+    <div class="sec-tag">Agendar</div>
+    <h2 class="cta-title">Venha cuidar<br>de você com <em>intenção</em></h2>
+    <p class="cta-desc">Atendimento com hora marcada, sem correria. Espaço aconchegante no coração de São Paulo, com estacionamento próximo.</p>
+    <div class="cta-info">
+      <div class="cta-info-item"><div class="cta-info-icon">📍</div>Rua Augusta, 1200 — Consolação, SP</div>
+      <div class="cta-info-item"><div class="cta-info-icon">🕐</div>Terça a sábado, 9h às 19h</div>
+      <div class="cta-info-item"><div class="cta-info-icon">🌿</div>Produtos 100% veganos e naturais</div>
+    </div>
+  </div>
+  <div class="cta-form-box reveal">
+    <div class="cta-form-title">Agendar uma visita</div>
+    <div class="cta-form-sub">Respondemos em até 1 hora em dias úteis</div>
+    <div class="f-field"><label>Nome</label><input type="text" placeholder="Como você se chama?"></div>
+    <div class="f-field"><label>WhatsApp</label><input type="tel" placeholder="(00) 00000-0000"></div>
+    <div class="f-field"><label>Serviço de interesse</label>
+      <select><option>Selecione...</option>
+      <option>Corte consciente</option><option>Coloração natural</option>
+      <option>Hidratação profunda</option><option>Skincare ritual</option>
+      <option>Diagnóstico capilar</option></select>
+    </div>
+    <button class="btn-submit">Quero agendar minha visita</button>
+    <p class="f-note">Confirmação via WhatsApp · Sem custo de cancelamento</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Raiz Studio</div>
+  <div class="foot-links">
+    <a href="#">Serviços</a><a href="#">Sobre nós</a>
+    <a href="#">Instagram</a><a href="#">Privacidade</a>
+  </div>
+  <div class="foot-dev">Desenvolvido por CodandoIdeias</div>
+</footer>
+
+<script>
+const r=document.querySelectorAll('.reveal');
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}})},{threshold:0.1});
+r.forEach(el=>o.observe(el));
+</script>
+</body>
+</html>

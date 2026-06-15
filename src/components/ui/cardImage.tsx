@@ -1,11 +1,11 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { ButtonGeral } from "./buttonGeral";
 import Image from "next/image";
 import { IoMdTrendingUp } from "react-icons/io";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
+import { Sparkles } from "lucide-react";
 
 export const CardImage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -64,7 +64,7 @@ export const CardImage = () => {
 
         <div className="relative z-20 flex h-2/5 min-h-max w-full flex-col justify-center gap-5 overflow-hidden sm:w-1/2 sm:justify-center sm:gap-8 md:gap-10">
           <h1
-            className={`max-w-md text-4xl font-extrabold leading-[1.1] text-foreground transition-all delay-150 duration-500 min-[400px]:text-5xl sm:mt-0 lg:text-6xl xl:max-w-lg xl:text-7xl ${
+            className={`max-w-md text-4xl font-extrabold leading-[1.1] text-foreground transition-all delay-150 duration-500 min-[400px]:text-5xl sm:mt-0 lg:text-6xl xl:max-w-lg xl:text-7xl xl:leading-[0.9] ${
               isVisible
                 ? "translate-y-0 blur-none"
                 : "-translate-y-full blur-sm"
@@ -74,27 +74,29 @@ export const CardImage = () => {
           </h1>
 
           <p
-            className={`max-w-sm text-sm font-light leading-relaxed text-foreground/80 transition-all delay-200 duration-500 min-[400px]:text-base sm:text-lg md:text-xl ${
+            className={`w-4/6 max-w-sm text-sm font-light leading-relaxed text-foreground/80 transition-all delay-200 duration-500 min-[400px]:text-base sm:text-lg md:text-xl ${
               isVisible ? "opacity-100 blur-none" : "opacity-0 blur-sm"
             } `}
           >
             Criamos sites estratégicos, Landing Pages sem template pronto, em
-            código 100% puro, com alta performance. Um verdadeiro site que
-            converte!
+            código 100% puro, com alta performance. <br /> Um verdadeiro site
+            que converte!
           </p>
 
           <div
-            className={`relative hidden transition-all delay-300 duration-500 sm:block ${
+            className={`relative hidden flex-col gap-3 transition-all delay-300 duration-500 sm:flex ${
               isVisible
                 ? "translate-x-0 blur-none"
                 : "-translate-x-full blur-sm"
             } `}
           >
-            <ButtonGeral
-              text="Fale comigo agora"
-              link="https://wa.me/5531991973835?text=Olá,+quero+um+site+que+me+permita+ser+encontrado!"
-              classes="max-w-60 min-[400px]:max-w-sm"
-            />
+            <Link
+              href="/simulacao"
+              className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500 px-10 py-3 text-sm font-bold uppercase transition-all duration-200 hover:bg-yellow-500/90"
+            >
+              <Sparkles size={15} />
+              Simule seu site gratuitamente
+            </Link>
           </div>
         </div>
 
@@ -138,17 +140,19 @@ export const CardImage = () => {
         </div>
 
         <div
-          className={`absolute bottom-[3%] z-30 w-full max-w-xs transition-all delay-300 duration-500 sm:hidden ${
+          className={`absolute bottom-[3%] z-30 flex w-full max-w-xs flex-col gap-2 transition-all delay-300 duration-500 sm:hidden ${
             isVisible
               ? "translate-y-0 opacity-100 blur-none"
               : "translate-y-full opacity-0 blur-sm"
           } `}
         >
-          <ButtonGeral
-            text="Fale comigo agora"
-            link="https://wa.me/5531991973835?text=Olá,+quero+um+site+que+me+permita+ser+encontrado!"
-            classes="max-w-60 min-[400px]:max-w-sm"
-          />
+          <Link
+            href="/simulacao"
+            className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500 px-5 py-3 text-sm font-bold uppercase transition-all duration-200 hover:bg-yellow-500/90"
+          >
+            <Sparkles size={14} />
+            Simule seu site gratuitamente
+          </Link>
         </div>
         {/* {!buttonVisible && ( */}
         <Link
