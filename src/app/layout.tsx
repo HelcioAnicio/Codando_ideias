@@ -8,7 +8,7 @@ import { MicrosoftClarity } from "@/lib/microsoftClarity";
 const libreFranklin = Libre_Franklin({
   variable: "--font-libre-franklin",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["200", "400", "700"],
 });
 
 const limelight = Limelight({

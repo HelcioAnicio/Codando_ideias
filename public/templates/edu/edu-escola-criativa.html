@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espaço Criar — Escola de Arte & Cursos Livres</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --purple:#5C3BC0;--purple-lt:#7B5CD6;--purple-pale:#F0EAFF;--purple-mid:#D9CCFF;
+  --yellow:#FFD93D;--yellow-dk:#F0C000;--yellow-pale:#FFFBEB;
+  --orange:#FF8C42;--green:#3DBF82;--pink:#FF6B9D;
+  --white:#FFFFFF;--cream:#FFFCF5;--cream-dk:#F5F0E8;
+  --ink:#1A1430;--muted:#7A7090;--muted-lt:#B0A8C4;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+nav{background:var(--white);border-bottom:2px solid var(--purple-mid);padding:0 4rem;height:70px;
+  position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:38px;height:38px;background:var(--yellow);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  border:2px solid var(--ink)}
+.logo-text{font-size:18px;font-weight:900;color:var(--ink)}
+.logo-text span{color:var(--purple)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:13px;font-weight:700;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--purple)}
+.nav-cta{padding:10px 22px;background:var(--purple);color:var(--white);
+  font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;
+  border:none;border-radius:50px;cursor:pointer;transition:all .25s;
+  box-shadow:0 4px 12px rgba(92,59,192,.3)}
+.nav-cta:hover{background:var(--purple-lt)}
+
+.hero{background:var(--yellow);border-bottom:2px solid var(--ink);
+  padding:5rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;
+  position:relative;overflow:hidden}
+.hero::before{content:'✦';font-size:300px;position:absolute;top:-100px;right:-60px;
+  color:rgba(0,0,0,.04);font-family:'Nunito',sans-serif;line-height:1}
+.hero-l{position:relative;z-index:1}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;
+  background:var(--purple);color:var(--white);border-radius:50px;
+  padding:6px 16px;font-size:12px;font-weight:800;margin-bottom:1.5rem;
+  box-shadow:4px 4px 0 var(--ink)}
+h1{font-size:clamp(40px,5.5vw,68px);font-weight:900;line-height:1.05;
+  letter-spacing:-.025em;color:var(--ink);margin-bottom:1rem}
+h1 span{color:var(--purple);display:block}
+.hero-sub{font-size:16px;font-weight:600;color:rgba(26,20,48,.7);
+  line-height:1.75;max-width:420px;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-ink{padding:14px 30px;background:var(--ink);color:var(--yellow);
+  font-family:'Nunito',sans-serif;font-size:14px;font-weight:900;
+  border:2px solid var(--ink);cursor:pointer;transition:all .2s;
+  box-shadow:4px 4px 0 rgba(0,0,0,.3)}
+.btn-ink:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(0,0,0,.3)}
+.btn-white{padding:13px 26px;background:var(--white);color:var(--ink);
+  font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;
+  border:2px solid var(--ink);cursor:pointer;transition:all .2s;
+  box-shadow:4px 4px 0 var(--ink)}
+.btn-white:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+
+.hero-r{position:relative;z-index:1}
+.hero-cards{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.hero-card{background:var(--white);border:2px solid var(--ink);padding:1.25rem;
+  box-shadow:4px 4px 0 var(--ink)}
+.hero-card.featured{background:var(--purple);border-color:var(--ink);grid-column:span 2;
+  display:flex;align-items:center;gap:1rem}
+.hc-emoji{font-size:32px;flex-shrink:0}
+.hc-title{font-size:14px;font-weight:800;color:var(--ink)}
+.hero-card.featured .hc-title{color:var(--yellow)}
+.hc-sub{font-size:11px;color:var(--muted);margin-top:3px;font-weight:600}
+.hero-card.featured .hc-sub{color:rgba(255,255,255,.6)}
+.hc-stat{font-family:'Lora',serif;font-size:28px;font-weight:400;color:var(--purple);margin-top:.25rem}
+
+.cursos{padding:5rem 4rem;background:var(--cream-dk)}
+.sec-header{margin-bottom:3rem}
+.sec-tag-pill{display:inline-block;padding:5px 14px;border-radius:50px;
+  background:var(--purple-pale);color:var(--purple);font-size:11px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem}
+.sec-title-fun{font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-.025em;
+  color:var(--ink);line-height:1.1}
+.sec-title-fun span{color:var(--purple)}
+.cursos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.curso-card{background:var(--white);border:2px solid var(--ink);overflow:hidden;
+  transition:all .2s;box-shadow:4px 4px 0 var(--ink)}
+.curso-card:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--ink)}
+.curso-top{height:160px;display:flex;align-items:center;justify-content:center;font-size:56px;position:relative}
+.curso-nivel{position:absolute;top:.75rem;right:.75rem;
+  font-size:9px;font-weight:800;padding:4px 10px;border-radius:20px;border:1.5px solid var(--ink)}
+.curso-cat{background:var(--yellow);color:var(--ink)}
+.curso-body-c{padding:1.25rem;border-top:2px solid var(--ink)}
+.curso-name{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:.3rem;letter-spacing:-.01em}
+.curso-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:.75rem;font-weight:600}
+.curso-meta-c{display:flex;gap:.75rem;margin-bottom:.75rem;flex-wrap:wrap}
+.cmc{font-size:11px;color:var(--muted);font-weight:700;display:flex;align-items:center;gap:3px}
+.curso-price-c{font-size:22px;font-weight:900;color:var(--purple);letter-spacing:-.01em}
+.curso-price-c sub{font-size:11px;font-weight:600;color:var(--muted)}
+
+.sobre{padding:5rem 4rem;background:var(--purple);
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.sobre-title{font-size:clamp(28px,3.5vw,44px);font-weight:900;letter-spacing:-.025em;color:var(--white);line-height:1.1;margin-bottom:1rem}
+.sobre-title span{color:var(--yellow)}
+.sobre-text{font-size:15px;color:rgba(255,255,255,.75);line-height:1.85;margin-bottom:2rem;font-weight:500}
+.sobre-stats{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.ss{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);padding:1.5rem;text-align:center}
+.ss-n{font-size:32px;font-weight:900;color:var(--yellow);letter-spacing:-.02em}
+.ss-l{font-size:11px;color:rgba(255,255,255,.55);margin-top:4px;font-weight:700}
+.sobre-r{display:flex;flex-direction:column;gap:.75rem}
+.sobre-item{background:rgba(255,255,255,.08);border-left:4px solid var(--yellow);padding:1.25rem}
+.sobre-item-icon{font-size:22px;margin-bottom:.5rem;display:block}
+.sobre-item-title{font-size:14px;font-weight:800;color:var(--white);margin-bottom:.25rem}
+.sobre-item-desc{font-size:12px;color:rgba(255,255,255,.6);line-height:1.65;font-weight:500}
+
+.dep{background:var(--cream);padding:5rem 4rem;
+  display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:center}
+.dep-l-title{font-size:28px;font-weight:900;color:var(--ink);letter-spacing:-.01em;line-height:1.2}
+.dep-l-sub{font-size:13px;color:var(--muted);margin-top:.75rem;font-weight:600}
+.dep-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.dep-card{background:var(--white);border:2px solid var(--ink);padding:1.25rem;box-shadow:3px 3px 0 var(--ink)}
+.dep-stars{color:var(--yellow-dk);font-size:13px;letter-spacing:2px;margin-bottom:.75rem}
+.dep-text{font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:.75rem;font-weight:600;font-style:italic}
+.dep-name{font-size:12px;font-weight:800;color:var(--purple)}
+.dep-info{font-size:10px;color:var(--muted);margin-top:2px;font-weight:600}
+
+.cta{background:var(--cream-dk);padding:5rem 4rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.cta-l-title{font-size:clamp(28px,4vw,46px);font-weight:900;letter-spacing:-.025em;color:var(--ink);line-height:1.05;margin-bottom:1rem}
+.cta-l-title span{color:var(--purple)}
+.cta-l-sub{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:2rem;font-weight:600}
+.cta-items{display:flex;flex-direction:column;gap:.75rem}
+.ci{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ink);font-weight:700}
+.ci-dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--ink);flex-shrink:0}
+.ci-dot.purple{background:var(--purple)}
+.ci-dot.yellow{background:var(--yellow)}
+.ci-dot.green{background:var(--green)}
+.ci-dot.orange{background:var(--orange)}
+.form-box{background:var(--white);border:2px solid var(--ink);padding:2.5rem;box-shadow:6px 6px 0 var(--ink)}
+.form-title{font-size:22px;font-weight:900;color:var(--ink);letter-spacing:-.01em;margin-bottom:.25rem}
+.form-sub{font-size:13px;color:var(--muted);margin-bottom:2rem;font-weight:600}
+.f-field{margin-bottom:1rem}
+.f-field label{display:block;font-size:12px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.f-field input,.f-field select{width:100%;padding:12px 14px;border:2px solid var(--ink);
+  background:var(--cream);color:var(--ink);font-family:'Nunito',sans-serif;
+  font-size:14px;font-weight:700;outline:none;transition:border-color .2s;border-radius:0}
+.f-field input:focus,.f-field select:focus{border-color:var(--purple);outline:3px solid var(--purple-pale)}
+.f-field input::placeholder{color:var(--muted-lt)}
+.btn-form{width:100%;padding:15px;background:var(--purple);color:var(--white);
+  font-family:'Nunito',sans-serif;font-size:15px;font-weight:900;
+  border:2px solid var(--ink);cursor:pointer;transition:all .2s;margin-top:.5rem;
+  box-shadow:4px 4px 0 var(--ink)}
+.btn-form:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.form-note{font-size:12px;color:var(--muted);text-align:center;margin-top:.75rem;font-weight:600}
+
+footer{background:var(--ink);padding:2.5rem 4rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-logo{font-size:17px;font-weight:900;color:rgba(255,255,255,.4)}
+.foot-logo span{color:var(--yellow)}
+.foot-links{display:flex;gap:2rem}
+.foot-links a{font-size:12px;color:rgba(255,255,255,.3);text-decoration:none;font-weight:700}
+.foot-links a:hover{color:rgba(255,255,255,.6)}
+.foot-dev{font-size:11px;color:rgba(255,255,255,.2)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:960px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:3rem 1.5rem}
+  .cursos,.sobre,.dep,.cta{padding:4rem 1.5rem}
+  .cursos-grid{grid-template-columns:1fr}
+  .sobre,.dep,.cta{grid-template-columns:1fr;gap:3rem}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo"><div class="logo-icon">🎨</div><span class="logo-text">Espaço <span>Criar</span></span></div>
+  <ul class="nav-links">
+    <li><a href="#cursos">Cursos</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contato">Inscrição</a></li>
+  </ul>
+  <button class="nav-cta">Inscrever agora</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-tag">🎓 Escola de artes e cursos livres</div>
+    <h1>APRENDA<br><span>FAZENDO,</span><br>CRESÇA CRIANDO</h1>
+    <p class="hero-sub">Cursos para crianças, jovens e adultos que querem desenvolver habilidades criativas num ambiente leve, divertido e incrível.</p>
+    <div class="hero-btns">
+      <button class="btn-ink">Ver todos os cursos</button>
+      <button class="btn-white">Aula experimental</button>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-cards">
+      <div class="hero-card featured">
+        <div class="hc-emoji">🎉</div>
+        <div><div class="hc-title">+1.200 alunos aprendendo</div><div class="hc-sub">em turmas presenciais e online</div></div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-emoji">🎨</div>
+        <div class="hc-title">Arte e Design</div>
+        <div class="hc-stat">+12</div>
+        <div class="hc-sub">Cursos ativos</div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-emoji">📸</div>
+        <div class="hc-title">Fotografia</div>
+        <div class="hc-stat">+8</div>
+        <div class="hc-sub">Turmas abertas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cursos" id="cursos">
+  <div class="sec-header reveal">
+    <div class="sec-tag-pill">Cursos disponíveis</div>
+    <h2 class="sec-title-fun">Aprenda o que<br>você <span>ama</span></h2>
+  </div>
+  <div class="cursos-grid">
+    <div class="curso-card reveal">
+      <div class="curso-top" style="background:#FEF3C7">🎨<div class="curso-nivel curso-cat">Arte Digital</div></div>
+      <div class="curso-body-c">
+        <div class="curso-name">Desenho e Ilustração Digital</div>
+        <p class="curso-desc">Do zero ao portfólio com Procreate e Illustrator. Para iniciantes e intermediários.</p>
+        <div class="curso-meta-c"><span class="cmc">📚 24 aulas</span><span class="cmc">⏱ 3 meses</span><span class="cmc">👥 Online</span></div>
+        <div class="curso-price-c">R$350<sub>/turma</sub></div>
+      </div>
+    </div>
+    <div class="curso-card reveal">
+      <div class="curso-top" style="background:#F0EAFF">📸<div class="curso-nivel" style="background:#F0EAFF;color:var(--purple)">Fotografia</div></div>
+      <div class="curso-body-c">
+        <div class="curso-name">Fotografia com celular</div>
+        <p class="curso-desc">Composição, luz e edição para criar fotos profissionais com o celular que você já tem.</p>
+        <div class="curso-meta-c"><span class="cmc">📚 16 aulas</span><span class="cmc">⏱ 6 semanas</span><span class="cmc">👥 Presencial</span></div>
+        <div class="curso-price-c">R$280<sub>/turma</sub></div>
+      </div>
+    </div>
+    <div class="curso-card reveal">
+      <div class="curso-top" style="background:#DBEAFE">🎭<div class="curso-nivel" style="background:#DBEAFE;color:#1553C7">Infantil</div></div>
+      <div class="curso-body-c">
+        <div class="curso-name">Arte infantil (5–12 anos)</div>
+        <p class="curso-desc">Pintura, colagem, argila e muito mais! Desenvolvimento criativo de forma lúdica.</p>
+        <div class="curso-meta-c"><span class="cmc">📚 Aulas semanais</span><span class="cmc">⏱ Semestral</span><span class="cmc">👥 Presencial</span></div>
+        <div class="curso-price-c">R$250<sub>/mês</sub></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sobre" id="sobre">
+  <div class="reveal">
+    <div class="sobre-title">Um espaço que<br><span>inspira</span> a criar</div>
+    <p class="sobre-text">Fundada em 2015, o Espaço Criar é uma escola de artes que acredita que criatividade é para todo mundo — de qualquer idade, qualquer nível.</p>
+    <div class="sobre-stats">
+      <div class="ss"><div class="ss-n">+1.2k</div><div class="ss-l">Alunos formados</div></div>
+      <div class="ss"><div class="ss-n">9 anos</div><div class="ss-l">No mercado</div></div>
+      <div class="ss"><div class="ss-n">25+</div><div class="ss-l">Cursos oferecidos</div></div>
+      <div class="ss"><div class="ss-n">4.9★</div><div class="ss-l">Google</div></div>
+    </div>
+  </div>
+  <div class="sobre-r reveal">
+    <div class="sobre-item"><span class="sobre-item-icon">🌟</span><div class="sobre-item-title">Professores apaixonados</div><p class="sobre-item-desc">Artistas e profissionais que amam ensinar e transmitem isso em cada aula.</p></div>
+    <div class="sobre-item"><span class="sobre-item-icon">🎯</span><div class="sobre-item-title">Turmas reduzidas</div><p class="sobre-item-desc">Máximo 12 alunos por turma para um aprendizado mais personalizado.</p></div>
+    <div class="sobre-item"><span class="sobre-item-icon">💻</span><div class="sobre-item-title">Presencial e online</div><p class="sobre-item-desc">Flexibilidade para aprender de onde você estiver, no seu ritmo.</p></div>
+  </div>
+</section>
+
+<section class="dep">
+  <div class="reveal"><div class="dep-l-title">Alunos que<br>amaram criar</div><p class="dep-l-sub">+1.200 histórias de transformação criativa</p></div>
+  <div class="dep-grid reveal">
+    <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"Nunca me achei artística. Depois do curso de ilustração, hoje vendo minhas artes online."</p><div class="dep-name">Mariana Costa</div><div class="dep-info">Ilustração Digital</div></div>
+    <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"Meu filho adora as aulas de arte. Vejo uma evolução incrível e ele mal espera pela semana."</p><div class="dep-name">Claudia Ferreira</div><div class="dep-info">Mãe de aluno · 7 anos</div></div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <div class="reveal">
+    <h2 class="cta-l-title">Sua jornada<br><span>criativa</span><br>começa aqui</h2>
+    <p class="cta-l-sub">Aula experimental gratuita para conhecer o espaço, a proposta e o professor antes de se inscrever.</p>
+    <div class="cta-items">
+      <div class="ci"><div class="ci-dot purple"></div>Aula experimental gratuita</div>
+      <div class="ci"><div class="ci-dot yellow"></div>Turmas presenciais e online</div>
+      <div class="ci"><div class="ci-dot green"></div>Materiais inclusos nos cursos</div>
+      <div class="ci"><div class="ci-dot orange"></div>Certificado de conclusão</div>
+    </div>
+  </div>
+  <div class="form-box reveal">
+    <div class="form-title">Quero me inscrever!</div>
+    <div class="form-sub">Primeira aula gratuita · Sem compromisso</div>
+    <div class="f-field"><label>Nome</label><input type="text" placeholder="Seu nome ou do aluno"></div>
+    <div class="f-field"><label>WhatsApp</label><input type="tel" placeholder="(00) 00000-0000"></div>
+    <div class="f-field"><label>Curso de interesse</label>
+      <select><option>Selecione...</option><option>Ilustração digital</option>
+      <option>Fotografia com celular</option><option>Arte infantil (5-12 anos)</option>
+      <option>Pintura acrílica</option><option>Design gráfico</option>
+      <option>Outro curso</option></select>
+    </div>
+    <button class="btn-form">Quero minha aula grátis 🎨</button>
+    <p class="form-note">Resposta em até 30 minutos · Cancele sem custo</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Espaço <span>Criar</span></div>
+  <div class="foot-links"><a href="#">Cursos</a><a href="#">Sobre</a><a href="#">Instagram</a><a href="#">Privacidade</a></div>
+  <div class="foot-dev">Desenvolvido por CodandoIdeias</div>
+</footer>
+<script>
+const r=document.querySelectorAll('.reveal');
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}})},{threshold:0.1});
+r.forEach(el=>o.observe(el));
+</script>
+</body>
+</html>

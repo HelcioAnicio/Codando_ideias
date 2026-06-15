@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduPro Academy — Cursos Online Profissionais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0A1F44;--navy-lt:#132D5E;--blue:#1553C7;--blue-lt:#3B72F0;
+  --blue-pale:#EEF4FF;--sky:#60A5FA;
+  --white:#FFFFFF;--off:#F8FAFF;--gray-50:#F9FAFB;
+  --gray-100:#F3F4F6;--gray-200:#E5E7EB;--gray-400:#9CA3AF;
+  --gray-600:#6B7280;--ink:#0F172A;--green:#10B981;--amber:#F59E0B;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden}
+
+nav{background:var(--white);border-bottom:1px solid var(--gray-200);padding:0 4rem;height:68px;
+  position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:34px;height:34px;background:var(--blue);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;font-size:16px}
+.logo-text{font-size:17px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.logo-text span{color:var(--blue)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--gray-600);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--blue)}
+.nav-actions{display:flex;gap:10px}
+.btn-ghost{padding:9px 18px;border:1.5px solid var(--gray-200);background:transparent;
+  color:var(--gray-600);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;
+  border-radius:8px;cursor:pointer;transition:all .2s}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn-blue{padding:9px 22px;background:var(--blue);color:var(--white);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;
+  border:none;border-radius:8px;cursor:pointer;transition:background .2s}
+.btn-blue:hover{background:var(--blue-lt)}
+
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-lt) 60%,#1A3A6E 100%);
+  padding:5rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-150px;right:-150px;
+  width:500px;height:500px;border-radius:50%;background:rgba(96,165,250,.06)}
+.hero-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.85);
+  border-radius:6px;padding:6px 14px;font-size:12px;font-weight:600;margin-bottom:1.5rem}
+.bdot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-size:clamp(36px,5.5vw,64px);font-weight:800;line-height:1.05;
+  letter-spacing:-.03em;color:var(--white);margin-bottom:1.2rem}
+h1 span{color:var(--sky)}
+.hero-sub{font-size:16px;font-weight:400;color:rgba(255,255,255,.7);
+  line-height:1.75;max-width:460px;margin-bottom:2.5rem}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-white{padding:14px 30px;border-radius:8px;background:var(--white);color:var(--blue);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;
+  border:none;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.btn-white:hover{transform:translateY(-1px)}
+.btn-outline-w{padding:14px 26px;border-radius:8px;background:rgba(255,255,255,.1);
+  color:var(--white);border:1.5px solid rgba(255,255,255,.25);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-outline-w:hover{background:rgba(255,255,255,.2)}
+.hero-social{display:flex;align-items:center;gap:10px}
+.proof-avs{display:flex}
+.proof-av{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.2);
+  border:2px solid rgba(255,255,255,.3);margin-left:-6px;display:flex;align-items:center;justify-content:center;font-size:12px}
+.proof-av:first-child{margin-left:0}
+.proof-txt{font-size:12px;color:rgba(255,255,255,.7)}
+.proof-txt strong{color:var(--white)}
+
+.hero-card{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:1.5rem}
+.hc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem}
+.hc-title{font-size:14px;font-weight:700;color:var(--white)}
+.hc-badge{background:var(--green);color:var(--ink);font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px}
+.hc-curso{background:rgba(255,255,255,.08);border-radius:10px;padding:1rem;margin-bottom:.75rem;cursor:pointer;transition:background .2s;display:flex;gap:.75rem;align-items:center}
+.hc-curso:hover{background:rgba(255,255,255,.14)}
+.hc-curso-icon{font-size:20px;flex-shrink:0}
+.hc-curso-name{font-size:13px;font-weight:600;color:var(--white)}
+.hc-curso-detail{font-size:11px;color:rgba(255,255,255,.5);margin-top:1px}
+.hc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.75rem}
+.hcs{background:rgba(255,255,255,.06);border-radius:8px;padding:.75rem;text-align:center}
+.hcs-n{font-size:20px;font-weight:800;color:var(--sky)}
+.hcs-l{font-size:10px;color:rgba(255,255,255,.45);margin-top:2px}
+
+.trust-bar{background:var(--gray-50);padding:1.25rem 4rem;
+  display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--gray-200);flex-wrap:wrap;gap:1rem}
+.trust-label{font-size:12px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:.08em}
+.trust-items{display:flex;gap:2.5rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--ink)}
+.trust-icon{color:var(--green)}
+
+.cursos{padding:6rem 4rem;background:var(--white)}
+.sec-h{margin-bottom:3.5rem}
+.sec-tag{display:inline-flex;align-items:center;gap:6px;background:var(--blue-pale);color:var(--blue);
+  border-radius:6px;padding:5px 12px;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem}
+.sec-t{font-size:clamp(26px,3.5vw,44px);font-weight:800;letter-spacing:-.025em;color:var(--ink);line-height:1.1}
+.sec-t span{color:var(--blue)}
+.cursos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.curso-card{background:var(--white);border:1.5px solid var(--gray-200);border-radius:14px;overflow:hidden;transition:all .25s}
+.curso-card:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 8px 24px rgba(21,83,199,.1)}
+.curso-img{height:160px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;font-size:48px;position:relative}
+.curso-nivel{position:absolute;top:1rem;right:1rem;
+  font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px}
+.nivel-init{background:#DBEAFE;color:var(--blue)}
+.nivel-inter{background:#D1FAE5;color:var(--green)}
+.nivel-avnc{background:#FEF3C7;color:var(--amber)}
+.curso-body{padding:1.25rem}
+.curso-cat{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:.4rem}
+.curso-name{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:.4rem;line-height:1.3}
+.curso-desc{font-size:13px;color:var(--gray-600);line-height:1.6;margin-bottom:.75rem}
+.curso-meta{display:flex;gap:1rem;margin-bottom:.75rem}
+.curso-meta-item{font-size:11px;color:var(--gray-400);display:flex;align-items:center;gap:4px}
+.curso-price{font-size:20px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.curso-price sub{font-size:11px;font-weight:400;color:var(--gray-400)}
+
+.por-que{background:var(--navy);padding:5rem 4rem;
+  display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:center}
+.pq-l-title{font-size:clamp(26px,3.5vw,42px);font-weight:800;letter-spacing:-.025em;color:var(--white);line-height:1.15}
+.pq-l-title span{color:var(--sky)}
+.pq-l-sub{font-size:15px;color:rgba(255,255,255,.6);line-height:1.75;margin-top:1rem}
+.pq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.pq-item{background:rgba(255,255,255,.06);border-radius:12px;padding:1.5rem}
+.pq-item-icon{font-size:24px;margin-bottom:.75rem;display:block}
+.pq-item-title{font-size:14px;font-weight:700;color:var(--white);margin-bottom:.3rem}
+.pq-item-desc{font-size:12px;color:rgba(255,255,255,.55);line-height:1.65}
+
+.dep{background:var(--gray-50);padding:5rem 4rem;
+  display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:center}
+.dep-l-title{font-size:26px;font-weight:800;letter-spacing:-.01em;color:var(--ink);line-height:1.2}
+.dep-l-sub{font-size:13px;color:var(--gray-400);margin-top:.75rem}
+.dep-stars{color:var(--amber);font-size:14px;letter-spacing:2px;margin-bottom:1.25rem}
+.dep-text{font-size:clamp(15px,2vw,20px);font-weight:400;font-style:italic;
+  color:var(--ink);line-height:1.65;margin-bottom:1.5rem}
+.dep-author strong{display:block;font-size:14px;font-weight:700;color:var(--ink)}
+.dep-author span{font-size:12px;color:var(--blue)}
+
+.cta{background:var(--white);padding:6rem 4rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.cta-l-title{font-size:clamp(28px,3.5vw,46px);font-weight:800;letter-spacing:-.025em;color:var(--ink);line-height:1.1;margin-bottom:1rem}
+.cta-l-title span{color:var(--blue)}
+.cta-l-sub{font-size:15px;color:var(--gray-600);line-height:1.75;margin-bottom:2rem}
+.cta-checks{display:flex;flex-direction:column;gap:.75rem}
+.cc{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ink)}
+.cc-check{color:var(--green);font-weight:700}
+.form-card{background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:14px;padding:2.5rem}
+.form-title{font-size:20px;font-weight:700;color:var(--ink);margin-bottom:.25rem}
+.form-sub{font-size:13px;color:var(--gray-600);margin-bottom:2rem}
+.f-field{margin-bottom:1rem}
+.f-field label{display:block;font-size:12px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.f-field input,.f-field select{width:100%;padding:11px 14px;border-radius:8px;
+  border:1.5px solid var(--gray-200);background:var(--white);
+  color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;
+  outline:none;transition:border-color .2s}
+.f-field input:focus,.f-field select:focus{border-color:var(--blue)}
+.f-field input::placeholder{color:var(--gray-400)}
+.btn-form{width:100%;padding:14px;border-radius:8px;background:var(--blue);color:var(--white);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;
+  border:none;cursor:pointer;transition:background .2s}
+.btn-form:hover{background:var(--blue-lt)}
+.form-note{font-size:11px;color:var(--gray-400);text-align:center;margin-top:.75rem}
+
+footer{background:var(--ink);padding:2.5rem 4rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-logo{font-size:15px;font-weight:800;color:rgba(255,255,255,.4);letter-spacing:-.01em}
+.foot-logo span{color:var(--sky)}
+.foot-links{display:flex;gap:2rem}
+.foot-links a{font-size:12px;color:rgba(255,255,255,.3);text-decoration:none}
+.foot-links a:hover{color:rgba(255,255,255,.6)}
+.foot-dev{font-size:11px;color:rgba(255,255,255,.15)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:960px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .hero{padding:3rem 1.5rem}
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .cursos,.por-que,.dep,.cta{padding:4rem 1.5rem}
+  .cursos-grid{grid-template-columns:1fr}
+  .por-que,.dep,.cta{grid-template-columns:1fr;gap:3rem}
+  .trust-bar{padding:1.25rem 1.5rem}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo"><div class="logo-icon">🎓</div><span class="logo-text">Edu<span>Pro</span> Academy</span></div>
+  <ul class="nav-links">
+    <li><a href="#cursos">Cursos</a></li>
+    <li><a href="#por-que">Por que nós</a></li>
+    <li><a href="#contato">Entrar</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-ghost">Já sou aluno</button>
+    <button class="btn-blue">Começar grátis</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><div class="bdot"></div>+15.000 alunos ativos na plataforma</div>
+      <h1>Aprenda o que o<br>mercado <span>precisa</span><br>de você agora</h1>
+      <p class="hero-sub">Cursos práticos com instrutores que trabalham no mercado. Certificado reconhecido, conteúdo atualizado e suporte real para sua evolução profissional.</p>
+      <div class="hero-cta">
+        <button class="btn-white">Ver todos os cursos</button>
+        <button class="btn-outline-w">Planos corporativos</button>
+      </div>
+      <div class="hero-social">
+        <div class="proof-avs">
+          <div class="proof-av">😊</div><div class="proof-av">💪</div>
+          <div class="proof-av">🌟</div><div class="proof-av">+</div>
+        </div>
+        <p class="proof-txt"><strong>+15k alunos</strong> evoluindo agora</p>
+      </div>
+    </div>
+    <div>
+      <div class="hero-card">
+        <div class="hc-header"><div class="hc-title">Cursos em destaque</div><div class="hc-badge">Novo</div></div>
+        <div class="hc-curso"><div class="hc-curso-icon">📊</div><div><div class="hc-curso-name">Excel Avançado para Negócios</div><div class="hc-curso-detail">28 aulas · 12h · Certificado</div></div></div>
+        <div class="hc-curso"><div class="hc-curso-icon">🎨</div><div><div class="hc-curso-name">UX/UI Design do zero</div><div class="hc-curso-detail">42 aulas · 22h · Projeto prático</div></div></div>
+        <div class="hc-curso"><div class="hc-curso-icon">💻</div><div><div class="hc-curso-name">Python para Análise de Dados</div><div class="hc-curso-detail">56 aulas · 30h · Portfólio incluso</div></div></div>
+        <div class="hc-stats">
+          <div class="hcs"><div class="hcs-n">+15k</div><div class="hcs-l">Alunos</div></div>
+          <div class="hcs"><div class="hcs-n">4.9★</div><div class="hcs-l">Avaliação</div></div>
+          <div class="hcs"><div class="hcs-n">120+</div><div class="hcs-l">Cursos</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <span class="trust-label">Por que escolher a EduPro</span>
+  <div class="trust-items">
+    <div class="trust-item"><span class="trust-icon">✓</span>Certificado reconhecido</div>
+    <div class="trust-item"><span class="trust-icon">✓</span>Instrutores do mercado</div>
+    <div class="trust-item"><span class="trust-icon">✓</span>Conteúdo atualizado mensalmente</div>
+    <div class="trust-item"><span class="trust-icon">✓</span>Suporte em até 24h</div>
+  </div>
+</div>
+
+<section class="cursos" id="cursos">
+  <div class="sec-h reveal">
+    <div class="sec-tag">Cursos populares</div>
+    <h2 class="sec-t">Aprenda habilidades<br>que o mercado <span>valoriza</span></h2>
+  </div>
+  <div class="cursos-grid">
+    <div class="curso-card reveal">
+      <div class="curso-img">📊<div class="curso-nivel nivel-inter">Intermediário</div></div>
+      <div class="curso-body">
+        <div class="curso-cat">Análise de dados</div>
+        <div class="curso-name">Excel Avançado para Negócios</div>
+        <p class="curso-desc">Dashboards, tabelas dinâmicas e automação com VBA para o dia a dia corporativo.</p>
+        <div class="curso-meta">
+          <span class="curso-meta-item">📚 28 aulas</span>
+          <span class="curso-meta-item">⏱ 12 horas</span>
+          <span class="curso-meta-item">🎓 Certificado</span>
+        </div>
+        <div class="curso-price">R$197<sub>/acesso vitalício</sub></div>
+      </div>
+    </div>
+    <div class="curso-card reveal">
+      <div class="curso-img">🎨<div class="curso-nivel nivel-init">Iniciante</div></div>
+      <div class="curso-body">
+        <div class="curso-cat">Design</div>
+        <div class="curso-name">UX/UI Design do zero ao portfólio</div>
+        <p class="curso-desc">Figma, design thinking e 3 projetos reais para compor seu portfólio profissional.</p>
+        <div class="curso-meta">
+          <span class="curso-meta-item">📚 42 aulas</span>
+          <span class="curso-meta-item">⏱ 22 horas</span>
+          <span class="curso-meta-item">🎓 Certificado</span>
+        </div>
+        <div class="curso-price">R$297<sub>/acesso vitalício</sub></div>
+      </div>
+    </div>
+    <div class="curso-card reveal">
+      <div class="curso-img">💻<div class="curso-nivel nivel-avnc">Avançado</div></div>
+      <div class="curso-body">
+        <div class="curso-cat">Programação</div>
+        <div class="curso-name">Python para Análise de Dados</div>
+        <p class="curso-desc">Pandas, visualizações e machine learning aplicados a casos reais de negócio.</p>
+        <div class="curso-meta">
+          <span class="curso-meta-item">📚 56 aulas</span>
+          <span class="curso-meta-item">⏱ 30 horas</span>
+          <span class="curso-meta-item">🎓 Certificado</span>
+        </div>
+        <div class="curso-price">R$397<sub>/acesso vitalício</sub></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="por-que" id="por-que">
+  <div class="reveal">
+    <div class="pq-l-title">Por que a<br><span>EduPro</span> é diferente</div>
+    <p class="pq-l-sub">Não fazemos cursos para encher catálogo. Cada curso tem profissional ativo no mercado ensinando o que realmente funciona.</p>
+  </div>
+  <div class="pq-grid reveal">
+    <div class="pq-item"><span class="pq-item-icon">👨‍💼</span><div class="pq-item-title">Instrutores do mercado</div><p class="pq-item-desc">Profissionais que trabalham nas maiores empresas do Brasil ensinando o que praticam.</p></div>
+    <div class="pq-item"><span class="pq-item-icon">🔄</span><div class="pq-item-title">Conteúdo sempre atual</div><p class="pq-item-desc">Revisamos e atualizamos o conteúdo mensalmente para acompanhar o mercado.</p></div>
+    <div class="pq-item"><span class="pq-item-icon">💬</span><div class="pq-item-title">Suporte real</div><p class="pq-item-desc">Tire dúvidas com o instrutor e com a comunidade. Resposta garantida em 24h.</p></div>
+    <div class="pq-item"><span class="pq-item-icon">📜</span><div class="pq-item-title">Certificado reconhecido</div><p class="pq-item-desc">Certificados validados por parceiros corporativos e aceitos em seleções de emprego.</p></div>
+  </div>
+</section>
+
+<section class="dep">
+  <div class="reveal"><div class="dep-l-title">O que nossos<br>alunos dizem</div><p class="dep-l-sub">+15.000 histórias de evolução profissional</p></div>
+  <div class="reveal">
+    <div class="dep-stars">★★★★★</div>
+    <p class="dep-text">"Fiz o curso de Python e em 3 meses fui promovido para analista sênior. O conteúdo é direto ao ponto — sem enrolação, tudo aplicável no dia seguinte."</p>
+    <div class="dep-author"><strong>Rafael Costa</strong><span>Curso Python · Analista promovido em 3 meses</span></div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <div class="reveal">
+    <h2 class="cta-l-title">Comece sua evolução<br><span>hoje</span></h2>
+    <p class="cta-l-sub">Acesso vitalício aos cursos, certificado digital e suporte da comunidade. Investimento que paga em semanas.</p>
+    <div class="cta-checks">
+      <div class="cc"><span class="cc-check">✓</span>Acesso vitalício ao curso</div>
+      <div class="cc"><span class="cc-check">✓</span>Certificado reconhecido incluído</div>
+      <div class="cc"><span class="cc-check">✓</span>Garantia de 7 dias ou reembolso</div>
+      <div class="cc"><span class="cc-check">✓</span>Atualizações gratuitas para sempre</div>
+    </div>
+  </div>
+  <div class="form-card reveal">
+    <div class="form-title">Começar agora</div>
+    <div class="form-sub">Crie sua conta gratuita em 30 segundos</div>
+    <div class="f-field"><label>Nome</label><input type="text" placeholder="Seu nome completo"></div>
+    <div class="f-field"><label>E-mail</label><input type="email" placeholder="seu@email.com"></div>
+    <div class="f-field"><label>Área de interesse</label>
+      <select><option>Selecione...</option><option>Análise de dados / Excel / Python</option>
+      <option>Design / UX / UI</option><option>Marketing digital / Social media</option>
+      <option>Gestão e liderança</option><option>Programação / Dev</option>
+      <option>Finanças e negócios</option></select>
+    </div>
+    <button class="btn-form">Criar minha conta grátis →</button>
+    <p class="form-note">🔒 Gratuito para explorar · Sem cartão de crédito</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Edu<span>Pro</span> Academy</div>
+  <div class="foot-links"><a href="#">Cursos</a><a href="#">Corporativo</a><a href="#">Blog</a><a href="#">Privacidade</a></div>
+  <div class="foot-dev">Desenvolvido por CodandoIdeias</div>
+</footer>
+<script>
+const r=document.querySelectorAll('.reveal');
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}})},{threshold:0.08});
+r.forEach(el=>o.observe(el));
+</script>
+</body>
+</html>

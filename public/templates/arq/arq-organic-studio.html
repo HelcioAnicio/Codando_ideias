@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raízes Arquitetura — Biofílica & Sustentável</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --forest:#1E3A28;--forest-lt:#2C5238;--forest-mid:#3D7050;
+  --forest-pale:#E8F0EA;--forest-accent:#68B87A;
+  --sand:#F0E8D8;--sand-dk:#DDD0B8;--cream:#FAF7EF;--cream-dk:#F2EAD8;
+  --white:#FFFFF8;--ink:#1A1A12;--muted:#7A7860;--muted-lt:#B0AE98;
+  --terra:#A85E38;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+nav{background:var(--cream);border-bottom:1px solid var(--sand-dk);padding:0 5rem;height:70px;
+  position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Fraunces',serif;font-size:20px;font-weight:300;color:var(--forest);letter-spacing:.04em}
+.logo em{font-style:italic}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:12px;font-weight:400;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--forest)}
+.nav-cta{padding:10px 24px;border:1px solid var(--forest);background:transparent;
+  color:var(--forest);font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:500;
+  cursor:pointer;transition:all .25s}
+.nav-cta:hover{background:var(--forest);color:var(--white)}
+
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr}
+.hero-l{background:var(--forest);display:flex;flex-direction:column;justify-content:flex-end;
+  padding:5rem;position:relative;overflow:hidden}
+.hero-l::before{content:'';position:absolute;top:-100px;right:-100px;
+  width:360px;height:360px;border-radius:50%;border:1px solid rgba(255,255,255,.05)}
+.hero-l-img{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.75rem;position:relative;z-index:1}
+.hero-l-img svg{opacity:.2}
+.hero-l-img p{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.hero-eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--forest-accent);
+  margin-bottom:1rem;position:relative;z-index:1;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--forest-accent)}
+h1{font-family:'Fraunces',serif;font-size:clamp(38px,5vw,62px);font-weight:300;
+  line-height:1.1;color:var(--white);margin-bottom:1.5rem;position:relative;z-index:1}
+h1 em{font-style:italic}
+.hero-sub{font-size:14px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.9;
+  max-width:360px;margin-bottom:2.5rem;position:relative;z-index:1}
+.hero-btns{display:flex;gap:10px;position:relative;z-index:1}
+.btn-cream{padding:14px 30px;background:var(--cream);color:var(--forest);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;
+  border:none;cursor:pointer;transition:all .25s}
+.btn-cream:hover{background:var(--sand)}
+.btn-ghost-w{padding:13px 28px;background:transparent;border:1px solid rgba(255,255,255,.2);
+  color:rgba(255,255,255,.7);font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:400;
+  cursor:pointer;transition:all .25s}
+.btn-ghost-w:hover{border-color:rgba(255,255,255,.5);color:var(--white)}
+
+.hero-r{background:var(--sand);display:flex;flex-direction:column;padding:5rem;justify-content:center}
+.hero-r-eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--forest);
+  margin-bottom:1.5rem;display:flex;align-items:center;gap:10px}
+.hero-r-eyebrow::before{content:'';width:24px;height:1px;background:var(--forest-accent)}
+.hero-r-title{font-family:'Fraunces',serif;font-size:clamp(28px,3.5vw,44px);
+  font-weight:300;color:var(--ink);line-height:1.2;margin-bottom:2rem}
+.hero-r-title em{font-style:italic;color:var(--forest)}
+.hero-pilares{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--sand-dk);margin-bottom:2.5rem}
+.pilar{padding:1.25rem 0;border-bottom:1px solid var(--sand-dk);display:flex;align-items:center;gap:1rem}
+.pilar-icon{font-size:20px;flex-shrink:0}
+.pilar-title{font-size:14px;font-weight:600;color:var(--forest)}
+.pilar-desc{font-size:12px;font-weight:300;color:var(--muted);margin-top:1px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.hs{background:var(--cream);padding:1.25rem;text-align:center}
+.hs-n{font-family:'Fraunces',serif;font-size:26px;font-weight:300;color:var(--forest)}
+.hs-l{font-size:10px;color:var(--muted);margin-top:3px}
+
+.portfolio{padding:7rem 5rem;background:var(--cream-dk)}
+.sec-tag{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);
+  margin-bottom:.75rem;display:flex;align-items:center;gap:10px}
+.sec-tag::before{content:'';width:24px;height:1px;background:var(--forest-accent)}
+.sec-title{font-family:'Fraunces',serif;font-size:clamp(28px,3.5vw,44px);font-weight:300;
+  color:var(--ink);line-height:1.15;margin-bottom:3.5rem}
+.sec-title em{font-style:italic;color:var(--forest)}
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.port-card{background:var(--cream);overflow:hidden;transition:transform .3s}
+.port-card:hover{transform:translateY(-4px)}
+.port-img{height:240px;background:var(--sand);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem}
+.port-img svg{opacity:.3}
+.port-img p{font-size:10px;letter-spacing:.1em;color:var(--muted)}
+.port-body{padding:1.5rem}
+.port-type{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--forest);margin-bottom:.5rem}
+.port-name{font-family:'Fraunces',serif;font-size:18px;font-weight:400;color:var(--ink);margin-bottom:.3rem}
+.port-sub{font-size:12px;font-weight:300;color:var(--muted)}
+.port-tags{display:flex;gap:.5rem;margin-top:.75rem;flex-wrap:wrap}
+.port-tag{font-size:10px;background:var(--forest-pale);color:var(--forest);padding:3px 10px;font-weight:600}
+
+.manifesto{padding:7rem 5rem;background:var(--forest);
+  display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center}
+.man-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--forest-accent);
+  margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.man-label::before{content:'';width:24px;height:1px;background:var(--forest-accent)}
+.man-title{font-family:'Fraunces',serif;font-size:clamp(28px,3.5vw,44px);
+  font-weight:300;color:var(--white);line-height:1.2}
+.man-title em{font-style:italic}
+.man-text{font-size:15px;font-weight:300;color:rgba(255,255,255,.65);
+  line-height:1.9;margin-top:1.25rem}
+.man-r{display:flex;flex-direction:column;gap:1.25rem}
+.man-item{background:rgba(255,255,255,.06);padding:1.5rem;border-left:2px solid var(--forest-accent)}
+.man-item-icon{font-size:22px;margin-bottom:.5rem;display:block}
+.man-item-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:.25rem}
+.man-item-desc{font-size:12px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.65}
+
+.dep{padding:7rem 5rem;background:var(--cream);
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.dep-img{background:var(--sand);height:400px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.75rem}
+.dep-img svg{opacity:.3}
+.dep-img p{font-size:10px;letter-spacing:.1em;color:var(--muted)}
+.dep-text{font-family:'Fraunces',serif;font-size:clamp(17px,2.2vw,23px);font-weight:300;
+  font-style:italic;color:var(--ink);line-height:1.65;margin-bottom:1.5rem}
+.dep-author strong{display:block;font-size:14px;font-weight:500;color:var(--ink)}
+.dep-author span{font-size:11px;color:var(--terra)}
+
+.cta{padding:7rem 5rem;background:var(--cream-dk);
+  display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center}
+.cta-l .sec-tag{margin-bottom:.75rem}
+.cta-l-title{font-family:'Fraunces',serif;font-size:clamp(28px,3.5vw,44px);font-weight:300;
+  color:var(--ink);line-height:1.2;margin-bottom:1.5rem}
+.cta-l-title em{font-style:italic;color:var(--forest)}
+.cta-l-sub{font-size:15px;font-weight:300;color:var(--muted);line-height:1.9}
+.cta-form{background:var(--cream);border-top:2px solid var(--forest);padding:2.5rem}
+.cta-form-title{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--ink);margin-bottom:.25rem}
+.cta-form-sub{font-size:12px;color:var(--muted);margin-bottom:1.75rem}
+.f-field{margin-bottom:1.25rem}
+.f-field label{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.f-field input,.f-field select{width:100%;padding:11px 0;background:transparent;
+  border:none;border-bottom:1px solid var(--sand-dk);color:var(--ink);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;outline:none;transition:border-color .2s}
+.f-field input::placeholder{color:var(--muted-lt)}
+.f-field input:focus,.f-field select:focus{border-bottom-color:var(--forest)}
+.f-field select option{background:var(--cream)}
+.btn-sub{width:100%;margin-top:1.5rem;padding:14px;background:var(--forest);color:var(--white);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;transition:background .25s}
+.btn-sub:hover{background:var(--forest-lt)}
+.f-note{font-size:10px;color:var(--muted-lt);text-align:center;margin-top:.75rem}
+
+footer{background:var(--forest);padding:2.5rem 5rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-brand{font-family:'Fraunces',serif;font-size:17px;font-weight:300;font-style:italic;color:rgba(255,255,255,.4)}
+.foot-links{display:flex;gap:2rem}
+.foot-links a{font-size:11px;color:rgba(255,255,255,.3);text-decoration:none}
+.foot-links a:hover{color:rgba(255,255,255,.6)}
+.foot-dev{font-size:11px;color:rgba(255,255,255,.15)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:960px){
+  nav{padding:0 1.5rem}.nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-l{min-height:60vh;padding:4rem 2rem}
+  .hero-r{padding:4rem 2rem}
+  .portfolio,.manifesto,.dep,.cta{padding:4rem 2rem}
+  .port-grid{grid-template-columns:1fr}
+  .manifesto,.dep,.cta{grid-template-columns:1fr;gap:3rem}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo"><em>Raízes</em> Arquitetura</div>
+  <ul class="nav-links">
+    <li><a href="#portfolio">Projetos</a></li>
+    <li><a href="#manifesto">Filosofia</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <button class="nav-cta">Falar sobre projeto</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-l-img">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#68B87A" stroke-width="1">
+        <path d="M24 4C18 12 10 18 10 26a14 14 0 0028 0c0-8-8-14-14-22z"/>
+        <path d="M24 20v12M18 26l6 6 6-6" stroke-linecap="round"/>
+      </svg>
+      <p>Foto do projeto</p>
+    </div>
+    <div class="hero-eyebrow">Arquitetura biofílica · SP</div>
+    <h1>Espaços que<br>respiram com<br>você <em>dentro</em></h1>
+    <p class="hero-sub">Projetamos ambientes que integram natureza, luz e materialidade para criar lugares onde você realmente quer estar.</p>
+    <div class="hero-btns">
+      <button class="btn-cream">Ver projetos</button>
+      <button class="btn-ghost-w">Nossa filosofia</button>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-r-eyebrow">O que nos guia</div>
+    <div class="hero-r-title">Arquitetura que<br>respeita o <em>lugar</em></div>
+    <div class="hero-pilares">
+      <div class="pilar"><div class="pilar-icon">🌿</div><div><div class="pilar-title">Biofilia</div><p class="pilar-desc">Conexão com a natureza em cada decisão projetual</p></div></div>
+      <div class="pilar"><div class="pilar-icon">☀️</div><div><div class="pilar-title">Luz natural</div><p class="pilar-desc">Orientação solar e ventilação como pilares do projeto</p></div></div>
+      <div class="pilar"><div class="pilar-icon">🌱</div><div><div class="pilar-title">Materialidade</div><p class="pilar-desc">Madeira, pedra e materiais naturais com baixo impacto</p></div></div>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-n">+60</div><div class="hs-l">Projetos</div></div>
+      <div class="hs"><div class="hs-n">10</div><div class="hs-l">Anos de estúdio</div></div>
+      <div class="hs"><div class="hs-n">LEED</div><div class="hs-l">Certificados</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <p class="sec-tag reveal">Portfólio</p>
+  <h2 class="sec-title reveal">Projetos que <em>respeitam</em><br>o contexto</h2>
+  <div class="port-grid">
+    <div class="port-card reveal">
+      <div class="port-img"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#3D7050" stroke-width="1"><path d="M16 3L3 12v17h26V12L16 3z"/><rect x="10" y="19" width="12" height="10"/></svg><p>Foto do projeto</p></div>
+      <div class="port-body">
+        <div class="port-type">Residencial</div>
+        <div class="port-name">Casa Serra da Cantareira</div>
+        <div class="port-sub">280m² · Mairiporã, SP · 2024</div>
+        <div class="port-tags"><span class="port-tag">Madeira estrutural</span><span class="port-tag">Cobertura verde</span></div>
+      </div>
+    </div>
+    <div class="port-card reveal">
+      <div class="port-img"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#3D7050" stroke-width="1"><path d="M16 3L3 12v17h26V12L16 3z"/><rect x="10" y="19" width="12" height="10"/></svg><p>Foto do projeto</p></div>
+      <div class="port-body">
+        <div class="port-type">Comercial</div>
+        <div class="port-name">Escritório Biofílico Vila Olímpia</div>
+        <div class="port-sub">180m² · São Paulo · 2023</div>
+        <div class="port-tags"><span class="port-tag">Jardim interno</span><span class="port-tag">Certificado LEED</span></div>
+      </div>
+    </div>
+    <div class="port-card reveal">
+      <div class="port-img"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#3D7050" stroke-width="1"><path d="M16 3L3 12v17h26V12L16 3z"/><rect x="10" y="19" width="12" height="10"/></svg><p>Foto do projeto</p></div>
+      <div class="port-body">
+        <div class="port-type">Interiores</div>
+        <div class="port-name">Apartamento Higienópolis</div>
+        <div class="port-sub">130m² · São Paulo · 2024</div>
+        <div class="port-tags"><span class="port-tag">Materiais naturais</span><span class="port-tag">Luz natural</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="manifesto" id="manifesto">
+  <div class="reveal">
+    <div class="man-label">Nossa filosofia</div>
+    <div class="man-title">Construir bem<br>é construir para<br><em>durar</em></div>
+    <p class="man-text">Acreditamos que a melhor arquitetura é aquela que melhora com o tempo — que respeita o clima, usa os materiais certos e cria ambientes que o corpo e a mente reconhecem como acolhedores.</p>
+  </div>
+  <div class="man-r reveal">
+    <div class="man-item"><span class="man-item-icon">🌿</span><div class="man-item-title">Biofilia integrada</div><p class="man-item-desc">Vegetação, água e elementos naturais como parte estrutural do projeto, não decoração.</p></div>
+    <div class="man-item"><span class="man-item-icon">☀️</span><div class="man-item-title">Eficiência energética</div><p class="man-item-desc">Orientação solar, ventilação cruzada e materiais passivos que reduzem até 40% do consumo.</p></div>
+    <div class="man-item"><span class="man-item-icon">🪵</span><div class="man-item-title">Materiais com história</div><p class="man-item-desc">Madeiras certificadas, pedras naturais e materiais de baixo impacto ambiental e alta durabilidade.</p></div>
+  </div>
+</section>
+
+<section class="dep">
+  <div class="dep-img reveal">
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#3D7050" stroke-width="1"><path d="M18 3L4 13v21h28V13L18 3z"/><rect x="11" y="22" width="14" height="12"/></svg>
+    <p>Foto do projeto entregue</p>
+  </div>
+  <div class="reveal">
+    <div class="sec-tag" style="margin-bottom:1.5rem">Depoimento</div>
+    <p class="dep-text">"A Raízes trouxe algo que eu não conseguia articular: uma casa que parece viva. A luz, as plantas, os materiais — tudo faz sentido junto. Dois anos depois, continua parecendo nova."</p>
+    <div class="dep-author"><strong>Cláudia Zanotti</strong><span>Casa em Mairiporã · 2022</span></div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <div class="cta-l reveal">
+    <div class="sec-tag">Iniciar projeto</div>
+    <h2 class="cta-l-title">Seu projeto começa<br>com uma <em>escuta</em></h2>
+    <p class="cta-l-sub">Antes de qualquer risca no papel, queremos entender o lugar, a luz, a vida que vai acontecer ali. A primeira reunião é nossa.</p>
+  </div>
+  <div class="cta-form reveal">
+    <div class="cta-form-title">Falar sobre seu projeto</div>
+    <div class="cta-form-sub">Primeira reunião gratuita · São Paulo e região</div>
+    <div class="f-field"><label>Nome</label><input type="text" placeholder="Seu nome"></div>
+    <div class="f-field"><label>E-mail</label><input type="email" placeholder="seu@email.com"></div>
+    <div class="f-field"><label>Tipo de projeto</label>
+      <select><option>Selecione...</option><option>Residência — construção</option>
+      <option>Residência — reforma</option><option>Interiores</option>
+      <option>Projeto comercial</option><option>Consultoria sustentável</option></select>
+    </div>
+    <div class="f-field"><label>Localização e área aproximada</label>
+      <input type="text" placeholder="Ex: Pinheiros, 200m²">
+    </div>
+    <button class="btn-sub">Enviar para o estúdio</button>
+    <p class="f-note">Respondemos em até 48h · Reunião presencial ou online</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-brand">Raízes Arquitetura</div>
+  <div class="foot-links"><a href="#">Projetos</a><a href="#">Estúdio</a><a href="#">Sustentabilidade</a><a href="#">Privacidade</a></div>
+  <div class="foot-dev">Desenvolvido por CodandoIdeias</div>
+</footer>
+<script>
+const r=document.querySelectorAll('.reveal');
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}})},{threshold:0.08});
+r.forEach(el=>o.observe(el));
+</script>
+</body>
+</html>
