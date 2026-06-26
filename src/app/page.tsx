@@ -21,7 +21,7 @@ export default function Home() {
         {/* <StudioAuthorityShowcase /> */}
         <VisibilidadeCta />
         <Services />
-        <StudioPlans />
+        {/* <StudioPlans /> */}
         <Steps />
         <StudioFaq />
         {/* <Cost /> */}
