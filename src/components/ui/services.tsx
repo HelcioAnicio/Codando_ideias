@@ -412,7 +412,7 @@ export const Services = () => {
           <ul className="m-auto grid grid-cols-1 content-center gap-5 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
             {cards.map((card, index) => (
               <li key={index} className="h-full max-w-md">
-                <Card className="h-full rounded-md border-transparent bg-secondary py-2 text-foreground transition-all duration-200 hover:border hover:border-popover-foreground/50">
+                <Card className="h-full rounded-md border border-amber-300/20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-2 text-foreground transition-all duration-200 hover:border-amber-300/40">
                   <CardHeader className="py-4">
                     <CardTitle className="flex w-full items-center gap-3 text-xl text-secondary-foreground md:text-2xl">
                       {card.icon}
