@@ -64,7 +64,7 @@ export const PorQueSite = () => {
           {razoes.map((razao) => (
             <div
               key={razao.titulo}
-              className="flex flex-col gap-4 rounded-2xl border border-amber-300/20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6 transition-all duration-200 hover:border-amber-300/40"
+              className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:border-popover-foreground/20 hover:bg-white/[0.045]"
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-amber-300/20 bg-amber-300/5">
                 {razao.icon}
@@ -77,17 +77,6 @@ export const PorQueSite = () => {
           ))}
         </div>
 
-        {/* Destaque central */}
-        <div className="mt-12 rounded-3xl border border-amber-300/20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8 text-center md:p-12">
-          <p className="mx-auto max-w-2xl text-xl font-bold leading-snug md:text-2xl">
-            &ldquo;Um site não é custo. É o único vendedor que trabalha{" "}
-            <span className="text-amber-300">24h por dia, 7 dias por semana</span>
-            , sem salário, sem férias e sem reclamar.&rdquo;
-          </p>
-          <p className="mt-4 text-sm text-slate-500">
-            E abaixo você pode descobrir exatamente quanto está deixando de faturar sem um.
-          </p>
-        </div>
       </div>
     </section>
   );
