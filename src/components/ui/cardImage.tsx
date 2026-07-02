@@ -91,11 +91,11 @@ export const CardImage = () => {
             } `}
           >
             <Link
-              href="/simulacao"
+              href="https://wa.me/5531991973835?text=Olá,+quero+solicitar+um+orçamento!"
               className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500 px-10 py-3 text-sm font-bold uppercase transition-all duration-200 hover:bg-yellow-500/90"
             >
               <Sparkles size={15} />
-              Simule seu site gratuitamente
+              Solicitar orçamento
             </Link>
           </div>
         </div>
@@ -147,11 +147,11 @@ export const CardImage = () => {
           } `}
         >
           <Link
-            href="/simulacao"
+            href="https://wa.me/5531991973835?text=Olá,+quero+solicitar+um+orçamento!"
             className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500 px-5 py-3 text-sm font-bold uppercase transition-all duration-200 hover:bg-yellow-500/90"
           >
             <Sparkles size={14} />
-            Simule seu site gratuitamente
+            Solicitar orçamento
           </Link>
         </div>
         {/* {!buttonVisible && ( */}

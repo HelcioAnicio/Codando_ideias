@@ -37,7 +37,7 @@ export const StudioFaq = () => {
           {faqs.map((faq, index) => (
             <details
               key={faq.question}
-              className="group w-full rounded-2xl border border-amber-300/20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 transition-all duration-200 hover:border-amber-300/40"
+              className="group w-full rounded-2xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:border-popover-foreground/20 hover:bg-white/[0.045]"
               open={index === 0}
             >
               <summary className="flex w-full cursor-pointer list-none items-center justify-between gap-4 p-6 text-lg font-bold">
