@@ -45,14 +45,6 @@ export const Header = () => {
               </li>
               <li className="relative">
                 <Link
-                  href="/#planos"
-                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
-                >
-                  Planos
-                </Link>
-              </li>
-              <li className="relative">
-                <Link
                   href="#services"
                   className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
                 >
@@ -122,11 +114,6 @@ export const Header = () => {
                         <SheetClose asChild>
                           <Link href="/#projects">Projetos</Link>
                         </SheetClose>{" "}
-                      </li>
-                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                        <SheetClose asChild>
-                          <Link href="/#planos">Planos</Link>
-                        </SheetClose>
                       </li>
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>

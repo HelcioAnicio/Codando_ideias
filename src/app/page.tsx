@@ -9,6 +9,7 @@ import { Services } from "@/components/ui/services";
 import { StudioFaq } from "@/components/ui/studio-faq";
 // import { StudioPlans } from "@/components/ui/studioplans";
 import { VisibilidadeCta } from "@/components/ui/visibilidade-cta";
+import { PorQueSite } from "@/components/ui/por-que-site";
 // import { StudioAuthorityShowcase } from "@/components/ui/studio-authority-showcase";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
         <CardImage />
         <ListProjects />
         {/* <StudioAuthorityShowcase /> */}
+        <PorQueSite />
         <VisibilidadeCta />
         <Services />
         {/* <StudioPlans /> */}
