@@ -5,7 +5,6 @@ import Image from "next/image";
 import {
   ArrowLeft,
   ArrowRight,
-  BriefcaseMedical,
   Calculator,
   Car,
   Droplets,
@@ -13,11 +12,11 @@ import {
   PawPrint,
   Scale,
   Scissors,
-  ShoppingBag,
   Sprout,
   Tractor,
 } from "lucide-react";
 import { GiDelicatePerfume } from "react-icons/gi";
+import { MdSpa } from "react-icons/md";
 import { ButtonGeral } from "./buttonGeral";
 
 const projects = [
@@ -41,22 +40,22 @@ const projects = [
     },
   },
   {
-    name: "Advogado Lessa",
+    name: "João Victor Barbearia",
     description:
-      "Portal estratégico para revalidação de diplomas estrangeiros, com UX focada em clareza processual e conversão de leads qualificados.",
-    href: "https://www.advogadolessa-diplomas.com.br/",
-    imageSrc: "/lessaDiplomas.png",
-    icon: <Scale className="h-5 w-5" />,
+      "Site premium para barbearia tradicional, com identidade visual de luxo em preto e dourado e sistema de agendamento online.",
+    href: "https://joao-victor-barbearia.vercel.app/",
+    imageSrc: "/joaoVictorBarbearia.png",
+    icon: <Scissors className="h-5 w-5" />,
     preview: {
-      label: "Landing Page",
-      title: "Revalidação no Brasil",
+      label: "Barbearia",
+      title: "Desde 2011",
     },
     palette: {
-      surface: "from-[#232323] via-[#171717] to-[#101010]",
-      badge: "bg-[#4a3320] text-[#ffce70]",
-      iconBox: "border-[#dba83a]/30 bg-white/10 text-[#e1af2c]",
-      previewTitle: "text-white/90",
-      previewDots: "bg-white/45",
+      surface: "from-[#0a0a0a] via-[#111111] to-[#0a0a0a]",
+      badge: "bg-[#78350f] text-[#fcd34d]",
+      iconBox: "border-[#d97706]/30 bg-white/10 text-[#d97706]",
+      previewTitle: "text-amber-300/90",
+      previewDots: "bg-amber-400/60",
     },
   },
   {
@@ -74,6 +73,25 @@ const projects = [
       surface: "from-[#edf6ea] via-[#e5f4e8] to-[#F3F3F3]",
       badge: "bg-[#C15B75] text-foreground",
       iconBox: "border-[#D12061]/35 bg-white/40 text-[#D12061]",
+      previewTitle: "text-slate-900/80",
+      previewDots: "bg-slate-500/35",
+    },
+  },
+  {
+    name: "Aisthésis Estética",
+    description:
+      "Site institucional premium para clínica de estética e pilates em Caxias do Sul, com foco em autoridade, agendamento e conversão de pacientes.",
+    href: "https://aisthesis-estetica.vercel.app/",
+    imageSrc: "/aisthesis.png",
+    icon: <MdSpa className="h-5 w-5" />,
+    preview: {
+      label: "Estética",
+      title: "Realce sua beleza",
+    },
+    palette: {
+      surface: "from-[#e0f2f1] via-[#b2dfdb] to-[#e0f2f1]",
+      badge: "bg-[#00695c] text-white",
+      iconBox: "border-[#00897b]/35 bg-white/40 text-[#00897b]",
       previewTitle: "text-slate-900/80",
       previewDots: "bg-slate-500/35",
     },
@@ -98,59 +116,21 @@ const projects = [
     },
   },
   {
-    name: "Ecommerce FSW",
+    name: "Bicho Mania",
     description:
-      "Plataforma de e-commerce moderna com checkout seguro via Stripe e autenticação social, focada em escala e conversão.",
-    href: "https://ecommerce-fsw-weld.vercel.app/",
-    imageSrc: "/eccomerce.png",
-    icon: <ShoppingBag className="h-5 w-5" />,
+      "Presença digital completa para pet shop com banho & tosa e clínica veterinária, focada em atração local e agendamento via WhatsApp.",
+    href: "https://bicho-mania.vercel.app/",
+    imageSrc: "/bichoMania.png",
+    icon: <PawPrint className="h-5 w-5" />,
     preview: {
-      label: "Store",
-      title: "Ofertas imperdíveis",
+      label: "Pet Shop",
+      title: "Seu pet em boas mãos",
     },
     palette: {
-      surface: "from-[#131218] via-[#171420] to-[#1e1830]",
-      badge: "bg-[#33245f] text-[#ffffff]",
-      iconBox: "border-[#8c68ff]/30 bg-white/10 text-[#7a55ff]",
-      previewTitle: "text-white/90",
-      previewDots: "bg-white/45",
-    },
-  },
-  {
-    name: "Clínica Monguilhott",
-    description:
-      "Presença digital premium para saúde, com foco em autoridade clínica, leveza visual e captação de pacientes.",
-    href: "https://monguilho-dental.vercel.app/",
-    imageSrc: "/monguilo.png",
-    icon: <BriefcaseMedical className="h-5 w-5" />,
-    preview: {
-      label: "Saúde",
-      title: "Tratamento discreto",
-    },
-    palette: {
-      surface: "from-[#c7f5ea] via-[#F7EBEE] to-[#F7EBEE]",
-      badge: "bg-[#7ee2d4] text-[#0c5046]",
-      iconBox: "border-[#5be5d2]/35 bg-white/40 text-[#08b8a5]",
-      previewTitle: "text-slate-900/70",
-      previewDots: "bg-slate-500/35",
-    },
-  },
-  {
-    name: "Karen Martins",
-    description:
-      "Plataforma de autoridade para nutricionista, voltada para converter visitantes em pacientes com design acolhedor e profissional.",
-    href: "https://karen-martins-nutricionista.vercel.app/",
-    imageSrc: "/karenMartins.png",
-    icon: <Sprout className="h-5 w-5" />,
-    preview: {
-      label: "Nutrição",
-      title: "Gestação segura",
-    },
-    palette: {
-      surface: "from-[#f5ece3] via-[#fbf3eb] to-[#f4e9dd]",
-      badge: "bg-[#ead9c6] text-[#705840]",
-      iconBox: "border-[#caa989]/35 bg-white/40 text-[#8a6a49]",
-      previewTitle: "text-slate-900/75",
+      surface: "from-[#e0f2fe] via-[#bae6fd] to-[#e0f2fe]",
+      badge: "bg-[#0284c7] text-white",
+      iconBox: "border-[#0ea5e9]/35 bg-white/40 text-[#0284c7]",
+      previewTitle: "text-slate-900/80",
       previewDots: "bg-slate-500/35",
     },
   },
@@ -174,39 +154,20 @@ const projects = [
     },
   },
   {
-    name: "João Victor Barbearia",
+    name: "Desentupidora Caxias",
     description:
-      "Site premium para barbearia tradicional, com identidade visual de luxo em preto e dourado e sistema de agendamento online.",
-    href: "https://joao-victor-barbearia.vercel.app/",
-    imageSrc: "/joaoVictorBarbearia.png",
-    icon: <Scissors className="h-5 w-5" />,
+      "Landing page de urgência para desentupidora 24h, com foco em resposta imediata, prova social e conversão via WhatsApp e ligação.",
+    href: "https://desentupidora-caxias.vercel.app/",
+    imageSrc: "/desentupidoraCaxias.png",
+    icon: <Droplets className="h-5 w-5" />,
     preview: {
-      label: "Barbearia",
-      title: "Desde 2011",
+      label: "Serviços",
+      title: "Resolve hoje",
     },
     palette: {
-      surface: "from-[#0a0a0a] via-[#111111] to-[#0a0a0a]",
-      badge: "bg-[#78350f] text-[#fcd34d]",
-      iconBox: "border-[#d97706]/30 bg-white/10 text-[#d97706]",
-      previewTitle: "text-amber-300/90",
-      previewDots: "bg-amber-400/60",
-    },
-  },
-  {
-    name: "Bicho Mania",
-    description:
-      "Presença digital completa para pet shop com banho & tosa e clínica veterinária, focada em atração local e agendamento via WhatsApp.",
-    href: "https://bicho-mania.vercel.app/",
-    imageSrc: "/bichoMania.png",
-    icon: <PawPrint className="h-5 w-5" />,
-    preview: {
-      label: "Pet Shop",
-      title: "Seu pet em boas mãos",
-    },
-    palette: {
-      surface: "from-[#e0f2fe] via-[#bae6fd] to-[#e0f2fe]",
-      badge: "bg-[#0284c7] text-white",
-      iconBox: "border-[#0ea5e9]/35 bg-white/40 text-[#0284c7]",
+      surface: "from-[#f0fdf4] via-[#dcfce7] to-[#f0fdf4]",
+      badge: "bg-[#065f46] text-[#6ee7b7]",
+      iconBox: "border-[#059669]/35 bg-white/40 text-[#059669]",
       previewTitle: "text-slate-900/80",
       previewDots: "bg-slate-500/35",
     },
@@ -231,22 +192,41 @@ const projects = [
     },
   },
   {
-    name: "Desentupidora Caxias",
+    name: "Karen Martins",
     description:
-      "Landing page de urgência para desentupidora 24h, com foco em resposta imediata, prova social e conversão via WhatsApp e ligação.",
-    href: "https://desentupidora-caxias.vercel.app/",
-    imageSrc: "/desentupidoraCaxias.png",
-    icon: <Droplets className="h-5 w-5" />,
+      "Plataforma de autoridade para nutricionista, voltada para converter visitantes em pacientes com design acolhedor e profissional.",
+    href: "https://karen-martins-nutricionista.vercel.app/",
+    imageSrc: "/karenMartins.png",
+    icon: <Sprout className="h-5 w-5" />,
     preview: {
-      label: "Serviços",
-      title: "Resolve hoje",
+      label: "Nutrição",
+      title: "Gestação segura",
     },
     palette: {
-      surface: "from-[#f0fdf4] via-[#dcfce7] to-[#f0fdf4]",
-      badge: "bg-[#065f46] text-[#6ee7b7]",
-      iconBox: "border-[#059669]/35 bg-white/40 text-[#059669]",
-      previewTitle: "text-slate-900/80",
+      surface: "from-[#f5ece3] via-[#fbf3eb] to-[#f4e9dd]",
+      badge: "bg-[#ead9c6] text-[#705840]",
+      iconBox: "border-[#caa989]/35 bg-white/40 text-[#8a6a49]",
+      previewTitle: "text-slate-900/75",
       previewDots: "bg-slate-500/35",
+    },
+  },
+  {
+    name: "Advogado Lessa",
+    description:
+      "Portal estratégico para revalidação de diplomas estrangeiros, com UX focada em clareza processual e conversão de leads qualificados.",
+    href: "https://www.advogadolessa-diplomas.com.br/",
+    imageSrc: "/lessaDiplomas.png",
+    icon: <Scale className="h-5 w-5" />,
+    preview: {
+      label: "Landing Page",
+      title: "Revalidação no Brasil",
+    },
+    palette: {
+      surface: "from-[#232323] via-[#171717] to-[#101010]",
+      badge: "bg-[#4a3320] text-[#ffce70]",
+      iconBox: "border-[#dba83a]/30 bg-white/10 text-[#e1af2c]",
+      previewTitle: "text-white/90",
+      previewDots: "bg-white/45",
     },
   },
 ] as const;
