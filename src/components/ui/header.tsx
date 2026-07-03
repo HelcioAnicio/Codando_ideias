@@ -69,10 +69,10 @@ export const Header = () => {
               </li>
               <li>
                 <Link
-                  href="https://wa.me/5531991973835?text=Olá,+quero+um+site+para+o+meu+negócio!"
+                  href="/#calculadora"
                   className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500/10 px-5 py-3 text-sm font-bold uppercase text-yellow-400 transition-all duration-200 hover:scale-[1.02] hover:bg-yellow-500/20"
                 >
-                  site pro meu negocio
+                  Calcular potencial
                 </Link>
               </li>
             </ul>
@@ -146,10 +146,10 @@ export const Header = () => {
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300">
                         <SheetClose asChild>
                           <Link
-                            href="https://wa.me/5531991973835?text=Olá,+quero+um+site+para+o+meu+negócio!"
+                            href="/#calculadora"
                             className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500/10 px-5 py-3 text-sm font-bold uppercase text-yellow-400 transition-all duration-200 hover:scale-[1.02] hover:bg-yellow-500/20"
                           >
-                            site pro meu negocio
+                            Calcular potencial
                           </Link>
                         </SheetClose>
                       </li>
