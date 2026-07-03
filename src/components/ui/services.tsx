@@ -393,7 +393,7 @@ export const Services = () => {
 
       <section
         className="relative z-30 flex w-full justify-center pt-10"
-        id="#services"
+        id="services"
       >
         <article className="flex max-w-6xl flex-col gap-20 px-2 min-[400px]:px-5 sm:px-7 lg:px-2">
           <div className="flex flex-col gap-5">

@@ -5,7 +5,7 @@ import { TrendingUp, Search, ArrowRight } from "lucide-react";
 
 export const VisibilidadeCta = () => {
   return (
-    <section className="w-full px-4 py-14 xl:px-0">
+    <section id="calculadora" className="w-full px-4 py-14 xl:px-0">
       <div className="mx-auto max-w-6xl">
         <div className="relative overflow-hidden rounded-3xl border border-amber-300/20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-2 py-14 text-center shadow-2xl md:px-16">
           {/* Glow background */}
