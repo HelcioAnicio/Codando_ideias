@@ -3,9 +3,39 @@ import { ButtonGeral } from "./buttonGeral";
 
 const faqs = [
   {
+    question: "Quanto custa um site?",
+    answer:
+      "Varia conforme o tipo de projeto — uma landing page custa menos que um site institucional completo ou um sistema sob medida. Manda uma mensagem contando o que você precisa e te passamos um orçamento sem compromisso.",
+  },
+  {
     question: "Quanto tempo leva para desenvolver um site?",
     answer:
       "Landing pages costumam levar de 3 a 7 dias. Projetos maiores, como e-commerce e sistemas, variam de 4 a 12 semanas conforme escopo.",
+  },
+  {
+    question: "Preciso já ter domínio e hospedagem contratados?",
+    answer:
+      "Não. Se você ainda não tem, orientamos e ajudamos na contratação do domínio (ex: seunegocio.com.br) e da hospedagem antes do site entrar no ar.",
+  },
+  {
+    question: "Já tenho um site — dá pra só melhorar ele, sem refazer tudo?",
+    answer:
+      "Sim. Fazemos tanto projetos do zero quanto redesign e melhorias pontuais (performance, visual, SEO) em sites que já existem.",
+  },
+  {
+    question: "Não tenho fotos nem textos prontos, vocês ajudam com o conteúdo?",
+    answer:
+      "Ajudamos a estruturar os textos e organizar as informações do seu negócio durante o briefing. O ideal é você ter pelo menos os dados básicos (serviços, diferenciais, contato) — o resto a gente lapida junto com você.",
+  },
+  {
+    question: "Depois de pronto, eu consigo editar o site sozinho?",
+    answer:
+      "Depende do tipo de projeto: alguns saem com painel de edição simples para você trocar textos e imagens, outros são entregues como página estática. Definimos isso junto com você no orçamento, conforme sua necessidade.",
+  },
+  {
+    question: "Vocês atendem só Belo Horizonte ou todo o Brasil?",
+    answer:
+      "Atendemos empresas e autônomos de todo o Brasil — o processo é 100% remoto, do briefing à entrega, com alinhamento por WhatsApp e videochamada.",
   },
   {
     question: "Vocês fazem manutenção após a entrega?",
@@ -13,9 +43,9 @@ const faqs = [
       "Sim. Podemos seguir com manutenção contínua, ajustes, monitoramento e melhorias evolutivas depois do lançamento.",
   },
   {
-    question: "O site será otimizado para celulares?",
+    question: "O site será otimizado para celulares e para aparecer no Google?",
     answer:
-      "Sim. Todo o layout é pensado para mobile first, preservando leitura, navegação e performance em telas menores.",
+      "Sim. Todo o layout é pensado mobile first, e aplicamos boas práticas de SEO on-page (velocidade, estrutura, meta tags) para ajudar seu site a ser encontrado no Google.",
   },
 ];
 

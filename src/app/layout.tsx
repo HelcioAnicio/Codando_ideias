@@ -35,23 +35,70 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Criamos sites profissionais, landing pages e sistemas web para pequenas empresas e autônomos em todo o Brasil. Mais clientes, mais autoridade, mais resultado.",
+    "Criamos sites profissionais, landing pages e sistemas web para pequenas empresas e autônomos em todo o Brasil. Mais visibilidade no Google, mais autoridade, mais clientes.",
 
   keywords: [
+    // Serviço principal
     "criação de sites",
+    "criação de sites profissionais",
+    "desenvolvimento de sites",
+    "desenvolvimento web",
+    "agência de sites",
+    "empresa de criação de sites",
+    "programador freelancer",
+    "desenvolvedor freelancer",
     "landing page profissional",
+    "criação de landing page",
+    "sistema web sob medida",
+    "sistema web para empresas",
+    "loja virtual simples",
+    "site institucional",
+    "manutenção de site",
+
+    // Intenção / dor do cliente
     "site para pequenas empresas",
+    "site para pequenos negócios",
+    "site para autônomos",
+    "quanto custa um site profissional",
+    "como aparecer no Google",
+    "como ter mais clientes pelo Google",
+    "meu negócio não aparece no Google",
+    "site que traz clientes",
+    "site que converte",
+    "presença digital para pequenas empresas",
+    "marketing digital para pequenas empresas",
+    "SEO para pequenas empresas",
+    "site otimizado para Google",
+    "site responsivo",
+
+    // Segmentos atendidos
     "site para clínica",
+    "site para clínica odontológica",
+    "site para psicólogo",
+    "site para nutricionista",
+    "site para fisioterapeuta",
+    "site para personal trainer",
+    "site para academia",
+    "site para salão de beleza",
+    "site para barbearia",
     "site para restaurante",
     "site para advogado",
+    "site para escritório de advocacia",
     "site para médico",
+    "site para contador",
+    "site para pet shop",
+    "site para imobiliária",
+    "site para loja",
     "site para coach",
-    "sistema web",
-    "desenvolvimento web",
-    "site barato",
-    "agência de sites",
-    "presença digital",
+
+    // Marca / geografia
+    "Codando Ideias",
     "site profissional Brasil",
+    "criação de sites Belo Horizonte",
+    "desenvolvedor web Belo Horizonte",
+    "criação de sites Minas Gerais",
+    "diagnóstico de visibilidade online grátis",
+    "calculadora de clientes perdidos",
   ],
 
   authors: [{ name: "Codando Ideias", url: "https://codandoideias.com.br" }],
@@ -99,6 +146,25 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Codando Ideias",
+  url: "https://codandoideias.com.br",
+  image: "https://codandoideias.com.br/logo2.svg",
+  description:
+    "Criação de sites profissionais, landing pages e sistemas web para pequenas empresas e autônomos em todo o Brasil.",
+  areaServed: "BR",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Belo Horizonte",
+    addressRegion: "MG",
+    addressCountry: "BR",
+  },
+  sameAs: ["https://www.instagram.com/dev.helcioanicio"],
+  priceRange: "$$",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -109,6 +175,10 @@ export default function RootLayout({
       <body
         className={`${limelight.variable} dark font-franklin ${geistMono.variable} ${libreFranklin.variable} font-sans antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
 
         <Suspense fallback={null}>
