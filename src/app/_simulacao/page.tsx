@@ -3,8 +3,12 @@ import { SimulacaoGrid } from "@/components/ui/simulacao-grid";
 import { templateSegmentos } from "@/data/template-catalog";
 
 export const metadata = {
-  title: "Modelos — Codando Ideias",
-  description: "Veja os modelos de site disponíveis para o seu segmento.",
+  title: "Modelos de Site por Segmento — Codando Ideias",
+  description:
+    "Veja modelos de site prontos por segmento — clínicas, restaurantes, advogados, salões e mais — e escolha o estilo ideal para o seu negócio.",
+  alternates: {
+    canonical: "https://codandoideias.com.br/simulacao",
+  },
 };
 
 const WA_LINK =
