@@ -83,8 +83,16 @@ function StepSegmento({
 
       {/* Busca */}
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" size={16} />
+        <label htmlFor="busca-segmento" className="sr-only">
+          Buscar segmento
+        </label>
+        <Search
+          className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"
+          size={16}
+          aria-hidden="true"
+        />
         <input
+          id="busca-segmento"
           type="text"
           placeholder="Buscar segmento..."
           value={search}
@@ -100,6 +108,7 @@ function StepSegmento({
             <button
               key={s.id}
               type="button"
+              aria-pressed={value === s.id}
               onClick={() => onChange(s.id, s.nome)}
               className={[
                 "rounded-xl border px-4 py-3 text-left text-sm font-medium transition-all",
@@ -108,12 +117,12 @@ function StepSegmento({
                   : "border-white/10 bg-slate-800 text-slate-300 hover:border-amber-300/40 hover:text-white",
               ].join(" ")}
             >
-              <span className="text-xs text-slate-500">{s.categoria}</span>
+              <span className="text-xs text-slate-400">{s.categoria}</span>
               <p>{s.nome}</p>
             </button>
           ))}
           {filtered.length === 0 && (
-            <p className="col-span-3 py-4 text-center text-sm text-slate-500">
+            <p className="col-span-3 py-4 text-center text-sm text-slate-400">
               Nenhum segmento encontrado.
             </p>
           )}
@@ -128,22 +137,28 @@ function StepSegmento({
             >
               <button
                 type="button"
+                aria-expanded={expandedCat === cat.id}
+                aria-controls={`categoria-${cat.id}`}
                 onClick={() =>
                   setExpandedCat(expandedCat === cat.id ? null : cat.id)
                 }
                 className="flex w-full items-center justify-between px-5 py-4 text-left font-semibold text-white"
               >
                 <span className="flex items-center gap-2">
-                  <span>{cat.icon}</span> {cat.nome}
+                  <span aria-hidden="true">{cat.icon}</span> {cat.nome}
                 </span>
                 <ChevronDown
                   size={16}
+                  aria-hidden="true"
                   className={`text-slate-400 transition-transform ${expandedCat === cat.id ? "rotate-180" : ""}`}
                 />
               </button>
 
               {expandedCat === cat.id && (
-                <div className="grid grid-cols-1 gap-2 border-t border-white/10 p-3 sm:grid-cols-2">
+                <div
+                  id={`categoria-${cat.id}`}
+                  className="grid grid-cols-1 gap-2 border-t border-white/10 p-3 sm:grid-cols-2"
+                >
                   {cat.segmentos.map((seg) => {
                     const hasDados = segmentosDados.some((s) => s.id === seg.id);
                     return (
@@ -151,6 +166,7 @@ function StepSegmento({
                         key={seg.id}
                         type="button"
                         disabled={!hasDados}
+                        aria-pressed={value === seg.id}
                         onClick={() => {
                           onChange(seg.id, seg.nome);
                         }}
@@ -164,7 +180,7 @@ function StepSegmento({
                         ].join(" ")}
                       >
                         {value === seg.id && (
-                          <Check size={12} className="mr-1 inline text-amber-300" />
+                          <Check size={12} aria-hidden="true" className="mr-1 inline text-amber-300" />
                         )}
                         {seg.nome}
                       </button>
@@ -183,7 +199,7 @@ function StepSegmento({
         onClick={onNext}
         className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 py-4 font-bold text-slate-950 transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40"
       >
-        Continuar <ArrowRight size={16} />
+        Continuar <ArrowRight size={16} aria-hidden="true" />
       </button>
     </div>
   );
@@ -216,6 +232,7 @@ function StepEstado({
           <button
             key={est.sigla}
             type="button"
+            aria-pressed={value === est.sigla}
             onClick={() => onChange(est.sigla, est.nome)}
             className={[
               "flex flex-col items-center rounded-xl border py-3 text-sm font-medium transition-all",
@@ -236,7 +253,7 @@ function StepEstado({
           onClick={onBack}
           className="flex items-center gap-2 rounded-xl border border-white/10 px-6 py-4 font-semibold text-slate-300 transition hover:bg-white/5"
         >
-          <ArrowLeft size={16} /> Voltar
+          <ArrowLeft size={16} aria-hidden="true" /> Voltar
         </button>
         <button
           type="button"
@@ -244,7 +261,7 @@ function StepEstado({
           onClick={onNext}
           className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 py-4 font-bold text-slate-950 transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40"
         >
-          Continuar <ArrowRight size={16} />
+          Continuar <ArrowRight size={16} aria-hidden="true" />
         </button>
       </div>
     </div>
@@ -286,10 +303,17 @@ function StepTicket({
           <strong>{formatCurrency(defaultTicket)}</strong>
         </p>
         <div className="relative">
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-slate-400">
+          <label htmlFor="ticket-medio" className="sr-only">
+            Ticket médio (opcional)
+          </label>
+          <span
+            aria-hidden="true"
+            className="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-slate-400"
+          >
             R$
           </span>
           <input
+            id="ticket-medio"
             type="number"
             min={1}
             placeholder={String(defaultTicket)}
@@ -306,14 +330,14 @@ function StepTicket({
           onClick={onBack}
           className="flex items-center gap-2 rounded-xl border border-white/10 px-6 py-4 font-semibold text-slate-300 transition hover:bg-white/5"
         >
-          <ArrowLeft size={16} /> Voltar
+          <ArrowLeft size={16} aria-hidden="true" /> Voltar
         </button>
         <button
           type="button"
           onClick={onNext}
           className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 py-4 font-bold text-slate-950 transition hover:brightness-110"
         >
-          Continuar <ArrowRight size={16} />
+          Continuar <ArrowRight size={16} aria-hidden="true" />
         </button>
       </div>
     </div>
@@ -382,62 +406,107 @@ function StepContato({
       <div className="flex flex-col gap-3">
         {/* Nome */}
         <div className="flex flex-col gap-1">
+          <label htmlFor="contato-nome" className="sr-only">
+            Seu nome
+          </label>
           <div className="relative">
-            <User className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={16} />
+            <User
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"
+              size={16}
+              aria-hidden="true"
+            />
             <input
+              id="contato-nome"
               type="text"
               placeholder="Seu nome"
               value={form.nome}
               onChange={(e) => onChange("nome", e.target.value)}
               onBlur={() => blur("nome")}
+              aria-invalid={Boolean(touched.nome && errors.nome)}
+              aria-describedby={
+                touched.nome && errors.nome ? "erro-nome" : undefined
+              }
               className={fieldClass("nome")}
             />
           </div>
           {touched.nome && errors.nome && (
-            <p className="ml-1 text-xs text-red-400">{errors.nome}</p>
+            <p id="erro-nome" className="ml-1 text-xs text-red-400">
+              {errors.nome}
+            </p>
           )}
         </div>
 
         {/* Email */}
         <div className="flex flex-col gap-1">
+          <label htmlFor="contato-email" className="sr-only">
+            Seu e-mail
+          </label>
           <div className="relative">
-            <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={16} />
+            <Mail
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"
+              size={16}
+              aria-hidden="true"
+            />
             <input
+              id="contato-email"
               type="email"
               placeholder="Seu e-mail"
               value={form.email}
               onChange={(e) => onChange("email", e.target.value)}
               onBlur={() => blur("email")}
+              aria-invalid={Boolean(touched.email && errors.email)}
+              aria-describedby={
+                touched.email && errors.email ? "erro-email" : undefined
+              }
               className={fieldClass("email")}
             />
           </div>
           {touched.email && errors.email && (
-            <p className="ml-1 text-xs text-red-400">{errors.email}</p>
+            <p id="erro-email" className="ml-1 text-xs text-red-400">
+              {errors.email}
+            </p>
           )}
         </div>
 
         {/* Telefone */}
         <div className="flex flex-col gap-1">
+          <label htmlFor="contato-telefone" className="sr-only">
+            Celular / WhatsApp com DDD
+          </label>
           <div className="relative">
-            <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={16} />
+            <Phone
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"
+              size={16}
+              aria-hidden="true"
+            />
             <input
+              id="contato-telefone"
               type="tel"
               placeholder="Celular / WhatsApp (com DDD)"
               value={form.telefone}
               onChange={(e) => onChange("telefone", e.target.value)}
               onBlur={() => blur("telefone")}
+              aria-invalid={Boolean(touched.telefone && errors.telefone)}
+              aria-describedby={
+                touched.telefone && errors.telefone ? "erro-telefone" : undefined
+              }
               className={fieldClass("telefone")}
             />
           </div>
           {touched.telefone && errors.telefone && (
-            <p className="ml-1 text-xs text-red-400">{errors.telefone}</p>
+            <p id="erro-telefone" className="ml-1 text-xs text-red-400">
+              {errors.telefone}
+            </p>
           )}
         </div>
       </div>
 
       {/* Erro de envio (ex: falha de rede) */}
       {submitError && (
-        <div className="flex items-start gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+        <div
+          role="alert"
+          className="flex items-start gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300"
+        >
           <span className="mt-0.5 text-base leading-none">⚠</span>
           <div>
             <p className="font-semibold">Não foi possível enviar</p>
@@ -446,7 +515,7 @@ function StepContato({
         </div>
       )}
 
-      <p className="text-xs text-slate-600">
+      <p className="text-xs text-slate-400">
         🔒 Seu e-mail não será usado para envio de promoções ou newsletters.
         Os dados servem apenas para gerar e personalizar o seu diagnóstico.
       </p>
@@ -457,7 +526,7 @@ function StepContato({
           onClick={onBack}
           className="flex items-center gap-2 rounded-xl border border-white/10 px-6 py-4 font-semibold text-slate-300 transition hover:bg-white/5"
         >
-          <ArrowLeft size={16} /> Voltar
+          <ArrowLeft size={16} aria-hidden="true" /> Voltar
         </button>
         <button
           type="button"
@@ -470,12 +539,15 @@ function StepContato({
         >
           {loading ? (
             <span className="flex items-center gap-2">
-              <span className="h-4 w-4 animate-spin rounded-full border-2 border-slate-900 border-t-transparent" />
+              <span
+                aria-hidden="true"
+                className="h-4 w-4 animate-spin rounded-full border-2 border-slate-900 border-t-transparent"
+              />
               Calculando...
             </span>
           ) : (
             <>
-              <Sparkles size={16} /> Ver meu diagnóstico
+              <Sparkles size={16} aria-hidden="true" /> Ver meu diagnóstico
             </>
           )}
         </button>
@@ -526,7 +598,7 @@ function StepResultado({ form }: { form: FormState }) {
       {/* Cards de métricas */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div className="flex flex-col gap-1 rounded-2xl border border-white/10 bg-slate-800 p-6 text-center">
-          <Search className="mx-auto mb-2 text-slate-400" size={24} />
+          <Search className="mx-auto mb-2 text-slate-400" size={24} aria-hidden="true" />
           <span className="text-3xl font-black text-white">
             {formatNumber(buscas)}
           </span>
@@ -536,7 +608,7 @@ function StepResultado({ form }: { form: FormState }) {
         </div>
 
         <div className="flex flex-col gap-1 rounded-2xl border border-white/10 bg-slate-800 p-6 text-center">
-          <TrendingUp className="mx-auto mb-2 text-slate-400" size={24} />
+          <TrendingUp className="mx-auto mb-2 text-slate-400" size={24} aria-hidden="true" />
           <span className="text-3xl font-black text-white">
             {formatNumber(leadsAlcancados)}
           </span>
@@ -546,7 +618,7 @@ function StepResultado({ form }: { form: FormState }) {
         </div>
 
         <div className="flex flex-col gap-2 rounded-2xl border border-amber-300/30 bg-amber-300/5 p-6 text-center">
-          <DollarSign className="mx-auto mb-2 text-amber-300" size={24} />
+          <DollarSign className="mx-auto mb-2 text-amber-300" size={24} aria-hidden="true" />
           <span className="text-3xl font-black text-amber-300">
             {formatCurrency(receitaEstimada)}
           </span>
@@ -595,7 +667,7 @@ function StepResultado({ form }: { form: FormState }) {
             </span>
           </li>
         </ol>
-        <p className="mt-4 text-xs text-slate-500">
+        <p className="mt-4 text-xs text-slate-400">
           * Estimativa conservadora baseada em dados médios de mercado. Resultados
           reais variam conforme SEO, qualidade do site e sazonalidade.
         </p>
@@ -623,9 +695,9 @@ function StepResultado({ form }: { form: FormState }) {
       {/* Voltar */}
       <Link
         href="/"
-        className="flex items-center justify-center gap-1 text-sm text-slate-500 transition hover:text-slate-300"
+        className="flex items-center justify-center gap-1 text-sm text-slate-400 transition hover:text-slate-300"
       >
-        <ArrowLeft size={14} /> Voltar para o início
+        <ArrowLeft size={14} aria-hidden="true" /> Voltar para o início
       </Link>
     </div>
   );
@@ -644,10 +716,15 @@ const STEPS: { id: Step; label: string; icon: React.ReactNode }[] = [
 function ProgressBar({ current }: { current: Step }) {
   const currentIdx = STEPS.findIndex((s) => s.id === current);
   return (
-    <div className="flex items-center gap-2">
+    <div
+      className="flex items-center gap-2"
+      role="list"
+      aria-label="Progresso do formulário"
+    >
       {STEPS.map((step, i) => (
-        <div key={step.id} className="flex items-center gap-2">
+        <div key={step.id} className="flex items-center gap-2" role="listitem">
           <div
+            aria-current={i === currentIdx ? "step" : undefined}
             className={[
               "flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold transition-all",
               i < currentIdx
@@ -657,18 +734,21 @@ function ProgressBar({ current }: { current: Step }) {
                 : "border border-white/10 bg-slate-800 text-slate-600",
             ].join(" ")}
           >
-            {i < currentIdx ? <Check size={12} /> : step.icon}
+            <span aria-hidden="true">
+              {i < currentIdx ? <Check size={12} /> : step.icon}
+            </span>
           </div>
           <span
             className={[
-              "hidden text-xs font-medium sm:block",
-              i === currentIdx ? "text-white" : "text-slate-600",
+              "sr-only text-xs font-medium sm:not-sr-only sm:block",
+              i === currentIdx ? "text-white" : "text-slate-400",
             ].join(" ")}
           >
             {step.label}
           </span>
           {i < STEPS.length - 1 && (
             <div
+              aria-hidden="true"
               className={[
                 "h-px w-8 transition-all",
                 i < currentIdx ? "bg-amber-400/60" : "bg-white/10",
@@ -732,7 +812,7 @@ export default function CalculadoraPage() {
             href="/"
             className="flex items-center gap-1.5 text-sm text-slate-400 transition hover:text-white"
           >
-            <ArrowLeft size={14} /> Voltar
+            <ArrowLeft size={14} aria-hidden="true" /> Voltar
           </Link>
           <p className="text-xs font-semibold uppercase tracking-widest text-amber-300/60">
             Diagnóstico de Visibilidade

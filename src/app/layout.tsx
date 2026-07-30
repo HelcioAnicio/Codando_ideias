@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://codandoideias.com.br"),
 
   title: {
-    default: "Codando Ideias | Sites e Sistemas para Pequenas Empresas",
+    default: "Codando Ideias | Sites e Sistemas para Empresas",
     template: "%s | Codando Ideias",
   },
 
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Criamos sites profissionais, landing pages e sistemas web para pequenas empresas e autônomos em todo o Brasil. Mais visibilidade no Google, mais autoridade, mais clientes.",
+    "Criamos sites profissionais, landing pages e sistemas web para empresas e autônomos em todo o Brasil. Mais visibilidade no Google, mais autoridade, mais clientes.",
 
   keywords: [
     // Serviço principal
@@ -110,9 +110,9 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "https://codandoideias.com.br",
     siteName: "Codando Ideias",
-    title: "Codando Ideias | Sites e Sistemas para Pequenas Empresas",
+    title: "Codando Ideias | Sites e Sistemas para Empresas",
     description:
-      "Sites profissionais, landing pages e sistemas web para pequenas empresas e autônomos. Atendemos todo o Brasil.",
+      "Sites profissionais, landing pages e sistemas web para empresas e autônomos. Atendemos todo o Brasil.",
     images: [
       {
         url: "/og-image.png",
@@ -125,9 +125,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Codando Ideias | Sites e Sistemas para Pequenas Empresas",
+    title: "Codando Ideias | Sites e Sistemas para Empresas",
     description:
-      "Sites profissionais, landing pages e sistemas web para pequenas empresas e autônomos em todo o Brasil.",
+      "Sites profissionais, landing pages e sistemas web para empresas e autônomos em todo o Brasil.",
   },
 
   robots: {
@@ -153,7 +153,7 @@ const jsonLd = {
   url: "https://codandoideias.com.br",
   image: "https://codandoideias.com.br/logo2.svg",
   description:
-    "Criação de sites profissionais, landing pages e sistemas web para pequenas empresas e autônomos em todo o Brasil.",
+    "Criação de sites profissionais, landing pages e sistemas web para empresas e autônomos em todo o Brasil.",
   areaServed: "BR",
   address: {
     "@type": "PostalAddress",

@@ -40,15 +40,20 @@ export const Footer = () => {
               </div>
             </li>
             <li className="mt-10 flex flex-wrap items-center gap-4">
-              <Image className="w-40 lg:w-52" src={Logo2} alt="Logo" />
+              <Image className="w-40 lg:w-52" src={Logo2} alt="Codando Ideias" />
 
               <Link
                 href="https://www.instagram.com/dev.helcioanicio"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="relative z-10 flex items-center gap-1 underline decoration-popover-foreground underline-offset-4 transition-transform duration-200 hover:-translate-y-2 hover:scale-105"
               >
-                <FaInstagram className="rounded-lg bg-gradient-to-tr from-[#F59618] via-[#F7085C] to-[#E11CAE] p-1 text-3xl text-foreground" />
+                <FaInstagram
+                  aria-hidden="true"
+                  className="rounded-lg bg-gradient-to-tr from-[#F59618] via-[#F7085C] to-[#E11CAE] p-1 text-3xl text-foreground"
+                />
                 @dev.helcioanicio
+                <span className="sr-only"> (abre em nova aba)</span>
               </Link>
             </li>
           </ul>
