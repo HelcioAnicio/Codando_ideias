@@ -16,7 +16,7 @@ export const VisibilidadeCta = () => {
 
           <div className="relative z-10 flex flex-col items-center gap-6">
             <div className="flex items-center gap-2 rounded-full border border-amber-300/30 bg-amber-300/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-amber-300">
-              <Search size={12} />
+              <Search size={12} aria-hidden="true" />
               Diagnóstico gratuito
             </div>
 
@@ -37,9 +37,9 @@ export const VisibilidadeCta = () => {
                 href="/calculadora"
                 className="flex items-center gap-2 rounded-xl bg-yellow-500 px-7 py-4 font-bold shadow-lg transition-all duration-200 hover:scale-[1.03] hover:brightness-110"
               >
-                <TrendingUp size={18} />
+                <TrendingUp size={18} aria-hidden="true" />
                 Calcular meu potencial
-                <ArrowRight size={16} />
+                <ArrowRight size={16} aria-hidden="true" />
               </Link>
               <p className="text-xs text-foreground/60">
                 100% gratuito · resultado na hora · sem compromisso
@@ -57,7 +57,7 @@ export const VisibilidadeCta = () => {
                   <span className="text-2xl font-black text-amber-300">
                     {stat.value}
                   </span>
-                  <span className="text-xs text-slate-500">{stat.label}</span>
+                  <span className="text-xs text-slate-400">{stat.label}</span>
                 </div>
               ))}
             </div>

@@ -393,7 +393,7 @@ export const ListProjects = () => {
                           <h3 className="mb-3 text-[2rem] font-bold leading-tight text-popover-foreground">
                             {project.name}
                           </h3>
-                          <p className="text-primary/68 mb-6 flex-1 text-base leading-8">
+                          <p className="mb-6 flex-1 text-base leading-8 text-slate-300">
                             {project.description}
                           </p>
 

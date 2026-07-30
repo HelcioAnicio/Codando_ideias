@@ -94,14 +94,14 @@ export const CardImage = () => {
               href="https://wa.me/5531991973835?text=Olá,+quero+solicitar+um+orçamento!"
               className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500 px-10 py-3 text-sm font-bold uppercase transition-all duration-200 hover:bg-yellow-500/90"
             >
-              <Sparkles size={15} />
+              <Sparkles size={15} aria-hidden="true" />
               Solicitar orçamento
             </Link>
           </div>
         </div>
 
         <div className="absolute bottom-[10%] right-0 h-[60%] w-2/3 sm:right-4 sm:top-0 sm:h-full sm:w-1/2">
-          <div className="relative h-full w-full" aria-hidden="true">
+          <div className="relative h-full w-full">
             <Image
               src="/profile.jpg"
               alt="Foto de perfil do profissional"
@@ -117,7 +117,6 @@ export const CardImage = () => {
                   ? "translate-x-0 opacity-100 blur-none"
                   : "translate-x-full opacity-0 blur-sm"
               }`}
-              aria-label="Card Autoridade Digital"
             >
               <div className="mb-2 flex items-center gap-3 sm:mb-3">
                 <div className="rounded-lg bg-secondary/20 p-1.5 sm:p-2">
@@ -150,20 +149,23 @@ export const CardImage = () => {
             href="https://wa.me/5531991973835?text=Olá,+quero+solicitar+um+orçamento!"
             className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500 px-5 py-3 text-sm font-bold uppercase transition-all duration-200 hover:bg-yellow-500/90"
           >
-            <Sparkles size={14} />
+            <Sparkles size={14} aria-hidden="true" />
             Solicitar orçamento
           </Link>
         </div>
         {/* {!buttonVisible && ( */}
         <Link
           href="https://wa.me/5531991973835?text=Olá,+quero+falar+com+um+especialista!"
+          aria-label="Falar com um especialista no WhatsApp"
+          aria-hidden={!(isInitialized && !buttonVisible)}
+          tabIndex={isInitialized && !buttonVisible ? 0 : -1}
           className={`fixed bottom-4 right-2 z-50 flex w-max items-center gap-1 rounded-full bg-green-800 bg-gradient-to-br from-green-500 to-green-800 p-4 shadow-[0_0_20px] shadow-green-300 hover:scale-105 2xl:right-[15%] ${isInitialized ? "transition-all duration-500 ease-in-out" : "transition-none"} ${
             isInitialized && !buttonVisible
               ? "pointer-events-auto translate-x-0 opacity-100 blur-none"
               : "pointer-events-none translate-x-40 opacity-0 blur-sm"
           } `}
         >
-          <FaWhatsapp className="size-6 min-[400px]:size-9" />
+          <FaWhatsapp aria-hidden="true" className="size-6 min-[400px]:size-9" />
         </Link>
       </div>
     </section>

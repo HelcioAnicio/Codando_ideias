@@ -19,12 +19,11 @@ export const ButtonGeral = ({
       : "bg-transparent border border-secondary-foreground text-foreground hover:bg-accent/5";
 
   return (
-    <Link href={link} className="mt-4">
-      <button
-        className={`w-full whitespace-normal rounded-lg px-4 py-4 text-sm font-bold uppercase tracking-wider shadow-lg transition-all lg:text-base ${buttonStyle} ${classes}`}
-      >
-        {text}
-      </button>
+    <Link
+      href={link}
+      className={`mt-4 inline-block w-full whitespace-normal rounded-lg px-4 py-4 text-center text-sm font-bold uppercase tracking-wider shadow-lg outline-none transition-all focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:text-base ${buttonStyle} ${classes}`}
+    >
+      {text}
     </Link>
   );
 };

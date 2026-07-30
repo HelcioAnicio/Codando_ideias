@@ -34,12 +34,12 @@ export const Steps = () => {
             </span>
           </div>
 
-          <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
+          <h2 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
             Como seu site é <br className="hidden md:block" />
             <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
               construído.
             </span>
-          </h1>
+          </h2>
         </article>
 
         <ul className="relative mx-auto grid grid-cols-1 flex-col-reverse justify-items-center gap-10 pb-24 sm:grid-cols-2 sm:gap-x-5 lg:grid-cols-2">
@@ -227,7 +227,7 @@ export const Steps = () => {
                 <span className="text-white transition-colors duration-300 group-hover:text-amber-400">
                   {item.icon}
                 </span>
-                <span className="text-[11px] font-semibold uppercase tracking-widest text-slate-500 transition-colors duration-300 group-hover:text-slate-200">
+                <span className="text-[11px] font-semibold uppercase tracking-widest text-slate-400 transition-colors duration-300 group-hover:text-slate-200">
                   {item.name}
                 </span>
               </li>

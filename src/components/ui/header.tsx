@@ -23,7 +23,7 @@ export const Header = () => {
     <header className="fixed top-0 z-50 flex w-full justify-center border-none bg-background font-franklin font-bold shadow-none">
       <Card className="w-full max-w-6xl rounded-t-none border-none bg-background px-5 shadow-none">
         <div className="m-auto flex max-w-6xl items-center justify-between py-4">
-          <Image className="w-40 lg:w-52" src={Logo2} alt="Logo" />
+          <Image className="w-40 lg:w-52" src={Logo2} alt="Codando Ideias" />
 
           <nav className="hidden lg:block">
             <ul className="flex items-center gap-7">
@@ -79,14 +79,14 @@ export const Header = () => {
           </nav>
           <div className="flex items-center gap-10 lg:hidden">
             <Sheet>
-              <SheetTrigger>
+              <SheetTrigger asChild>
                 <Button
-                  asChild
                   variant="outline"
                   size="icon"
                   className="border-none"
+                  aria-label="Abrir menu de navegação"
                 >
-                  <Menu size={16} />
+                  <Menu size={16} aria-hidden="true" />
                 </Button>
               </SheetTrigger>
               <SheetContent
@@ -98,7 +98,7 @@ export const Header = () => {
                     {/* {theme === "light" ? ( */}
                     {/* <Image className="w-40 lg:w-52" src={Logo3} alt="Logo" /> */}
                     {/* ) : ( */}
-                    <Image className="w-40 lg:w-52" src={Logo2} alt="Logo" />
+                    <Image className="w-40 lg:w-52" src={Logo2} alt="Codando Ideias" />
                     {/* )} */}
                   </SheetTitle>
                 </SheetHeader>
@@ -135,10 +135,15 @@ export const Header = () => {
                           <Link
                             href="https://www.instagram.com/dev.helcioanicio"
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="relative z-10 flex items-center gap-1 underline decoration-popover-foreground underline-offset-4 transition-transform duration-200 hover:-translate-y-1 hover:scale-105"
                           >
-                            <FaInstagram className="rounded-lg bg-gradient-to-tr from-[#F59618] via-[#F7085C] to-[#E11CAE] p-1 text-3xl text-foreground" />
+                            <FaInstagram
+                              aria-hidden="true"
+                              className="rounded-lg bg-gradient-to-tr from-[#F59618] via-[#F7085C] to-[#E11CAE] p-1 text-3xl text-foreground"
+                            />
                             @dev.helcioanicio
+                            <span className="sr-only"> (abre em nova aba)</span>
                           </Link>
                         </SheetClose>
                       </li>

@@ -13,7 +13,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { HiMiniRocketLaunch } from "react-icons/hi2";
 import { FaCartShopping, FaCheck } from "react-icons/fa6";
 // import { GiPuzzle } from "react-icons/gi";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { FaArrowDown } from "react-icons/fa";
 import { ButtonGeral } from "./buttonGeral";
 
@@ -34,17 +34,39 @@ interface ModalProps {
 }
 
 export const ModalData = ({ data, onClose }: ModalProps) => {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    closeButtonRef.current?.focus();
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") onClose();
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
   return (
     <div
-      id="services"
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm duration-200 animate-in fade-in"
+      onClick={onClose}
     >
-      <ul className="relative flex h-[550px] w-full max-w-6xl flex-col overflow-hidden rounded-xl border border-slate-700 bg-[#1e293b] text-white shadow-2xl sm:flex-row">
+      <ul
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="service-modal-title"
+        onClick={(event) => event.stopPropagation()}
+        className="relative flex h-[550px] w-full max-w-6xl flex-col overflow-hidden rounded-xl border border-slate-700 bg-[#1e293b] text-white shadow-2xl sm:flex-row"
+      >
         <li className="flex flex-col items-center justify-center border-r border-slate-800 bg-[#111827] p-8 text-center sm:w-1/3">
           <div className="mb-2 rounded-xl bg-slate-800 p-4 text-yellow-400 sm:mb-6">
             {data.icon}
           </div>
-          <h2 className="text-2xl font-black uppercase tracking-wide text-yellow-400">
+          <h2
+            id="service-modal-title"
+            className="text-2xl font-black uppercase tracking-wide text-yellow-400"
+          >
             {data.title}
           </h2>
           <p className="mt-2 px-2 text-sm font-light leading-relaxed text-slate-400 sm:mt-4">
@@ -54,12 +76,17 @@ export const ModalData = ({ data, onClose }: ModalProps) => {
 
         <li className="withoutScroolBar flex flex-col justify-between overflow-y-auto bg-[#1a2333] p-8 sm:w-2/3">
           <button
+            ref={closeButtonRef}
             onClick={onClose}
+            aria-label="Fechar"
             className="absolute right-4 top-4 z-10 text-slate-400 transition-colors hover:text-white"
           >
-            <MdClose size={24} />
+            <MdClose size={24} aria-hidden="true" />
           </button>
-          <div className="absolute bottom-4 right-4 z-20 rounded-full bg-secondary-foreground/40 p-3 text-background transition-colors hover:text-white sm:hidden">
+          <div
+            aria-hidden="true"
+            className="absolute bottom-4 right-4 z-20 rounded-full bg-secondary-foreground/40 p-3 text-background transition-colors hover:text-white sm:hidden"
+          >
             <FaArrowDown size={24} className="animate-bounce" />
           </div>
           <div className="space-y-6">

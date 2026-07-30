@@ -66,7 +66,10 @@ export const PorQueSite = () => {
               key={razao.titulo}
               className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:border-popover-foreground/20 hover:bg-white/[0.045]"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-amber-300/20 bg-amber-300/5">
+              <div
+                aria-hidden="true"
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-amber-300/20 bg-amber-300/5"
+              >
                 {razao.icon}
               </div>
               <h3 className="text-lg font-bold">{razao.titulo}</h3>
