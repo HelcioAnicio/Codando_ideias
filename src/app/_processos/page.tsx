@@ -1,5 +1,5 @@
 import { Header } from "@/components/ui/header";
-import { StepsComponent } from "@/app/processos/_components/stepsComponent";
+import { StepsComponent } from "@/app/_processos/_components/stepsComponent";
 
 export const metadata = {
   title: "Como Trabalhamos — Nosso Processo de Criação de Sites",
