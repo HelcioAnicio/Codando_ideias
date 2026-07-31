@@ -5,7 +5,7 @@ import Image from "next/image";
 import { IoMdTrendingUp } from "react-icons/io";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
-import { Sparkles } from "lucide-react";
+import { Search } from "lucide-react";
 
 export const CardImage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -52,7 +52,7 @@ export const CardImage = () => {
   return (
     <section
       id="home"
-      aria-label="Hero — Sua empresa merece ser encontrada"
+      aria-label="Hero — construímos a página que converte e trazemos o tráfego certo pra ela"
       className="relative flex h-dvh max-h-[1100px] min-h-[600px] w-full items-center justify-center bg-background pt-16 sm:h-[calc(100dvh-160px)] sm:pt-20 md:h-[calc(100dvh-190px)] xl:h-[calc(100dvh-200px)]"
       ref={elementRef}
     >
@@ -70,7 +70,7 @@ export const CardImage = () => {
                 : "-translate-y-full blur-sm"
             } `}
           >
-            Sua empresa merece ser encontrada.
+            A maioria joga dinheiro em anúncio pra cair numa página que trava.
           </h1>
 
           <p
@@ -78,9 +78,9 @@ export const CardImage = () => {
               isVisible ? "opacity-100 blur-none" : "opacity-0 blur-sm"
             } `}
           >
-            Criamos sites estratégicos, Landing Pages sem template pronto, em
-            código 100% puro, com alta performance. <br /> Um verdadeiro site
-            que converte!
+            A gente constrói a página que converte e traz o tráfego certo pra
+            ela. <br /> Página lenta desperdiça verba — a nossa é rápida, e
+            cada real investido rende mais.
           </p>
 
           <div
@@ -91,11 +91,11 @@ export const CardImage = () => {
             } `}
           >
             <Link
-              href="https://wa.me/5531991973835?text=Olá,+quero+solicitar+um+orçamento!"
+              href="/diagnostico"
               className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500 px-10 py-3 text-sm font-bold uppercase transition-all duration-200 hover:bg-yellow-500/90"
             >
-              <Sparkles size={15} aria-hidden="true" />
-              Solicitar orçamento
+              <Search size={15} aria-hidden="true" />
+              Agende um diagnóstico gratuito
             </Link>
           </div>
         </div>
@@ -127,12 +127,12 @@ export const CardImage = () => {
                   />
                 </div>
                 <span className="text-xs font-bold sm:text-sm">
-                  Autoridade Digital
+                  Página rápida, tráfego certo
                 </span>
               </div>
               <p className="text-xs leading-relaxed sm:text-sm">
-                Elevamos o posicionamento da sua marca com tecnologia de ponta e
-                design focado em conversão.
+                Landing pages de alta performance e gestão de tráfego pago
+                (Google + Meta Ads) medida de ponta a ponta.
               </p>
             </div>
           </div>
@@ -146,11 +146,11 @@ export const CardImage = () => {
           } `}
         >
           <Link
-            href="https://wa.me/5531991973835?text=Olá,+quero+solicitar+um+orçamento!"
+            href="/diagnostico"
             className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500 px-5 py-3 text-sm font-bold uppercase transition-all duration-200 hover:bg-yellow-500/90"
           >
-            <Sparkles size={14} aria-hidden="true" />
-            Solicitar orçamento
+            <Search size={14} aria-hidden="true" />
+            Agende um diagnóstico gratuito
           </Link>
         </div>
         {/* {!buttonVisible && ( */}

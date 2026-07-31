@@ -3,49 +3,49 @@ import { ButtonGeral } from "./buttonGeral";
 
 const faqs = [
   {
-    question: "Quanto custa um site?",
+    question: "Como funciona a verba de mídia?",
     answer:
-      "Varia conforme o tipo de projeto — uma landing page custa menos que um site institucional completo ou um sistema sob medida. Manda uma mensagem contando o que você precisa e te passamos um orçamento sem compromisso.",
+      "A verba de mídia é o valor investido diretamente no Google Ads e no Meta Ads — e ela é sempre paga por você, direto pra plataforma. Nossa mensalidade de gestão é separada disso: você vê exatamente quanto vai pra cada lugar.",
   },
   {
-    question: "Quanto tempo leva para desenvolver um site?",
+    question: "Preciso já ter site pra contratar a gestão de tráfego?",
     answer:
-      "Landing pages costumam levar de 3 a 7 dias. Projetos maiores, como e-commerce e sistemas, variam de 4 a 12 semanas conforme escopo.",
+      "Não. Construímos a landing page da campanha como parte do serviço, já pensada para converter e com o rastreamento configurado desde o início.",
   },
   {
-    question: "Preciso já ter domínio e hospedagem contratados?",
+    question: "Quanto tempo até eu ver resultado?",
     answer:
-      "Não. Se você ainda não tem, orientamos e ajudamos na contratação do domínio (ex: seunegocio.com.br) e da hospedagem antes do site entrar no ar.",
+      "As primeiras campanhas costumam ir ao ar em 1 a 2 semanas após o diagnóstico. Os primeiros dados relevantes de custo por lead aparecem nas primeiras semanas, mas uma campanha madura leva o prazo mínimo do contrato (3 a 6 meses) para gerar seu resultado real.",
   },
   {
-    question: "Já tenho um site — dá pra só melhorar ele, sem refazer tudo?",
+    question: "Por que existe um prazo mínimo de contrato?",
     answer:
-      "Sim. Fazemos tanto projetos do zero quanto redesign e melhorias pontuais (performance, visual, SEO) em sites que já existem.",
+      "Porque campanha de tráfego pago precisa de tempo pra testar públicos, criativos e página até encontrar o que funciona melhor pro seu negócio. Antes disso, qualquer conclusão é precipitada — pra ambos os lados.",
   },
   {
-    question: "Não tenho fotos nem textos prontos, vocês ajudam com o conteúdo?",
+    question: "Vocês fazem só Google Ads ou também Meta (Facebook/Instagram)?",
     answer:
-      "Ajudamos a estruturar os textos e organizar as informações do seu negócio durante o briefing. O ideal é você ter pelo menos os dados básicos (serviços, diferenciais, contato) — o resto a gente lapida junto com você.",
+      "Fazemos os dois. A escolha de onde investir mais verba depende de onde o seu cliente ideal está e do seu tipo de negócio — isso é definido já no diagnóstico.",
   },
   {
-    question: "Depois de pronto, eu consigo editar o site sozinho?",
+    question: "Como eu acompanho os leads que estão chegando?",
     answer:
-      "Depende do tipo de projeto: alguns saem com painel de edição simples para você trocar textos e imagens, outros são entregues como página estática. Definimos isso junto com você no orçamento, conforme sua necessidade.",
+      "Você tem acesso a um painel próprio com cada lead gerado pela campanha, além de relatório quinzenal nos primeiros 90 dias com custo por lead e por cliente.",
+  },
+  {
+    question: "O diagnóstico gratuito tem algum compromisso?",
+    answer:
+      "Nenhum. É uma análise real da sua presença digital e do potencial de tráfego pago para o seu negócio, sem letra miúda e sem obrigação de fechar contrato depois.",
   },
   {
     question: "Vocês atendem só Belo Horizonte ou todo o Brasil?",
     answer:
-      "Atendemos empresas e autônomos de todo o Brasil — o processo é 100% remoto, do briefing à entrega, com alinhamento por WhatsApp e videochamada.",
+      "Atendemos empresas e autônomos de todo o Brasil — o processo é 100% remoto, do diagnóstico à gestão contínua, com alinhamento por WhatsApp e videochamada.",
   },
   {
-    question: "Vocês fazem manutenção após a entrega?",
+    question: "Dá pra cancelar depois do prazo mínimo?",
     answer:
-      "Sim. Podemos seguir com manutenção contínua, ajustes, monitoramento e melhorias evolutivas depois do lançamento.",
-  },
-  {
-    question: "O site será otimizado para celulares e para aparecer no Google?",
-    answer:
-      "Sim. Todo o layout é pensado mobile first, e aplicamos boas práticas de SEO on-page (velocidade, estrutura, meta tags) para ajudar seu site a ser encontrado no Google.",
+      "Sim. Depois do prazo mínimo do contrato, não existe fidelidade eterna — o cancelamento é simples e comunicado com antecedência combinada.",
   },
 ];
 

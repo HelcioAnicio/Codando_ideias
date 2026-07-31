@@ -19,22 +19,26 @@ export const Footer = () => {
             </li>
             <li>
               <h2 className="w-3/4 text-3xl font-bold md:text-5xl">
-                Leve a sua presença no mercado para o nível profissional!
+                Pare de perder cliente por causa de página lenta e anúncio sem rastreamento.
               </h2>
             </li>
             <li>
               <p className="mt-6 max-w-2xl text-xl leading-8 text-secondary-foreground/80">
-                Se você quer melhorar seu site atual ou começar um projeto do
-                zero com máxima performance, entre em contato. Respondemos em
-                até 24h.
+                Comece pelo diagnóstico gratuito — sem compromisso. Respondemos
+                em até 24h.
               </p>
             </li>
             <li>
-              <div className="mt-10 flex gap-4">
+              <div className="mt-10 flex flex-wrap gap-4">
                 <ButtonGeral
-                  text={"Quero um site que converte"}
+                  text={"Agendar diagnóstico gratuito"}
+                  link={"/diagnostico"}
+                />
+                <ButtonGeral
+                  text={"Falar no WhatsApp"}
+                  variant="secondary"
                   link={
-                    "https://wa.me/5531991973835?text=Olá,+quero+ser+encontrado!"
+                    "https://wa.me/5531991973835?text=Olá,+quero+saber+mais+sobre+gestão+de+tráfego!"
                   }
                 />
               </div>

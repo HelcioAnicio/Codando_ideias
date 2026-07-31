@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://codandoideias.com.br"),
 
   title: {
-    default: "Codando Ideias | Sites e Sistemas para Empresas",
+    default: "Codando Ideias | Gestão de Tráfego Pago que Converte",
     template: "%s | Codando Ideias",
   },
 
@@ -35,70 +35,51 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Criamos sites profissionais, landing pages e sistemas web para empresas e autônomos em todo o Brasil. Mais visibilidade no Google, mais autoridade, mais clientes.",
+    "Gestão de tráfego pago (Google Ads e Meta Ads) com landing pages de alta performance, rastreamento completo e relatório de custo por lead. Diagnóstico gratuito para o seu negócio.",
 
   keywords: [
     // Serviço principal
-    "criação de sites",
+    "gestão de tráfego pago",
+    "agência de tráfego pago",
+    "gestão de Google Ads",
+    "gestão de Meta Ads",
+    "gestão de anúncios Facebook e Instagram",
+    "tráfego pago para pequenas empresas",
+    "landing page para tráfego pago",
+    "landing page de alta conversão",
     "criação de sites profissionais",
-    "desenvolvimento de sites",
     "desenvolvimento web",
-    "agência de sites",
-    "empresa de criação de sites",
-    "programador freelancer",
-    "desenvolvedor freelancer",
-    "landing page profissional",
-    "criação de landing page",
-    "sistema web sob medida",
-    "sistema web para empresas",
-    "loja virtual simples",
-    "site institucional",
-    "manutenção de site",
 
     // Intenção / dor do cliente
-    "site para pequenas empresas",
-    "site para pequenos negócios",
-    "site para autônomos",
-    "quanto custa um site profissional",
-    "como aparecer no Google",
-    "como ter mais clientes pelo Google",
-    "meu negócio não aparece no Google",
-    "site que traz clientes",
-    "site que converte",
+    "diagnóstico gratuito de tráfego pago",
+    "quanto custa gestão de tráfego pago",
+    "como aparecer no Google com anúncio",
+    "custo por lead",
+    "custo por cliente em anúncio",
+    "meu anúncio não converte",
+    "página lenta perde cliente",
+    "página que converte",
+    "rastreamento de campanha Google e Meta",
     "presença digital para pequenas empresas",
     "marketing digital para pequenas empresas",
-    "SEO para pequenas empresas",
-    "site otimizado para Google",
-    "site responsivo",
 
     // Segmentos atendidos
-    "site para clínica",
+    "tráfego pago para clínica",
+    "tráfego pago para academia",
+    "tráfego pago para advogado",
+    "tráfego pago para imobiliária",
+    "tráfego pago para loja",
     "site para clínica odontológica",
-    "site para psicólogo",
     "site para nutricionista",
-    "site para fisioterapeuta",
-    "site para personal trainer",
-    "site para academia",
-    "site para salão de beleza",
     "site para barbearia",
     "site para restaurante",
-    "site para advogado",
-    "site para escritório de advocacia",
-    "site para médico",
-    "site para contador",
-    "site para pet shop",
-    "site para imobiliária",
-    "site para loja",
-    "site para coach",
 
     // Marca / geografia
     "Codando Ideias",
-    "site profissional Brasil",
+    "agência de tráfego pago Brasil",
+    "gestão de tráfego pago Belo Horizonte",
     "criação de sites Belo Horizonte",
-    "desenvolvedor web Belo Horizonte",
     "criação de sites Minas Gerais",
-    "diagnóstico de visibilidade online grátis",
-    "calculadora de clientes perdidos",
   ],
 
   authors: [{ name: "Codando Ideias", url: "https://codandoideias.com.br" }],
@@ -110,24 +91,24 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "https://codandoideias.com.br",
     siteName: "Codando Ideias",
-    title: "Codando Ideias | Sites e Sistemas para Empresas",
+    title: "Codando Ideias | Gestão de Tráfego Pago que Converte",
     description:
-      "Sites profissionais, landing pages e sistemas web para empresas e autônomos. Atendemos todo o Brasil.",
+      "Landing pages de alta performance e gestão de tráfego pago (Google + Meta Ads) com rastreamento completo. Diagnóstico gratuito.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Codando Ideias - Desenvolvimento Web Profissional",
+        alt: "Codando Ideias - Gestão de Tráfego Pago",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Codando Ideias | Sites e Sistemas para Empresas",
+    title: "Codando Ideias | Gestão de Tráfego Pago que Converte",
     description:
-      "Sites profissionais, landing pages e sistemas web para empresas e autônomos em todo o Brasil.",
+      "Landing pages de alta performance e gestão de tráfego pago (Google + Meta Ads) com rastreamento completo. Diagnóstico gratuito.",
   },
 
   robots: {
@@ -153,7 +134,7 @@ const jsonLd = {
   url: "https://codandoideias.com.br",
   image: "https://codandoideias.com.br/logo2.svg",
   description:
-    "Criação de sites profissionais, landing pages e sistemas web para empresas e autônomos em todo o Brasil.",
+    "Gestão de tráfego pago (Google Ads e Meta Ads) com landing pages de alta performance, rastreamento completo e relatório de custo por lead para empresas em todo o Brasil.",
   areaServed: "BR",
   address: {
     "@type": "PostalAddress",

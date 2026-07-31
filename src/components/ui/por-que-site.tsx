@@ -1,41 +1,41 @@
-import { Globe, ShieldCheck, TrendingUp, Users, Search, BadgeCheck } from "lucide-react";
+import { Gauge, Wallet, MousePointerClick, ShieldCheck, Radar, TrendingDown } from "lucide-react";
 
 const razoes = [
   {
-    icon: <Search className="size-6 text-amber-300" />,
-    titulo: "Invisível para quem mais importa",
+    icon: <Gauge className="size-6 text-amber-300" />,
+    titulo: "Página lenta gasta a sua verba",
     texto:
-      "Quando um cliente potencial pesquisa no Google por um serviço como o seu e não encontra sua empresa, ele simplesmente contrata o concorrente. Sem um site, você não existe digitalmente — e o mercado não espera.",
+      "53% dos visitantes abandonam páginas que levam mais de 3 segundos para carregar. Se sua landing page é lenta, boa parte do que você paga em anúncio vira clique perdido antes mesmo de o site carregar.",
+  },
+  {
+    icon: <MousePointerClick className="size-6 text-amber-300" />,
+    titulo: "Anúncio bom não salva página ruim",
+    texto:
+      "Você pode acertar a campanha e ainda assim não vender, porque quem clica cai numa página confusa, lenta ou sem motivo claro para preencher o formulário. O anúncio traz a pessoa até a porta — a página é quem fecha.",
+  },
+  {
+    icon: <Radar className="size-6 text-amber-300" />,
+    titulo: "Sem rastreamento, você não sabe o que funciona",
+    texto:
+      "Sem pixel e tag configurados corretamente, você não sabe qual anúncio trouxe cliente e qual só queimou verba. A gente configura o rastreamento antes de ligar a campanha, não depois.",
   },
   {
     icon: <ShieldCheck className="size-6 text-amber-300" />,
-    titulo: "Credibilidade que fecha negócio",
+    titulo: "Verba sob seu controle, sempre",
     texto:
-      "Antes de ligar, mandar mensagem ou visitar, o cliente pesquisa. Um site profissional transmite seriedade e confiança desde o primeiro clique. Um site ruim — ou a ausência dele — levanta dúvidas e afasta.",
+      "Você paga o Google e o Meta direto pra plataforma. A gente cuida da estratégia e da execução — mas o dinheiro do anúncio nunca passa pela nossa mão.",
   },
   {
-    icon: <Globe className="size-6 text-amber-300" />,
-    titulo: "Alcance além do boca a boca",
+    icon: <Wallet className="size-6 text-amber-300" />,
+    titulo: "Custo por cliente, não custo por clique",
     texto:
-      "O boca a boca tem limite. Um site bem posicionado alcança pessoas que nunca ouviram falar de você — todos os dias, 24 horas, mesmo enquanto você dorme ou está atendendo outro cliente.",
+      "O número que importa não é quanto custou o clique — é quanto custou o cliente. Acompanhamos e otimizamos pensando nesse número, com relatório que mostra exatamente isso.",
   },
   {
-    icon: <BadgeCheck className="size-6 text-amber-300" />,
-    titulo: "Profissionalismo que diferencia",
+    icon: <TrendingDown className="size-6 text-amber-300" />,
+    titulo: "O prejuízo de site amador em campanha paga",
     texto:
-      "No mercado atual, ter presença digital não é diferencial — é o mínimo. Empresas sem site são percebidas como menos profissionais. Com o site certo, você passa à frente da maioria da concorrência local.",
-  },
-  {
-    icon: <Users className="size-6 text-amber-300" />,
-    titulo: "Seu negócio disponível o tempo todo",
-    texto:
-      "Um site funciona como um vendedor que nunca tira férias. Apresenta seus serviços, responde dúvidas comuns, coleta contatos e gera leads enquanto você foca no que realmente importa: entregar resultado.",
-  },
-  {
-    icon: <TrendingUp className="size-6 text-amber-300" />,
-    titulo: "Crescimento previsível e escalável",
-    texto:
-      "Com SEO, cada novo conteúdo e cada melhoria técnica acumula autoridade. Ao contrário de anúncios que param quando o orçamento acaba, um site bem feito continua atraindo clientes mês após mês.",
+      "Em campanhas com página lenta, boa parte de cada real investido em anúncio se perde em cliques que nunca chegam a ver a oferta. Com uma página rápida, esse mesmo real rende mais.",
   },
 ];
 
@@ -46,16 +46,16 @@ export const PorQueSite = () => {
         {/* Header da seção */}
         <div className="mb-16 max-w-3xl">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-amber-300/80">
-            Por que um site faz toda a diferença
+            Por que a maioria perde dinheiro com anúncio
           </p>
           <h2 className="mb-5 text-4xl font-extrabold leading-[1.1] md:text-5xl">
-            Seu cliente está pesquisando agora.{" "}
-            <span className="text-amber-300">Ele vai te encontrar?</span>
+            O anúncio não é o problema.{" "}
+            <span className="text-amber-300">A página é.</span>
           </h2>
           <p className="max-w-2xl text-lg font-light leading-relaxed text-slate-400">
-            Milhares de pessoas buscam por serviços como o seu todos os meses no
-            Google. A pergunta não é se elas vão contratar alguém — é se esse
-            alguém vai ser você ou o seu concorrente.
+            A maioria das campanhas de tráfego pago não fracassa por causa do
+            anúncio — fracassa porque a página que recebe o clique não estava
+            pronta pra converter.
           </p>
         </div>
 

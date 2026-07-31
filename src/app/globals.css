@@ -96,11 +96,12 @@ body {
   }
 
   .studio-gold-surface {
-    background: linear-gradient(135deg #ffe16d 0% #ff8c00 100%);
+    background: linear-gradient(135deg, #ffe16d 0%, #ff8c00 100%);
+    color: #1e1000;
   }
 
   .studio-panel {
-    background: rgba(15 23 42 0.72);
+    background: rgba(15, 23, 42, 0.72);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
   }
@@ -108,10 +109,12 @@ body {
   .studio-mesh {
     background-color: #020617;
     background-image: radial-gradient(
-        circle at top left rgba(14 165 233 0.18) transparent 32%
-      )
-      radial-gradient(circle at top rgba(250 204 21 0.12) transparent 28%)
-      radial-gradient(circle at right rgba(59 130 246 0.16) transparent 30%);
+        circle at top left,
+        rgba(14, 165, 233, 0.18),
+        transparent 32%
+      ),
+      radial-gradient(circle at top, rgba(250, 204, 21, 0.12), transparent 28%),
+      radial-gradient(circle at right, rgba(59, 130, 246, 0.16), transparent 30%);
   }
 
   .studio-floating {
@@ -179,16 +182,19 @@ body {
 }
 @media (min-width: 768px) {
   .process-panel.active,
-  .process-panel:hover {
+  .process-panel:hover,
+  .process-panel:focus-within {
     flex: 3;
     background: linear-gradient(135deg, #0d1f3c 0%, #112244 100%);
     border-left: 4px solid #f1c110;
   }
-  .process-panel:hover .rotated-title {
+  .process-panel:hover .rotated-title,
+  .process-panel:focus-within .rotated-title {
     opacity: 0;
     transform: translateY(20px);
   }
-  .process-panel:hover .panel-content {
+  .process-panel:hover .panel-content,
+  .process-panel:focus-within .panel-content {
     opacity: 1;
     transform: scale(1);
   }

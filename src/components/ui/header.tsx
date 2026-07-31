@@ -45,20 +45,12 @@ export const Header = () => {
               </li>
               <li className="relative">
                 <Link
-                  href="#services"
+                  href="/trafego"
                   className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
                 >
-                  Serviços
+                  Gestão de Tráfego
                 </Link>
               </li>
-              {/* <li className="relative">
-                <Link
-                  href="#steps"
-                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
-                >
-                  Processo criativo
-                </Link>
-              </li> */}
               <li className="relative">
                 <Link
                   href="/#footer"
@@ -69,10 +61,10 @@ export const Header = () => {
               </li>
               <li>
                 <Link
-                  href="/#calculadora"
+                  href="/diagnostico"
                   className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500/10 px-5 py-3 text-sm font-bold uppercase text-yellow-400 transition-all duration-200 hover:scale-[1.02] hover:bg-yellow-500/20"
                 >
-                  Calcular potencial
+                  Diagnóstico gratuito
                 </Link>
               </li>
             </ul>
@@ -117,14 +109,9 @@ export const Header = () => {
                       </li>
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>
-                          <Link href="#services">Serviços</Link>
+                          <Link href="/trafego">Gestão de Tráfego</Link>
                         </SheetClose>
                       </li>
-                      {/* <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                        <SheetClose asChild>
-                          <Link href="#steps">Processo criativo</Link>
-                        </SheetClose>{" "}
-                      </li> */}
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>
                           <Link href="/#footer">Contato</Link>
@@ -151,10 +138,10 @@ export const Header = () => {
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300">
                         <SheetClose asChild>
                           <Link
-                            href="/#calculadora"
+                            href="/diagnostico"
                             className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500/10 px-5 py-3 text-sm font-bold uppercase text-yellow-400 transition-all duration-200 hover:scale-[1.02] hover:bg-yellow-500/20"
                           >
-                            Calcular potencial
+                            Diagnóstico gratuito
                           </Link>
                         </SheetClose>
                       </li>

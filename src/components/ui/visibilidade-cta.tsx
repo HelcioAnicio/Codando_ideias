@@ -5,7 +5,7 @@ import { TrendingUp, Search, ArrowRight } from "lucide-react";
 
 export const VisibilidadeCta = () => {
   return (
-    <section id="calculadora" className="w-full px-4 py-14 xl:px-0">
+    <section id="diagnostico-cta" className="w-full px-4 py-14 xl:px-0">
       <div className="mx-auto max-w-6xl">
         <div className="relative overflow-hidden rounded-3xl border border-amber-300/20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-2 py-14 text-center shadow-2xl md:px-16">
           {/* Glow background */}
@@ -21,37 +21,37 @@ export const VisibilidadeCta = () => {
             </div>
 
             <h2 className="max-w-2xl text-[26px] font-extrabold leading-[1.1] md:text-4xl lg:text-5xl xl:max-w-4xl">
-              Quantas pessoas buscam o seu negócio{" "}
-              <span className="text-amber-300">todo mês</span> e não te
-              encontram?
+              Quantos clientes você está{" "}
+              <span className="text-amber-300">perdendo hoje</span> por não
+              ter tráfego pago bem estruturado?
             </h2>
 
             <p className="max-w-xl text-sm font-light leading-tight text-slate-400 md:text-lg">
-              Descubra em segundos o volume de pesquisas no Google para o seu
-              segmento no seu estado e veja quanto você está deixando na mesa
-              por não ter presença digital.
+              Preencha o formulário e receba uma análise real da sua presença
+              digital e do potencial de tráfego pago para o seu negócio — sem
+              custo e sem compromisso.
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4">
               <Link
-                href="/calculadora"
+                href="/diagnostico"
                 className="flex items-center gap-2 rounded-xl bg-yellow-500 px-7 py-4 font-bold shadow-lg transition-all duration-200 hover:scale-[1.03] hover:brightness-110"
               >
                 <TrendingUp size={18} aria-hidden="true" />
-                Calcular meu potencial
+                Agendar meu diagnóstico gratuito
                 <ArrowRight size={16} aria-hidden="true" />
               </Link>
               <p className="text-xs text-foreground/60">
-                100% gratuito · resultado na hora · sem compromisso
+                100% gratuito · resposta em até 24h · sem compromisso
               </p>
             </div>
 
             {/* Mini stats */}
             <div className="mt-4 flex flex-wrap justify-center gap-8 border-t border-white/10 pt-8 text-center">
               {[
-                { label: "segmentos mapeados", value: "55+" },
-                { label: "estados cobertos", value: "27" },
-                { label: "tempo para o resultado", value: "< 2 min" },
+                { label: "canais de anúncio", value: "Google + Meta" },
+                { label: "rastreamento", value: "100% seu" },
+                { label: "prazo mínimo", value: "3 a 6 meses" },
               ].map((stat) => (
                 <div key={stat.label} className="flex flex-col">
                   <span className="text-2xl font-black text-amber-300">
