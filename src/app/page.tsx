@@ -1,5 +1,6 @@
 import { Header } from "@/components/ui/header";
 import { ListProjects } from "@/components/ui/listProject";
+import { Reviews } from "@/components/ui/reviews";
 import { CardImage } from "@/components/ui/cardImage";
 import { Footer } from "@/components/ui/footer";
 // import { WhyDevLab } from "@/components/ui/whyDevLab";
@@ -19,6 +20,7 @@ export default function Home() {
       <main className="relative flex w-full flex-wrap gap-16 overflow-hidden sm:items-center">
         <CardImage />
         <ListProjects />
+        <Reviews />
         {/* <StudioAuthorityShowcase /> */}
         <PorQueSite />
         <VisibilidadeCta />
