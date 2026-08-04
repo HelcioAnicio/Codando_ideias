@@ -96,6 +96,9 @@ importers:
       '@types/react-scroll':
         specifier: ^1.8.10
         version: 1.8.10
+      dotenv:
+        specifier: ^17.4.2
+        version: 17.4.2
       eslint:
         specifier: ^9.39.4
         version: 9.39.4(jiti@1.21.7)
