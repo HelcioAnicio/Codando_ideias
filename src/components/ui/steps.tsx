@@ -146,7 +146,7 @@ export const Steps = () => {
                 </p>
                 <p className="flex items-center gap-3">
                   <MdDataObject className="material-symbols-outlined shrink-0 text-[20px] text-amber-400/90" />
-                  Sem templates ou moldelos prontos
+                  Sem templates ou modelos prontos
                 </p>
                 <p className="flex items-center gap-3">
                   <MdBugReport className="material-symbols-outlined shrink-0 text-[20px] text-amber-400/90" />
