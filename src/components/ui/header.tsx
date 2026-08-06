@@ -16,62 +16,60 @@ import Logo2 from "../../../public/logo2.svg";
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { FaInstagram } from "react-icons/fa6";
+import { ctaButtonClasses, CtaShine } from "./buttonGeral";
+
+const HEADER_BG_BY_ROUTE: Record<string, string> = {
+  "/projetos": "bg-background/95 backdrop-blur-md border-b border-white/5",
+  "/servicos": "bg-secondary/95 backdrop-blur-md border-b border-white/5",
+  "/duvidas": "bg-secondary/95 backdrop-blur-md border-b border-white/5",
+};
+
+const NAV_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/projetos", label: "Projetos" },
+  { href: "/servicos", label: "Serviços" },
+  { href: "/duvidas", label: "Dúvidas" },
+  { href: "/#footer", label: "Contato" },
+];
 
 export const Header = () => {
+  const pathname = usePathname();
+  const headerBg = HEADER_BG_BY_ROUTE[pathname] ?? "bg-background";
+
   return (
-    <header className="fixed top-0 z-50 flex w-full justify-center border-none bg-background font-franklin font-bold shadow-none">
-      <Card className="w-full max-w-6xl rounded-t-none border-none bg-background px-5 shadow-none">
+    <header
+      className={`fixed top-0 z-50 flex w-full justify-center border-none font-franklin font-bold shadow-none transition-colors duration-300 ${headerBg}`}
+    >
+      <Card className="w-full max-w-6xl rounded-t-none border-none bg-transparent px-5 shadow-none">
         <div className="m-auto flex max-w-6xl items-center justify-between py-4">
           <Image className="w-40 lg:w-52" src={Logo2} alt="Codando Ideias" />
 
           <nav className="hidden lg:block">
             <ul className="flex items-center gap-7">
-              <li className="relative">
-                <Link
-                  href="/#home"
-                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
-                >
-                  Home
-                </Link>
-              </li>
-              <li className="relative">
-                <Link
-                  href="/#projects"
-                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
-                >
-                  Projetos
-                </Link>
-              </li>
-              <li className="relative">
-                <Link
-                  href="#services"
-                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
-                >
-                  Serviços
-                </Link>
-              </li>
-              {/* <li className="relative">
-                <Link
-                  href="#steps"
-                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
-                >
-                  Processo criativo
-                </Link>
-              </li> */}
-              <li className="relative">
-                <Link
-                  href="/#footer"
-                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
-                >
-                  Contato
-                </Link>
-              </li>
+              {NAV_LINKS.map((link) => {
+                const isActive = pathname === link.href;
+
+                return (
+                  <li key={link.href} className="relative">
+                    <Link
+                      href={link.href}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`flex items-center gap-1 text-xs transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-popover-foreground after:transition-all after:duration-300 md:text-sm lg:text-base ${
+                        isActive
+                          ? "text-popover-foreground after:w-full"
+                          : "text-primary-foreground after:w-0 hover:after:w-full"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
               <li>
-                <Link
-                  href="/#calculadora"
-                  className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500/10 px-5 py-3 text-sm font-bold uppercase text-yellow-400 transition-all duration-200 hover:scale-[1.02] hover:bg-yellow-500/20"
-                >
+                <Link href="/#calculadora" className={ctaButtonClasses("primary", "sm")}>
+                  <CtaShine />
                   Calcular potencial
                 </Link>
               </li>
@@ -95,41 +93,32 @@ export const Header = () => {
               >
                 <SheetHeader>
                   <SheetTitle>
-                    {/* {theme === "light" ? ( */}
-                    {/* <Image className="w-40 lg:w-52" src={Logo3} alt="Logo" /> */}
-                    {/* ) : ( */}
                     <Image className="w-40 lg:w-52" src={Logo2} alt="Codando Ideias" />
-                    {/* )} */}
                   </SheetTitle>
                 </SheetHeader>
                 <SheetDescription>
                   <nav>
                     <ul className="flex flex-col gap-6 font-franklin font-bold">
-                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                        <SheetClose asChild>
-                          <Link href="/#home">Home</Link>
-                        </SheetClose>
-                      </li>
-                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                        <SheetClose asChild>
-                          <Link href="/#projects">Projetos</Link>
-                        </SheetClose>{" "}
-                      </li>
-                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                        <SheetClose asChild>
-                          <Link href="#services">Serviços</Link>
-                        </SheetClose>
-                      </li>
-                      {/* <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                        <SheetClose asChild>
-                          <Link href="#steps">Processo criativo</Link>
-                        </SheetClose>{" "}
-                      </li> */}
-                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                        <SheetClose asChild>
-                          <Link href="/#footer">Contato</Link>
-                        </SheetClose>
-                      </li>
+                      {NAV_LINKS.map((link) => {
+                        const isActive = pathname === link.href;
+
+                        return (
+                          <li
+                            key={link.href}
+                            className={`flex w-max items-center gap-1 border-b transition-all duration-300 hover:border-b-popover-foreground hover:text-popover-foreground ${
+                              isActive
+                                ? "border-b-popover-foreground text-popover-foreground"
+                                : "border-b-transparent text-primary-foreground"
+                            }`}
+                          >
+                            <SheetClose asChild>
+                              <Link href={link.href} aria-current={isActive ? "page" : undefined}>
+                                {link.label}
+                              </Link>
+                            </SheetClose>
+                          </li>
+                        );
+                      })}
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300">
                         <SheetClose asChild>
                           <Link
@@ -150,10 +139,8 @@ export const Header = () => {
 
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300">
                         <SheetClose asChild>
-                          <Link
-                            href="/#calculadora"
-                            className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500/10 px-5 py-3 text-sm font-bold uppercase text-yellow-400 transition-all duration-200 hover:scale-[1.02] hover:bg-yellow-500/20"
-                          >
+                          <Link href="/#calculadora" className={ctaButtonClasses("primary", "sm")}>
+                            <CtaShine />
                             Calcular potencial
                           </Link>
                         </SheetClose>

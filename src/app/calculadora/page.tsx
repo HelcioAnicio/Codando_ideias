@@ -9,6 +9,7 @@ import {
   Search,
   TrendingUp,
   MapPin,
+  Building2,
   DollarSign,
   User,
   Mail,
@@ -19,6 +20,7 @@ import {
 import {
   segmentosDados,
   ESTADOS,
+  PORTES_CIDADE,
   calcularPotencial,
   getSegmentoDados,
 } from "@/data/pesquisas-brasil";
@@ -26,13 +28,16 @@ import { categorias } from "@/data/simulacao";
 
 // ─── Tipos ────────────────────────────────────────────────────────────────────
 
-type Step = "segmento" | "estado" | "ticket" | "contato" | "resultado";
+type Step = "segmento" | "estado" | "porte" | "ticket" | "contato" | "resultado";
 
 interface FormState {
   segmentoId: string;
   segmentoNome: string;
   estadoSigla: string;
   estadoNome: string;
+  porteCidadeId: string;
+  porteCidadeNome: string;
+  porteCidadeMultiplicador: number;
   ticketMedio: string; // string para o input, "" = usar default
   nome: string;
   email: string;
@@ -243,6 +248,72 @@ function StepEstado({
           >
             <span className="text-lg font-black">{est.sigla}</span>
             <span className="mt-0.5 text-xs text-slate-400">{est.nome}</span>
+          </button>
+        ))}
+      </div>
+
+      <div className="flex gap-3">
+        <button
+          type="button"
+          onClick={onBack}
+          className="flex items-center gap-2 rounded-xl border border-white/10 px-6 py-4 font-semibold text-slate-300 transition hover:bg-white/5"
+        >
+          <ArrowLeft size={16} aria-hidden="true" /> Voltar
+        </button>
+        <button
+          type="button"
+          disabled={!value}
+          onClick={onNext}
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 py-4 font-bold text-slate-950 transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          Continuar <ArrowRight size={16} aria-hidden="true" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function StepPorte({
+  value,
+  onChange,
+  onNext,
+  onBack,
+}: {
+  value: string;
+  onChange: (id: string, nome: string, multiplicador: number) => void;
+  onNext: () => void;
+  onBack: () => void;
+}) {
+  return (
+    <div className="flex flex-col gap-6">
+      <div>
+        <h2 className="text-2xl font-extrabold md:text-3xl">
+          Qual o porte da sua cidade?
+        </h2>
+        <p className="mt-1 text-slate-400">
+          O volume de buscas de um estado é concentrado na capital. Usamos
+          isso para ajustar o resultado à realidade de onde você está.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        {PORTES_CIDADE.map((porte) => (
+          <button
+            key={porte.id}
+            type="button"
+            aria-pressed={value === porte.id}
+            onClick={() => onChange(porte.id, porte.nome, porte.multiplicador)}
+            className={[
+              "flex flex-col items-start rounded-xl border px-4 py-4 text-left transition-all",
+              value === porte.id
+                ? "border-amber-300 bg-amber-300/10 text-amber-200"
+                : "border-white/10 bg-slate-800 text-slate-300 hover:border-amber-300/30 hover:text-white",
+            ].join(" ")}
+          >
+            <span className="text-sm font-bold">{porte.nome}</span>
+            <span className="mt-0.5 text-xs text-slate-400">
+              {porte.descricao}
+            </span>
           </button>
         ))}
       </div>
@@ -565,18 +636,21 @@ function StepResultado({ form }: { form: FormState }) {
       ? parseFloat(form.ticketMedio)
       : dados.ticketMedioDefault;
 
-  const buscas = dados.buscasPorEstado[form.estadoSigla] ?? 0;
-  const { leadsAlcancados, clientesConvertidos, receitaEstimada } = calcularPotencial(
-    buscas,
-    ticket,
-    dados.taxaConversao
-  );
+  const buscasEstado = dados.buscasPorEstado[form.estadoSigla] ?? 0;
+  const { buscasAjustadas, leadsAlcancados, clientesConvertidos, receitaEstimada } =
+    calcularPotencial(
+      buscasEstado,
+      ticket,
+      dados.taxaConversao,
+      form.porteCidadeMultiplicador || 1
+    );
 
   const whatsappMsg = encodeURIComponent(
     `Olá! Me chamo ${form.nome} e acabei de ver meu diagnóstico de visibilidade:\n\n` +
       `📍 Segmento: ${form.segmentoNome}\n` +
       `🗺 Estado: ${form.estadoNome}\n` +
-      `🔍 Buscas/mês: ${formatNumber(buscas)}\n` +
+      `🏙 Porte da cidade: ${form.porteCidadeNome}\n` +
+      `🔍 Buscas/mês (ajustado à cidade): ${formatNumber(buscasAjustadas)}\n` +
       `👥 Leads potenciais: ${formatNumber(leadsAlcancados)}\n` +
       `✅ Clientes estimados: ${formatNumber(clientesConvertidos)}\n` +
       `💰 Receita potencial/mês: ${formatCurrency(receitaEstimada)}\n\n` +
@@ -600,10 +674,10 @@ function StepResultado({ form }: { form: FormState }) {
         <div className="flex flex-col gap-1 rounded-2xl border border-white/10 bg-slate-800 p-6 text-center">
           <Search className="mx-auto mb-2 text-slate-400" size={24} aria-hidden="true" />
           <span className="text-3xl font-black text-white">
-            {formatNumber(buscas)}
+            {formatNumber(buscasAjustadas)}
           </span>
           <span className="text-sm text-slate-400">
-            buscas/mês no Google
+            buscas/mês na sua região
           </span>
         </div>
 
@@ -635,13 +709,22 @@ function StepResultado({ form }: { form: FormState }) {
           <li className="flex gap-3">
             <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-700 text-xs font-bold text-slate-300">1</span>
             <span>
-              <strong>{formatNumber(buscas)} pessoas</strong> buscam por{" "}
+              <strong>{formatNumber(buscasEstado)} pessoas</strong> buscam por{" "}
               <em>{form.segmentoNome}</em> em {form.estadoNome} todo mês no
-              Google.
+              Google — mas esse volume é concentrado na capital.
             </span>
           </li>
           <li className="flex gap-3">
             <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-700 text-xs font-bold text-slate-300">2</span>
+            <span>
+              Ajustando para <strong>{form.porteCidadeNome}</strong>, uma
+              estimativa mais realista é de{" "}
+              <strong>{formatNumber(buscasAjustadas)} buscas/mês</strong> na
+              sua região.
+            </span>
+          </li>
+          <li className="flex gap-3">
+            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-700 text-xs font-bold text-slate-300">3</span>
             <span>
               Com um site bem posicionado, aproximadamente{" "}
               <strong>{(dados.taxaConversao * 100).toFixed(1)}%</strong> dessas
@@ -650,7 +733,7 @@ function StepResultado({ form }: { form: FormState }) {
             </span>
           </li>
           <li className="flex gap-3">
-            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-400/30 text-xs font-bold text-amber-300">3</span>
+            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-400/30 text-xs font-bold text-amber-300">4</span>
             <span>
               Desses visitantes, sendo conservador, apenas{" "}
               <strong>10% fechariam negócio</strong> — ou seja,{" "}
@@ -658,7 +741,7 @@ function StepResultado({ form }: { form: FormState }) {
             </span>
           </li>
           <li className="flex gap-3">
-            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-400/30 text-xs font-bold text-amber-300">4</span>
+            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-400/30 text-xs font-bold text-amber-300">5</span>
             <span>
               Com ticket médio de <strong>{formatCurrency(ticket)}</strong>,
               isso representa{" "}
@@ -668,8 +751,9 @@ function StepResultado({ form }: { form: FormState }) {
           </li>
         </ol>
         <p className="mt-4 text-xs text-slate-400">
-          * Estimativa conservadora baseada em dados médios de mercado. Resultados
-          reais variam conforme SEO, qualidade do site e sazonalidade.
+          * Estimativa conservadora baseada em dados médios de mercado e
+          ajustada pelo porte da cidade. Resultados reais variam conforme SEO,
+          qualidade do site e sazonalidade.
         </p>
       </div>
 
@@ -708,6 +792,7 @@ function StepResultado({ form }: { form: FormState }) {
 const STEPS: { id: Step; label: string; icon: React.ReactNode }[] = [
   { id: "segmento", label: "Segmento", icon: <Search size={14} /> },
   { id: "estado", label: "Estado", icon: <MapPin size={14} /> },
+  { id: "porte", label: "Porte", icon: <Building2 size={14} /> },
   { id: "ticket", label: "Ticket", icon: <DollarSign size={14} /> },
   { id: "contato", label: "Contato", icon: <User size={14} /> },
   { id: "resultado", label: "Diagnóstico", icon: <TrendingUp size={14} /> },
@@ -772,6 +857,9 @@ export default function CalculadoraPage() {
     segmentoNome: "",
     estadoSigla: "",
     estadoNome: "",
+    porteCidadeId: "",
+    porteCidadeNome: "",
+    porteCidadeMultiplicador: 1,
     ticketMedio: "",
     nome: "",
     email: "",
@@ -843,8 +931,23 @@ export default function CalculadoraPage() {
             onChange={(sigla, nome) =>
               updateForm({ estadoSigla: sigla, estadoNome: nome })
             }
-            onNext={() => setStep("ticket")}
+            onNext={() => setStep("porte")}
             onBack={() => setStep("segmento")}
+          />
+        )}
+
+        {step === "porte" && (
+          <StepPorte
+            value={form.porteCidadeId}
+            onChange={(id, nome, multiplicador) =>
+              updateForm({
+                porteCidadeId: id,
+                porteCidadeNome: nome,
+                porteCidadeMultiplicador: multiplicador,
+              })
+            }
+            onNext={() => setStep("ticket")}
+            onBack={() => setStep("estado")}
           />
         )}
 
@@ -854,7 +957,7 @@ export default function CalculadoraPage() {
             segmentoId={form.segmentoId}
             onChange={(v) => updateForm({ ticketMedio: v })}
             onNext={() => setStep("contato")}
-            onBack={() => setStep("estado")}
+            onBack={() => setStep("porte")}
           />
         )}
 
