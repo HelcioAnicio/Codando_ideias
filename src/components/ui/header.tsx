@@ -29,7 +29,7 @@ export const Header = () => {
             <ul className="flex items-center gap-7">
               <li className="relative">
                 <Link
-                  href="/#home"
+                  href="/"
                   className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
                 >
                   Home
@@ -37,7 +37,7 @@ export const Header = () => {
               </li>
               <li className="relative">
                 <Link
-                  href="/#projects"
+                  href="/projetos"
                   className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
                 >
                   Projetos
@@ -45,7 +45,7 @@ export const Header = () => {
               </li>
               <li className="relative">
                 <Link
-                  href="#services"
+                  href="/servicos"
                   className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
                 >
                   Serviços
@@ -107,17 +107,17 @@ export const Header = () => {
                     <ul className="flex flex-col gap-6 font-franklin font-bold">
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>
-                          <Link href="/#home">Home</Link>
+                          <Link href="/">Home</Link>
                         </SheetClose>
                       </li>
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>
-                          <Link href="/#projects">Projetos</Link>
+                          <Link href="/projetos">Projetos</Link>
                         </SheetClose>{" "}
                       </li>
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
                         <SheetClose asChild>
-                          <Link href="#services">Serviços</Link>
+                          <Link href="/servicos">Serviços</Link>
                         </SheetClose>
                       </li>
                       {/* <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
