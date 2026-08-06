@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import { TrendingUp, Search, ArrowRight } from "lucide-react";
+import { TrendingUp, Search } from "lucide-react";
+import { ButtonGeral } from "./buttonGeral";
 
 export const VisibilidadeCta = () => {
   return (
@@ -33,14 +33,12 @@ export const VisibilidadeCta = () => {
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4">
-              <Link
-                href="/calculadora"
-                className="flex items-center gap-2 rounded-xl bg-yellow-500 px-7 py-4 font-bold shadow-lg transition-all duration-200 hover:scale-[1.03] hover:brightness-110"
-              >
-                <TrendingUp size={18} aria-hidden="true" />
-                Calcular meu potencial
-                <ArrowRight size={16} aria-hidden="true" />
-              </Link>
+              <ButtonGeral
+                text="Calcular meu potencial"
+                link="/calculadora"
+                icon={<TrendingUp size={18} aria-hidden="true" />}
+                classes="w-max px-7"
+              />
               <p className="text-xs text-foreground/60">
                 100% gratuito · resultado na hora · sem compromisso
               </p>

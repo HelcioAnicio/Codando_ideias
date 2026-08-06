@@ -10,6 +10,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { StarRatingDisplay, StarRatingInput } from "@/components/ui/star-rating";
+import { ctaButtonClasses, CtaShine } from "@/components/ui/buttonGeral";
 
 type Avaliacao = {
   id: number;
@@ -190,8 +191,9 @@ export const Reviews = () => {
             <button
               type="button"
               onClick={() => setDialogOpen(true)}
-              className="inline-flex shrink-0 items-center gap-2 self-start rounded-lg bg-popover-foreground bg-gradient-to-br from-popover-foreground from-60% to-gray-200 px-5 py-4 text-sm font-bold uppercase tracking-wider text-primary shadow-lg transition-all hover:brightness-110"
+              className={`shrink-0 self-start ${ctaButtonClasses("primary")}`}
             >
+              <CtaShine />
               <MessageSquarePlus className="h-4 w-4" />
               Deixar avaliação
             </button>
@@ -386,8 +388,9 @@ export const Reviews = () => {
               type="button"
               onClick={handleSubmit}
               disabled={submitting}
-              className="mt-2 inline-flex items-center justify-center rounded-lg bg-popover-foreground bg-gradient-to-br from-popover-foreground from-60% to-gray-200 px-4 py-4 text-sm font-bold uppercase tracking-wider text-primary shadow-lg transition-all hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+              className={`mt-2 w-full disabled:cursor-not-allowed disabled:opacity-60 ${ctaButtonClasses("primary")}`}
             >
+              <CtaShine />
               {submitting ? "Enviando..." : "Publicar avaliação"}
             </button>
           </div>

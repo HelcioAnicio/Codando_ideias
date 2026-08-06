@@ -3,15 +3,21 @@ import { ListProjects } from "@/components/ui/listProject";
 import { Reviews } from "@/components/ui/reviews";
 import { CardImage } from "@/components/ui/cardImage";
 import { Footer } from "@/components/ui/footer";
-// import { WhyDevLab } from "@/components/ui/whyDevLab";
-import { Steps } from "@/components/ui/steps";
-import { Services } from "@/components/ui/services";
-// import { Cost } from "@/components/ui/cost";
-import { StudioFaq } from "@/components/ui/studio-faq";
-// import { StudioPlans } from "@/components/ui/studioplans";
+import { ServicesTeaser } from "@/components/ui/servicesTeaser";
 import { VisibilidadeCta } from "@/components/ui/visibilidade-cta";
 import { PorQueSite } from "@/components/ui/por-que-site";
-// import { StudioAuthorityShowcase } from "@/components/ui/studio-authority-showcase";
+import { projects } from "@/data/projects";
+
+const FEATURED_SLUGS = [
+  "joao-victor-barbearia",
+  "aisthesis-estetica",
+  "mimos-da-poli",
+  "agro-finance",
+];
+
+const featuredProjects = FEATURED_SLUGS.map((slug) =>
+  projects.find((project) => project.slug === slug),
+).filter((project): project is (typeof projects)[number] => Boolean(project));
 
 export default function Home() {
   return (
@@ -19,17 +25,15 @@ export default function Home() {
       <Header />
       <main className="relative flex w-full flex-wrap gap-16 overflow-hidden sm:items-center">
         <CardImage />
-        <ListProjects />
+        <ListProjects
+          projects={featuredProjects}
+          ctaHref="/projetos"
+          ctaText="Ver mais projetos"
+        />
         <Reviews />
-        {/* <StudioAuthorityShowcase /> */}
         <PorQueSite />
         <VisibilidadeCta />
-        <Services />
-        {/* <StudioPlans /> */}
-        <Steps />
-        <StudioFaq />
-        {/* <Cost /> */}
-        {/* <WhyDevLab /> */}
+        <ServicesTeaser />
       </main>
       <Footer />
     </>

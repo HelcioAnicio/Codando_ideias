@@ -5,37 +5,32 @@ const razoes = [
     icon: <Search className="size-6 text-amber-300" />,
     titulo: "Invisível para quem mais importa",
     texto:
-      "Quando um cliente potencial pesquisa no Google por um serviço como o seu e não encontra sua empresa, ele simplesmente contrata o concorrente. Sem um site, você não existe digitalmente — e o mercado não espera.",
+      "Sem site, quem te procura no Google encontra o concorrente — não você.",
   },
   {
     icon: <ShieldCheck className="size-6 text-amber-300" />,
     titulo: "Credibilidade que fecha negócio",
-    texto:
-      "Antes de ligar, mandar mensagem ou visitar, o cliente pesquisa. Um site profissional transmite seriedade e confiança desde o primeiro clique. Um site ruim — ou a ausência dele — levanta dúvidas e afasta.",
+    texto: "Um site profissional gera confiança antes mesmo do primeiro contato.",
   },
   {
     icon: <Globe className="size-6 text-amber-300" />,
     titulo: "Alcance além do boca a boca",
-    texto:
-      "O boca a boca tem limite. Um site bem posicionado alcança pessoas que nunca ouviram falar de você — todos os dias, 24 horas, mesmo enquanto você dorme ou está atendendo outro cliente.",
+    texto: "Alcança gente nova todos os dias, 24h, sem depender de indicação.",
   },
   {
     icon: <BadgeCheck className="size-6 text-amber-300" />,
     titulo: "Profissionalismo que diferencia",
-    texto:
-      "No mercado atual, ter presença digital não é diferencial — é o mínimo. Empresas sem site são percebidas como menos profissionais. Com o site certo, você passa à frente da maioria da concorrência local.",
+    texto: "Presença digital hoje é o mínimo — e te coloca à frente de quem não tem.",
   },
   {
     icon: <Users className="size-6 text-amber-300" />,
     titulo: "Seu negócio disponível o tempo todo",
-    texto:
-      "Um site funciona como um vendedor que nunca tira férias. Apresenta seus serviços, responde dúvidas comuns, coleta contatos e gera leads enquanto você foca no que realmente importa: entregar resultado.",
+    texto: "Apresenta seus serviços e capta leads enquanto você foca no resto.",
   },
   {
     icon: <TrendingUp className="size-6 text-amber-300" />,
     titulo: "Crescimento previsível e escalável",
-    texto:
-      "Com SEO, cada novo conteúdo e cada melhoria técnica acumula autoridade. Ao contrário de anúncios que param quando o orçamento acaba, um site bem feito continua atraindo clientes mês após mês.",
+    texto: "Diferente de anúncio, o site continua atraindo clientes mês após mês.",
   },
 ];
 

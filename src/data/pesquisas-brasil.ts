@@ -556,24 +556,75 @@ export function getSegmentoDados(id: string): SegmentoDados | undefined {
 }
 
 /**
+ * Faixas de porte de cidade, usadas para ajustar o volume de busca estadual
+ * (que é fortemente concentrado nas capitais) à realidade de quem está mais
+ * afastado dos grandes centros.
+ */
+export interface PorteCidade {
+  id: string;
+  nome: string;
+  descricao: string;
+  /** Fração do volume de busca do estado que essa faixa de cidade representa */
+  multiplicador: number;
+}
+
+export const PORTES_CIDADE: PorteCidade[] = [
+  {
+    id: "capital",
+    nome: "Capital ou Região Metropolitana",
+    descricao: "Mais de 500 mil habitantes",
+    multiplicador: 1,
+  },
+  {
+    id: "grande",
+    nome: "Cidade Grande",
+    descricao: "100 mil a 500 mil habitantes",
+    multiplicador: 0.45,
+  },
+  {
+    id: "media",
+    nome: "Cidade Média",
+    descricao: "20 mil a 100 mil habitantes",
+    multiplicador: 0.2,
+  },
+  {
+    id: "pequena",
+    nome: "Cidade Pequena / Interior",
+    descricao: "Menos de 20 mil habitantes",
+    multiplicador: 0.08,
+  },
+];
+
+export function getPorteCidade(id: string): PorteCidade | undefined {
+  return PORTES_CIDADE.find((p) => p.id === id);
+}
+
+/**
  * Calcula o potencial de visibilidade e receita perdida.
  *
+ * Etapa 0 — porte da cidade: o volume de busca do estado é concentrado na
+ *   capital/região metropolitana, então ajustamos pelo porte da cidade do
+ *   usuário antes de qualquer outro cálculo (evita superestimar para quem
+ *   está longe dos grandes centros).
  * Etapa 1 — alcance: quantas pessoas que buscam poderiam chegar ao site
  *   (taxa de clique/alcance típica de um site bem posicionado)
  * Etapa 2 — conversão real: apenas 10% desses visitantes viram clientes
  *   (reflete que nem todo contato fecha negócio)
  *
- * @param buscas  - buscas mensais no estado
- * @param ticket  - ticket médio em R$
- * @param taxa    - fração de buscadores que chegariam ao site (ex: 0.025)
+ * @param buscas               - buscas mensais no estado
+ * @param ticket               - ticket médio em R$
+ * @param taxa                 - fração de buscadores que chegariam ao site (ex: 0.025)
+ * @param multiplicadorCidade  - fração do volume estadual que cabe ao porte da cidade (default 1 = capital)
  */
 export function calcularPotencial(
   buscas: number,
   ticket: number,
-  taxa: number
+  taxa: number,
+  multiplicadorCidade: number = 1
 ) {
-  const leadsAlcancados = Math.round(buscas * taxa);   // visitantes potenciais
+  const buscasAjustadas = Math.round(buscas * multiplicadorCidade); // ajustado ao porte da cidade
+  const leadsAlcancados = Math.round(buscasAjustadas * taxa);   // visitantes potenciais
   const clientesConvertidos = Math.round(leadsAlcancados * 0.1); // 10% convertem
   const receitaEstimada = clientesConvertidos * ticket;
-  return { leadsAlcancados, clientesConvertidos, receitaEstimada };
+  return { buscasAjustadas, leadsAlcancados, clientesConvertidos, receitaEstimada };
 }
