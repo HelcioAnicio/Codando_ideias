@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Header } from "@/components/ui/header";
 import { Services } from "@/components/ui/services";
-import { Steps } from "@/components/ui/steps";
-import { StudioFaq } from "@/components/ui/studio-faq";
+import { TechMarquee } from "@/components/ui/techMarquee";
 import { Footer } from "@/components/ui/footer";
 
 export const metadata: Metadata = {
@@ -52,8 +53,19 @@ export default function ServicosPage() {
           </p>
         </div>
         <Services />
-        <Steps />
-        <StudioFaq />
+        <TechMarquee />
+        <div className="mx-auto w-full max-w-6xl px-5 pb-4 sm:px-7">
+          <Link
+            href="/duvidas"
+            className="group inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wider text-popover-foreground"
+          >
+            Como é o nosso processo e dúvidas frequentes
+            <ArrowRight
+              aria-hidden="true"
+              className="size-4 transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </Link>
+        </div>
       </main>
       <Footer />
     </>

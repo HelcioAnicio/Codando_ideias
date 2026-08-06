@@ -96,7 +96,8 @@ export const CardImage = () => {
               link="https://wa.me/5531991973835?text=Olá,+quero+solicitar+um+orçamento!"
               icon={<Sparkles size={15} aria-hidden="true" />}
               size="sm"
-              classes="w-max px-10 py-3 text-sm"
+              liftOnHover={false}
+              classes="w-max px-10 py-3 text-sm min-[500px]:px-14"
             />
           </div>
         </div>
@@ -151,7 +152,8 @@ export const CardImage = () => {
             link="https://wa.me/5531991973835?text=Olá,+quero+solicitar+um+orçamento!"
             icon={<Sparkles size={14} aria-hidden="true" />}
             size="sm"
-            classes="w-max px-5 py-3 text-sm"
+            liftOnHover={false}
+            classes="w-max px-5 py-3 text-sm min-[500px]:px-10"
           />
         </div>
         {/* {!buttonVisible && ( */}

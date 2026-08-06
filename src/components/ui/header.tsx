@@ -21,9 +21,18 @@ import { FaInstagram } from "react-icons/fa6";
 import { ctaButtonClasses, CtaShine } from "./buttonGeral";
 
 const HEADER_BG_BY_ROUTE: Record<string, string> = {
-  "/projetos": "bg-popover/95 backdrop-blur-md border-b border-white/5",
+  "/projetos": "bg-background/95 backdrop-blur-md border-b border-white/5",
   "/servicos": "bg-secondary/95 backdrop-blur-md border-b border-white/5",
+  "/duvidas": "bg-secondary/95 backdrop-blur-md border-b border-white/5",
 };
+
+const NAV_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/projetos", label: "Projetos" },
+  { href: "/servicos", label: "Serviços" },
+  { href: "/duvidas", label: "Dúvidas" },
+  { href: "/#footer", label: "Contato" },
+];
 
 export const Header = () => {
   const pathname = usePathname();
@@ -39,46 +48,25 @@ export const Header = () => {
 
           <nav className="hidden lg:block">
             <ul className="flex items-center gap-7">
-              <li className="relative">
-                <Link
-                  href="/"
-                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
-                >
-                  Home
-                </Link>
-              </li>
-              <li className="relative">
-                <Link
-                  href="/projetos"
-                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
-                >
-                  Projetos
-                </Link>
-              </li>
-              <li className="relative">
-                <Link
-                  href="/servicos"
-                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
-                >
-                  Serviços
-                </Link>
-              </li>
-              {/* <li className="relative">
-                <Link
-                  href="#steps"
-                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
-                >
-                  Processo criativo
-                </Link>
-              </li> */}
-              <li className="relative">
-                <Link
-                  href="/#footer"
-                  className="flex items-center gap-1 text-xs text-primary-foreground transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-popover-foreground after:transition-all after:duration-300 hover:after:w-full md:text-sm lg:text-base"
-                >
-                  Contato
-                </Link>
-              </li>
+              {NAV_LINKS.map((link) => {
+                const isActive = pathname === link.href;
+
+                return (
+                  <li key={link.href} className="relative">
+                    <Link
+                      href={link.href}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`flex items-center gap-1 text-xs transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-popover-foreground after:transition-all after:duration-300 md:text-sm lg:text-base ${
+                        isActive
+                          ? "text-popover-foreground after:w-full"
+                          : "text-primary-foreground after:w-0 hover:after:w-full"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
               <li>
                 <Link href="/#calculadora" className={ctaButtonClasses("primary", "sm")}>
                   <CtaShine />
@@ -105,41 +93,32 @@ export const Header = () => {
               >
                 <SheetHeader>
                   <SheetTitle>
-                    {/* {theme === "light" ? ( */}
-                    {/* <Image className="w-40 lg:w-52" src={Logo3} alt="Logo" /> */}
-                    {/* ) : ( */}
                     <Image className="w-40 lg:w-52" src={Logo2} alt="Codando Ideias" />
-                    {/* )} */}
                   </SheetTitle>
                 </SheetHeader>
                 <SheetDescription>
                   <nav>
                     <ul className="flex flex-col gap-6 font-franklin font-bold">
-                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                        <SheetClose asChild>
-                          <Link href="/">Home</Link>
-                        </SheetClose>
-                      </li>
-                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                        <SheetClose asChild>
-                          <Link href="/projetos">Projetos</Link>
-                        </SheetClose>{" "}
-                      </li>
-                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                        <SheetClose asChild>
-                          <Link href="/servicos">Serviços</Link>
-                        </SheetClose>
-                      </li>
-                      {/* <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                        <SheetClose asChild>
-                          <Link href="#steps">Processo criativo</Link>
-                        </SheetClose>{" "}
-                      </li> */}
-                      <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300 hover:border-b hover:border-b-popover-foreground hover:text-popover-foreground">
-                        <SheetClose asChild>
-                          <Link href="/#footer">Contato</Link>
-                        </SheetClose>
-                      </li>
+                      {NAV_LINKS.map((link) => {
+                        const isActive = pathname === link.href;
+
+                        return (
+                          <li
+                            key={link.href}
+                            className={`flex w-max items-center gap-1 border-b transition-all duration-300 hover:border-b-popover-foreground hover:text-popover-foreground ${
+                              isActive
+                                ? "border-b-popover-foreground text-popover-foreground"
+                                : "border-b-transparent text-primary-foreground"
+                            }`}
+                          >
+                            <SheetClose asChild>
+                              <Link href={link.href} aria-current={isActive ? "page" : undefined}>
+                                {link.label}
+                              </Link>
+                            </SheetClose>
+                          </li>
+                        );
+                      })}
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300">
                         <SheetClose asChild>
                           <Link

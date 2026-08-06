@@ -32,17 +32,12 @@ export const ProjectsEditorial = () => {
           <article
             key={project.slug}
             id={project.slug}
-            className="scroll-mt-28 border-t border-white/10 py-16 first:border-t-0 first:pt-0 lg:py-20"
+            className="scroll-mt-28 border-t border-white/10 py-16 first:border-t-0 lg:py-20"
           >
             <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
               <div
                 className={`group relative lg:col-span-7 ${isOdd ? "lg:order-2" : "lg:order-1"}`}
               >
-                <span
-                  className={`absolute -top-3 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.24em] ${project.palette.badge} z-10`}
-                >
-                  {project.preview.label}
-                </span>
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl shadow-2xl shadow-black/40">
                   <Image
                     src={project.imageSrc}
@@ -51,6 +46,11 @@ export const ProjectsEditorial = () => {
                     className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     sizes="(max-width: 1023px) 100vw, 58vw"
                   />
+                  <span
+                    className={`absolute left-4 top-4 z-10 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.24em] ${project.palette.badge}`}
+                  >
+                    {project.preview.label}
+                  </span>
                 </div>
               </div>
 
@@ -85,7 +85,11 @@ export const ProjectsEditorial = () => {
                     className="group/link mt-2 inline-flex w-max items-center gap-1.5 text-sm font-bold uppercase tracking-wider text-popover-foreground transition-all hover:gap-2.5"
                   >
                     Ver site
-                    <ArrowUpRight className="size-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      className="size-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                    />
+                    <span className="sr-only"> (abre em nova aba)</span>
                   </Link>
                 </div>
               </div>

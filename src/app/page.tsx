@@ -8,7 +8,12 @@ import { VisibilidadeCta } from "@/components/ui/visibilidade-cta";
 import { PorQueSite } from "@/components/ui/por-que-site";
 import { projects } from "@/data/projects";
 
-const FEATURED_SLUGS = ["joao-victor-barbearia", "aisthesis-estetica", "agro-finance"];
+const FEATURED_SLUGS = [
+  "joao-victor-barbearia",
+  "aisthesis-estetica",
+  "mimos-da-poli",
+  "agro-finance",
+];
 
 const featuredProjects = FEATURED_SLUGS.map((slug) =>
   projects.find((project) => project.slug === slug),

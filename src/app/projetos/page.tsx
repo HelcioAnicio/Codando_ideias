@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/ui/header";
 import { ProjectsEditorial } from "@/components/ui/projectsEditorial";
+import { Footer } from "@/components/ui/footer";
 
 export const metadata: Metadata = {
   title: "Projetos",
@@ -49,6 +50,7 @@ export default function ProjetosPage() {
         </div>
         <ProjectsEditorial />
       </main>
+      <Footer />
     </>
   );
 }
