@@ -6,6 +6,7 @@ import { IoMdTrendingUp } from "react-icons/io";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import { Sparkles } from "lucide-react";
+import { ButtonGeral } from "./buttonGeral";
 
 export const CardImage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -90,13 +91,13 @@ export const CardImage = () => {
                 : "-translate-x-full blur-sm"
             } `}
           >
-            <Link
-              href="https://wa.me/5531991973835?text=Olá,+quero+solicitar+um+orçamento!"
-              className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500 px-10 py-3 text-sm font-bold uppercase transition-all duration-200 hover:bg-yellow-500/90"
-            >
-              <Sparkles size={15} aria-hidden="true" />
-              Solicitar orçamento
-            </Link>
+            <ButtonGeral
+              text="Solicitar orçamento"
+              link="https://wa.me/5531991973835?text=Olá,+quero+solicitar+um+orçamento!"
+              icon={<Sparkles size={15} aria-hidden="true" />}
+              size="sm"
+              classes="w-max px-10 py-3 text-sm"
+            />
           </div>
         </div>
 
@@ -145,13 +146,13 @@ export const CardImage = () => {
               : "translate-y-full opacity-0 blur-sm"
           } `}
         >
-          <Link
-            href="https://wa.me/5531991973835?text=Olá,+quero+solicitar+um+orçamento!"
-            className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500 px-5 py-3 text-sm font-bold uppercase transition-all duration-200 hover:bg-yellow-500/90"
-          >
-            <Sparkles size={14} aria-hidden="true" />
-            Solicitar orçamento
-          </Link>
+          <ButtonGeral
+            text="Solicitar orçamento"
+            link="https://wa.me/5531991973835?text=Olá,+quero+solicitar+um+orçamento!"
+            icon={<Sparkles size={14} aria-hidden="true" />}
+            size="sm"
+            classes="w-max px-5 py-3 text-sm"
+          />
         </div>
         {/* {!buttonVisible && ( */}
         <Link

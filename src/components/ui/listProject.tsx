@@ -4,9 +4,19 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { ButtonGeral } from "./buttonGeral";
-import { projects } from "@/data/projects";
+import { projects as allProjects, type Project } from "@/data/projects";
 
-export const ListProjects = () => {
+type ListProjectsProps = {
+  projects?: Project[];
+  ctaHref?: string;
+  ctaText?: string;
+};
+
+export const ListProjects = ({
+  projects = allProjects,
+  ctaHref,
+  ctaText,
+}: ListProjectsProps) => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [itemsPerPage, setItemsPerPage] = useState(2);
   const [activePage, setActivePage] = useState(0);
@@ -32,7 +42,7 @@ export const ListProjects = () => {
     }
 
     return chunked;
-  }, [itemsPerPage]);
+  }, [itemsPerPage, projects]);
 
   useEffect(() => {
     setActivePage((currentPage) => Math.min(currentPage, pages.length - 1));
@@ -89,6 +99,19 @@ export const ListProjects = () => {
       <div className="mx-auto max-w-6xl shadow-2xl min-[1040px]:rounded-3xl">
         <div className="relative overflow-hidden px-5 py-10 md:px-8 md:py-14 xl:px-10">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(250,204,21,0.08),transparent_24%),radial-gradient(circle_at_right,rgba(59,130,246,0.12),transparent_26%)] min-[1040px]:rounded-tl-3xl" />
+
+          <div className="relative z-10 mb-10 max-w-3xl">
+            <span className="mb-4 inline-flex rounded-full border border-secondary-foreground/20 bg-secondary-foreground/5 px-4 py-1 text-xs uppercase tracking-[0.26em] text-secondary-foreground/80">
+              Portfólio selecionado
+            </span>
+            <h2 className="mb-4 font-custom text-3xl font-bold leading-tight md:text-5xl">
+              Projetos em destaque
+            </h2>
+            <p className="max-w-2xl text-base leading-8 text-secondary-foreground/80 md:text-lg">
+              Uma amostra de soluções digitais de alto impacto, unindo robustez
+              técnica e design memorável.
+            </p>
+          </div>
 
           <div
             ref={carouselRef}
@@ -218,6 +241,16 @@ export const ListProjects = () => {
               </button>
             </div>
           </div>
+
+          {ctaHref && (
+            <div className="relative z-10 mt-8 flex justify-center">
+              <ButtonGeral
+                text={ctaText ?? "Ver mais"}
+                link={ctaHref}
+                classes="w-max px-10"
+              />
+            </div>
+          )}
         </div>
       </div>
     </section>

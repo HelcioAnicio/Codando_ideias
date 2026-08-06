@@ -16,12 +16,24 @@ import Logo2 from "../../../public/logo2.svg";
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { FaInstagram } from "react-icons/fa6";
+import { ctaButtonClasses, CtaShine } from "./buttonGeral";
+
+const HEADER_BG_BY_ROUTE: Record<string, string> = {
+  "/projetos": "bg-popover/95 backdrop-blur-md border-b border-white/5",
+  "/servicos": "bg-secondary/95 backdrop-blur-md border-b border-white/5",
+};
 
 export const Header = () => {
+  const pathname = usePathname();
+  const headerBg = HEADER_BG_BY_ROUTE[pathname] ?? "bg-background";
+
   return (
-    <header className="fixed top-0 z-50 flex w-full justify-center border-none bg-background font-franklin font-bold shadow-none">
-      <Card className="w-full max-w-6xl rounded-t-none border-none bg-background px-5 shadow-none">
+    <header
+      className={`fixed top-0 z-50 flex w-full justify-center border-none font-franklin font-bold shadow-none transition-colors duration-300 ${headerBg}`}
+    >
+      <Card className="w-full max-w-6xl rounded-t-none border-none bg-transparent px-5 shadow-none">
         <div className="m-auto flex max-w-6xl items-center justify-between py-4">
           <Image className="w-40 lg:w-52" src={Logo2} alt="Codando Ideias" />
 
@@ -68,10 +80,8 @@ export const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/#calculadora"
-                  className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500/10 px-5 py-3 text-sm font-bold uppercase text-yellow-400 transition-all duration-200 hover:scale-[1.02] hover:bg-yellow-500/20"
-                >
+                <Link href="/#calculadora" className={ctaButtonClasses("primary", "sm")}>
+                  <CtaShine />
                   Calcular potencial
                 </Link>
               </li>
@@ -150,10 +160,8 @@ export const Header = () => {
 
                       <li className="flex w-max items-center gap-1 text-primary-foreground transition-all duration-300">
                         <SheetClose asChild>
-                          <Link
-                            href="/#calculadora"
-                            className="flex w-max items-center gap-2 rounded-xl border border-yellow-500/40 bg-yellow-500/10 px-5 py-3 text-sm font-bold uppercase text-yellow-400 transition-all duration-200 hover:scale-[1.02] hover:bg-yellow-500/20"
-                          >
+                          <Link href="/#calculadora" className={ctaButtonClasses("primary", "sm")}>
+                            <CtaShine />
                             Calcular potencial
                           </Link>
                         </SheetClose>

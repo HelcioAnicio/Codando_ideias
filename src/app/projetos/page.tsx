@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/ui/header";
-import { ListProjects } from "@/components/ui/listProject";
-import { Footer } from "@/components/ui/footer";
+import { ProjectsEditorial } from "@/components/ui/projectsEditorial";
 
 export const metadata: Metadata = {
   title: "Projetos",
@@ -35,7 +34,7 @@ export default function ProjetosPage() {
   return (
     <>
       <Header />
-      <main className="relative flex w-full flex-col overflow-hidden pt-32 sm:pt-40">
+      <main className="relative flex w-full flex-col overflow-hidden pb-24 pt-32 sm:pt-40">
         <div className="mx-auto mb-4 w-full max-w-6xl px-5 sm:px-7">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-amber-300/80">
             Portfólio
@@ -48,9 +47,8 @@ export default function ProjetosPage() {
             sistemas para negócios de todos os tamanhos, em todo o Brasil.
           </p>
         </div>
-        <ListProjects />
+        <ProjectsEditorial />
       </main>
-      <Footer />
     </>
   );
 }
