@@ -125,7 +125,7 @@ export const ListProjects = ({
                       <article key={project.name} className="h-full">
                         <div className="flex h-full flex-col rounded-[1.9rem] border border-white/10 bg-white/[0.03] p-5 transition-all duration-300 hover:border-popover-foreground/20 hover:bg-white/[0.045] sm:p-6">
                           <div
-                            className={`mb-5 overflow-hidden rounded-[1.45rem] border border-white/10 bg-gradient-to-br ${project.palette.surface} p-4`}
+                            className={`mb-5 overflow-hidden ${project.palette.surface} py-4`}
                           >
                             <div className="mb-4 flex items-center justify-between gap-3">
                               <span
@@ -134,7 +134,7 @@ export const ListProjects = ({
                                 {project.preview.label}
                               </span>
                               <div
-                                className={`flex h-10 w-10 items-center justify-center rounded-2xl border ${project.palette.iconBox}`}
+                                className={`flex h-10 w-10 items-center justify-center rounded-md border ${project.palette.badge}`}
                               >
                                 {project.icon}
                               </div>
@@ -163,7 +163,7 @@ export const ListProjects = ({
                                 </div>
                               </div>
 
-                              <div className="relative aspect-[16/10] w-full">
+                              <div className="relative aspect-video w-full">
                                 <Image
                                   src={project.imageSrc}
                                   alt={`Preview do projeto ${project.name}`}

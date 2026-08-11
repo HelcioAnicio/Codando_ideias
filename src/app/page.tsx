@@ -11,7 +11,7 @@ import { projects } from "@/data/projects";
 const FEATURED_SLUGS = [
   "joao-victor-barbearia",
   "aisthesis-estetica",
-  "mimos-da-poli",
+  "engenharia-co",
   "agro-finance",
 ];
 

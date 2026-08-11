@@ -7,7 +7,8 @@ type Size = "md" | "sm";
 const VARIANT_STYLES: Record<Variant, string> = {
   primary:
     "bg-gradient-to-br from-amber-300 via-amber-400 to-yellow-500 text-slate-950 shadow-lg shadow-amber-500/20 hover:shadow-amber-400/40 hover:brightness-105",
-  secondary: "border border-secondary-foreground bg-transparent text-foreground hover:bg-accent/5",
+  secondary:
+    "border border-secondary-foreground bg-transparent text-foreground hover:bg-accent/5",
 };
 
 /** Hover/active scale — kept separate so callers whose layout can't afford a size change (e.g. clipped by an ancestor's overflow-hidden) can opt out via `liftOnHover`. */
@@ -17,8 +18,8 @@ const VARIANT_LIFT: Record<Variant, string> = {
 };
 
 const SIZE_STYLES: Record<Size, string> = {
-  md: "px-6 py-4 text-sm lg:text-base",
-  sm: "px-4 py-2.5 text-xs",
+  md: "px-6 py-6 text-sm lg:text-base",
+  sm: "px-4 py-4 text-xs",
 };
 
 /**
@@ -29,7 +30,7 @@ const SIZE_STYLES: Record<Size, string> = {
 export function ctaButtonClasses(
   variant: Variant = "primary",
   size: Size = "md",
-  liftOnHover: boolean = true
+  liftOnHover: boolean = true,
 ) {
   return `group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl text-center font-bold uppercase tracking-wider outline-none transition-all duration-300 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${SIZE_STYLES[size]} ${VARIANT_STYLES[variant]} ${liftOnHover ? VARIANT_LIFT[variant] : ""}`;
 }

@@ -63,25 +63,26 @@ export const CardImage = () => {
           aria-hidden="true"
         />
 
-        <div className="relative z-20 flex h-2/5 min-h-max w-full flex-col justify-center gap-5 overflow-hidden sm:w-1/2 sm:justify-center sm:gap-8 md:gap-10">
+        <div className="relative z-50 flex h-2/5 min-h-max w-full flex-col justify-center gap-5 overflow-hidden sm:w-7/12 sm:justify-center sm:gap-8 md:gap-10">
           <h1
-            className={`max-w-md text-4xl font-extrabold leading-[1.1] text-foreground transition-all delay-150 duration-500 min-[400px]:text-5xl sm:mt-0 lg:text-6xl xl:max-w-lg xl:text-7xl xl:leading-[0.9] ${
+            title="Hero — Sua empresa merece ser encontrada"
+            className={`max-w-md text-4xl font-extrabold leading-[1.1] text-foreground transition-all delay-150 duration-500 min-[400px]:text-[40px] sm:mt-0 sm:text-5xl xl:max-w-lg xl:text-6xl xl:leading-[0.9] 2xl:text-7xl ${
               isVisible
                 ? "translate-y-0 blur-none"
                 : "-translate-y-full blur-sm"
             } `}
           >
-            Sua empresa merece ser encontrada.
+            Desenvolvimento de websites, apps e sistemas.
           </h1>
 
           <p
-            className={`w-4/6 max-w-sm text-sm font-light leading-relaxed text-foreground/80 transition-all delay-200 duration-500 min-[400px]:text-base sm:text-lg md:text-xl ${
+            className={`XL:text-xl w-4/6 max-w-sm text-sm font-light leading-relaxed text-foreground/80 transition-all delay-200 duration-500 min-[400px]:text-base sm:text-lg ${
               isVisible ? "opacity-100 blur-none" : "opacity-0 blur-sm"
             } `}
           >
-            Criamos sites estratégicos, Landing Pages sem template pronto, em
-            código 100% puro, com alta performance. <br /> Um verdadeiro site
-            que converte!
+            Desenvolvemos sites personalizados, landing pages sem template
+            pronto, com alta performance e conversão. <br /> A sua empresa
+            merece ser encontrada na internet.
           </p>
 
           <div
@@ -102,8 +103,8 @@ export const CardImage = () => {
           </div>
         </div>
 
-        <div className="absolute bottom-[10%] right-0 h-[60%] w-2/3 sm:right-4 sm:top-0 sm:h-full sm:w-1/2">
-          <div className="relative h-full w-full">
+        <div className="absolute bottom-[10%] right-0 h-[60%] w-2/3 sm:right-4 sm:top-0 sm:h-full sm:w-1/2 md:flex md:items-center">
+          <div className="relative h-full max-h-[800px] w-full lg:h-[85%]">
             <Image
               src="/profile.jpg"
               alt="Foto de perfil do profissional"
@@ -168,7 +169,10 @@ export const CardImage = () => {
               : "pointer-events-none translate-x-40 opacity-0 blur-sm"
           } `}
         >
-          <FaWhatsapp aria-hidden="true" className="size-6 min-[400px]:size-9" />
+          <FaWhatsapp
+            aria-hidden="true"
+            className="size-6 min-[400px]:size-9"
+          />
         </Link>
       </div>
     </section>
