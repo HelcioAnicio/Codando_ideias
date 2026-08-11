@@ -9,6 +9,7 @@ import {
   Scissors,
   Sprout,
   Tractor,
+  Wrench,
 } from "lucide-react";
 import { GiDelicatePerfume } from "react-icons/gi";
 import { MdSpa } from "react-icons/md";
@@ -41,7 +42,7 @@ export const projects: Project[] = [
     slug: "agro-finance",
     name: "Agro Finance",
     description:
-      "Sistema SaaS de alta complexidade para gestão agropecuária, com controle total de ativos, fluxo financeiro e ciclo reprodutivo.",
+      "Sistema SaaS, total controle e facilidade para gestão agropecuária, com controle total de ativos, fluxo financeiro e ciclo reprodutivo.",
     href: "https://agro-finance-real.vercel.app/dashboard",
     imageSrc: "/agroFinance.png",
     icon: <Tractor className="h-5 w-5" />,
@@ -61,7 +62,7 @@ export const projects: Project[] = [
       "Decisões baseadas em dados em tempo real",
     ],
     improvements: [
-      "Substituiu planilhas soltas por um sistema centralizado",
+      "Substituiu planilhas por um sistema centralizado, automatizado e confiável",
       "Automatizou o controle do ciclo reprodutivo",
     ],
     process: [
@@ -74,7 +75,7 @@ export const projects: Project[] = [
     slug: "joao-victor-barbearia",
     name: "João Victor Barbearia",
     description:
-      "Site premium para barbearia tradicional, com identidade visual de luxo em preto e dourado e sistema de agendamento online.",
+      "Site premium para barbearia tradicional, com identidade visual de luxo em preto e dourado.",
     href: "https://joao-victor-barbearia.vercel.app/",
     imageSrc: "/joaoVictorBarbearia.png",
     icon: <Scissors className="h-5 w-5" />,
@@ -90,16 +91,15 @@ export const projects: Project[] = [
       previewDots: "bg-amber-400/60",
     },
     benefits: [
-      "Agendamento online sem depender do telefone",
-      "Identidade visual que reforça a tradição da marca",
+      "Aumento do alcance (visibilidade) e conversão dos visitantes",
+      "Identidade visual que reforça a tradição do negócio",
     ],
     improvements: [
-      "Trocou o agendamento manual por reservas automáticas",
+      "Substituiu a divulgação apenas em redes sociais por um site próprio",
       "Deu uma cara premium condizente com o padrão do salão",
     ],
     process: [
       "Definição da paleta preto e dourado",
-      "Estruturação do fluxo de agendamento",
       "Ajuste fino de tipografia e espaçamento",
     ],
   },
@@ -160,12 +160,12 @@ export const projects: Project[] = [
       "Autoridade digital para a clínica na região",
     ],
     improvements: [
-      "Substituiu a presença só em redes sociais por um site próprio",
-      "Estrutura pensada para conversão de agendamentos",
+      "Mudança de uma presença digital genérica para um site premium",
+      "Estrutura pensada para conversão",
     ],
     process: [
       "Pesquisa de posicionamento da clínica",
-      "Definição de paleta e direção de fotografia",
+      "Definição estrutural do site para conversão",
       "Estruturação das seções de autoridade",
     ],
   },
@@ -236,6 +236,39 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "engenharia-co",
+    name: "Engenharia & Co",
+    description:
+      "Presença digital para empresa de engenharia, focada em demonstrar expertise técnica, projetos, resultados, conhecimento e soluções inovadoras.",
+    href: "https://engenharia-co.vercel.app/",
+    imageSrc: "/engenharia.png",
+    icon: <Wrench className="h-5 w-5" />,
+    preview: {
+      label: "Engenharia",
+      title: "Construção de confiança",
+    },
+    palette: {
+      surface: "from-[#e0f2fe] via-[#bae6fd] to-[#e0f2fe]",
+      badge: "bg-[#0284c7] text-white",
+      iconBox: "border-[#0ea5e9]/35 bg-white/40 text-[#0284c7]",
+      previewTitle: "text-slate-900/80",
+      previewDots: "bg-slate-500/35",
+    },
+    benefits: [
+      "Presença digital, conhecimento, e autoridade para a empresa",
+      "Alcance de clientes em potencial e parceiros de negócio na internet.",
+    ],
+    improvements: [
+      "Substituiu a divulgação informal por um site profissional",
+      "Resultados, contato, e portfólio de projetos em um só lugar",
+    ],
+    process: [
+      "Organização das abas e conteudo.",
+      "Definição de paleta e tipografia.",
+      "Ajustes de SEO e performance.",
+    ],
+  },
+  {
     slug: "classic-mecanica",
     name: "Classic Mecânica",
     description:
@@ -259,7 +292,7 @@ export const projects: Project[] = [
       "Chamada direta para orçamento sem fricção",
     ],
     improvements: [
-      "Trocou a ausência de site por uma landing de alta conversão",
+      "Trocou um site genérico por uma landing de alta conversão",
       "Deu credibilidade visual à tradição da oficina",
     ],
     process: [

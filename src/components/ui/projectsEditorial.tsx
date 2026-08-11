@@ -11,7 +11,10 @@ function ProjectColumn({ label, items }: { label: string; items: string[] }) {
       </p>
       <ul className="flex flex-col gap-2.5">
         {items.map((item) => (
-          <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-slate-300">
+          <li
+            key={item}
+            className="flex items-start gap-2.5 text-sm leading-relaxed text-slate-300"
+          >
             <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-popover-foreground/60" />
             {item}
           </li>
@@ -36,21 +39,16 @@ export const ProjectsEditorial = () => {
           >
             <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
               <div
-                className={`group relative lg:col-span-7 ${isOdd ? "lg:order-2" : "lg:order-1"}`}
+                className={`group relative flex flex-col lg:col-span-7 ${isOdd ? "lg:order-2" : "lg:order-1"}`}
               >
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl shadow-2xl shadow-black/40">
+                <div className="flex aspect-[16/9] w-full flex-col gap-10 rounded-2xl shadow-2xl shadow-black/40">
                   <Image
                     src={project.imageSrc}
                     alt={`Preview do projeto ${project.name}`}
                     fill
-                    className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    className="inline-block rounded-md object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     sizes="(max-width: 1023px) 100vw, 58vw"
                   />
-                  <span
-                    className={`absolute left-4 top-4 z-10 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.24em] ${project.palette.badge}`}
-                  >
-                    {project.preview.label}
-                  </span>
                 </div>
               </div>
 
@@ -73,10 +71,19 @@ export const ProjectsEditorial = () => {
                   </p>
 
                   <div className="grid grid-cols-1 gap-6 py-2 sm:grid-cols-2">
-                    <ProjectColumn label="Benefícios" items={project.benefits} />
-                    <ProjectColumn label="Melhorias" items={project.improvements} />
+                    <ProjectColumn
+                      label="Benefícios"
+                      items={project.benefits}
+                    />
+                    <ProjectColumn
+                      label="Melhorias"
+                      items={project.improvements}
+                    />
                   </div>
-                  <ProjectColumn label="Processo criativo" items={project.process} />
+                  <ProjectColumn
+                    label="Processo criativo"
+                    items={project.process}
+                  />
 
                   <Link
                     href={project.href}
@@ -87,7 +94,7 @@ export const ProjectsEditorial = () => {
                     Ver site
                     <ArrowUpRight
                       aria-hidden="true"
-                      className="size-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                      className="size-4 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5"
                     />
                     <span className="sr-only"> (abre em nova aba)</span>
                   </Link>
