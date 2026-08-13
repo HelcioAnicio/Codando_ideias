@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://codandoideias.com.br"),
 
   title: {
-    default: "Codando Ideias | Sites e Sistemas para Empresas",
+    default: "Codando Ideias | Sites e Sistemas para Empresas e profissionais",
     template: "%s | Codando Ideias",
   },
 
@@ -110,7 +110,7 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "https://codandoideias.com.br",
     siteName: "Codando Ideias",
-    title: "Codando Ideias | Sites e Sistemas para Empresas",
+    title: "Codando Ideias | Sites e Sistemas para Empresas e profissionais",
     description:
       "Sites profissionais, landing pages e sistemas web para empresas e autônomos. Atendemos todo o Brasil.",
   },
@@ -149,11 +149,12 @@ const jsonLd = {
   areaServed: "BR",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Belo Horizonte",
-    addressRegion: "MG",
+    addressLocality: "Caxias do Sul",
+    addressRegion: "RS",
+    postalCode: "95080-160",
     addressCountry: "BR",
   },
-  sameAs: ["https://www.instagram.com/dev.helcioanicio"],
+  sameAs: ["https://www.instagram.com/codando.ideias"],
   priceRange: "$$",
 };
 
