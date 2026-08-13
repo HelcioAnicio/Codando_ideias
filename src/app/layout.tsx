@@ -113,14 +113,6 @@ export const metadata: Metadata = {
     title: "Codando Ideias | Sites e Sistemas para Empresas",
     description:
       "Sites profissionais, landing pages e sistemas web para empresas e autônomos. Atendemos todo o Brasil.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Codando Ideias - Desenvolvimento Web Profissional",
-      },
-    ],
   },
 
   twitter: {

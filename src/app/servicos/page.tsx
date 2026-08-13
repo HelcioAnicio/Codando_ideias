@@ -5,9 +5,15 @@ import { Header } from "@/components/ui/header";
 import { Services } from "@/components/ui/services";
 import { TechMarquee } from "@/components/ui/techMarquee";
 import { Footer } from "@/components/ui/footer";
+import { breadcrumbJsonLd } from "@/lib/breadcrumb";
+
+const breadcrumb = breadcrumbJsonLd([
+  { name: "Home", url: "https://codandoideias.com.br" },
+  { name: "Serviços", url: "https://codandoideias.com.br/servicos" },
+]);
 
 export const metadata: Metadata = {
-  title: "Serviços",
+  title: "Serviços: Landing Pages, Sites e Sistemas Sob Medida",
 
   description:
     "Landing pages, sites institucionais, e-commerce, sistemas sob medida e avaliação/remodelação de sites já existentes. Conheça todos os nossos serviços.",
@@ -21,14 +27,14 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "https://codandoideias.com.br/servicos",
     siteName: "Codando Ideias",
-    title: "Serviços | Codando Ideias",
+    title: "Serviços: Landing Pages, Sites e Sistemas Sob Medida | Codando Ideias",
     description:
       "Landing pages, sites institucionais, e-commerce, sistemas sob medida e avaliação/remodelação de sites já existentes.",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Serviços | Codando Ideias",
+    title: "Serviços: Landing Pages, Sites e Sistemas Sob Medida | Codando Ideias",
     description:
       "Landing pages, sites institucionais, e-commerce, sistemas sob medida e avaliação/remodelação de sites já existentes.",
   },
@@ -37,6 +43,10 @@ export const metadata: Metadata = {
 export default function ServicosPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <Header />
       <main className="relative flex w-full flex-col gap-16 overflow-hidden pt-32 sm:pt-40">
         <div className="mx-auto w-full max-w-6xl px-5 sm:px-7">

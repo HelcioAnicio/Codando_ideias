@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Calculadora de Clientes Perdidos | Diagnóstico de Visibilidade Grátis",
@@ -62,6 +63,11 @@ const jsonLd = {
   },
 };
 
+const breadcrumb = breadcrumbJsonLd([
+  { name: "Home", url: "https://codandoideias.com.br" },
+  { name: "Calculadora", url: "https://codandoideias.com.br/calculadora" },
+]);
+
 export default function CalculadoraLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -70,6 +76,10 @@ export default function CalculadoraLayout({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
       {children}
     </>

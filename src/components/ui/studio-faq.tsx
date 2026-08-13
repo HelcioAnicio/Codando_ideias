@@ -40,7 +40,7 @@ const faqs = [
   {
     question: "Vocês fazem manutenção após a entrega?",
     answer:
-      "Sim. Podemos seguir com manutenção contínua, ajustes, monitoramento e melhorias evolutivas depois do lançamento.",
+      "Sim — nossa garantia de funcionamento é vitalícia: se o site parar de funcionar por uma falha nossa, corrigimos sem custo. Além disso, seguimos com manutenção contínua, ajustes, monitoramento e melhorias evolutivas depois do lançamento.",
   },
   {
     question: "O site será otimizado para celulares e para aparecer no Google?",
@@ -49,12 +49,29 @@ const faqs = [
   },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
 export const StudioFaq = () => {
   return (
     <section
       id="faq"
       className="m-auto flex w-full max-w-5xl flex-col items-center gap-5 rounded-md px-6 py-24 lg:px-8"
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className="mx-auto w-full max-w-4xl">
         <div className="mb-14 text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-amber-300/80">
@@ -82,10 +99,10 @@ export const StudioFaq = () => {
         </div>
       </div>
       <ButtonGeral
-        text={"Tirar minhas dúvidas"}
+        text={"Quero começar meu projeto"}
         classes={"lg:w-full"}
         link={
-          "https://wa.me/5531991973835?text=Olá,+quero+tirar+dúvidas+sobre..."
+          "https://wa.me/5531991973835?text=Olá,+li+as+dúvidas+frequentes+e+quero+começar+meu+projeto!"
         }
       />
     </section>
