@@ -39,6 +39,12 @@ export const Footer = () => {
                 />
               </div>
             </li>
+            <li>
+              <p className="mt-4 text-sm text-secondary-foreground/70">
+                Ajustamos o site até você aprovar o resultado, com garantia
+                vitalícia de funcionamento.
+              </p>
+            </li>
             <li className="mt-10 flex flex-wrap items-center gap-4">
               <Image className="w-40 lg:w-52" src={Logo2} alt="Codando Ideias" />
 

@@ -165,11 +165,36 @@ export const Reviews = () => {
 
   const hasReviews = (avaliacoes?.length ?? 0) > 0;
 
+  const avgNota = hasReviews
+    ? avaliacoes!.reduce((sum, review) => sum + review.nota, 0) /
+      avaliacoes!.length
+    : 0;
+
+  const ratingJsonLd = hasReviews
+    ? {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        name: "Codando Ideias",
+        url: "https://codandoideias.com.br",
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: avgNota.toFixed(1),
+          reviewCount: avaliacoes!.length,
+        },
+      }
+    : null;
+
   return (
     <section
       className="mx-auto w-full bg-primary/20 py-10 lg:py-20"
       id="avaliacoes"
     >
+      {ratingJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingJsonLd) }}
+        />
+      )}
       <div className="mx-auto max-w-6xl shadow-2xl min-[1040px]:rounded-3xl">
         <div className="relative overflow-hidden px-5 py-10 md:px-8 md:py-14 xl:px-10">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(250,204,21,0.08),transparent_24%),radial-gradient(circle_at_left,rgba(59,130,246,0.12),transparent_26%)] min-[1040px]:rounded-tl-3xl" />
@@ -182,6 +207,13 @@ export const Reviews = () => {
               <h2 className="mb-4 font-custom text-3xl font-bold leading-tight md:text-5xl">
                 Quem já trabalhou com a gente
               </h2>
+              {hasReviews && (
+                <p className="mb-4 text-sm font-semibold text-amber-300">
+                  {avgNota.toFixed(1).replace(".", ",")}/5 · baseado em{" "}
+                  {avaliacoes!.length}{" "}
+                  {avaliacoes!.length === 1 ? "avaliação" : "avaliações"}
+                </p>
+              )}
               <p className="max-w-2xl text-base leading-8 text-secondary-foreground/80 md:text-lg">
                 Avaliações enviadas diretamente por clientes, publicadas em
                 tempo real — sem curadoria, sem filtro.

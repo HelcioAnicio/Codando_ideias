@@ -3,9 +3,15 @@ import { Header } from "@/components/ui/header";
 import { Steps } from "@/components/ui/steps";
 import { StudioFaq } from "@/components/ui/studio-faq";
 import { Footer } from "@/components/ui/footer";
+import { breadcrumbJsonLd } from "@/lib/breadcrumb";
+
+const breadcrumb = breadcrumbJsonLd([
+  { name: "Home", url: "https://codandoideias.com.br" },
+  { name: "Dúvidas", url: "https://codandoideias.com.br/duvidas" },
+]);
 
 export const metadata: Metadata = {
-  title: "Dúvidas",
+  title: "Dúvidas Frequentes Sobre Criação de Sites",
 
   description:
     "Entenda como construímos o seu site passo a passo e tire as dúvidas mais comuns sobre prazo, preço, domínio, hospedagem e manutenção.",
@@ -19,14 +25,14 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "https://codandoideias.com.br/duvidas",
     siteName: "Codando Ideias",
-    title: "Dúvidas | Codando Ideias",
+    title: "Dúvidas Frequentes Sobre Criação de Sites | Codando Ideias",
     description:
       "Entenda como construímos o seu site passo a passo e tire as dúvidas mais comuns sobre prazo, preço, domínio, hospedagem e manutenção.",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Dúvidas | Codando Ideias",
+    title: "Dúvidas Frequentes Sobre Criação de Sites | Codando Ideias",
     description:
       "Entenda como construímos o seu site passo a passo e tire as dúvidas mais comuns sobre prazo, preço, domínio, hospedagem e manutenção.",
   },
@@ -35,6 +41,10 @@ export const metadata: Metadata = {
 export default function DuvidasPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <Header />
       <main className="relative flex w-full flex-col overflow-hidden pt-32 sm:pt-40">
         <div className="mx-auto mb-4 w-full max-w-6xl px-5 sm:px-7">

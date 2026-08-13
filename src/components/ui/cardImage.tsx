@@ -54,7 +54,7 @@ export const CardImage = () => {
     <section
       id="home"
       aria-label="Hero — Sua empresa merece ser encontrada"
-      className="relative flex h-dvh max-h-[1100px] min-h-[600px] w-full items-center justify-center bg-background pt-16 sm:h-[calc(100dvh-160px)] sm:pt-20 md:h-[calc(100dvh-190px)] xl:h-[calc(100dvh-200px)]"
+      className="relative flex h-[calc(100dvh-65px)] max-h-[1200px] min-h-[600px] w-full items-center justify-center bg-background pt-16 sm:pt-20"
       ref={elementRef}
     >
       <div className="relative mx-auto flex h-[90%] w-full max-w-6xl px-4 min-[400px]:h-5/6 min-[530px]:h-full sm:items-center">
@@ -66,13 +66,13 @@ export const CardImage = () => {
         <div className="relative z-50 flex h-2/5 min-h-max w-full flex-col justify-center gap-5 overflow-hidden sm:w-7/12 sm:justify-center sm:gap-8 md:gap-10">
           <h1
             title="Hero — Sua empresa merece ser encontrada"
-            className={`max-w-md text-4xl font-extrabold leading-[1.1] text-foreground transition-all delay-150 duration-500 min-[400px]:text-[40px] sm:mt-0 sm:text-5xl xl:max-w-lg xl:text-6xl xl:leading-[0.9] 2xl:text-7xl ${
+            className={`max-w-md text-4xl font-extrabold leading-[1.1] text-foreground transition-all delay-150 duration-500 min-[400px]:text-[40px] sm:mt-0 sm:text-5xl xl:max-w-lg xl:text-6xl xl:leading-[0.9] 2xl:text-[68px] ${
               isVisible
                 ? "translate-y-0 blur-none"
                 : "-translate-y-full blur-sm"
             } `}
           >
-            Desenvolvimento de websites, apps e sistemas.
+            Criamos sites, customizados e profissionais.
           </h1>
 
           <p
