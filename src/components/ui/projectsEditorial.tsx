@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/projects";
+import { ButtonGeral } from "./buttonGeral";
 
 function ProjectColumn({ label, items }: { label: string; items: string[] }) {
   return (
@@ -80,10 +81,6 @@ export const ProjectsEditorial = () => {
                       items={project.improvements}
                     />
                   </div>
-                  <ProjectColumn
-                    label="Processo criativo"
-                    items={project.process}
-                  />
 
                   <Link
                     href={project.href}
@@ -91,10 +88,10 @@ export const ProjectsEditorial = () => {
                     rel="noopener noreferrer"
                     className="group/link mt-2 inline-flex w-max items-center gap-1.5 text-sm font-bold uppercase tracking-wider text-popover-foreground transition-all hover:gap-2.5"
                   >
-                    Ver site
-                    <ArrowUpRight
-                      aria-hidden="true"
-                      className="size-4 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5"
+                    <ButtonGeral
+                      text={"Ver Site"}
+                      link={project.href}
+                      variant="secondary"
                     />
                     <span className="sr-only"> (abre em nova aba)</span>
                   </Link>
