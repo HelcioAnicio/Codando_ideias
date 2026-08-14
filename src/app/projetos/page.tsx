@@ -51,7 +51,7 @@ export default function ProjetosPage() {
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-amber-300/80">
             Portfólio
           </p>
-          <h1 className="mb-4 max-w-2xl text-4xl font-extrabold leading-[1.1] md:text-5xl">
+          <h1 className="mb-4 max-w-3xl text-4xl font-extrabold leading-[1.1] md:text-5xl">
             Projetos que já colocamos no ar
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-secondary-foreground/80 md:text-lg">
@@ -62,20 +62,22 @@ export default function ProjetosPage() {
         <ProjectsEditorial />
 
         <div className="mx-auto mt-8 w-full max-w-6xl px-5 sm:px-7">
-          <div className="flex flex-col items-start gap-6 rounded-3xl border border-white/10 bg-white/[0.03] px-6 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-10">
+          <div className="flex flex-col items-start gap-6 rounded-3xl border border-white/10 bg-white/[0.03] px-6 py-10 sm:items-center sm:justify-between sm:px-10">
             <div>
               <h2 className="text-2xl font-bold md:text-3xl">
                 Gostou do que viu?
               </h2>
               <p className="mt-2 max-w-xl text-base text-secondary-foreground/80">
-                Vamos criar o próximo case de sucesso — o seu.
+                Vamos criar o próximo case de sucesso.
               </p>
             </div>
-            <ButtonGeral
-              text="Quero um site assim"
-              classes="shrink-0"
-              link="https://wa.me/5531991973835?text=Olá,+vi+os+projetos+de+vocês+e+quero+um+site+assim!"
-            />
+            <div className="max-w-lg">
+              <ButtonGeral
+                text="Quero um site assim"
+                classes="shrink-0"
+                link="https://wa.me/5531991973835?text=Olá,+vi+os+projetos+de+vocês+e+quero+um+site+assim!"
+              />
+            </div>
           </div>
         </div>
       </main>
